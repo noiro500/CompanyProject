@@ -1,8 +1,9 @@
-﻿using System;
+﻿using CompanyProject.Domain.OrderAggregate;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace UviteksKMV.Models
+namespace CompanyProject.Domain.EmployeeAggregate
 {
     public class Employee
     {

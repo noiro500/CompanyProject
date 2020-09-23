@@ -9,7 +9,7 @@ namespace CompanyProject.Domain
     {
         Task<T> Get(int id);
        Task<IEnumerable<T>> GetAll();
-       Task Add
+       
 
     }
 }

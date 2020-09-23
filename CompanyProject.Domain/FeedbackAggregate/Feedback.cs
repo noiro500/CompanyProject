@@ -1,7 +1,8 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using CompanyProject.Domain.OrderAggregate;
 
-namespace UviteksKMV.Models
+namespace CompanyProject.Domain.FeedbackAggregate
 {
     public class Feedback
     {

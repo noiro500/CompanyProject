@@ -1,7 +1,8 @@
-﻿using System;
+﻿using CompanyProject.Domain.PageAggregate;
+using System;
 using System.Collections.Generic;
 
-namespace UviteksKMV.Models
+namespace CompanyProject.Domain.PriceListAggregate
 {
     public class PriceList
     {

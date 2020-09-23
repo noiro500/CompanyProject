@@ -1,8 +1,10 @@
-﻿using System;
+﻿using CompanyProject.Domain.EmployeeAggregate;
+using CompanyProject.Domain.OrderAggregate;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace CompanyProject.Domain
+namespace CompanyProject.Domain.CustomerAggregate
 {
     public class Customer
     {

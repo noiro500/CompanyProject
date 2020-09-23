@@ -1,6 +1,7 @@
-﻿using System;
+﻿using CompanyProject.Domain.CustomerAggregate;
+using System;
 
-namespace UviteksKMV.Models
+namespace CompanyProject.Domain.EmployeeAggregate
 {
     public class EmployeeCustomer
     {

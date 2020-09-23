@@ -1,7 +1,10 @@
-﻿using System;
+﻿using CompanyProject.Domain.FeedbackAggregate;
+using System;
 using System.ComponentModel.DataAnnotations;
+using CompanyProject.Domain.CustomerAggregate;
+using CompanyProject.Domain.EmployeeAggregate;
 
-namespace UviteksKMV.Models
+namespace CompanyProject.Domain.OrderAggregate
 {
     public class Order
     {

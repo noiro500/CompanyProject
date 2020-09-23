@@ -1,8 +1,10 @@
-﻿using System;
+﻿using CompanyProject.Domain.ParagraphAggregate;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using CompanyProject.Domain.PriceListAggregate;
 
-namespace UviteksKMV.Models
+namespace CompanyProject.Domain.PageAggregate
 {
     public class Page
     {
@@ -12,7 +14,7 @@ namespace UviteksKMV.Models
         public string ScreenName { get; set; } = null;
         public string Icon { get; set; } = null;
         public bool ToNavbar { get; set; } = false;
-        public bool ToCard{ get; set; } = false;
+        public bool ToCard { get; set; } = false;
         public IEnumerable<Paragraph> Paragraphs { get; set; }
         public IEnumerable<PriceList> PriceLists { get; set; }
     }

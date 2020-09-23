@@ -1,7 +1,8 @@
-﻿using System;
+﻿using CompanyProject.Domain.PageAggregate;
+using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace UviteksKMV.Models
+namespace CompanyProject.Domain.ParagraphAggregate
 {
     public class Paragraph
     {
