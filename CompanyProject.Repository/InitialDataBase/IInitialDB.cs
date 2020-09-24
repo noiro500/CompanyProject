@@ -1,11 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using CompanyProject.Domain.ParagraphAggregate;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using CompanyProject.Domain.PriceListAggregate;
 
-namespace CompanyProject.Reposi
+namespace CompanyProject.Repository.InitialDataBase
 {
     public interface IInitialDb
     { 
-      IList<Paragraph> GetInitialDBContent();
-      IList<PriceList> GetInitialDBPriceLists();
+      IList<Paragraph> GetInitialDbContent();
+      IList<PriceList> GetInitialDbPriceLists();
     }
 }
