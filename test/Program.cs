@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
-using CompanyProject.Repository.InitialDataBase;
+using Microsoft.Extensions.FileProviders;
 
 namespace test
 {
@@ -9,7 +9,9 @@ namespace test
     {
         static void Main(string[] args)
         {
-            var p = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location.Substring(0, Assembly.GetEntryAssembly().Location.IndexOf("Resources", StringComparison.Ordinal)));
+            IFileProvider fff=new PhysicalFileProvider(Directory.GetCurrentDirectory());
+            string p = fff.GetFileInfo("/Resources/DbDataSeed/InitialDBContentNew.json").PhysicalPath;
+            Console.WriteLine(p);
             
         }
     }

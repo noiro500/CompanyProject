@@ -6,6 +6,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\DbDataSeed\InitialDBContentNew.json" />
+    <None Remove="Resources\DbDataSeed\InitialDBPriceLists.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\DbDataSeed\InitialDBContentNew.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\DbDataSeed\InitialDBPriceLists.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.FileProviders.Abstractions" Version="3.1.8" />
   </ItemGroup>
 

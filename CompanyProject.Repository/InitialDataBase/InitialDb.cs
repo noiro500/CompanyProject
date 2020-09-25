@@ -3,22 +3,16 @@ using System.IO;
 using System.Text.Json;
 using CompanyProject.Domain.ParagraphAggregate;
 using CompanyProject.Domain.PriceListAggregate;
+using Microsoft.Extensions.FileProviders;
 
 namespace CompanyProject.Repository.InitialDataBase
 {
     public class InitialDb : IInitialDb
     {
-        //private readonly IWebHostEnvironment _environment;
-
-        //public InitialDb(IWebHostEnvironment env)
-        //{
-        //    _environment = env;
-        //}
         public IList<Paragraph> GetInitialDbContent()
         {
-            //var path = Path.Combine(_environment.WebRootPath, @"Resources\InitialDbData\InitialDBContentNew.json");
-            //var jsonData = JsonSerializer.Deserialize<List<Paragraph>>(File.ReadAllText(path));
-            var jsonData = JsonSerializer.Deserialize<List<Paragraph>>(File.ReadAllText(Path.Combine("DbDataSeed", "InitialDBContentNew.json")));
+            IFileProvider getCurrentDirectory=new PhysicalFileProvider(Directory.GetCurrentDirectory());
+            var jsonData = JsonSerializer.Deserialize<List<Paragraph>>(File.ReadAllText(getCurrentDirectory.GetFileInfo("/Resources/DbDataSeed/InitialDBContentNew.json").PhysicalPath));
             int i = 0;
             jsonData.ForEach(p => p.ParagraphId = ++i);
             return jsonData;
@@ -28,11 +22,11 @@ namespace CompanyProject.Repository.InitialDataBase
 
         public IList<PriceList> GetInitialDbPriceLists()
         {
-            //var path = Path.Combine(_environment.WebRootPath, @"Resources\InitialDbData\InitialDBPriceLists.json");
-            //var jsonData = JsonSerializer.Deserialize<List<PriceList>>(File.ReadAllText(path));
-            //int i = 0;
-            //jsonData.ForEach(p => p.PriceListId = ++i);
-            //return jsonData;
+            IFileProvider getCurrentDirectory = new PhysicalFileProvider(Directory.GetCurrentDirectory());
+            var jsonData = JsonSerializer.Deserialize<List<PriceList>>(File.ReadAllText(getCurrentDirectory.GetFileInfo("/Resources/DbDataSeed/InitialDBPriceLists.json").PhysicalPath));
+            int i = 0;
+            jsonData.ForEach(p => p.PriceListId = ++i);
+            return jsonData;
             throw new System.NotImplementedException();
         }
     }
