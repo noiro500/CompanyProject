@@ -1,6 +1,6 @@
 ﻿namespace CompanyProject.Domain.EmployeeAggregate
 {
-    interface IEmployeesRepository:IGenericRepository<Employee>
+    public interface IEmployeesRepository:IGenericRepository<Employee>
     {
         
     }

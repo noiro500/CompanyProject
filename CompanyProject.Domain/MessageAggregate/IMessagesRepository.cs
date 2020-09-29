@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CompanyProject.Domain.MessageAggregate
 {
-    interface IMessagesRepository:IGenericRepository<Message>
+    public interface IMessagesRepository:IGenericRepository<Message>
     {
     }
 }

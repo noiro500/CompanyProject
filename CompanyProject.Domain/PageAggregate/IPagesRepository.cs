@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CompanyProject.Domain.PageAggregate
 {
-    interface IPagesRepository:IGenericRepository<Page>
+    public interface IPagesRepository:IGenericRepository<Page>
     {
     }
 }

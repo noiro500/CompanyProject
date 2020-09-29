@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CompanyProject.Domain.PriceListAggregate
 {
-    interface IPriceListsRepository:IGenericRepository<PriceList>
+    public interface IPriceListsRepository:IGenericRepository<PriceList>
     {
     }
 }

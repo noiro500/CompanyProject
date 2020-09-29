@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CompanyProject.Domain.ParagraphAggregate
 {
-    interface IParagraphsRepository:IGenericRepository<Paragraph>
+    public interface IParagraphsRepository:IGenericRepository<Paragraph>
     {
     }
 }

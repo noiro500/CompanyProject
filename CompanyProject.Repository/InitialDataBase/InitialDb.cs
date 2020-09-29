@@ -27,7 +27,7 @@ namespace CompanyProject.Repository.InitialDataBase
             int i = 0;
             jsonData.ForEach(p => p.PriceListId = ++i);
             return jsonData;
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
         }
     }
 }

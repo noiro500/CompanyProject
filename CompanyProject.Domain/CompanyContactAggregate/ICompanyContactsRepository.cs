@@ -4,7 +4,8 @@ using System.Text;
 
 namespace CompanyProject.Domain.CompanyContactAggregate
 {
-    interface ICompanyContactsRepository:IGenericRepository<CompanyContact>
+    public interface ICompanyContactsRepository:IGenericRepository<CompanyContact>
     {
+
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace CompanyProject.Domain.CustomerAggregate
 {
-    interface ICustomersRepository:IGenericRepository<Customer>
+    public interface ICustomersRepository:IGenericRepository<Customer>
     {
         
     }
