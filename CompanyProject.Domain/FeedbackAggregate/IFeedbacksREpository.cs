@@ -1,6 +1,6 @@
 ﻿namespace CompanyProject.Domain.FeedbackAggregate
 {
-    public interface IFeedbacksREpository:IGenericRepository<Feedback>
+    public interface IFeedbacksRepository:IGenericRepository<Feedback>
     {
         
     }
