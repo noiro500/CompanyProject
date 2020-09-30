@@ -11,6 +11,7 @@ using CompanyProject.Domain.OrderAggregate;
 using CompanyProject.Domain.PageAggregate;
 using CompanyProject.Domain.ParagraphAggregate;
 using CompanyProject.Domain.PriceListAggregate;
+using CompanyProject.Repository.InitialDataBase;
 using CompanyProject.Repository.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -21,6 +22,7 @@ namespace CompanyProject.Repository
     {
         public static IServiceCollection AddRepository(this IServiceCollection services, string configConnectionToDb)
         {
+            services.AddSingleton<IInitialDb, InitialDb>();
             services.AddTransient<ICompanyContactsRepository, CompanyContactsRepository>();
             services.AddTransient<ICustomersRepository, CustomersRepository>();
             services.AddTransient<IEmployeesRepository, EmployeesRepository>();
@@ -32,6 +34,7 @@ namespace CompanyProject.Repository
             services.AddTransient<IPriceListsRepository, PriceListsRepository>();
             services.AddDbContext<CompanyProjectDbContext>(options =>
                 options.UseNpgsql(configConnectionToDb));
+            //services.AddTransient<IUnitOfWork, UnitOfWork>();
             return services;
         }
     }
