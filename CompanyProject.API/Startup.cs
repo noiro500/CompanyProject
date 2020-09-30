@@ -26,8 +26,7 @@ namespace CompanyProject.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            var configConnectionToDb = Configuration["DataBase:PsqlRepository:ConnectionString"];
-            services.AddRepository(configConnectionToDb);
+            services.AddRepository(Configuration["DataBase:PsqlRepository:ConnectionString"]);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -33,7 +33,7 @@ namespace CompanyProject.Repository
             services.AddTransient<IParagraphsRepository, ParagraphsRepository>();
             services.AddTransient<IPriceListsRepository, PriceListsRepository>();
             services.AddDbContext<CompanyProjectDbContext>(options =>
-                options.UseNpgsql(configConnectionToDb));
+                options.UseNpgsql(configConnectionToDb, b=>b.MigrationsAssembly("CompanyProject.API")));
             //services.AddTransient<IUnitOfWork, UnitOfWork>();
             return services;
         }

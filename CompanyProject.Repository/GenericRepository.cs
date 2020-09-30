@@ -20,7 +20,7 @@ namespace CompanyProject.Repository
         
         public void Delete(T entity) => _context.Set<T>().Remove(entity);
 
-        public async Task<IEnumerable<T>> GetAllAsync() => await _context.Set<T>().ToListAsync();
+        public IQueryable<T> GetAll() => _context.Set<T>();
 
         public async Task<T> GetAsync(int id) => await _context.Set<T>().FindAsync(id);
 
