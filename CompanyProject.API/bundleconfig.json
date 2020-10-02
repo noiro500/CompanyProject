@@ -1,0 +1,62 @@
+[
+  {
+    "outputFileName": "wwwroot/js/awesomeIcons.min.js",
+    "inputFiles": [
+      "wwwroot/js/awesomeIcons.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/jquery.maskedinput.min.js",
+    "inputFiles": [
+      "wwwroot/js/jquery.maskedinput.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/jquery.toast.min.js",
+    "inputFiles": [
+      "wwwroot/js/jquery.toast.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/uvitekskmv-scripts.min.js",
+    "inputFiles": [
+      "wwwroot/js/uvitekskmv-scripts.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/lib/jquery/core.min.js",
+    "inputFiles": [
+      "wwwroot/lib/jquery/core.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/lib/jquery/jquery.min.js",
+    "inputFiles": [
+      "wwwroot/lib/jquery/jquery.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/lib/jquery/jquery.slim.min.js",
+    "inputFiles": [
+      "wwwroot/lib/jquery/jquery.slim.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/lib/jquery/jquery.unobtrusive-ajax.min.js",
+    "inputFiles": [
+      "wwwroot/lib/jquery/jquery.unobtrusive-ajax.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/lib/jquery-validate/additional-methods.min.js",
+    "inputFiles": [
+      "wwwroot/lib/jquery-validate/additional-methods.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/lib/jquery-validate/jquery.validate.min.js",
+    "inputFiles": [
+      "wwwroot/lib/jquery-validate/jquery.validate.js"
+    ]
+  }
+]

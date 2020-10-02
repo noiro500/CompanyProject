@@ -1,0 +1,217 @@
+﻿/*@import url('https://fonts.googleapis.com/css?family=Jura:400,700|Open+Sans:400,700&subset=cyrillic,cyrillic-ext');
+
+u:hover {
+    text-decoration: none;
+}
+
+.color-title {
+    color: #d81b60;
+}
+
+.term {
+    border-bottom: 1px dashed black;*/ /* Параметры линии */
+/*}
+
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;*/
+    /*text-align: justify;*/
+/*}*/
+
+/*main {
+    flex: 1 0 auto;
+}*/
+
+/*@media only screen and (min-width: 360px) {
+    .flowText {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 390px) {
+    .flowText {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 420px) {
+    .flowText {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 450px) {
+    .flowText {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 480px) {
+    .flowText {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 510px) {
+    .flowText {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 540px) {
+    .flowText {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 570px) {
+    .flowText {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .flowText {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 630px) {
+    .flowText {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 660px) {
+    .flowText {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 690px) {
+    .flowText {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 720px) {
+    .flowText {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 750px) {
+    .flowText {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 780px) {
+    .flowText {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 810px) {
+    .flowText {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 840px) {
+    .flowText {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 870px) {
+    .flowText {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .flowText {
+        font-size: 1.052rem;
+    }
+}
+
+@media only screen and (min-width: 930px) {
+    .flowText {
+        font-size: 1.076rem;
+    }
+}
+
+@media only screen and (min-width: 960px) {
+    .flowText {
+        font-size: 1.1rem;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .flowText {
+        font-size: 1rem;
+    }
+}*/
+
+/*.blockquote-style {
+    display: none;
+    margin-left: 10px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-left-color: #d81b60;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+#button {
+    display: inline-block;
+    background-color: #d81b60;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 2px;
+    right: 50px;
+    transition: background-color .3s, opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+}
+
+    #button:hover {
+        cursor: pointer;
+        background-color: #f06292;
+    }
+
+    #button:active {
+        background-color: #ad1457;
+    }
+
+    #button::after {
+        content: "\f062";
+        font-family: FontAwesome;
+        font-weight: normal;
+        font-style: normal;
+        font-size: 2em;
+        line-height: 50px;
+        color: #fff;
+    }
+
+    #button.show {
+        opacity: 0.5;
+        visibility: visible;
+    }
+
+.displayed {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}*/
+
+/*.columns > div, article {
+    background: #ddd;
+    border: 1px solid #fff;
+}*/
