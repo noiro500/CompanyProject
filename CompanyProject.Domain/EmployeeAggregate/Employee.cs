@@ -22,7 +22,7 @@ namespace CompanyProject.Domain.EmployeeAggregate
         [DataType(DataType.MultilineText)]
         public string Address { get; set; }
         public double Rating { get; set; }
-        public IEnumerable<Order> Orders { get; set; }
-        public IEnumerable<EmployeeCustomer> EmployeeCustomers { get; set; }
+        public virtual IEnumerable<Order> Orders { get; set; }
+        public virtual IEnumerable<EmployeeCustomer> EmployeeCustomers { get; set; }
     }
 }

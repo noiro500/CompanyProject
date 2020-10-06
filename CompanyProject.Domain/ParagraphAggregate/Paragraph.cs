@@ -14,7 +14,7 @@ namespace CompanyProject.Domain.ParagraphAggregate
         public bool IsList { get; set; } = false;
         public bool IsMobileVisible { get; set; } = false;
         public string[] Content { get; set; }
-        public Page Page { get; set; }
+        public virtual Page Page { get; set; }
         public int PageId { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using CompanyProject.Domain;
 using CompanyProject.Domain.CompanyContactAggregate;
 using CompanyProject.Domain.CustomerAggregate;
 using CompanyProject.Domain.EmployeeAggregate;
@@ -33,8 +34,8 @@ namespace CompanyProject.Repository
             services.AddTransient<IParagraphsRepository, ParagraphsRepository>();
             services.AddTransient<IPriceListsRepository, PriceListsRepository>();
             services.AddDbContext<CompanyProjectDbContext>(options =>
-                options.UseNpgsql(configConnectionToDb, b=>b.MigrationsAssembly("CompanyProject.API")));
-            //services.AddTransient<IUnitOfWork, UnitOfWork>();
+                options.UseLazyLoadingProxies().UseNpgsql(configConnectionToDb, b=>b.MigrationsAssembly("CompanyProject.API")));
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
             return services;
         }
     }

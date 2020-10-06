@@ -1,0 +1,115 @@
+﻿@model IDictionary<string, List<TopMenuLine>>
+
+<div class="container is-hidden-mobile">
+    <div class="columns">
+        @foreach (var t in Model["firstLine"])
+        {
+
+            @if (t.NeedStar)
+            {
+                <div class="column has-text-centered is-hidden-mobile">
+                    @for (int i = 0; i < 5; i++)
+                    {
+                        <i class="@t.Icon" style="color: @t.IconColor"></i>
+                    }
+                    <a asp-controller="@t.AspController" asp-action="@t.AspAction">
+                        <span class="has-text-black">&nbsp;<u>@t.ScreenName</u></span>
+                    </a>
+                </div>
+                continue;
+            }
+            <div class="column has-text-centered">
+                <a asp-controller="@t.AspController" asp-action="@t.AspAction">
+                    <i class="@t.Icon" style="color: @t.IconColor"></i>
+                    <span class="has-text-black">&nbsp;&nbsp;&nbsp;<u>@t.ScreenName</u></span>
+                </a>
+            </div>
+        }
+    </div>
+</div>
+<hr class="is-hidden-mobile" style="margin-top: 10px;" />
+
+<div class="container">
+    <div class="columns">
+        <div class="column font-title is-hidden-mobile">
+            <a asp-controller="Home" asp-action="Index">
+                <vc:company-info info="CompanyName" />
+            </a>
+        </div>
+        <div class="column is-hidden-mobile">
+            <a asp-fragment="short-message">
+                <i class="fas fa-phone-square-alt" style="font-size: 18px; color: black"></i>
+                <span class="has-text-black">&nbsp;&nbsp;&nbsp;<span class="term">Заказать обратный звонок</span></span>
+            </a>
+            <br />
+            <a asp-fragment="short-message">
+                <i class="fas fa-mail-bulk" style="font-size: 18px; color: black"></i>
+                <span class="has-text-black">&nbsp;&nbsp;&nbsp;<span class="term">Задать вопрос по почте</span></span>
+            </a>
+        </div>
+        <div class="column">
+            <i class="fas fa-phone-volume" style="font-size: 24px; color: black"></i>
+            <span class="font-tel">&nbsp;<vc:company-info info="PhoneNumber" /></span> <br />
+            <i class="fas fa-comment-alt" style="font-size: 18px; color: black"></i>
+            <span>&nbsp;&nbsp;&nbsp;WhatsApp <vc:company-info info="WhatsApp" /></span>
+        </div>
+        <div class="column" style="margin-top: -10px;">
+            <span class="font-title">Нужна помощь?</span>
+            <br />
+            <a asp-controller="Service" asp-action="MakeOrder" class="button is-primary" style="padding-right: 40px;">
+                <i class="fas fa-wrench" style="font-size: 18px">&nbsp;</i>
+                <b>&nbsp;&nbsp;&nbsp;ВЫЗВАТЬ МАСТЕРА</b>
+            </a>
+        </div>
+    </div>
+</div>
+<br />
+
+<nav class="navbar is-link" role="navigation">
+    <div class="container">
+        <div class="navbar-brand is-hidden-tablet">
+            <a class="navbar-item font-title" style="font-size: 20px" asp-controller="Home" asp-action="Index">
+                <vc:company-info info="CompanyName" />
+                </a>
+            <a role="button" class="navbar-burger burger" data-target="navbarMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div id="navbarMenu" class="navbar-menu">
+            <div id="basicNavBarMenu" class="navbar-start">
+                @foreach (var m in Model["topMenuNavBar"].Where(m => @m.NavBar))
+                {
+                    <a class="navbar-item font-title" style="font-size: 1.1em" asp-controller="@m.AspController" asp-action="@m.AspAction">
+                        <i class="@m.Icon">&nbsp;</i>
+                        <span>@m.ScreenName</span>
+                    </a>
+                }
+            </div>
+            <div id="fullNavBarMenu" class="navbar-start is-hidden">
+                @foreach (var m in Model["topMenuNavBar"])
+                {
+                    <a class="navbar-item " asp-controller="@m.AspController" asp-action="@m.AspAction">
+                        <i class="@m.Icon">&nbsp;</i>
+                        <span>@m.ScreenName</span>
+                    </a>
+                }
+
+            </div>
+
+            <div id="navbarButtons" class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        @*<a href="#" class="button is-warning">
+                            <strong>Зарегистрироваться</strong>
+                        </a>*@
+                        <a href="#" class="button is-success">
+                            <strong>Войти</strong>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

@@ -15,7 +15,7 @@ namespace CompanyProject.Domain.PageAggregate
         public string Icon { get; set; } = null;
         public bool ToNavbar { get; set; } = false;
         public bool ToCard { get; set; } = false;
-        public IEnumerable<Paragraph> Paragraphs { get; set; }
-        public IEnumerable<PriceList> PriceLists { get; set; }
+        public virtual IEnumerable<Paragraph> Paragraphs { get; set; }
+        public virtual IEnumerable<PriceList> PriceLists { get; set; }
     }
 }

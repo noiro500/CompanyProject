@@ -16,6 +16,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ApplicationDefinition Include="wwwroot\js\awesomeIcons.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </ApplicationDefinition>
@@ -45,6 +49,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.4" />
   </ItemGroup>
 
@@ -85,6 +90,12 @@
     <Content Update="wwwroot\lib\jquery-validate\jquery.validate.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Update="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Update="wwwroot\lib\jquery\core.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -109,21 +120,105 @@
     <Content Update="wwwroot\lib\jquery\jquery.unobtrusive-ajax.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Update="wwwroot\Resources\CardImage\b2b.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Resources\CardImage\computersrepair.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Resources\CardImage\datarecovery.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Resources\CardImage\helpdesk.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Resources\CardImage\internetnetworks.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Resources\CardImage\laptopsrepair.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Resources\CardImage\laptopupgrade.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Resources\CardImage\pcassembly.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Update="wwwroot\Resources\DbSeed\InitialDBContentNew.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\Resources\DbSeed\InitialDBPriceLists.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Update="wwwroot\Resources\Files\Политика конфиденциальности.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Resources\Images\computer_devushka.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Resources\Images\kompjutery.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Resources\Images\komputernaya-pomosh.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Resources\Images\komputernaya-pomosh.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Resources\Images\notebook.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Resources\Images\remont-komputerov.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Resources\Images\uslugi-remonta-kompjuterov.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\styles\css\bulma-with-edit.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\styles\css\bulma-with-edit.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\styles\css\jquery.toast.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\styles\css\jquery.toast.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\styles\css\uvitekskmv-style.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\styles\css\uvitekskmv-style.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Infrastructure\" />
+    <Folder Include="Views\Service\" />
+    <Folder Include="Views\Shared\Components\Footer\" />
+    <Folder Include="Views\Shared\Components\MessageForm\" />
     <Folder Include="wwwroot\lib\bulma\css\" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="bundleconfig.json" />
+    <None Include="Views\Menu\About.cshtml" />
+    <None Include="Views\Menu\Comments.cshtml" />
+    <None Include="Views\Menu\Contact.cshtml" />
+    <None Include="Views\Menu\PriceList.cshtml" />
+    <None Include="Views\Shared\Components\BlockquoteSection\BlockquoteSection.cshtml" />
+    <None Include="Views\Shared\Components\Cards\Cards.cshtml" />
+    <None Include="Views\Shared\Components\PriceListTable\PriceListTable.cshtml" />
+    <None Include="Views\Shared\Components\TopMenu\TopMenu.cshtml" />
+    <None Include="Views\Shared\ContentViews\PartialView\ContentLayout.cshtml" />
+    <None Include="Views\Shared\ContentViews\PartialView\NeedHelpAndPicturePV.cshtml" />
+    <None Include="Views\Shared\ContentViews\PartialView\NOTNEEDPrivacyPolicyPV.cshtml" />
+    <None Include="Views\Shared\ContentViews\PartialView\NOTNEED__BlockquoteAndMessageFormPV.cshtml" />
+    <None Include="Views\Shared\_Layout.cshtml" />
+    <None Include="Views\_ViewImports.cshtml" />
+    <None Include="Views\_ViewStart.cshtml" />
     <None Include="wwwroot\lib\bulma\bulma.sass" />
     <None Include="wwwroot\lib\bulma\sass\.DS_Store" />
     <None Include="wwwroot\lib\bulma\sass\base\generic.sass" />
@@ -312,8 +407,6 @@
     <None Include="wwwroot\lib\jquery-validate\localization\methods_nl.min.js" />
     <None Include="wwwroot\lib\jquery-validate\localization\methods_pt.js" />
     <None Include="wwwroot\lib\jquery-validate\localization\methods_pt.min.js" />
-    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
-    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
     <ApplicationDefinition Include="wwwroot\lib\jquery\core.js" />
     <ApplicationDefinition Include="wwwroot\lib\jquery\jquery.js" />
     <None Include="wwwroot\styles\sass\bulma-with-edit.scss" />

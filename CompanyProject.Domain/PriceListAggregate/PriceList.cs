@@ -12,6 +12,6 @@ namespace CompanyProject.Domain.PriceListAggregate
         public string[] NeedWorks { get; set; }
         public string ServicePrice { get; set; } = null;
         public int PageId { get; set; }
-        public Page Page { get; set; }
+        public virtual Page Page { get; set; }
     }
 }

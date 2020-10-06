@@ -58,5 +58,11 @@
     "inputFiles": [
       "wwwroot/lib/jquery-validate/jquery.validate.js"
     ]
+  },
+  {
+    "outputFileName": "wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
+    "inputFiles": [
+      "wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"
+    ]
   }
 ]

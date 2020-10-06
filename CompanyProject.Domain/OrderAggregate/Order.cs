@@ -22,11 +22,11 @@ namespace CompanyProject.Domain.OrderAggregate
         public bool IsCompleted { get; set; } = false;
         public decimal Price { get; set; }
         public decimal RealPrice { get; set; } = 0;
-        public Customer Customer { get; set; }
+        public virtual Customer Customer { get; set; }
         public int CustomerId { get; set; }
-        public Employee Employee { get; set; }
+        public virtual Employee Employee { get; set; }
         public int EmployeeId { get; set; }
-        public Feedback Feedback { get; set; }
+        public virtual Feedback Feedback { get; set; }
         public int FeedbackId { get; set; }
     }
 }

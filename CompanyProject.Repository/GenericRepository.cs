@@ -22,7 +22,7 @@ namespace CompanyProject.Repository
 
         public IQueryable<T> GetAll() => _context.Set<T>();
 
-        public async Task<T> GetAsync(int id) => await _context.Set<T>().FindAsync(id);
+        public async Task<T> GetAsync(int id) =>await _context.Set<T>().FindAsync(id);
 
         public void Update(T entity) => _context.Set<T>().Update(entity);
     }

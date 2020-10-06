@@ -30,7 +30,7 @@ namespace CompanyProject.Domain.CustomerAggregate
         public string HouseNumber { get; set; }
         [Display(Name = "Номер квартиры/офиса")]
         public string ApartmentOrOffice { get; set; }
-        public IEnumerable<Order> Orders { get; set; }
-        public IEnumerable<EmployeeCustomer> EmployeeCustomers { get; set; }
+        public virtual IEnumerable<Order> Orders { get; set; }
+        public virtual IEnumerable<EmployeeCustomer> EmployeeCustomers { get; set; }
     }
 }
