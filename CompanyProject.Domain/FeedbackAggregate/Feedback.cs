@@ -14,5 +14,8 @@ namespace CompanyProject.Domain.FeedbackAggregate
         public int OrderForeignKey { get; set; }
         public virtual Order Order { get; set; }
         public int OrderId { get; set; }
+
+        [Timestamp]
+        public byte[] Timestamp { get; set; }
     }
 }

@@ -37,5 +37,8 @@ namespace CompanyProject.Domain.MessageAggregate
 
         //[Range(typeof(bool), "true", "true", ErrorMessage = "Необходимо принять Политику конфиденциальности")]
         public bool IsAdoptedPrivacyPolicy { get; set; }
+
+        [Timestamp]
+        public byte[] Timestamp { get; set; }
     }
 }

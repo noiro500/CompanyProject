@@ -24,5 +24,8 @@ namespace CompanyProject.Domain.EmployeeAggregate
         public double Rating { get; set; }
         public virtual IEnumerable<Order> Orders { get; set; }
         public virtual IEnumerable<EmployeeCustomer> EmployeeCustomers { get; set; }
+
+        [Timestamp]
+        public byte[] Timestamp { get; set; }
     }
 }

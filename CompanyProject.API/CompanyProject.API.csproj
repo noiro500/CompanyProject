@@ -9,6 +9,8 @@
     <Compile Remove="Migrations\20200930215152_Initial.Designer.cs" />
     <Compile Remove="Migrations\20200930231821_InitialFirst.cs" />
     <Compile Remove="Migrations\20200930231821_InitialFirst.Designer.cs" />
+    <Compile Remove="Migrations\20200930231902_InitialFirst.cs" />
+    <Compile Remove="Migrations\20200930231902_InitialFirst.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -214,7 +216,7 @@
     <None Include="Views\Shared\Components\TopMenu\TopMenu.cshtml" />
     <None Include="Views\Shared\ContentViews\PartialView\ContentLayout.cshtml" />
     <None Include="Views\Shared\ContentViews\PartialView\NeedHelpAndPicturePV.cshtml" />
-    <None Include="Views\Shared\ContentViews\PartialView\NOTNEEDPrivacyPolicyPV.cshtml" />
+    <None Include="Views\Shared\ContentViews\PartialView\NOTNEED__PrivacyPolicyPV.cshtml" />
     <None Include="Views\Shared\ContentViews\PartialView\NOTNEED__BlockquoteAndMessageFormPV.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
     <None Include="Views\_ViewImports.cshtml" />

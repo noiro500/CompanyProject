@@ -13,5 +13,8 @@ namespace CompanyProject.Domain.CompanyContactAggregate
         public string WhatsApp { set; get; }
         [Required]
         public bool ToUse { get; set; } = true;
+
+        [Timestamp]
+        public byte[] Timestamp { get; set; }
     }
 }

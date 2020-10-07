@@ -17,5 +17,8 @@ namespace CompanyProject.Domain.PageAggregate
         public bool ToCard { get; set; } = false;
         public virtual IEnumerable<Paragraph> Paragraphs { get; set; }
         public virtual IEnumerable<PriceList> PriceLists { get; set; }
+
+        [Timestamp]
+        public byte[] Timestamp { get; set; }
     }
 }

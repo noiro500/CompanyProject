@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace CompanyProject.API.Migrations
 {
-    public partial class InitialFirst : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -19,7 +19,8 @@ namespace CompanyProject.API.Migrations
                     PhoneNumber = table.Column<string>(nullable: true),
                     WorkTime = table.Column<string>(nullable: true),
                     WhatsApp = table.Column<string>(nullable: true),
-                    ToUse = table.Column<bool>(nullable: false)
+                    ToUse = table.Column<bool>(nullable: false),
+                    Timestamp = table.Column<byte[]>(rowVersion: true, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -38,7 +39,8 @@ namespace CompanyProject.API.Migrations
                     City = table.Column<string>(nullable: false),
                     Street = table.Column<string>(nullable: false),
                     HouseNumber = table.Column<string>(nullable: false),
-                    ApartmentOrOffice = table.Column<string>(nullable: true)
+                    ApartmentOrOffice = table.Column<string>(nullable: true),
+                    Timestamp = table.Column<byte[]>(rowVersion: true, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -57,7 +59,8 @@ namespace CompanyProject.API.Migrations
                     Passport = table.Column<string>(nullable: false),
                     Telephone = table.Column<string>(nullable: false),
                     Address = table.Column<string>(nullable: false),
-                    Rating = table.Column<double>(nullable: false)
+                    Rating = table.Column<double>(nullable: false),
+                    Timestamp = table.Column<byte[]>(rowVersion: true, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -75,7 +78,8 @@ namespace CompanyProject.API.Migrations
                     Email = table.Column<string>(nullable: true),
                     SubjectMessage = table.Column<string>(maxLength: 50, nullable: false),
                     Content = table.Column<string>(maxLength: 2000, nullable: false),
-                    IsAdoptedPrivacyPolicy = table.Column<bool>(nullable: false)
+                    IsAdoptedPrivacyPolicy = table.Column<bool>(nullable: false),
+                    Timestamp = table.Column<byte[]>(rowVersion: true, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -92,7 +96,8 @@ namespace CompanyProject.API.Migrations
                     ScreenName = table.Column<string>(nullable: true),
                     Icon = table.Column<string>(nullable: true),
                     ToNavbar = table.Column<bool>(nullable: false),
-                    ToCard = table.Column<bool>(nullable: false)
+                    ToCard = table.Column<bool>(nullable: false),
+                    Timestamp = table.Column<byte[]>(rowVersion: true, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -130,7 +135,7 @@ namespace CompanyProject.API.Migrations
                     OrderId = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Description = table.Column<string>(nullable: true),
-                    CreateTime = table.Column<string>(nullable: false, defaultValue: "01.10.2020 0:00"),
+                    CreateTime = table.Column<string>(nullable: false, defaultValue: "07.10.2020 0:00"),
                     VisitTime = table.Column<string>(nullable: false),
                     SpecialInstruction = table.Column<string>(nullable: true),
                     IsCompleted = table.Column<bool>(nullable: false, defaultValue: false),
@@ -138,7 +143,8 @@ namespace CompanyProject.API.Migrations
                     RealPrice = table.Column<decimal>(nullable: false),
                     CustomerId = table.Column<int>(nullable: false),
                     EmployeeId = table.Column<int>(nullable: false),
-                    FeedbackId = table.Column<int>(nullable: false)
+                    FeedbackId = table.Column<int>(nullable: false),
+                    Timestamp = table.Column<byte[]>(rowVersion: true, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -170,7 +176,8 @@ namespace CompanyProject.API.Migrations
                     IsList = table.Column<bool>(nullable: false),
                     IsMobileVisible = table.Column<bool>(nullable: false),
                     Content = table.Column<string[]>(nullable: true),
-                    PageId = table.Column<int>(nullable: false)
+                    PageId = table.Column<int>(nullable: false),
+                    Timestamp = table.Column<byte[]>(rowVersion: true, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -193,7 +200,8 @@ namespace CompanyProject.API.Migrations
                     Service = table.Column<string>(nullable: true),
                     NeedWorks = table.Column<string[]>(nullable: true),
                     ServicePrice = table.Column<string>(nullable: true),
-                    PageId = table.Column<int>(nullable: false)
+                    PageId = table.Column<int>(nullable: false),
+                    Timestamp = table.Column<byte[]>(rowVersion: true, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -215,7 +223,8 @@ namespace CompanyProject.API.Migrations
                     Rating = table.Column<long>(maxLength: 1, nullable: false),
                     FeedbackText = table.Column<string>(maxLength: 280, nullable: true),
                     OrderForeignKey = table.Column<int>(nullable: false),
-                    OrderId = table.Column<int>(nullable: false)
+                    OrderId = table.Column<int>(nullable: false),
+                    Timestamp = table.Column<byte[]>(rowVersion: true, nullable: true)
                 },
                 constraints: table =>
                 {

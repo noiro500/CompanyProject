@@ -28,5 +28,8 @@ namespace CompanyProject.Domain.OrderAggregate
         public int EmployeeId { get; set; }
         public virtual Feedback Feedback { get; set; }
         public int FeedbackId { get; set; }
+
+        [Timestamp]
+        public byte[] Timestamp { get; set; }
     }
 }

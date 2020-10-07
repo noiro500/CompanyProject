@@ -1,6 +1,7 @@
 ﻿using CompanyProject.Domain.PageAggregate;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace CompanyProject.Domain.PriceListAggregate
 {
@@ -13,5 +14,8 @@ namespace CompanyProject.Domain.PriceListAggregate
         public string ServicePrice { get; set; } = null;
         public int PageId { get; set; }
         public virtual Page Page { get; set; }
+
+        [Timestamp]
+        public byte[] Timestamp { get; set; }
     }
 }

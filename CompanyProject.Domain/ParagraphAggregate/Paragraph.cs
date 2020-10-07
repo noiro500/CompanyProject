@@ -1,5 +1,6 @@
 ﻿using CompanyProject.Domain.PageAggregate;
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CompanyProject.Domain.ParagraphAggregate
@@ -16,5 +17,8 @@ namespace CompanyProject.Domain.ParagraphAggregate
         public string[] Content { get; set; }
         public virtual Page Page { get; set; }
         public int PageId { get; set; }
+
+        [Timestamp]
+        public byte[] Timestamp { get; set; }
     }
 }

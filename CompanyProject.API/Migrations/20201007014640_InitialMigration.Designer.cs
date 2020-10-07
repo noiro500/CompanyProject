@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CompanyProject.API.Migrations
 {
     [DbContext(typeof(CompanyProjectDbContext))]
-    [Migration("20200930231902_InitialFirst")]
-    partial class InitialFirst
+    [Migration("20201007014640_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -36,6 +36,11 @@ namespace CompanyProject.API.Migrations
 
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("text");
+
+                    b.Property<byte[]>("Timestamp")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("bytea");
 
                     b.Property<bool>("ToUse")
                         .HasColumnType("boolean");
@@ -96,6 +101,11 @@ namespace CompanyProject.API.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<byte[]>("Timestamp")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("bytea");
+
                     b.HasKey("CustomerId");
 
                     b.HasIndex("PhoneNumber");
@@ -135,6 +145,11 @@ namespace CompanyProject.API.Migrations
                     b.Property<string>("Telephone")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<byte[]>("Timestamp")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("bytea");
 
                     b.HasKey("EmployeeId");
 
@@ -177,6 +192,11 @@ namespace CompanyProject.API.Migrations
                         .HasColumnType("bigint")
                         .HasMaxLength(1);
 
+                    b.Property<byte[]>("Timestamp")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("bytea");
+
                     b.HasKey("FeedbackId");
 
                     b.HasIndex("OrderForeignKey")
@@ -214,6 +234,11 @@ namespace CompanyProject.API.Migrations
                         .HasColumnType("character varying(50)")
                         .HasMaxLength(50);
 
+                    b.Property<byte[]>("Timestamp")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("bytea");
+
                     b.Property<string>("WhatsAppNumber")
                         .IsRequired()
                         .HasColumnType("text");
@@ -234,7 +259,7 @@ namespace CompanyProject.API.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("text")
-                        .HasDefaultValue("01.10.2020 0:00");
+                        .HasDefaultValue("07.10.2020 0:00");
 
                     b.Property<int>("CustomerId")
                         .HasColumnType("integer");
@@ -261,6 +286,11 @@ namespace CompanyProject.API.Migrations
 
                     b.Property<string>("SpecialInstruction")
                         .HasColumnType("text");
+
+                    b.Property<byte[]>("Timestamp")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("bytea");
 
                     b.Property<string>("VisitTime")
                         .IsRequired()
@@ -293,6 +323,11 @@ namespace CompanyProject.API.Migrations
 
                     b.Property<string>("ScreenName")
                         .HasColumnType("text");
+
+                    b.Property<byte[]>("Timestamp")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("bytea");
 
                     b.Property<bool>("ToCard")
                         .HasColumnType("boolean");
@@ -427,6 +462,11 @@ namespace CompanyProject.API.Migrations
 
                     b.Property<string>("PicturePath")
                         .HasColumnType("text");
+
+                    b.Property<byte[]>("Timestamp")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("bytea");
 
                     b.HasKey("ParagraphId");
 
@@ -660,6 +700,11 @@ namespace CompanyProject.API.Migrations
 
                     b.Property<string>("ServicePrice")
                         .HasColumnType("text");
+
+                    b.Property<byte[]>("Timestamp")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("bytea");
 
                     b.HasKey("PriceListId");
 
