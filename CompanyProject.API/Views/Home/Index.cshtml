@@ -1,5 +1,11 @@
 ﻿@model CompanyProject.Domain.PageAggregate.Page
-@{
-    ViewData["Title"] = "Index";
-}
-<partial name="ContentViews/PartialView/ContentLayout" model="Model.Paragraphs" />
+    @{
+        ViewData["Title"] = "Главная";
+    }
+<div class="container">
+        <br />
+        <vc:cards />
+        <partial name="ContentViews/PartialView/ContentLayout" model="@Model.Paragraphs.OrderBy(p=>p.ParagraphId)"/>
+        
+    </div>
+

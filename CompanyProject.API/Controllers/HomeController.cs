@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using CompanyProject.Domain;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,7 +14,7 @@ namespace CompanyProject.API.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            return View((await _unitOfWork.Pages.GetAsync(1)));
+            return View((await _unitOfWork.Pages.GetByIdAsync(1)));
         }
 
         //[Route("computers-repair")]

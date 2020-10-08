@@ -197,10 +197,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Infrastructure\" />
     <Folder Include="Views\Service\" />
-    <Folder Include="Views\Shared\Components\Footer\" />
-    <Folder Include="Views\Shared\Components\MessageForm\" />
     <Folder Include="wwwroot\lib\bulma\css\" />
   </ItemGroup>
 

@@ -16,7 +16,6 @@ using CompanyProject.Domain.PriceListAggregate;
 using CompanyProject.Repository.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
-using Nito.AsyncEx;
 
 namespace CompanyProject.Repository
 {

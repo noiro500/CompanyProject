@@ -10,7 +10,7 @@ namespace CompanyProject.Repository
 {
     public abstract class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        private readonly CompanyProjectDbContext _context;
+        protected readonly CompanyProjectDbContext _context;
         
         protected GenericRepository(CompanyProjectDbContext ctx)
         {
@@ -22,7 +22,7 @@ namespace CompanyProject.Repository
 
         public IQueryable<T> GetAll() => _context.Set<T>();
 
-        public async Task<T> GetAsync(int id) =>await _context.Set<T>().FindAsync(id);
+        public async Task<T> GetByIdAsync(int id) =>await _context.Set<T>().FindAsync(id);
 
         public void Update(T entity) => _context.Set<T>().Update(entity);
     }

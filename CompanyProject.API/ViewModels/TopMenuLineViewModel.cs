@@ -1,6 +1,6 @@
 ﻿namespace CompanyProject.API.ViewModels
 {
-    public class TopMenuLine
+    public class TopMenuLineViewModel
     {
         private bool FirstLine { get; set; }
         public bool NavBar { get; private set; }
@@ -11,7 +11,7 @@
         public string IconColor { get; private set; }
         public string ScreenName { get; private set; }
 
-        public TopMenuLine(bool firstLine,
+        public TopMenuLineViewModel(bool firstLine,
             bool navBar, bool needStar,
             string aspController, string aspAction, string icon,
             string iconColor, string screenName)

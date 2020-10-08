@@ -1,0 +1,48 @@
+﻿@model IEnumerable<CompanyProject.Domain.PageAggregate.Page>
+<footer class="footer">
+    <div class="container">
+        <div class="columns is-multiline is-vcentered">
+            <div class="column is-one-third font-title has-text-centered " style="font-size: 1.2em;">
+                <a asp-controller="Home" asp-action="Index">
+                    <vc:company-info info="CompanyName" /><br />
+                </a>
+                <span class="has-text-white"><vc:company-info info="WhatsApp"/></span>
+
+            </div>
+            <div class="column is-one-third has-text-centered has-text-white" style="font-size: 11px; line-height: 12px;">
+                <span>"Нова Компьютерс" © Все права защищены</span><br />
+                <span>Ремонт компьютеров и ноутбуков на КМВ</span><br />
+                <span>Заполняя любую форму на данном сайте, Вы соглашаетесь с</span><br />
+                <span><a class=" has-text-white" href="Resources/Files/Политика конфиденциальности.pdf">Политикой конфиденциальности</a></span>
+            </div>
+            <div class="column is-one-third has-text-centered">
+                <div class="dropdown is-up" >
+                    <div class="dropdown-trigger">
+                        <button class="button is-link">
+                            <span class="font-title has-text-white" style="font-size: 1.2em;">Основные услуги компании</span>
+                            <span class="icon is-small">
+                                <i class="fas fa-angle-up"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                        <div class="dropdown-content">
+                            @foreach (var ctx in Model.OrderBy(p=>p.PageId))
+                            {
+                               if (ctx.Name == "Index")
+                                {
+                                    continue;
+                                }
+                                <a class="has-text-black has-text-left dropdown-item" asp-controller="Home" asp-action="@ctx.Name"style="font-size: 1em;">
+                                    <i class="@ctx.Icon"></i>
+                                    <span class="has-text-right">&nbsp; @ctx.ScreenName</span>
+                                </a>
+                            }
+                        </div>
+                    </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</footer>
+
