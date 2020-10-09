@@ -2,5 +2,9 @@
   {
     "outputFile": "wwwroot/styles/css/bulma-with-edit.css",
     "inputFile": "wwwroot/styles/sass/bulma-with-edit.scss"
+  },
+  {
+    "outputFile": "wwwroot/js/companyproject.es5.js",
+    "inputFile": "wwwroot/js/companyproject.js"
   }
 ]

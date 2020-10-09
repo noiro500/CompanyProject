@@ -18,12 +18,6 @@
     ]
   },
   {
-    "outputFileName": "wwwroot/js/companyproject.min.js",
-    "inputFiles": [
-      "wwwroot/js/uvitekskmv.js"
-    ]
-  },
-  {
     "outputFileName": "wwwroot/lib/jquery/core.min.js",
     "inputFiles": [
       "wwwroot/lib/jquery/core.js"
@@ -63,6 +57,12 @@
     "outputFileName": "wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
     "inputFiles": [
       "wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/companyproject.min.js",
+    "inputFiles": [
+      "wwwroot/js/companyproject.js"
     ]
   }
 ]

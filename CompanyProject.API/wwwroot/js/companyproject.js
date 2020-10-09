@@ -40,9 +40,9 @@
         }
     }
     $(window).on('load resize', resizeHandler);
-    
+
     $('.blockquote-style').fadeIn(2000);
-    
+
     $(".work-list-dropdown").hide();
     $('.click-element').click(function () {
         $(this).next().slideToggle();

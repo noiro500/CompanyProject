@@ -1,9 +1,9 @@
-﻿@*@model IDictionary<string, List<PriceList>>
+﻿@model IDictionary<string, List<CompanyProject.Domain.PriceListAggregate.PriceList>>
 <div class="columns">
-    <div class="column is-12 ">
-        @foreach (var mod in Model)
-        {
-            <table class="table is-hoverable is-fullwidth" >
+    <div class="column is-full">
+        <table class="table is-hoverable is-fullwidth">
+            @foreach (var mod in Model)
+            {
                 <thead style="background-color: forestgreen">
                     <tr>
                         @if (mod.Key == "Восстановление данных")
@@ -17,12 +17,13 @@
                         <th class="has-text-white has-text-centered title is-5">Стоимость услуги</th>
                     </tr>
                 </thead>
+
                 @foreach (var workList in mod.Value)
                 {
                     <tbody>
                         <tr>
                             <td>
-                                <span class="click-element" style="cursor:pointer">@workList.Service</span>
+                                <span class="click-element" style="cursor: pointer">@workList.Service</span>
                                 <ul class="work-list-dropdown is-size-7">
                                     @if (mod.Key == "ИТ-аутсорсинг для бизнеса")
                                     {
@@ -41,7 +42,7 @@
                             </td>
                             @if (mod.Key == "ИТ-услуги для бизнеса")
                             {
-                                <td class="has-text-centered">@workList.ServicePrice</td>
+                                <td class="has-text-right">@workList.ServicePrice</td>
                             }
                             else
                             {
@@ -50,8 +51,8 @@
                         </tr>
                     </tbody>
                 }
-            </table>
-        }
+            }
+        </table>
         @foreach (var mod in Model)
         {
             if (mod.Key == "Восстановление данных")
@@ -61,4 +62,4 @@
             break;
         }
     </div>
-</div>*@
+</div>

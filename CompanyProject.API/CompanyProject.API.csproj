@@ -31,9 +31,6 @@
     <ApplicationDefinition Include="wwwroot\js\jquery.toast.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </ApplicationDefinition>
-    <ApplicationDefinition Include="wwwroot\js\companyproject.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </ApplicationDefinition>
   </ItemGroup>
 
   <ItemGroup>
@@ -62,6 +59,12 @@
     <Content Update="wwwroot\js\awesomeIcons.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Update="wwwroot\js\companyproject.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\js\companyproject.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Update="wwwroot\js\jquery.maskedinput.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -72,12 +75,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\js\jquery.toast.min.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\js\companyproject.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\js\companyproject.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\lib\jquery-validate\additional-methods.js">
@@ -213,8 +210,6 @@
     <None Include="Views\Shared\Components\TopMenu\TopMenu.cshtml" />
     <None Include="Views\Shared\ContentViews\PartialView\ContentLayout.cshtml" />
     <None Include="Views\Shared\ContentViews\PartialView\NeedHelpAndPicturePV.cshtml" />
-    <None Include="Views\Shared\ContentViews\PartialView\NOTNEED__PrivacyPolicyPV.cshtml" />
-    <None Include="Views\Shared\ContentViews\PartialView\NOTNEED__BlockquoteAndMessageFormPV.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
     <None Include="Views\_ViewImports.cshtml" />
     <None Include="Views\_ViewStart.cshtml" />
