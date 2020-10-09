@@ -14,53 +14,61 @@ namespace CompanyProject.API.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            return View((await _unitOfWork.Pages.GetByIdAsync(1)));
+            return View(await _unitOfWork.Pages.GetByIdAsync(1));
         }
 
         [Route("computers-repair")]
         public async Task<IActionResult> ComputersRepair()
         {
-            return View((await _unitOfWork.Pages.GetByIdAsync(2)));
+            return View(await _unitOfWork.Pages.GetByIdAsync(2));
         }
-        //[Route("b2b")]
-        //public async Task<IActionResult> B2b()
-        //{
-        //    return View(await _repository.GetByIdAsync(7));
-        //}
-        //[Route("data-recovery")]
-        //public async Task<IActionResult> DataRecovery()
-        //{
-        //    return View(await _repository.GetByIdAsync(6));
-        //}
-        //[Route("help-desk")]
-        //public async Task<IActionResult> HelpDesk()
-        //{
-        //    return View(await _repository.GetByIdAsync(4));
-        //}
-        //[Route("internet-networks")]
-        //public async Task<IActionResult> InternetNetworks()
-        //{
-        //    return View(await _repository.GetByIdAsync(5));
-        //}
-        //[Route("laptops-repair")]
-        //public async Task<IActionResult> LaptopsRepair()
-        //{
-        //    return View(await _repository.GetByIdAsync(3));
-        //}
-        //[Route("laptop-upgrade")]
-        //public async Task<IActionResult> LaptopUpgrade()
-        //{
-        //    return View("LaptopsRepair", await _repository.GetByIdAsync(3));
-        //}
-        //[Route("pc-assembly")]
-        //public async Task<IActionResult> PcAssembly()
-        //{
-        //    return View("ComputersRepair",await _repository.GetByIdAsync(2));
-        //}
-        //[Route("office-equipment")]
-        //public async Task<IActionResult> OfficeEquipment()
-        //{
-        //    return View(await _repository.GetByIdAsync(10));
-        //}
+
+        [Route("laptops-repair")]
+        public async Task<IActionResult> LaptopsRepair()
+        {
+            return View(await _unitOfWork.Pages.GetByIdAsync(3));
+        }
+
+        [Route("help-desk")]
+        public async Task<IActionResult> HelpDesk()
+        {
+            return View(await _unitOfWork.Pages.GetByIdAsync(4));
+        }
+
+        [Route("internet-networks")]
+        public async Task<IActionResult> InternetNetworks()
+        {
+            return View(await _unitOfWork.Pages.GetByIdAsync(5));
+        }
+
+        [Route("data-recovery")]
+        public async Task<IActionResult> DataRecovery()
+        {
+            return View(await _unitOfWork.Pages.GetByIdAsync(6));
+        }
+
+        [Route("b2b")]
+        public async Task<IActionResult> B2b()
+        {
+            return View(await _unitOfWork.Pages.GetByIdAsync(7));
+        }
+
+        [Route("laptop-upgrade")]
+        public async Task<IActionResult> LaptopUpgrade()
+        {
+            return View("LaptopsRepair", await _unitOfWork.Pages.GetByIdAsync(3));
+        }
+
+        [Route("pc-assembly")]
+        public async Task<IActionResult> PcAssembly()
+        {
+            return View("ComputersRepair", await _unitOfWork.Pages.GetByIdAsync(2)); 
+        }
+
+        [Route("office-equipment")]
+        public async Task<IActionResult> OfficeEquipment()
+        {
+            return View(await _unitOfWork.Pages.GetByIdAsync(10));
+        }
     }
 }
