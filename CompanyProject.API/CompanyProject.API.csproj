@@ -31,7 +31,7 @@
     <ApplicationDefinition Include="wwwroot\js\jquery.toast.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </ApplicationDefinition>
-    <ApplicationDefinition Include="wwwroot\js\uvitekskmv-scripts.js">
+    <ApplicationDefinition Include="wwwroot\js\companyproject.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </ApplicationDefinition>
   </ItemGroup>
@@ -74,10 +74,10 @@
     <Content Update="wwwroot\js\jquery.toast.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\js\uvitekskmv-scripts.js">
+    <Content Update="wwwroot\js\companyproject.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\js\uvitekskmv-scripts.min.js">
+    <Content Update="wwwroot\js\companyproject.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\lib\jquery-validate\additional-methods.js">

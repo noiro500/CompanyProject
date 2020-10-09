@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using CompanyProject.Domain;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc;
@@ -15,9 +16,9 @@ namespace CompanyProject.API.Infrastructure.ViewComponents
         {
             _unitOfWork = unitOfWork;
         }
-        public IViewComponentResult Invoke(string info)
+        public async Task<IViewComponentResult> InvokeAsync(string info)
         {
-            var companyInfo = _unitOfWork.CompanyContacts.GetToUseAsync("ToUse").Result;
+            var companyInfo =await _unitOfWork.CompanyContacts.GetToUseAsync("ToUse");
 
             if (info.Equals("CompanyName", System.StringComparison.CurrentCultureIgnoreCase))
                 return new HtmlContentViewComponentResult(new HtmlString(companyInfo.CompanyName));

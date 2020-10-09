@@ -18,9 +18,9 @@
     ]
   },
   {
-    "outputFileName": "wwwroot/js/uvitekskmv-scripts.min.js",
+    "outputFileName": "wwwroot/js/companyproject.min.js",
     "inputFiles": [
-      "wwwroot/js/uvitekskmv-scripts.js"
+      "wwwroot/js/uvitekskmv.js"
     ]
   },
   {

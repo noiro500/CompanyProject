@@ -360,8 +360,8 @@ jQuery.extend( {
 		return concat.apply( [], ret );
 	},
 
-	// A global int counter for objects
-	int: 1,
+	// A global GUID counter for objects
+	guid: 1,
 
 	// jQuery.support is not used in Core but other projects attach their
 	// properties to it so it needs to exist.

@@ -17,11 +17,11 @@ namespace CompanyProject.API.Controllers
             return View((await _unitOfWork.Pages.GetByIdAsync(1)));
         }
 
-        //[Route("computers-repair")]
-        //public async Task<IActionResult> ComputersRepair()
-        //{
-        //    return View(await _repository.GetByIdAsync(2));
-        //}
+        [Route("computers-repair")]
+        public async Task<IActionResult> ComputersRepair()
+        {
+            return View((await _unitOfWork.Pages.GetByIdAsync(2)));
+        }
         //[Route("b2b")]
         //public async Task<IActionResult> B2b()
         //{
