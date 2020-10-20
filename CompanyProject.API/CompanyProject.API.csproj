@@ -197,6 +197,7 @@
 
   <ItemGroup>
     <Folder Include="Views\Service\" />
+    <Folder Include="Views\MenuFirstLine\" />
     <Folder Include="wwwroot\lib\bulma\css\" />
   </ItemGroup>
 

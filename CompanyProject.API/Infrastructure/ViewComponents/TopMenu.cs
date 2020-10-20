@@ -23,19 +23,19 @@ namespace CompanyProject.API.Infrastructure.ViewComponents
             {
                 new TopMenuLineViewModel(
                     true, false,  true,
-                    "Menu", "Comments", "fas fa-star",
+                    "MenuFirstLine", "Comments", "fas fa-star",
                     "orange", "Отзывы"),
                 new TopMenuLineViewModel(
                     true, false, false,
-                    "Menu", "PriceList","fas fa-ruble-sign",
+                    "MenuFirstLine", "PriceList","fas fa-ruble-sign",
                     "gray", "Цены"),
                 new TopMenuLineViewModel(
                     true, false, false,
-                    "Menu", "About","fas fa-info",
+                    "MenuFirstLine", "About","fas fa-info",
                     "gray", "О Компании"),
                 new TopMenuLineViewModel(
                     true, false, false,
-                    "Menu", "Contact", "fas fa-map-marker-alt",
+                    "MenuFirstLine", "Contacts", "fas fa-map-marker-alt",
                     "gray", "Контакты")
             };
             //var navBar = await _context.GetAllAsync();
