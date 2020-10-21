@@ -6,5 +6,9 @@
   {
     "outputFile": "wwwroot/js/companyproject.es5.js",
     "inputFile": "wwwroot/js/companyproject.js"
+  },
+  {
+    "outputFile": "wwwroot/lib/bulma/bulma.css",
+    "inputFile": "wwwroot/lib/bulma/bulma.sass"
   }
 ]

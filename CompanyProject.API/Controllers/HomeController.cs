@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
+using CompanyProject.API.ViewModels;
 using CompanyProject.Domain;
 using Microsoft.AspNetCore.Mvc;
 
@@ -69,6 +71,12 @@ namespace CompanyProject.API.Controllers
         public async Task<IActionResult> OfficeEquipment()
         {
             return View(await _unitOfWork.Pages.GetByIdAsync(10));
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

@@ -1,0 +1,21 @@
+﻿@model ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+}
+<div class="container">
+    <br />
+    <div class="columns">
+        <div class="column">
+            <h1 class="title is-1 has-text-danger"><b>Ooooooops!!!</b></h1>
+            <span>Что-то пошло не так, но мы работаем над проблемой и скоро ее устраним. По всем вопросам, пожалуйста, <a href="#short-message">позвоните или напишите</a> нам.</span>
+            <environment include="Development">
+                @if (Model.ShowRequestId)
+                {
+                    <p>
+                        <strong>Request ID:</strong> <code>@Model.RequestId</code>
+                    </p>
+                }
+            </environment>
+        </div>
+    </div>
+</div>

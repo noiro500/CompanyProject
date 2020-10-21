@@ -30,6 +30,17 @@ namespace CompanyProject.Repository.Repository
                     .OrderBy(x => x.PriceListId).ToListAsync();
             }
 
+            return GetPriceListResultDictionary(ref priceListResultFromDb);
+        }
+
+        public async Task<IDictionary<string, List<PriceList>>> GetFullPriceListAsync()
+        {
+
+            var priceListResultFromDb = await _context.PriceLists.OrderBy(x=>x.PriceListId).ToListAsync();
+            return GetPriceListResultDictionary(ref priceListResultFromDb);
+        }
+        private IDictionary<string, List<PriceList>> GetPriceListResultDictionary( ref List<PriceList> priceListResultFromDb)
+        {
             IDictionary<string, List<PriceList>> resultDictionary = new Dictionary<string, List<PriceList>>();
             IList<string> serviceName = new List<string>();
             foreach (var priceList in priceListResultFromDb)
@@ -38,11 +49,12 @@ namespace CompanyProject.Repository.Repository
             }
 
             var uniqueServiceName = serviceName.Distinct().ToList();
-            uniqueServiceName.Sort();
+            //uniqueServiceName.Sort();
             foreach (var usn in uniqueServiceName)
             {
                 resultDictionary.Add(usn, priceListResultFromDb.Where(n => n.ServiceName == usn).ToList());
             }
+
             return resultDictionary;
         }
     }

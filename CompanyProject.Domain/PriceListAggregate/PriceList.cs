@@ -9,6 +9,7 @@ namespace CompanyProject.Domain.PriceListAggregate
     {
         public int PriceListId { get; set; }
         public string ServiceName { get; set; }
+        public string ClassServiceName { get; set; }
         public string Service { get; set; }
         public string[] NeedWorks { get; set; }
         public string ServicePrice { get; set; } = null;

@@ -92,6 +92,7 @@
     //    e.preventDefault();
     //    $('html, body').animate({scrollTop:0}, '300');
     //});
+
 });
 
 function SuccessSendForm(data) {
@@ -140,6 +141,8 @@ function FailureSendForm(data) {
         //loaderBg: '#9EC600'
     });
 }
+
+
 
 
 

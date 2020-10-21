@@ -2,53 +2,53 @@
 <div class="columns">
     <div class="column is-full">
         <table class="table is-hoverable is-fullwidth">
+            @{ int i = 0; }
             @foreach (var mod in Model)
             {
                 <thead style="background-color: forestgreen">
-                    <tr>
-                        @if (mod.Key == "Восстановление данных")
-                        {
-                            <th class="has-text-white title is-5">@mod.Key *</th>
-                        }
-                        else
-                        {
-                            <th class="has-text-white title is-5">@mod.Key</th>
-                        }
-                        <th class="has-text-white has-text-right title is-5">Стоимость услуги</th>
-                    </tr>
+                <tr>
+                    @if (mod.Key == "Восстановление данных")
+                    {
+                        <th class="has-text-white title is-5">@mod.Key *</th>
+                    }
+                    else
+                    {
+                        <th class="has-text-white title is-5">@mod.Key</th>
+                    }
+                    <th class="has-text-white has-text-right title is-5">Стоимость услуги</th>
+                </tr>
                 </thead>
-
                 @foreach (var workList in mod.Value)
                 {
                     <tbody>
-                        <tr>
-                            <td>
-                                <span class="click-element" style="cursor: pointer">@workList.Service</span>
-                                <ul class="work-list-dropdown is-size-7">
-                                    @if (mod.Key == "ИТ-аутсорсинг для бизнеса")
-                                    {
-                                        <b>Включенные услуги *:</b>
-                                    }
-                                    else
-                                    {
-                                        <b>Необходимые работы *:</b>
-                                    }
-                                    @foreach (var t in workList.NeedWorks)
-                                    {
-                                        <li>@t</li>
-                                    }
-                                    <span style="font-size: 10px;">* Необходимость тех или иных работ определяется мастером, зависит от результатов диагностики и может изменятся.</span>
-                                </ul>
-                            </td>
-                            @if (mod.Key == "ИТ-услуги для бизнеса")
-                            {
-                                <td class="has-text-right">@workList.ServicePrice</td>
-                            }
-                            else
-                            {
-                                <td class="has-text-right">@workList.ServicePrice рублей</td>
-                            }
-                        </tr>
+                    <tr>
+                        <td>
+                            <span class="click-element" style="cursor: pointer">@workList.Service</span>
+                            <ul class="work-list-dropdown is-size-7">
+                                @if (mod.Key == "ИТ-аутсорсинг для бизнеса")
+                                {
+                                    <b>Включенные услуги *:</b>
+                                }
+                                else
+                                {
+                                    <b>Необходимые работы *:</b>
+                                }
+                                @foreach (var t in workList.NeedWorks)
+                                {
+                                    <li>@t</li>
+                                }
+                                <span style="font-size: 10px;">* Необходимость тех или иных работ определяется мастером, зависит от результатов диагностики и может изменятся.</span>
+                            </ul>
+                        </td>
+                        @if (mod.Key == "ИТ-услуги для бизнеса")
+                        {
+                            <td class="has-text-right">@workList.ServicePrice</td>
+                        }
+                        else
+                        {
+                            <td class="has-text-right">@workList.ServicePrice рублей</td>
+                        }
+                    </tr>
                     </tbody>
                 }
             }

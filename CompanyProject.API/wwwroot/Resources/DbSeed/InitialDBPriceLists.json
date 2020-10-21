@@ -2,6 +2,7 @@
   {
     "PageId": 2,
     "ServiceName": "Ремонт компьютеров",
+    "ClassServiceName": "computers-repair",
     "Service": "Не включается компьютер",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -17,6 +18,7 @@
   {
     "PageId": 2,
     "ServiceName": "Ремонт компьютеров",
+    "ClassServiceName": "computers-repair",
     "Service": "Красный экран на компьютере",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -32,6 +34,7 @@
   {
     "PageId": 2,
     "ServiceName": "Ремонт компьютеров",
+    "ClassServiceName": "computers-repair",
     "Service": "Синий экран на компьютере",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -53,6 +56,7 @@
   {
     "PageId": 2,
     "ServiceName": "Ремонт компьютеров",
+    "ClassServiceName": "computers-repair",
     "Service": "Ошибки в работе компьютера",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -71,6 +75,7 @@
   {
     "PageId": 2,
     "ServiceName": "Ремонт компьютеров",
+    "ClassServiceName": "computers-repair",
     "Service": "Зависает компьютер",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -89,6 +94,7 @@
   {
     "PageId": 2,
     "ServiceName": "Ремонт компьютеров",
+    "ClassServiceName": "computers-repair",
     "Service": "Самопроизвольная перезагрузка компьютера",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -102,6 +108,7 @@
   {
     "PageId": 2,
     "ServiceName": "Ремонт компьютеров",
+    "ClassServiceName": "computers-repair",
     "Service": "Шумит компьютер",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -115,6 +122,7 @@
   {
     "PageId": 2,
     "ServiceName": "Ремонт компьютеров",
+    "ClassServiceName": "computers-repair",
     "Service": "Перегревается компьютер",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -128,6 +136,7 @@
   {
     "PageId": 2,
     "ServiceName": "Ремонт компьютеров",
+    "ClassServiceName": "computers-repair",
     "Service": "Прочие проблемы с компьютером",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -146,6 +155,7 @@
   {
     "PageId": 2,
     "ServiceName": "Компьютерная помощь (компьютер)",
+    "ClassServiceName": "computer-assistance-pc",
     "Service": "Установка Windows (включая установку драйверов на оборудование)",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -160,6 +170,7 @@
   {
     "PageId": 2,
     "ServiceName": "Компьютерная помощь (компьютер)",
+    "ClassServiceName": "computer-assistance-pc",
     "Service": "Удаление вирусов",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -173,6 +184,7 @@
   {
     "PageId": 2,
     "ServiceName": "Компьютерная помощь (компьютер)",
+    "ClassServiceName": "computer-assistance-pc",
     "Service": "Установка программ (один экземпляр)",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -183,6 +195,7 @@
   {
     "PageId": 2,
     "ServiceName": "Компьютерная помощь (компьютер)",
+    "ClassServiceName": "computer-assistance-pc",
     "Service": "Установка и настройка антивируса",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -196,6 +209,7 @@
   {
     "PageId": 2,
     "ServiceName": "Компьютерная помощь (компьютер)",
+    "ClassServiceName": "computer-assistance-pc",
     "Service": "Установка драйверов (один экземпляр)",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -207,6 +221,7 @@
   {
     "PageId": 2,
     "ServiceName": "Компьютерная помощь (компьютер)",
+    "ClassServiceName": "computer-assistance-pc",
     "Service": "Настройка компьютера",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -224,6 +239,7 @@
   {
     "PageId": 2,
     "ServiceName": "Сборка компьютера",
+    "ClassServiceName": "pc-assembly",
     "Service": "Сборка компьютера на заказ",
     "NeedWorks": [
       "Сборка компьютера на заказ"
@@ -233,6 +249,7 @@
   {
     "PageId": 2,
     "ServiceName": "Сборка компьютера",
+    "ClassServiceName": "pc-assembly",
     "Service": "Модернизация компьютера на заказ",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -243,6 +260,7 @@
   {
     "PageId": 2,
     "ServiceName": "Обслуживание компьютера",
+    "ClassServiceName": "pc-service",
     "Service": "Чистка компьютера от пыли с заменой термопасты",
     "NeedWorks": [
       "Частичная разборка системного блока",
@@ -257,6 +275,7 @@
   {
     "PageId": 2,
     "ServiceName": "Обслуживание компьютера",
+    "ClassServiceName": "pc-service",
     "Service": "Чистка компьютера от пыли без разборки системного блока",
     "NeedWorks": [
       "Чистка системы охлаждения процессора от пыли",
@@ -268,6 +287,7 @@
   {
     "PageId": 3,
     "ServiceName": "Ремонт ноутбуков",
+    "ClassServiceName": "laptop-repair",
     "Service": "Не включается ноутбук",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -286,6 +306,7 @@
   {
     "PageId": 3,
     "ServiceName": "Ремонт ноутбуков",
+    "ClassServiceName": "laptop-repair",
     "Service": "Синий экран на ноутбуке",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -303,6 +324,7 @@
   {
     "PageId": 3,
     "ServiceName": "Ремонт ноутбуков",
+    "ClassServiceName": "laptop-repair",
     "Service": "Красный экран на ноутбуке",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -318,6 +340,7 @@
   {
     "PageId": 3,
     "ServiceName": "Ремонт ноутбуков",
+    "ClassServiceName": "laptop-repair",
     "Service": "Ошибки в работе ноутбука",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -336,6 +359,7 @@
   {
     "PageId": 3,
     "ServiceName": "Ремонт ноутбуков",
+    "ClassServiceName": "laptop-repair",
     "Service": "Зависает ноутбук",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -355,6 +379,7 @@
   {
     "PageId": 3,
     "ServiceName": "Ремонт ноутбуков",
+    "ClassServiceName": "laptop-repair",
     "Service": "Самопроизвольная перезагрузка ноутбука",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -373,6 +398,7 @@
   {
     "PageId": 3,
     "ServiceName": "Ремонт ноутбуков",
+    "ClassServiceName": "laptop-repair",
     "Service": "Шумит ноутбук",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -386,6 +412,7 @@
   {
     "PageId": 3,
     "ServiceName": "Ремонт ноутбуков",
+    "ClassServiceName": "laptop-repair",
     "Service": "Перегревается ноутбук",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -399,6 +426,7 @@
   {
     "PageId": 3,
     "ServiceName": "Ремонт ноутбуков",
+    "ClassServiceName": "laptop-repair",
     "Service": "Прочие проблемы с ноутбуком",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -410,6 +438,7 @@
   {
     "PageId": 3,
     "ServiceName": "Компьютерная помощь (ноутбук)",
+    "ClassServiceName": "computer-assistance-laptop",
     "Service": "Установка Windows (включая установку драйверов на оборудование)",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -424,6 +453,7 @@
   {
     "PageId": 3,
     "ServiceName": "Компьютерная помощь (ноутбук)",
+    "ClassServiceName": "computer-assistance-laptop",
     "Service": "Удаление вирусов",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -437,6 +467,7 @@
   {
     "PageId": 3,
     "ServiceName": "Компьютерная помощь (ноутбук)",
+    "ClassServiceName": "computer-assistance-laptop",
     "Service": "Установка программ (один экземпляр)",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -447,6 +478,7 @@
   {
     "PageId": 3,
     "ServiceName": "Компьютерная помощь (ноутбук)",
+    "ClassServiceName": "computer-assistance-laptop",
     "Service": "Установка и настройка антивируса",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -460,6 +492,7 @@
   {
     "PageId": 3,
     "ServiceName": "Компьютерная помощь (ноутбук)",
+    "ClassServiceName": "computer-assistance-laptop",
     "Service": "Установка драйверов (один экземпляр)",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -471,6 +504,7 @@
   {
     "PageId": 3,
     "ServiceName": "Компьютерная помощь (ноутбук)",
+    "ClassServiceName": "computer-assistance-laptop",
     "Service": "Настройка ноутбука",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -488,6 +522,7 @@
   {
     "PageId": 3,
     "ServiceName": "Модернизация ноутбука",
+    "ClassServiceName": "laptop-upgrade",
     "Service": "Расширение памяти ноутбука",
     "NeedWorks": [
       "Диагностика аппаратной части ноутбука",
@@ -499,6 +534,7 @@
   {
     "PageId": 3,
     "ServiceName": "Модернизация ноутбука",
+    "ClassServiceName": "laptop-upgrade",
     "Service": "Увеличение скорости работы ноутбука",
     "NeedWorks": [
       "Диагностика аппаратной части ноутбука",
@@ -512,6 +548,7 @@
   {
     "PageId": 3,
     "ServiceName": "Обслуживание ноутбука",
+    "ClassServiceName": "laptop-service",
     "Service": "Чистка ноутбука от пыли с заменой термопасты",
     "NeedWorks": [
       "Частичная разборка ноутбука",
@@ -526,6 +563,7 @@
   {
     "PageId": 5,
     "ServiceName": "Настройка роутера",
+    "ClassServiceName": "router-config",
     "Service": "Установка роутера",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -540,6 +578,7 @@
   {
     "PageId": 5,
     "ServiceName": "Настройка роутера",
+    "ClassServiceName": "router-config",
     "Service": "Настройка Wi-Fi сети",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -556,6 +595,7 @@
   {
     "PageId": 5,
     "ServiceName": "Настройка роутера",
+    "ClassServiceName": "router-config",
     "Service": "Устранение неполадок роутера",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -570,6 +610,7 @@
   {
     "PageId": 5,
     "ServiceName": "Интернет",
+    "ClassServiceName": "internet-config",
     "Service": "Настройка доступа к сети Интернет",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -584,6 +625,7 @@
   {
     "PageId": 5,
     "ServiceName": "Интернет",
+    "ClassServiceName": "internet-config",
     "Service": "Прокладка сетевого кабеля",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -597,6 +639,7 @@
   {
     "PageId": 5,
     "ServiceName": "Интернет",
+    "ClassServiceName": "internet-config",
     "Service": "Устранение неполадок сети Инернет",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -610,6 +653,7 @@
   {
     "PageId": 5,
     "ServiceName": "Локальная сеть",
+    "ClassServiceName": "lan-config",
     "Service": "Настройка локальной сети",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -622,6 +666,7 @@
   {
     "PageId": 5,
     "ServiceName": "Локальная сеть",
+    "ClassServiceName": "lan-config",
     "Service": "Устранение неполадок локальной сети",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -636,6 +681,7 @@
   {
     "PageId": 5,
     "ServiceName": "Локальная сеть",
+    "ClassServiceName": "lan-config",
     "Service": "Прокладка сетевого кабеля",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -649,15 +695,17 @@
   {
     "PageId": 6,
     "ServiceName": "Восстановление данных",
+    "ClassServiceName": "data-recovery",
     "Service": "Восстановление данных с жесткого диска",
     "NeedWorks": [
-      "Восстановление данных (Случайно удаленные фотографии, документы. Случаи, когда повреждена таблица файловой системы)"
+      "Восстановление данных (случайно удаленные фотографии, документы. Случаи, когда повреждена таблица файловой системы)"
     ],
     "ServicePrice": "6000"
   },
   {
     "PageId": 6,
     "ServiceName": "Восстановление данных",
+    "ClassServiceName": "data-recovery",
     "Service": "Восстановление информации с флеш-накопителя",
     "NeedWorks": [
       "Восстановление данных (случайно удаленные фотографии, документы; cлучаи, когда повреждена таблица файловой системы)"
@@ -667,6 +715,7 @@
   {
     "PageId": 6,
     "ServiceName": "Восстановление данных",
+    "ClassServiceName": "data-recovery",
     "Service": "Восстановление данных с SD-карты",
     "NeedWorks": [
       "Восстановление данных (случайно удаленные фотографии, документы; cлучаи, когда повреждена таблица файловой системы)"
@@ -676,6 +725,7 @@
   {
     "PageId": 6,
     "ServiceName": "Восстановление данных",
+    "ClassServiceName": "data-recovery",
     "Service": "Восстановление данных с SSD-диска",
     "NeedWorks": [
       "Восстановление данных (случайно удаленные фотографии, документы; cлучаи, когда повреждена таблица файловой системы)"
@@ -685,6 +735,7 @@
   {
     "PageId": 7,
     "ServiceName": "ИТ-услуги для бизнеса",
+    "ClassServiceName": "b2b",
     "Service": "Абонентское обслуживание компьютеров",
     "NeedWorks": [
       "1 (один) плановый выезд специалиста в месяц",
@@ -698,6 +749,7 @@
   {
     "PageId": 7,
     "ServiceName": "ИТ-услуги для бизнеса",
+    "ClassServiceName": "b2b",
     "Service": "Абонентское обслуживание оргтехники",
     "NeedWorks": [
       "1 (один) плановый выезд специалиста в месяц",
@@ -710,15 +762,17 @@
   {
     "PageId": 7,
     "ServiceName": "ИТ-услуги для бизнеса",
+    "ClassServiceName": "b2b",
     "Service": "Внеплановый выезд специалиста",
     "NeedWorks": [
       "Необходимые работы определяются заказчиком"
-      ],
+    ],
     "ServicePrice": "1000 рублей за внеплановый выезд"
   },
   {
     "PageId": 10,
     "ServiceName": "Принтеры",
+    "ClassServiceName": "printer-config",
     "Service": "Настройка принтера",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -733,6 +787,7 @@
   {
     "PageId": 10,
     "ServiceName": "Принтеры",
+    "ClassServiceName": "printer-config",
     "Service": "Очистка принтера",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -745,6 +800,7 @@
   {
     "PageId": 10,
     "ServiceName": "Принтеры",
+    "ClassServiceName": "printer-config",
     "Service": "Ремонт принтера",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -758,6 +814,7 @@
   {
     "PageId": 10,
     "ServiceName": "Многофункциональное устройство (МФУ)",
+    "ClassServiceName": "mfd-config",
     "Service": "Настройка МФУ",
     "NeedWorks": [
       "Поиск и установка драйвера устройства",
@@ -773,6 +830,7 @@
   {
     "PageId": 10,
     "ServiceName": "Многофункциональное устройство (МФУ)",
+    "ClassServiceName": "mfd-config",
     "Service": "Очистка МФУ",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -786,6 +844,7 @@
   {
     "PageId": 10,
     "ServiceName": "Многофункциональное устройство (МФУ)",
+    "ClassServiceName": "mfd-config",
     "Service": "Ремонт МФУ",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -800,6 +859,7 @@
   {
     "PageId": 10,
     "ServiceName": "Сканирующие устройства (сканеры)",
+    "ClassServiceName": "scanner-config",
     "Service": "Настройка сканера",
     "NeedWorks": [
       "Диагностика оборудования",
@@ -816,6 +876,7 @@
   {
     "PageId": 10,
     "ServiceName": "Сканирующие устройства (сканеры)",
+    "ClassServiceName": "scanner-config",
     "Service": "Ремонт сканера",
     "NeedWorks": [
       "Диагностика оборудования",

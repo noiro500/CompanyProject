@@ -27,7 +27,7 @@ namespace CompanyProject.API.Infrastructure.ViewComponents
                     "orange", "Отзывы"),
                 new TopMenuLineViewModel(
                     true, false, false,
-                    "MenuFirstLine", "PriceList","fas fa-ruble-sign",
+                    "MenuFirstLine", "FullPriceList","fas fa-ruble-sign",
                     "gray", "Цены"),
                 new TopMenuLineViewModel(
                     true, false, false,
