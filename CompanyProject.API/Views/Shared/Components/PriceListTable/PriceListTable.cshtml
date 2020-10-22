@@ -2,22 +2,23 @@
 <div class="columns">
     <div class="column is-full">
         <table class="table is-hoverable is-fullwidth">
-            @{ int i = 0; }
             @foreach (var mod in Model)
             {
+                int i = 0;
                 <thead style="background-color: forestgreen">
                 <tr>
                     @if (mod.Key == "Восстановление данных")
                     {
-                        <th class="has-text-white title is-5">@mod.Key *</th>
+                        <th id="@mod.Value[i].IdServiceName" class="has-text-white title is-5">@mod.Key *</th>
                     }
                     else
                     {
-                        <th class="has-text-white title is-5">@mod.Key</th>
+                        <th id="@mod.Value[i].IdServiceName" class="has-text-white title is-5">@mod.Key</th>
                     }
                     <th class="has-text-white has-text-right title is-5">Стоимость услуги</th>
                 </tr>
                 </thead>
+                i++;
                 @foreach (var workList in mod.Value)
                 {
                     <tbody>
@@ -53,13 +54,13 @@
                 }
             }
         </table>
-        @foreach (var mod in Model)
+        @*@foreach (var mod in Model)
         {
             if (mod.Key == "Восстановление данных")
             {
                 <span>* В случае если по каким-либо причинам невозможно произвести восстановление данных, то с заказчика услуги <b>взымается стоимость понесенных затрат (диагностики) в размере 1000 (одной тысячи) рублей.</b> </span>
             }
             break;
-        }
+        }*@
     </div>
 </div>

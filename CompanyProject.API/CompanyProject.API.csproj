@@ -15,6 +15,12 @@
     <Compile Remove="Migrations\20201007014640_InitialMigration.Designer.cs" />
     <Compile Remove="Migrations\20201009093340_InitialMigration.cs" />
     <Compile Remove="Migrations\20201009093340_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20201021195733_Initial.cs" />
+    <Compile Remove="Migrations\20201021195733_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20201022101943_Initial.cs" />
+    <Compile Remove="Migrations\20201022101943_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20201022102101_Initial.cs" />
+    <Compile Remove="Migrations\20201022102101_Initial.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -160,6 +166,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\Resources\Files\Политика конфиденциальности.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Resources\Images\calculator.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\Resources\Images\computer_devushka.png">

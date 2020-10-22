@@ -257,7 +257,7 @@ namespace CompanyProject.API.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("text")
-                        .HasDefaultValue("21.10.2020 0:00");
+                        .HasDefaultValue("22.10.2020 0:00");
 
                     b.Property<int>("CustomerId")
                         .HasColumnType("integer");
@@ -522,7 +522,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             ParagraphId = 5,
-                            Content = new[] { "Высококвалифицированные специалисты компании «Nova Computers» имеют большой опыт в ремонте и обслуживании любых моделей компьютеров, ноутбуков, роутеров и других видов цифровой и вычислительной техники.", "Для определения неполадок компьютера или ноутбука нашему специалисту необходимо провести начальную диагностику Вашего оборудования, с целью составления сметы на ремонт." },
+                            Content = new[] { "Высококвалифицированные специалисты компании «Nova Computers» имеют большой опыт в ремонте и обслуживании любых моделей компьютеров, ноутбуков, роутеров и других видов цифровой и вычислительной техники.", "Для определения неполадок компьютера или ноутбука нашему специалисту необходимо провести начальную диагностику Вашего оборудования, с целью составления сметы на ремонт.", "Наши мастера делают только те работы, которые необходимы; мы никогда не занимамся навязыванием дополнительных, зачастую ненужных, услуг." },
                             HasPicture = false,
                             IsGlobalTitle = false,
                             IsList = false,
@@ -684,7 +684,7 @@ namespace CompanyProject.API.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<string>("ClassServiceName")
+                    b.Property<string>("IdServiceName")
                         .HasColumnType("text");
 
                     b.Property<string[]>("NeedWorks")
@@ -717,7 +717,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 1,
-                            ClassServiceName = "computers-repair",
+                            IdServiceName = "computers-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Замена материнской платы компьютера", "Замена блока питания компьютера", "Работы по замене шлейфов или питающих кабелей", "Ремонт блока питания (проводится в сервисном центре)", "Восстановление работоспособности (замена) кнопки включения", "Прочие необходимые работы" },
                             PageId = 2,
                             Service = "Не включается компьютер",
@@ -727,7 +727,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 2,
-                            ClassServiceName = "computers-repair",
+                            IdServiceName = "computers-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Замена материнской платы компьютера", "Замена блока питания компьютера", "Работы по замене шлейфов или питающих кабелей", "Ремонт блока питания (проводится в сервисном центре)", "Восстановление работоспособности (замена) кнопки включения", "Прочие необходимые работы" },
                             PageId = 2,
                             Service = "Красный экран на компьютере",
@@ -737,7 +737,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 3,
-                            ClassServiceName = "computers-repair",
+                            IdServiceName = "computers-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Установка Windows XP - Windows 10", "Поиск и установка драйверов устройств", "Восстановление корректной работы, обеспечение совместимости драйвера с текущей версией операционной системы", "Удаление временных, мусорных системных файлов", "Чистка системного реестра Windows", "Устранение последствий действия вирусов, восстановление работы операционной системы", "Выявление и устранение неполадок программного обеспечения", "Поиск и исправление ошибок системного реестра Windows", "Настройка таймингов оперативной памяти в BIOS", "Устранение перегрева компьютера, профилактические работы, чистка от пыли, замена термопасты и термопрокладок", "Основная антивирусная профилактика (удаление СМС-вымогателя, трояна, баннера, других вирусов)", "Прочие необходимые работы" },
                             PageId = 2,
                             Service = "Синий экран на компьютере",
@@ -747,7 +747,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 4,
-                            ClassServiceName = "computers-repair",
+                            IdServiceName = "computers-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Восстановление корректной работы, обеспечение совместимости драйвера с текущей версией операционной системы", "Настройка автозагрузки Windows", "Удаление временных, мусорных системных файлов", "Чистка системного реестра Windows", "Выявление и устранение неполадок программного обеспечения", "Поиск и исправление ошибок системного реестра Windows", "Настройка таймингов оперативной памяти в BIOS", "Основная антивирусная профилактика (удаление СМС-вымогателя, трояна, баннера, других вирусов)", "Прочие необходимые работы" },
                             PageId = 2,
                             Service = "Ошибки в работе компьютера",
@@ -757,7 +757,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 5,
-                            ClassServiceName = "computers-repair",
+                            IdServiceName = "computers-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Установка Windows XP - Windows 10", "Настройка автозагрузки Windows", "Удаление временных, мусорных системных файлов", "Чистка системного реестра Windows", "Поиск и исправление ошибок системного реестра Windows", "Устранение перегрева компьютера, профилактические работы, чистка от пыли, замена термопасты и термопрокладок", "Основная антивирусная профилактика (удаление СМС-вымогателя, трояна, баннера, других вирусов)", "Глубокая антивирусная профилактика (устранение последствий действия вирусов, восстановление работы операционной системы)", "Прочие необходимые работы" },
                             PageId = 2,
                             Service = "Зависает компьютер",
@@ -767,7 +767,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 6,
-                            ClassServiceName = "computers-repair",
+                            IdServiceName = "computers-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Выявление и устранение неполадок программного обеспечения", "Замена оперативной памяти компьютера", "Устранение перегрева компьютера, профилактические работы, чистка от пыли, замена термопасты и термопрокладок", "Прочие необходимые работы" },
                             PageId = 2,
                             Service = "Самопроизвольная перезагрузка компьютера",
@@ -777,7 +777,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 7,
-                            ClassServiceName = "computers-repair",
+                            IdServiceName = "computers-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Замена вентилятора (кулера) компьютера", "Замена системы охлаждения компьютера", "Устранение перегрева компьютера, профилактические работы, чистка от пыли, замена термопасты и термопрокладок", "Прочие необходимые работы" },
                             PageId = 2,
                             Service = "Шумит компьютер",
@@ -787,7 +787,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 8,
-                            ClassServiceName = "computers-repair",
+                            IdServiceName = "computers-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Замена вентилятора (кулера) компьютера", "Замена системы охлаждения компьютера", "Устранение перегрева компьютера, профилактические работы, чистка от пыли, замена термопасты и термопрокладок", "Прочие необходимые работы" },
                             PageId = 2,
                             Service = "Перегревается компьютер",
@@ -797,7 +797,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 9,
-                            ClassServiceName = "computers-repair",
+                            IdServiceName = "computers-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Установка Windows XP - Windows 10", "Основная антивирусная профилактика (удаление СМС-вымогателя, трояна, баннера, других вирусов)", "Замена материнской платы компьютера", "Замена блока питания компьютера", "Замена жесткого диска компьютера", "Замена вентилятора (кулера) компьютера", "Замена системы охлаждения компьютера", "Работы по замене шлейфов или питающих кабелей", "Прочие необходимые работы" },
                             PageId = 2,
                             Service = "Прочие проблемы с компьютером",
@@ -807,7 +807,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 10,
-                            ClassServiceName = "computer-assistance-pc",
+                            IdServiceName = "computer-assistance-pc",
                             NeedWorks = new[] { "Диагностика оборудования", "Установка Windows XP - Windows 10", "Поиск и установка драйвера устройства", "Индивидуальные настройки операционной системы", "Разбивка жесткого диска на разделы", "Прочие необходимые работы" },
                             PageId = 2,
                             Service = "Установка Windows (включая установку драйверов на оборудование)",
@@ -817,7 +817,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 11,
-                            ClassServiceName = "computer-assistance-pc",
+                            IdServiceName = "computer-assistance-pc",
                             NeedWorks = new[] { "Диагностика оборудования", "Основная антивирусная профилактика (удаление СМС-вымогателя, трояна, баннера, других вирусов)", "Глубокая антивирусная профилактика (Устранение последствий действия вирусов, восстановление работы операционной системы)", "Установка Windows XP - Windows 10", "Прочие необходимые работы" },
                             PageId = 2,
                             Service = "Удаление вирусов",
@@ -827,7 +827,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 12,
-                            ClassServiceName = "computer-assistance-pc",
+                            IdServiceName = "computer-assistance-pc",
                             NeedWorks = new[] { "Диагностика оборудования", "Установка программ" },
                             PageId = 2,
                             Service = "Установка программ (один экземпляр)",
@@ -837,7 +837,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 13,
-                            ClassServiceName = "computer-assistance-pc",
+                            IdServiceName = "computer-assistance-pc",
                             NeedWorks = new[] { "Диагностика оборудования", "Подбор и установка любого антивируса", "Подбор и установка фаервола", "Индивидуальная тонкая настройка антивируса, фаервола или брандмауэра", "Прочие необходимые работы" },
                             PageId = 2,
                             Service = "Установка и настройка антивируса",
@@ -847,7 +847,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 14,
-                            ClassServiceName = "computer-assistance-pc",
+                            IdServiceName = "computer-assistance-pc",
                             NeedWorks = new[] { "Диагностика оборудования", "Поиск и установка драйвера устройства", "Восстановление корректной работы, обеспечение совместимости драйвера с текущей версией операционной системы" },
                             PageId = 2,
                             Service = "Установка драйверов (один экземпляр)",
@@ -857,7 +857,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 15,
-                            ClassServiceName = "computer-assistance-pc",
+                            IdServiceName = "computer-assistance-pc",
                             NeedWorks = new[] { "Диагностика оборудования", "Восстановление корректной работы, обеспечение совместимости драйвера с текущей версией операционной системы", "Настройка автозагрузки Windows", "Индивидуальные настройки операционной системы", "Удаление временных, мусорных системных файлов", "Чистка системного реестра Windows", "Индивидуальная тонкая настройка антивируса, фаервола или брандмауэра", "Выявление и устранение неполадок программного обеспечения", "Прочие необходимые работы" },
                             PageId = 2,
                             Service = "Настройка компьютера",
@@ -867,7 +867,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 16,
-                            ClassServiceName = "pc-assembly",
+                            IdServiceName = "pc-assembly",
                             NeedWorks = new[] { "Сборка компьютера на заказ" },
                             PageId = 2,
                             Service = "Сборка компьютера на заказ",
@@ -877,7 +877,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 17,
-                            ClassServiceName = "pc-assembly",
+                            IdServiceName = "pc-assembly",
                             NeedWorks = new[] { "Диагностика оборудования", "Модернизация компьютера на заказ" },
                             PageId = 2,
                             Service = "Модернизация компьютера на заказ",
@@ -887,7 +887,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 18,
-                            ClassServiceName = "pc-service",
+                            IdServiceName = "pc-service",
                             NeedWorks = new[] { "Частичная разборка системного блока", "Чистка системы охлаждения процессора от пыли", "Чистка системы охлаждения видеокарты от пыли", "Чистка системы охлаждения материнмкой платы от пыли", "Замена пермопасты на процессоре", "Замена пермопасты на чипе видеокарты" },
                             PageId = 2,
                             Service = "Чистка компьютера от пыли с заменой термопасты",
@@ -897,7 +897,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 19,
-                            ClassServiceName = "pc-service",
+                            IdServiceName = "pc-service",
                             NeedWorks = new[] { "Чистка системы охлаждения процессора от пыли", "Чистка системы охлаждения видеокарты от пыли", "Чистка системы охлаждения материнмкой платы от пыли" },
                             PageId = 2,
                             Service = "Чистка компьютера от пыли без разборки системного блока",
@@ -907,7 +907,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 20,
-                            ClassServiceName = "laptop-repair",
+                            IdServiceName = "laptop-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Замена материнской платы ноутбука", "Замена жесткого диска ноутбука", "Замена оперативной памяти ноутбука", "Замена видеокарты ноутбука", "Работы по замене шлейфа или питающих кабелей ноутбука", "Ремонт цепи питания ноутбука", "Ремонт материнской платы ноутбука", "Устранение перегрева ноутбука, профилактические работы, чистка от пыли, замена термопасты и термопрокладок", "Прочие необходимые работы" },
                             PageId = 3,
                             Service = "Не включается ноутбук",
@@ -917,7 +917,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 21,
-                            ClassServiceName = "laptop-repair",
+                            IdServiceName = "laptop-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Замена оперативной памяти ноутбука", "Замена видеокарты ноутбука", "Замена жесткого диска ноутбука", "Замена материнской платы ноутбука", "Ремонт системы охлаждения ноутбука", "Восстановление работоспособности жесткого диска ноутбука, повторная разметка секторов (Remap)", "Устранение перегрева ноутбука, профилактические работы, чистка от пыли, замена термопасты и термопрокладок", "Прочие необходимые работы" },
                             PageId = 3,
                             Service = "Синий экран на ноутбуке",
@@ -927,7 +927,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 22,
-                            ClassServiceName = "laptop-repair",
+                            IdServiceName = "laptop-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Замена материнской платы ноутбука", "Замена блока питания ноутбука", "Работы по замене шлейфов или питающих кабелей", "Ремонт блока питания (проводится в сервисном центре)", "Замена отдельных комплектующих ноутбука", "Прочие необходимые работы" },
                             PageId = 3,
                             Service = "Красный экран на ноутбуке",
@@ -937,7 +937,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 23,
-                            ClassServiceName = "laptop-repair",
+                            IdServiceName = "laptop-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Восстановление корректной работы, обеспечение совместимости драйвера с текущей версией операционной системы", "Настройка автозагрузки Windows", "Удаление временных, мусорных системных файлов", "Чистка системного реестра Windows", "Основная антивирусная профилактика (удаление СМС-вымогателя, трояна, баннера, других вирусов) ", "Выявление и устранение неполадок программного обеспечения", "Поиск и исправление ошибок системного реестра Windows", "Восстановление работоспособности жесткого диска ноутбука, повторная разметка секторов (Remap)", "Прочие необходимые работы" },
                             PageId = 3,
                             Service = "Ошибки в работе ноутбука",
@@ -947,7 +947,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 24,
-                            ClassServiceName = "laptop-repair",
+                            IdServiceName = "laptop-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Установка Windows XP - Windows 10", "Восстановление корректной работы, обеспечение совместимости драйвера с текущей версией операционной системы", "Удаление временных, мусорных системных файлов", "Чистка системного реестра Windows", "Глубокая антивирусная профилактика (устранение последствий действия вирусов, восстановление работы операционной системы)", "Выявление и устранение неполадок программного обеспечения", "Поиск и исправление ошибок системного реестра Windows", "Ремонт системы охлаждения ноутбука", "Устранение перегрева ноутбука, профилактические работы, чистка от пыли, замена термопасты и термопрокладок", "Прочие необходимые работы" },
                             PageId = 3,
                             Service = "Зависает ноутбук",
@@ -957,7 +957,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 25,
-                            ClassServiceName = "laptop-repair",
+                            IdServiceName = "laptop-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Восстановление корректной работы, обеспечение совместимости драйвера с текущей версией операционной системы", "Чистка системного реестра Windows", "Выявление и устранение неполадок программного обеспечения", "Поиск и исправление ошибок системного реестра Windows", "Ремонт системы охлаждения ноутбука", "Устранение перегрева ноутбука, профилактические работы, чистка от пыли, замена термопасты и термопрокладок", "Замена оперативной памяти ноутбука", "Ремонт цепи питания ноутбука", "Прочие необходимые работы" },
                             PageId = 3,
                             Service = "Самопроизвольная перезагрузка ноутбука",
@@ -967,7 +967,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 26,
-                            ClassServiceName = "laptop-repair",
+                            IdServiceName = "laptop-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Замена вентилятора (кулера) ноутбука", "Ремонт системы охлаждения ноутбука", "Устранение перегрева ноутбука, профилактические работы, чистка от пыли, замена термопасты и термопрокладок", "Прочие необходимые работы" },
                             PageId = 3,
                             Service = "Шумит ноутбук",
@@ -977,7 +977,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 27,
-                            ClassServiceName = "laptop-repair",
+                            IdServiceName = "laptop-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Замена вентилятора (кулера) ноутбука", "Ремонт системы охлаждения ноутбука", "Устранение перегрева ноутбука, профилактические работы, чистка от пыли, замена термопасты и термопрокладок", "Прочие необходимые работы" },
                             PageId = 3,
                             Service = "Перегревается ноутбук",
@@ -987,7 +987,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 28,
-                            ClassServiceName = "laptop-repair",
+                            IdServiceName = "laptop-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Прочие необходимые работы" },
                             PageId = 3,
                             Service = "Прочие проблемы с ноутбуком",
@@ -997,7 +997,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 29,
-                            ClassServiceName = "computer-assistance-laptop",
+                            IdServiceName = "computer-assistance-laptop",
                             NeedWorks = new[] { "Диагностика оборудования", "Установка Windows XP - Windows 10", "Поиск и установка драйвера устройства", "Индивидуальные настройки операционной системы", "Разбивка жесткого диска на разделы", "Прочие необходимые работы" },
                             PageId = 3,
                             Service = "Установка Windows (включая установку драйверов на оборудование)",
@@ -1007,7 +1007,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 30,
-                            ClassServiceName = "computer-assistance-laptop",
+                            IdServiceName = "computer-assistance-laptop",
                             NeedWorks = new[] { "Диагностика оборудования", "Основная антивирусная профилактика (удаление СМС-вымогателя, трояна, баннера, других вирусов)", "Глубокая антивирусная профилактика (Устранение последствий действия вирусов, восстановление работы операционной системы)", "Установка Windows XP - Windows 10", "Прочие необходимые работы" },
                             PageId = 3,
                             Service = "Удаление вирусов",
@@ -1017,7 +1017,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 31,
-                            ClassServiceName = "computer-assistance-laptop",
+                            IdServiceName = "computer-assistance-laptop",
                             NeedWorks = new[] { "Диагностика оборудования", "Установка программ" },
                             PageId = 3,
                             Service = "Установка программ (один экземпляр)",
@@ -1027,7 +1027,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 32,
-                            ClassServiceName = "computer-assistance-laptop",
+                            IdServiceName = "computer-assistance-laptop",
                             NeedWorks = new[] { "Диагностика оборудования", "Подбор и установка любого антивируса", "Подбор и установка фаервола", "Индивидуальная тонкая настройка антивируса, фаервола или брандмауэра", "Прочие необходимые работы" },
                             PageId = 3,
                             Service = "Установка и настройка антивируса",
@@ -1037,7 +1037,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 33,
-                            ClassServiceName = "computer-assistance-laptop",
+                            IdServiceName = "computer-assistance-laptop",
                             NeedWorks = new[] { "Диагностика оборудования", "Поиск и установка драйвера устройства", "Восстановление корректной работы, обеспечение совместимости драйвера с текущей версией операционной системы" },
                             PageId = 3,
                             Service = "Установка драйверов (один экземпляр)",
@@ -1047,7 +1047,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 34,
-                            ClassServiceName = "computer-assistance-laptop",
+                            IdServiceName = "computer-assistance-laptop",
                             NeedWorks = new[] { "Диагностика оборудования", "Восстановление корректной работы, обеспечение совместимости драйвера с текущей версией операционной системы", "Настройка автозагрузки Windows", "Индивидуальные настройки операционной системы", "Удаление временных, мусорных системных файлов", "Чистка системного реестра Windows", "Индивидуальная тонкая настройка антивируса, межсетевго экрана (фаервола или брандмауэра)", "Выявление и устранение неполадок программного обеспечения", "Прочие необходимые работы" },
                             PageId = 3,
                             Service = "Настройка ноутбука",
@@ -1057,7 +1057,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 35,
-                            ClassServiceName = "laptop-upgrade",
+                            IdServiceName = "laptop-upgrade",
                             NeedWorks = new[] { "Диагностика аппаратной части ноутбука", "Подбор и замена модулей оперативной памяти ноутбука", "Подбор и установка нового жесткого диска или SSD" },
                             PageId = 3,
                             Service = "Расширение памяти ноутбука",
@@ -1067,7 +1067,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 36,
-                            ClassServiceName = "laptop-upgrade",
+                            IdServiceName = "laptop-upgrade",
                             NeedWorks = new[] { "Диагностика аппаратной части ноутбука", "Подбор и замена модулей оперативной памяти ноутбука", "Подбор и установка скоростного жесткого диска или SSD", "Подбор и установка новой видеокарты или процессора", "Прочие необходимые работы" },
                             PageId = 3,
                             Service = "Увеличение скорости работы ноутбука",
@@ -1077,7 +1077,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 37,
-                            ClassServiceName = "laptop-service",
+                            IdServiceName = "laptop-service",
                             NeedWorks = new[] { "Частичная разборка ноутбука", "Чистка системы охлаждения процессора от пыли", "Чистка системы охлаждения видеокарты от пыли", "Чистка системы охлаждения материнмкой платы от пыли", "Замена пермопасты на процессоре", "Замена пермопасты на чипе видеокарты" },
                             PageId = 3,
                             Service = "Чистка ноутбука от пыли с заменой термопасты",
@@ -1087,7 +1087,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 38,
-                            ClassServiceName = "router-config",
+                            IdServiceName = "router-config",
                             NeedWorks = new[] { "Диагностика оборудования", "Установка и базовая настройка роутера", "Индивидуальная настройка роутера (настройка \"проброса\" портов, удаленного доступа, выбор оптимального канала вещания WiFi)", "Сброс настроек, повторная настройка роутера", "Замена прошивки роутера", "Прочие необходимые работы" },
                             PageId = 5,
                             Service = "Установка роутера",
@@ -1097,7 +1097,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 39,
-                            ClassServiceName = "router-config",
+                            IdServiceName = "router-config",
                             NeedWorks = new[] { "Диагностика оборудования", "Установка и базовая настройка Wi-Fi роутера", "Индивидуальная настройка Wi-Fi роутера (настройка \"проброса\" портов, удаленного доступа, выбор оптимального канала вещания WiFi)", "Работы по улучшению сигнала Wi-Fi сети", "Настройка безопасности Wi-Fi сети", "Сброс настроек, повторная настройка Wi-Fi роутера", "Замена прошивки Wi-Fi роутера", "Прочие необходимые работы" },
                             PageId = 5,
                             Service = "Настройка Wi-Fi сети",
@@ -1107,7 +1107,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 40,
-                            ClassServiceName = "router-config",
+                            IdServiceName = "router-config",
                             NeedWorks = new[] { "Диагностика оборудования", "Работы по улучшению сигнала Wi-Fi сети", "Сброс настроек, повторная настройка роутера", "Замена прошивки роутера", "Ремонт роутера", "Прочие необходимые работы" },
                             PageId = 5,
                             Service = "Устранение неполадок роутера",
@@ -1117,7 +1117,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 41,
-                            ClassServiceName = "internet-config",
+                            IdServiceName = "internet-config",
                             NeedWorks = new[] { "Диагностика оборудования", "Установка и базовая настройка роутера", "Настройка сетевой платы", "Настройка сети Интернет по Wi-Fi сети", "Обжим кабеля коннектором RJ-45", "Прочие необходимые работы" },
                             PageId = 5,
                             Service = "Настройка доступа к сети Интернет",
@@ -1127,7 +1127,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 42,
-                            ClassServiceName = "internet-config",
+                            IdServiceName = "internet-config",
                             NeedWorks = new[] { "Диагностика оборудования", "Установка сетевого оборудования", "Прокладка сетевого кабеля", "Обжим кабеля коннектором RJ-45", "Прочие необходимые работы" },
                             PageId = 5,
                             Service = "Прокладка сетевого кабеля",
@@ -1137,7 +1137,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 43,
-                            ClassServiceName = "internet-config",
+                            IdServiceName = "internet-config",
                             NeedWorks = new[] { "Диагностика оборудования", "Антивирусная профилактика", "Настройка сетевой платы для обеспечения доступа к сети Интернет", "Поиск и устранение неисправностей сетевого оборудования", "Прочие необходимые работы" },
                             PageId = 5,
                             Service = "Устранение неполадок сети Инернет",
@@ -1147,7 +1147,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 44,
-                            ClassServiceName = "lan-config",
+                            IdServiceName = "lan-config",
                             NeedWorks = new[] { "Диагностика оборудования", "Настройка работы роутера в локальной сети", "Настройка сетевой платы", "Прочие необходимые работы" },
                             PageId = 5,
                             Service = "Настройка локальной сети",
@@ -1157,7 +1157,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 45,
-                            ClassServiceName = "lan-config",
+                            IdServiceName = "lan-config",
                             NeedWorks = new[] { "Диагностика оборудования", "Антивирусная профилактика", "Настройка сетевой платы", "Настройка сетевого оборудования", "Поиск и устранение неисправностей сетевого оборудования", "Прочие необходимые работы" },
                             PageId = 5,
                             Service = "Устранение неполадок локальной сети",
@@ -1167,7 +1167,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 46,
-                            ClassServiceName = "lan-config",
+                            IdServiceName = "lan-config",
                             NeedWorks = new[] { "Диагностика оборудования", "Установка сетевого оборудования", "Прокладка сетевого кабеля", "Обжим кабеля коннектором RJ-45", "Прочие необходимые работы" },
                             PageId = 5,
                             Service = "Прокладка сетевого кабеля",
@@ -1177,7 +1177,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 47,
-                            ClassServiceName = "data-recovery",
+                            IdServiceName = "data-recovery",
                             NeedWorks = new[] { "Восстановление данных (случайно удаленные фотографии, документы. Случаи, когда повреждена таблица файловой системы)" },
                             PageId = 6,
                             Service = "Восстановление данных с жесткого диска",
@@ -1187,7 +1187,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 48,
-                            ClassServiceName = "data-recovery",
+                            IdServiceName = "data-recovery",
                             NeedWorks = new[] { "Восстановление данных (случайно удаленные фотографии, документы; cлучаи, когда повреждена таблица файловой системы)" },
                             PageId = 6,
                             Service = "Восстановление информации с флеш-накопителя",
@@ -1197,7 +1197,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 49,
-                            ClassServiceName = "data-recovery",
+                            IdServiceName = "data-recovery",
                             NeedWorks = new[] { "Восстановление данных (случайно удаленные фотографии, документы; cлучаи, когда повреждена таблица файловой системы)" },
                             PageId = 6,
                             Service = "Восстановление данных с SD-карты",
@@ -1207,7 +1207,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 50,
-                            ClassServiceName = "data-recovery",
+                            IdServiceName = "data-recovery",
                             NeedWorks = new[] { "Восстановление данных (случайно удаленные фотографии, документы; cлучаи, когда повреждена таблица файловой системы)" },
                             PageId = 6,
                             Service = "Восстановление данных с SSD-диска",
@@ -1217,7 +1217,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 51,
-                            ClassServiceName = "b2b",
+                            IdServiceName = "b2b",
                             NeedWorks = new[] { "1 (один) плановый выезд специалиста в месяц", "Полная техническая профилактика всего парка компьютеров", "Полная антивирусная профилактика всего парка компьютеров", "Устранение текущих неполадок (возможно, силами стороннего подрядчика)", "Консультации сотрудников по работе с компьютерами" },
                             PageId = 7,
                             Service = "Абонентское обслуживание компьютеров",
@@ -1227,7 +1227,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 52,
-                            ClassServiceName = "b2b",
+                            IdServiceName = "b2b",
                             NeedWorks = new[] { "1 (один) плановый выезд специалиста в месяц", "Полная техническая профилактика всего парка оргтехники", "Устранение текущих неполадок (возможно, силами стороннего подрядчика)", "Консультации сотрудников по работе с оргтехникой" },
                             PageId = 7,
                             Service = "Абонентское обслуживание оргтехники",
@@ -1237,7 +1237,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 53,
-                            ClassServiceName = "b2b",
+                            IdServiceName = "b2b",
                             NeedWorks = new[] { "Необходимые работы определяются заказчиком" },
                             PageId = 7,
                             Service = "Внеплановый выезд специалиста",
@@ -1247,7 +1247,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 54,
-                            ClassServiceName = "printer-config",
+                            IdServiceName = "printer-config",
                             NeedWorks = new[] { "Диагностика оборудования", "Поиск и установка драйвера устройства", "Подключение и базовая настройка принтера", "Настройка работы принтера по Wi-Fi сети", "Индивидуальная настройка принтера", "Прочие необходимые работы" },
                             PageId = 10,
                             Service = "Настройка принтера",
@@ -1257,7 +1257,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 55,
-                            ClassServiceName = "printer-config",
+                            IdServiceName = "printer-config",
                             NeedWorks = new[] { "Диагностика оборудования", "Чистка и профилактика принтера", "Полная чистка и смазка с частичной разборкой принтера", "Прочие необходимые работы" },
                             PageId = 10,
                             Service = "Очистка принтера",
@@ -1267,7 +1267,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 56,
-                            ClassServiceName = "printer-config",
+                            IdServiceName = "printer-config",
                             NeedWorks = new[] { "Диагностика оборудования", "Восстановление работоспособности печатающей головки струйного принтера", "Ремонт электроники принтера", "Замена фотоцилиндра, магнитного вала или ракеля лазерного принтера", "Прочие необходимые работы" },
                             PageId = 10,
                             Service = "Ремонт принтера",
@@ -1277,7 +1277,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 57,
-                            ClassServiceName = "mfd-config",
+                            IdServiceName = "mfd-config",
                             NeedWorks = new[] { "Поиск и установка драйвера устройства", "Подключение и базовая настройка МФУ", "Калибровка сканирующей части МФУ", "Настройка работы МФУ по Wi-Fi сети", "Настройка работы МФУ по локальной сети", "Индивидуальная настройка МФУ", "Прочие необходимые работы" },
                             PageId = 10,
                             Service = "Настройка МФУ",
@@ -1287,7 +1287,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 58,
-                            ClassServiceName = "mfd-config",
+                            IdServiceName = "mfd-config",
                             NeedWorks = new[] { "Диагностика оборудования", "Чистка и профилактика МФУ", "Полная чистка и смазка с частичной разборкой МФУ", "Калибровка сканирующей части МФУ", "Прочие необходимые работы" },
                             PageId = 10,
                             Service = "Очистка МФУ",
@@ -1297,7 +1297,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 59,
-                            ClassServiceName = "mfd-config",
+                            IdServiceName = "mfd-config",
                             NeedWorks = new[] { "Диагностика оборудования", "Восстановление работоспособности печатающей головки струйного МФУ", "Ремонт электроники МФУ", "Замена фотоцилиндра, магнитного вала или ракеля лазерного МФУ", "Ремонт сканирующей части МФУ", "Прочие необходимые работы" },
                             PageId = 10,
                             Service = "Ремонт МФУ",
@@ -1307,7 +1307,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 60,
-                            ClassServiceName = "scanner-config",
+                            IdServiceName = "scanner-config",
                             NeedWorks = new[] { "Диагностика оборудования", "Поиск и установка драйвера устройства", "Подключение и базовая настройка сканера", "Калибровка сканера", "Настройка работы сканера по Wi-Fi сети", "Настройка работы сканера по локальной сети", "Индивидуальная настройка сканера", "Прочие необходимые работы" },
                             PageId = 10,
                             Service = "Настройка сканера",
@@ -1317,7 +1317,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             PriceListId = 61,
-                            ClassServiceName = "scanner-config",
+                            IdServiceName = "scanner-config",
                             NeedWorks = new[] { "Диагностика оборудования", "Ремонт инвертора лампы подсветки", "Замена лампы подсветки", "Ремонт других электронных узлов сканера", "Ремонт механики сканирующей головки", "Прочие необходимые работы" },
                             PageId = 10,
                             Service = "Ремонт сканера",

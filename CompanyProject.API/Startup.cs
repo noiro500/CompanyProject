@@ -43,7 +43,7 @@ namespace CompanyProject.API
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseExceptionHandler("/Home/Error");
+            //app.UseExceptionHandler("/Home/Error");
             app.UseStatusCodePages();
             app.UseRouting();
 
