@@ -79,11 +79,18 @@ namespace CompanyProject.API.Migrations
                     b.Property<string>("ApartmentOrOffice")
                         .HasColumnType("text");
 
-                    b.Property<string>("City")
+                    b.Property<string>("District")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("HouseNumber")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<bool>("IsAdoptedPrivacyPolicy")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Locality")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -257,12 +264,13 @@ namespace CompanyProject.API.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("text")
-                        .HasDefaultValue("22.10.2020 0:00");
+                        .HasDefaultValue("29.10.2020 0:00");
 
                     b.Property<int>("CustomerId")
                         .HasColumnType("integer");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int>("EmployeeId")
@@ -289,6 +297,10 @@ namespace CompanyProject.API.Migrations
                         .IsConcurrencyToken()
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("bytea");
+
+                    b.Property<string>("TypeOfFailure")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("VisitTime")
                         .IsRequired()

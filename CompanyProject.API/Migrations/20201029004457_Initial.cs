@@ -36,10 +36,12 @@ namespace CompanyProject.API.Migrations
                     Name = table.Column<string>(nullable: false),
                     PhoneNumber = table.Column<string>(nullable: false),
                     AnotherPhoneNumber = table.Column<string>(nullable: true),
-                    City = table.Column<string>(nullable: false),
+                    District = table.Column<string>(nullable: false),
+                    Locality = table.Column<string>(nullable: false),
                     Street = table.Column<string>(nullable: false),
                     HouseNumber = table.Column<string>(nullable: false),
                     ApartmentOrOffice = table.Column<string>(nullable: true),
+                    IsAdoptedPrivacyPolicy = table.Column<bool>(nullable: false),
                     Timestamp = table.Column<byte[]>(rowVersion: true, nullable: true)
                 },
                 constraints: table =>
@@ -134,8 +136,9 @@ namespace CompanyProject.API.Migrations
                 {
                     OrderId = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Description = table.Column<string>(nullable: true),
-                    CreateTime = table.Column<string>(nullable: false, defaultValue: "22.10.2020 0:00"),
+                    TypeOfFailure = table.Column<string>(nullable: false),
+                    Description = table.Column<string>(nullable: false),
+                    CreateTime = table.Column<string>(nullable: false, defaultValue: "29.10.2020 0:00"),
                     VisitTime = table.Column<string>(nullable: false),
                     SpecialInstruction = table.Column<string>(nullable: true),
                     IsCompleted = table.Column<bool>(nullable: false, defaultValue: false),

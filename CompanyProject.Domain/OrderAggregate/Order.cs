@@ -9,19 +9,33 @@ namespace CompanyProject.Domain.OrderAggregate
     public class Order
     {
         public int OrderId { get; set; }
-        [DataType(DataType.MultilineText)]
-        public string Description { get; set; }
+
+        [Required]
+        [Display(Name = "Тип неисправности")] 
+        public string TypeOfFailure { get; set; } = null;
+
+        [Required]
+        [DataType(DataType.MultilineText)] 
+        public string Description { get; set; } = null;
+
         [Required]
         [DataType(DataType.DateTime)]
         public string CreateTime { get; set; }
+
         [Required]
         [DataType(DataType.DateTime)]
+        [Display(Name="Предпочтитетльное время прихода мастера")]
         public string VisitTime { get; set; }
+
+        [Display(Name = "Прочая необходимая информация")]
         public string SpecialInstruction { get; set; }
         
         public bool IsCompleted { get; set; } = false;
+
         public decimal Price { get; set; }
+
         public decimal RealPrice { get; set; } = 0;
+
         public virtual Customer Customer { get; set; }
         public int CustomerId { get; set; }
         public virtual Employee Employee { get; set; }
