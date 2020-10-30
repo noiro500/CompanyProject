@@ -138,7 +138,7 @@ namespace CompanyProject.API.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     TypeOfFailure = table.Column<string>(nullable: false),
                     Description = table.Column<string>(nullable: false),
-                    CreateTime = table.Column<string>(nullable: false, defaultValue: "29.10.2020 0:00"),
+                    CreateTime = table.Column<string>(nullable: false, defaultValue: "30.10.2020 0:00"),
                     VisitTime = table.Column<string>(nullable: false),
                     SpecialInstruction = table.Column<string>(nullable: true),
                     IsCompleted = table.Column<bool>(nullable: false, defaultValue: false),

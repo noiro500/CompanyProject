@@ -11,18 +11,20 @@ namespace CompanyProject.Domain.CustomerAggregate
     {
         public int CustomerId { set; get; }
 
-        [Required]
         [Display(Name = "Полное имя заказчика")]
         public string Name { get; set; }
 
         [Required]
-        [DataType(DataType.PhoneNumber)]
-        [Display(Name = "Номер телефона")]
+        [Display(Name = "Номер телефона *")]
         public string PhoneNumber { get; set; }
 
-        [DataType(DataType.PhoneNumber)]
         [Display(Name = "Запасный номер телефона/WhatsApp")]
         public string AnotherPhoneNumber { get; set; } = null;
+
+        [EmailAddress(ErrorMessage = "Некорректный адрес E-mail")]
+        [Display(Name = "E-mail:")]
+        //[RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}", ErrorMessage = "Некорректный адрес")]
+        public string Email { get; set; } = null;
 
         [Required]
         [Display(Name = "Район/округ")]

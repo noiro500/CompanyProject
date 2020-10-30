@@ -264,7 +264,7 @@ namespace CompanyProject.API.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("text")
-                        .HasDefaultValue("29.10.2020 0:00");
+                        .HasDefaultValue("30.10.2020 0:00");
 
                     b.Property<int>("CustomerId")
                         .HasColumnType("integer");

@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using CompanyProject.API.ViewModels;
 using CompanyProject.Domain;
 using CompanyProject.Domain.MessageAggregate;
 using Microsoft.AspNetCore.Mvc;
@@ -39,12 +40,11 @@ namespace CompanyProject.API.Controllers
         //    return File(filepath, "application/pdf", "Политика конфиденциальности.pdf");
         //}
 
-        //[HttpPost]
-        //public async Task<IActionResult> MakeOrder(Order order)
-        //{
-        //    await _repository.AddOrder(order);
-        //    return RedirectToAction("MakeOrderOk");
-        //}
+        [HttpPost]
+        public IActionResult MakeOrder(OrderViewModel order)
+        {
+            return View();
+        }
 
         //[HttpGet]
         //public Task<IActionResult> MakeOrderOk()

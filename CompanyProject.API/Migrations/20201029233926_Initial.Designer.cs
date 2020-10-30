@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CompanyProject.API.Migrations
 {
     [DbContext(typeof(CompanyProjectDbContext))]
-    [Migration("20201029004457_Initial")]
+    [Migration("20201029233926_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -266,7 +266,7 @@ namespace CompanyProject.API.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("text")
-                        .HasDefaultValue("29.10.2020 0:00");
+                        .HasDefaultValue("30.10.2020 0:00");
 
                     b.Property<int>("CustomerId")
                         .HasColumnType("integer");

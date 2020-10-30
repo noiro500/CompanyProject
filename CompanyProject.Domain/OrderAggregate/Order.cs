@@ -10,7 +10,6 @@ namespace CompanyProject.Domain.OrderAggregate
     {
         public int OrderId { get; set; }
 
-        [Required]
         [Display(Name = "Тип неисправности")] 
         public string TypeOfFailure { get; set; } = null;
 
@@ -28,7 +27,7 @@ namespace CompanyProject.Domain.OrderAggregate
         public string VisitTime { get; set; }
 
         [Display(Name = "Прочая необходимая информация")]
-        public string SpecialInstruction { get; set; }
+        public string SpecialInstruction { get; set; } = null;
         
         public bool IsCompleted { get; set; } = false;
 

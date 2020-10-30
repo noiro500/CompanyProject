@@ -26,7 +26,6 @@ namespace CompanyProject.API.Controllers
         public async Task<IActionResult> FullPriceList()
         {
             var result =(await _unitOfWork.PriceLists.GetAll().OrderBy(p=>p.PriceListId).ToListAsync()).Distinct(new PriceListComparer()).ToList();
-            //var b = result.Distinct(new PriceListComparer()).ToList();
             return View(result);
         }
 
