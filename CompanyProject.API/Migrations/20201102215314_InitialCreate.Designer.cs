@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CompanyProject.API.Migrations
 {
     [DbContext(typeof(CompanyProjectDbContext))]
-    [Migration("20201030144030_InitialCreate")]
+    [Migration("20201102215314_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -81,6 +81,9 @@ namespace CompanyProject.API.Migrations
                     b.Property<string>("ApartmentOrOffice")
                         .HasColumnType("text");
 
+                    b.Property<string>("CustomerName")
+                        .HasColumnType("text");
+
                     b.Property<string>("District")
                         .IsRequired()
                         .HasColumnType("text");
@@ -97,9 +100,6 @@ namespace CompanyProject.API.Migrations
 
                     b.Property<string>("Locality")
                         .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Name")
                         .HasColumnType("text");
 
                     b.Property<string>("PhoneNumber")
@@ -268,7 +268,7 @@ namespace CompanyProject.API.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("text")
-                        .HasDefaultValue("30.10.2020 0:00");
+                        .HasDefaultValue("03.11.2020 0:00");
 
                     b.Property<int>("CustomerId")
                         .HasColumnType("integer");
@@ -515,7 +515,7 @@ namespace CompanyProject.API.Migrations
                         new
                         {
                             ParagraphId = 3,
-                            Content = new[] { "NeedHelpAndPicturePV" },
+                            Content = new[] { "_NeedHelpAndPicturePartial" },
                             HasPicture = false,
                             IsGlobalTitle = false,
                             IsList = false,

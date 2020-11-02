@@ -33,7 +33,7 @@ namespace CompanyProject.API.Migrations
                 {
                     CustomerId = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(nullable: true),
+                    CustomerName = table.Column<string>(nullable: true),
                     PhoneNumber = table.Column<string>(nullable: false),
                     AnotherPhoneNumber = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
@@ -139,7 +139,7 @@ namespace CompanyProject.API.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     TypeOfFailure = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: false),
-                    CreateTime = table.Column<string>(nullable: false, defaultValue: "30.10.2020 0:00"),
+                    CreateTime = table.Column<string>(nullable: false, defaultValue: "03.11.2020 0:00"),
                     VisitTime = table.Column<string>(nullable: false),
                     SpecialInstruction = table.Column<string>(nullable: true),
                     IsCompleted = table.Column<bool>(nullable: false, defaultValue: false),
@@ -284,7 +284,7 @@ namespace CompanyProject.API.Migrations
                     { 6, new[] { "Как вызвать компьютерного мастера на дом или в офис?" }, false, false, false, true, true, 1, null },
                     { 5, new[] { "Высококвалифицированные специалисты компании «Nova Computers» имеют большой опыт в ремонте и обслуживании любых моделей компьютеров, ноутбуков, роутеров и других видов цифровой и вычислительной техники.", "Для определения неполадок компьютера или ноутбука нашему специалисту необходимо провести начальную диагностику Вашего оборудования, с целью составления сметы на ремонт.", "Наши мастера делают только те работы, которые необходимы; мы никогда не занимамся навязыванием дополнительных, зачастую ненужных, услуг." }, false, false, false, true, false, 1, null },
                     { 4, new[] { "Вызов компьютерного мастера на дом" }, false, false, false, true, true, 1, null },
-                    { 3, new[] { "NeedHelpAndPicturePV" }, false, false, false, false, false, 1, null },
+                    { 3, new[] { "_NeedHelpAndPicturePartial" }, false, false, false, false, false, 1, null },
                     { 2, new[] { "Компания «Nova Computers» предлагает Вам качественные и недорогие компьютерные услуги по обслуживанию, ремонту компьютеров, ноутбуков и офисной техники в регионе Кавказских Минеральных Вод (Минеральные Воды, Пятигорск, Ессентуки, Кисловодск). Ремонт может проводиться мастером как территории заказчика, так и в нашем сервисном центре. Мы всегда рады оперативно оказать Вам профессиональную компьютерную помощь, обращайтесь!" }, false, false, false, true, false, 1, null },
                     { 9, new[] { "Как скоро приедет мастер? Сколько будут стоить услуги по ремонту?" }, false, false, false, true, true, 1, null }
                 });

@@ -31,6 +31,8 @@
     <Compile Remove="Migrations\20201029004457_Initial.Designer.cs" />
     <Compile Remove="Migrations\20201029233926_Initial.cs" />
     <Compile Remove="Migrations\20201029233926_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20201030144030_InitialCreate.cs" />
+    <Compile Remove="Migrations\20201030144030_InitialCreate.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -233,9 +235,9 @@
     <None Include="Views\Shared\Components\Cards\Cards.cshtml" />
     <None Include="Views\Shared\Components\PriceListTable\PriceListTable.cshtml" />
     <None Include="Views\Shared\Components\TopMenu\TopMenu.cshtml" />
-    <None Include="Views\Shared\ContentViews\PartialView\ContentLayout.cshtml" />
-    <None Include="Views\Shared\ContentViews\PartialView\NeedHelpAndPicturePV.cshtml" />
-    <None Include="Views\Shared\_LayoutMakeOrder.cshtml" />
+    <None Include="Views\Shared\ContentViews\PartialView\_ContentLayoutPartial.cshtml" />
+    <None Include="Views\Shared\ContentViews\PartialView\_NeedHelpAndPicturePartial.cshtml" />
+    <None Include="Views\Service\_LayoutMakeOrder.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
     <None Include="Views\_ViewImports.cshtml" />
     <None Include="Views\_ViewStart.cshtml" />
