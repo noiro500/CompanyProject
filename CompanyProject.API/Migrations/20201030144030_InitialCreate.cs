@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace CompanyProject.API.Migrations
 {
-    public partial class Initial : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -33,9 +33,10 @@ namespace CompanyProject.API.Migrations
                 {
                     CustomerId = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
                     PhoneNumber = table.Column<string>(nullable: false),
                     AnotherPhoneNumber = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true),
                     District = table.Column<string>(nullable: false),
                     Locality = table.Column<string>(nullable: false),
                     Street = table.Column<string>(nullable: false),
@@ -136,7 +137,7 @@ namespace CompanyProject.API.Migrations
                 {
                     OrderId = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    TypeOfFailure = table.Column<string>(nullable: false),
+                    TypeOfFailure = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: false),
                     CreateTime = table.Column<string>(nullable: false, defaultValue: "30.10.2020 0:00"),
                     VisitTime = table.Column<string>(nullable: false),

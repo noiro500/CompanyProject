@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CompanyProject.API.Migrations
 {
     [DbContext(typeof(CompanyProjectDbContext))]
-    [Migration("20201029233926_Initial")]
-    partial class Initial
+    [Migration("20201030144030_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -85,6 +85,9 @@ namespace CompanyProject.API.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("Email")
+                        .HasColumnType("text");
+
                     b.Property<string>("HouseNumber")
                         .IsRequired()
                         .HasColumnType("text");
@@ -97,7 +100,6 @@ namespace CompanyProject.API.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("PhoneNumber")
@@ -301,7 +303,6 @@ namespace CompanyProject.API.Migrations
                         .HasColumnType("bytea");
 
                     b.Property<string>("TypeOfFailure")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("VisitTime")

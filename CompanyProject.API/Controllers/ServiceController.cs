@@ -33,12 +33,6 @@ namespace CompanyProject.API.Controllers
                 return Json("true");
             }
         }
-        //[Route("PrivacyPolicy")]
-        //public VirtualFileResult GetConfidentialFileResult()
-        //{
-        //    var filepath = Path.Combine("~/Resources/Files", "Политика конфиденциальности.pdf");
-        //    return File(filepath, "application/pdf", "Политика конфиденциальности.pdf");
-        //}
 
         [HttpPost]
         public IActionResult MakeOrder(OrderViewModel order)
@@ -46,15 +40,10 @@ namespace CompanyProject.API.Controllers
             return View();
         }
 
-        //[HttpGet]
-        //public Task<IActionResult> MakeOrderOk()
-        //{
-        //    return Task.FromResult<IActionResult>(View());
-        //}
-        //[HttpGet]
-        //public Task<IActionResult> MakeOrder()
-        //{
-        //    return Task.FromResult<IActionResult>(View());
-        //}
+        [HttpGet]
+        public IActionResult MakeOrder()
+        {
+            return View();
+        }
     }
 }

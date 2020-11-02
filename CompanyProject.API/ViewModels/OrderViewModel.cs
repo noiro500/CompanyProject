@@ -6,7 +6,7 @@ namespace CompanyProject.API.ViewModels
     {
         [Required(ErrorMessage = "Не указано полное имя заказчика")]
         [Display(Name = "Полное имя заказчика *")]
-        public string Name { get; set; }
+        public string CustomerName { get; set; }
 
         [Required(ErrorMessage = "Не указан номер телефона")]
         [Display(Name = "Номер телефона *")]

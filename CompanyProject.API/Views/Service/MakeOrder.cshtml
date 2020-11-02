@@ -1,0 +1,20 @@
+﻿@model OrderViewModel 
+
+@{
+    Layout = "_LayoutMakeOrder" ;
+    ViewData["Title"] = "Вызвать мастера";
+}
+
+<div class="container">
+    <form asp-antiforgery="true" novalidate asp-controller="Service" asp-action="MakeOrder">
+        <div class="validation" asp-validation-summary="ModelOnly"></div>
+        <div class="field">
+            <div class="columns">
+                <div class="column is-full">
+
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+

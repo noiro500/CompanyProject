@@ -12,7 +12,7 @@ namespace CompanyProject.Domain.CustomerAggregate
         public int CustomerId { set; get; }
 
         [Display(Name = "Полное имя заказчика")]
-        public string Name { get; set; }
+        public string CustomerName { get; set; }
 
         [Required]
         [Display(Name = "Номер телефона *")]

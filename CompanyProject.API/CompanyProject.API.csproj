@@ -29,10 +29,13 @@
     <Compile Remove="Migrations\20201028221315_Initial.Designer.cs" />
     <Compile Remove="Migrations\20201029004457_Initial.cs" />
     <Compile Remove="Migrations\20201029004457_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20201029233926_Initial.cs" />
+    <Compile Remove="Migrations\20201029233926_Initial.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Remove="bundleconfig.json" />
+    <Content Remove="Views\Shared\_LayoutMakeOrder.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -221,10 +224,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Service\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="bundleconfig.json" />
     <None Include="Views\MenuFirstLine\About.cshtml" />
     <None Include="Views\MenuFirstLine\Comments.cshtml" />
@@ -236,6 +235,7 @@
     <None Include="Views\Shared\Components\TopMenu\TopMenu.cshtml" />
     <None Include="Views\Shared\ContentViews\PartialView\ContentLayout.cshtml" />
     <None Include="Views\Shared\ContentViews\PartialView\NeedHelpAndPicturePV.cshtml" />
+    <None Include="Views\Shared\_LayoutMakeOrder.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
     <None Include="Views\_ViewImports.cshtml" />
     <None Include="Views\_ViewStart.cshtml" />
