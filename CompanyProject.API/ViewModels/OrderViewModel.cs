@@ -20,7 +20,11 @@ namespace CompanyProject.API.ViewModels
         //[RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}", ErrorMessage = "Некорректный адрес")]
         public string Email { get; set; } = null;
 
-        [Required(ErrorMessage = "Невыбран район/округ")]
+        [Required(ErrorMessage = "Не выбраны край/область")]
+        [Display(Name = "Край/область")]
+        public int Territory { get; set; } = 26;
+
+        [Required(ErrorMessage = "Не выбран район/округ")]
         [Display(Name = "Район/округ *")]
         public string District { get; set; }
 

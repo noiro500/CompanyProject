@@ -108,6 +108,9 @@ namespace CompanyProject.API.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<int>("Territory")
+                        .HasColumnType("integer");
+
                     b.Property<byte[]>("Timestamp")
                         .IsConcurrencyToken()
                         .ValueGeneratedOnAddOrUpdate()
@@ -266,7 +269,7 @@ namespace CompanyProject.API.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("text")
-                        .HasDefaultValue("03.11.2020 0:00");
+                        .HasDefaultValue("06.11.2020 0:00");
 
                     b.Property<int>("CustomerId")
                         .HasColumnType("integer");

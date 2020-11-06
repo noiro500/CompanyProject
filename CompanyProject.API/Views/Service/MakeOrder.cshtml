@@ -1,12 +1,12 @@
-﻿@model OrderViewModel 
+﻿@model OrderViewModel
 
 @{
-    Layout ="_LayoutMakeOrder";
+    Layout = "_LayoutMakeOrder";
     ViewData["Title"] = "Вызвать мастера";
 }
 
 <div class="container">
-    <form asp-antiforgery="true" novalidate asp-controller="Service" asp-action="MakeOrder">
+    <form asp-antiforgery="true" novalidate asp-controller="Service" asp-action="MakeOrder" method="post">
         <div class="validation" asp-validation-summary="ModelOnly"></div>
         <div class="field">
             <div class="columns">
@@ -14,10 +14,10 @@
                     <label class="label" asp-for="CustomerName"></label>
                     <div class="control">
                         <input class="input" type="text" name="CustomerName" asp-for="CustomerName"
-                               placeholder="Как к Вам обращаться"/>
+                               placeholder="Как к Вам обращаться" />
                     </div>
                     <span asp-validation-for="CustomerName" class="has-text-danger"></span>
-                </div>
+                    </div>
             </div>
             <div class="columns">
                 <div class="column is-one-third">
@@ -25,6 +25,29 @@
                     <div class="control">
                         <input class="input" type="text" name="PhoneNumber" asp-for="PhoneNumber"
                                placeholder="Ваш номер телефона" />
+                    </div>
+                </div>
+                <div class="column is-one-third">
+                    <label class="label" asp-for="AnotherPhoneNumber"></label>
+                    <div class="control">
+                        <input class="input" type="text" name="PhoneNumber" asp-for="AnotherPhoneNumber"
+                               placeholder="Рекомендуем указать номер WhatsApp" />
+                    </div>
+                </div>
+                <div class="column is-one-third">
+                    <label class="label" asp-for="Email"></label>
+                    <div class="control">
+                        <input class="input" type="email" name="Email" asp-for="Email"
+                               placeholder="Ваш адрес электронной почты" />
+                    </div>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column is-half">
+                    <label class="label" asp-for="Territory"></label>
+                    <div class="control">
+                        <input class="input" type="email" name="Email" asp-for="Territory"
+                               placeholder="Ваш край/область" value="Ставропольский край" disabled/>
                     </div>
                 </div>
             </div>

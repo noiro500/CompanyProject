@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CompanyProject.API.Migrations
 {
     [DbContext(typeof(CompanyProjectDbContext))]
-    [Migration("20201102215314_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20201106153220_initialCreate")]
+    partial class initialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -109,6 +109,9 @@ namespace CompanyProject.API.Migrations
                     b.Property<string>("Street")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<int>("Territory")
+                        .HasColumnType("integer");
 
                     b.Property<byte[]>("Timestamp")
                         .IsConcurrencyToken()
@@ -268,7 +271,7 @@ namespace CompanyProject.API.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("text")
-                        .HasDefaultValue("03.11.2020 0:00");
+                        .HasDefaultValue("06.11.2020 0:00");
 
                     b.Property<int>("CustomerId")
                         .HasColumnType("integer");
