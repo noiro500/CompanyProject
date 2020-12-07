@@ -6,7 +6,41 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\MenuFirstLine\About.cshtml" />
+    <Content Remove="Views\MenuFirstLine\Comments.cshtml" />
+    <Content Remove="Views\MenuFirstLine\Contacts.cshtml" />
+    <Content Remove="Views\MenuFirstLine\FullPriceList.cshtml" />
+    <Content Remove="Views\Service\_LayoutMakeOrder.cshtml" />
+    <Content Remove="Views\Shared\Components\BlockquoteSection\BlockquoteSection.cshtml" />
+    <Content Remove="Views\Shared\Components\Cards\Cards.cshtml" />
+    <Content Remove="Views\Shared\Components\PriceListTable\PriceListTable.cshtml" />
+    <Content Remove="Views\Shared\Components\TopMenu\TopMenu.cshtml" />
+    <Content Remove="Views\Shared\ContentViews\PartialView\_ContentLayoutPartial.cshtml" />
+    <Content Remove="Views\Shared\ContentViews\PartialView\_NeedHelpAndPicturePartial.cshtml" />
+    <Content Remove="Views\Shared\_Layout.cshtml" />
+    <Content Remove="Views\_ViewImports.cshtml" />
+    <Content Remove="Views\_ViewStart.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\MenuFirstLine\About.cshtml" />
+    <None Include="Views\MenuFirstLine\Comments.cshtml" />
+    <None Include="Views\MenuFirstLine\Contacts.cshtml" />
+    <None Include="Views\MenuFirstLine\FullPriceList.cshtml" />
+    <None Include="Views\Service\_LayoutMakeOrder.cshtml" />
+    <None Include="Views\Shared\Components\BlockquoteSection\BlockquoteSection.cshtml" />
+    <None Include="Views\Shared\Components\Cards\Cards.cshtml" />
+    <None Include="Views\Shared\Components\PriceListTable\PriceListTable.cshtml" />
+    <None Include="Views\Shared\Components\TopMenu\TopMenu.cshtml" />
+    <None Include="Views\Shared\ContentViews\PartialView\_ContentLayoutPartial.cshtml" />
+    <None Include="Views\Shared\ContentViews\PartialView\_NeedHelpAndPicturePartial.cshtml" />
+    <None Include="Views\Shared\_Layout.cshtml" />
+    <None Include="Views\_ViewImports.cshtml" />
+    <None Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
 
 

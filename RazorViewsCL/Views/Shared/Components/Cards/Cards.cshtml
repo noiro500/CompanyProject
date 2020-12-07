@@ -1,0 +1,22 @@
+﻿@model IList<CardViewModel>
+    <div class="columns is-multiline">
+        @foreach (var card in @Model)
+        {
+            <div class="column is-one-quarter column-card">
+            <a asp-controller="@card.AspController" asp-action="@card.AspAction">
+                    <div class="card">
+                        <header class="card-header ">
+                            <span class="card-header-title is-centered">@card.ScreenName</span>
+                        </header>
+                        <div class="card-content">
+                            <div class="media">
+                                <figure class="image displayed">
+                                        <img  src="Resources/CardImage/@card.Image" asp-append-version="true" alt="@card.ScreenName"/>
+                                    </figure>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
