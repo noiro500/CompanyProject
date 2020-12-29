@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using CompanyProject.Domain.FeedbackAggregate;
+using CompanyProject.Domain.Feedback;
 
 namespace CompanyProject.Repository.Repository
 {

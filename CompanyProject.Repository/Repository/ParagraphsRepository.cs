@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using CompanyProject.Domain.ParagraphAggregate;
+using CompanyProject.Domain.Paragraph;
 
 namespace CompanyProject.Repository.Repository
 {

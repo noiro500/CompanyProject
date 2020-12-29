@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CompanyProject.Domain.PriceListAggregate
+namespace CompanyProject.Domain.PriceList
 {
     public interface IPriceListsRepository:IGenericRepository<PriceList>
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using CompanyProject.Domain;
-using CompanyProject.Domain.CompanyContactAggregate;
+using CompanyProject.Domain.CompanyContact;
 using Microsoft.EntityFrameworkCore;
 
 namespace CompanyProject.Repository.Repository

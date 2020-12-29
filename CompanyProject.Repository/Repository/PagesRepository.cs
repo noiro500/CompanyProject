@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
 using CompanyProject.Domain;
-using CompanyProject.Domain.PageAggregate;
+using CompanyProject.Domain.Page;
 
 namespace CompanyProject.Repository.Repository
 {

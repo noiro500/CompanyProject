@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CompanyProject.Domain.MessageAggregate
+namespace CompanyProject.Domain.Message
 {
     public interface IMessagesRepository:IGenericRepository<Message>
     {

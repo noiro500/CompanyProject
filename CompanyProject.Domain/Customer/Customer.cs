@@ -1,11 +1,11 @@
-﻿using CompanyProject.Domain.EmployeeAggregate;
-using CompanyProject.Domain.OrderAggregate;
+﻿using CompanyProject.Domain.Employee;
+using CompanyProject.Domain.Order;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace CompanyProject.Domain.CustomerAggregate
+namespace CompanyProject.Domain.Customer
 {
     public class Customer
     {
@@ -51,7 +51,7 @@ namespace CompanyProject.Domain.CustomerAggregate
 
         public bool IsAdoptedPrivacyPolicy { get; set; }
 
-        public virtual IEnumerable<Order> Orders { get; set; }
+        public virtual IEnumerable<Order.Order> Orders { get; set; }
         public virtual IEnumerable<EmployeeCustomer> EmployeeCustomers { get; set; }
 
         [Timestamp]

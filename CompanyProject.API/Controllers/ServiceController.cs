@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using CompanyProject.API.ViewModels;
 using CompanyProject.Domain;
-using CompanyProject.Domain.MessageAggregate;
+using CompanyProject.Domain.Message;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CompanyProject.API.Controllers

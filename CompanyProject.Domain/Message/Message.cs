@@ -1,7 +1,7 @@
 ﻿ using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace CompanyProject.Domain.MessageAggregate
+namespace CompanyProject.Domain.Message
 {
     public class Message
     {

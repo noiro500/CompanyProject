@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CompanyProject.API.Migrations
 {
     [DbContext(typeof(CompanyProjectDbContext))]
-    [Migration("20201106153220_initialCreate")]
-    partial class initialCreate
+    [Migration("20201225110854_Initialize")]
+    partial class Initialize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace CompanyProject.API.Migrations
                 .HasAnnotation("ProductVersion", "3.1.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            modelBuilder.Entity("CompanyProject.Domain.CompanyContactAggregate.CompanyContact", b =>
+            modelBuilder.Entity("CompanyProject.Domain.CompanyContact.CompanyContact", b =>
                 {
                     b.Property<int>("CompanyContactId")
                         .ValueGeneratedOnAdd()
@@ -68,7 +68,7 @@ namespace CompanyProject.API.Migrations
                         });
                 });
 
-            modelBuilder.Entity("CompanyProject.Domain.CustomerAggregate.Customer", b =>
+            modelBuilder.Entity("CompanyProject.Domain.Customer.Customer", b =>
                 {
                     b.Property<int>("CustomerId")
                         .ValueGeneratedOnAdd()
@@ -125,7 +125,7 @@ namespace CompanyProject.API.Migrations
                     b.ToTable("Customers");
                 });
 
-            modelBuilder.Entity("CompanyProject.Domain.EmployeeAggregate.Employee", b =>
+            modelBuilder.Entity("CompanyProject.Domain.Employee.Employee", b =>
                 {
                     b.Property<int>("EmployeeId")
                         .ValueGeneratedOnAdd()
@@ -168,7 +168,7 @@ namespace CompanyProject.API.Migrations
                     b.ToTable("Employees");
                 });
 
-            modelBuilder.Entity("CompanyProject.Domain.EmployeeAggregate.EmployeeCustomer", b =>
+            modelBuilder.Entity("CompanyProject.Domain.Employee.EmployeeCustomer", b =>
                 {
                     b.Property<int>("EmployeeId")
                         .HasColumnType("integer");
@@ -183,7 +183,7 @@ namespace CompanyProject.API.Migrations
                     b.ToTable("EmployeeCustomer");
                 });
 
-            modelBuilder.Entity("CompanyProject.Domain.FeedbackAggregate.Feedback", b =>
+            modelBuilder.Entity("CompanyProject.Domain.Feedback.Feedback", b =>
                 {
                     b.Property<int>("FeedbackId")
                         .ValueGeneratedOnAdd()
@@ -219,7 +219,7 @@ namespace CompanyProject.API.Migrations
                     b.ToTable("Feedbacks");
                 });
 
-            modelBuilder.Entity("CompanyProject.Domain.MessageAggregate.Message", b =>
+            modelBuilder.Entity("CompanyProject.Domain.Message.Message", b =>
                 {
                     b.Property<int>("MessageId")
                         .ValueGeneratedOnAdd()
@@ -260,7 +260,7 @@ namespace CompanyProject.API.Migrations
                     b.ToTable("Messages");
                 });
 
-            modelBuilder.Entity("CompanyProject.Domain.OrderAggregate.Order", b =>
+            modelBuilder.Entity("CompanyProject.Domain.Order.Order", b =>
                 {
                     b.Property<int>("OrderId")
                         .ValueGeneratedOnAdd()
@@ -271,7 +271,7 @@ namespace CompanyProject.API.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("text")
-                        .HasDefaultValue("06.11.2020 0:00");
+                        .HasDefaultValue("25.12.2020 0:00");
 
                     b.Property<int>("CustomerId")
                         .HasColumnType("integer");
@@ -323,7 +323,7 @@ namespace CompanyProject.API.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("CompanyProject.Domain.PageAggregate.Page", b =>
+            modelBuilder.Entity("CompanyProject.Domain.Page.Page", b =>
                 {
                     b.Property<int>("PageId")
                         .ValueGeneratedOnAdd()
@@ -448,7 +448,7 @@ namespace CompanyProject.API.Migrations
                         });
                 });
 
-            modelBuilder.Entity("CompanyProject.Domain.ParagraphAggregate.Paragraph", b =>
+            modelBuilder.Entity("CompanyProject.Domain.Paragraph.Paragraph", b =>
                 {
                     b.Property<int>("ParagraphId")
                         .ValueGeneratedOnAdd()
@@ -695,7 +695,7 @@ namespace CompanyProject.API.Migrations
                         });
                 });
 
-            modelBuilder.Entity("CompanyProject.Domain.PriceListAggregate.PriceList", b =>
+            modelBuilder.Entity("CompanyProject.Domain.PriceList.PriceList", b =>
                 {
                     b.Property<int>("PriceListId")
                         .ValueGeneratedOnAdd()
@@ -738,7 +738,7 @@ namespace CompanyProject.API.Migrations
                             IdServiceName = "computers-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Замена материнской платы компьютера", "Замена блока питания компьютера", "Работы по замене шлейфов или питающих кабелей", "Ремонт блока питания (проводится в сервисном центре)", "Восстановление работоспособности (замена) кнопки включения", "Прочие необходимые работы" },
                             PageId = 2,
-                            Service = "Не включается компьютер",
+                            Service = "Компьютер не включается",
                             ServiceName = "Ремонт компьютеров",
                             ServicePrice = "2000"
                         },
@@ -748,7 +748,7 @@ namespace CompanyProject.API.Migrations
                             IdServiceName = "computers-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Замена материнской платы компьютера", "Замена блока питания компьютера", "Работы по замене шлейфов или питающих кабелей", "Ремонт блока питания (проводится в сервисном центре)", "Восстановление работоспособности (замена) кнопки включения", "Прочие необходимые работы" },
                             PageId = 2,
-                            Service = "Красный экран на компьютере",
+                            Service = "Устранение \"красного экрана\" на компьютере",
                             ServiceName = "Ремонт компьютеров",
                             ServicePrice = "2000"
                         },
@@ -758,7 +758,7 @@ namespace CompanyProject.API.Migrations
                             IdServiceName = "computers-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Установка Windows XP - Windows 10", "Поиск и установка драйверов устройств", "Восстановление корректной работы, обеспечение совместимости драйвера с текущей версией операционной системы", "Удаление временных, мусорных системных файлов", "Чистка системного реестра Windows", "Устранение последствий действия вирусов, восстановление работы операционной системы", "Выявление и устранение неполадок программного обеспечения", "Поиск и исправление ошибок системного реестра Windows", "Настройка таймингов оперативной памяти в BIOS", "Устранение перегрева компьютера, профилактические работы, чистка от пыли, замена термопасты и термопрокладок", "Основная антивирусная профилактика (удаление СМС-вымогателя, трояна, баннера, других вирусов)", "Прочие необходимые работы" },
                             PageId = 2,
-                            Service = "Синий экран на компьютере",
+                            Service = "Устранение \"синего экрана\" на компьютере",
                             ServiceName = "Ремонт компьютеров",
                             ServicePrice = "1500"
                         },
@@ -768,7 +768,7 @@ namespace CompanyProject.API.Migrations
                             IdServiceName = "computers-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Восстановление корректной работы, обеспечение совместимости драйвера с текущей версией операционной системы", "Настройка автозагрузки Windows", "Удаление временных, мусорных системных файлов", "Чистка системного реестра Windows", "Выявление и устранение неполадок программного обеспечения", "Поиск и исправление ошибок системного реестра Windows", "Настройка таймингов оперативной памяти в BIOS", "Основная антивирусная профилактика (удаление СМС-вымогателя, трояна, баннера, других вирусов)", "Прочие необходимые работы" },
                             PageId = 2,
-                            Service = "Ошибки в работе компьютера",
+                            Service = "Устарнение ошибок при работе компьютера",
                             ServiceName = "Ремонт компьютеров",
                             ServicePrice = "2500"
                         },
@@ -778,7 +778,7 @@ namespace CompanyProject.API.Migrations
                             IdServiceName = "computers-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Установка Windows XP - Windows 10", "Настройка автозагрузки Windows", "Удаление временных, мусорных системных файлов", "Чистка системного реестра Windows", "Поиск и исправление ошибок системного реестра Windows", "Устранение перегрева компьютера, профилактические работы, чистка от пыли, замена термопасты и термопрокладок", "Основная антивирусная профилактика (удаление СМС-вымогателя, трояна, баннера, других вирусов)", "Глубокая антивирусная профилактика (устранение последствий действия вирусов, восстановление работы операционной системы)", "Прочие необходимые работы" },
                             PageId = 2,
-                            Service = "Зависает компьютер",
+                            Service = "Устранение зависания компьютера",
                             ServiceName = "Ремонт компьютеров",
                             ServicePrice = "2000"
                         },
@@ -788,7 +788,7 @@ namespace CompanyProject.API.Migrations
                             IdServiceName = "computers-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Выявление и устранение неполадок программного обеспечения", "Замена оперативной памяти компьютера", "Устранение перегрева компьютера, профилактические работы, чистка от пыли, замена термопасты и термопрокладок", "Прочие необходимые работы" },
                             PageId = 2,
-                            Service = "Самопроизвольная перезагрузка компьютера",
+                            Service = "Устранение самопроизвольной перезагрузки компьютера",
                             ServiceName = "Ремонт компьютеров",
                             ServicePrice = "2000"
                         },
@@ -798,7 +798,7 @@ namespace CompanyProject.API.Migrations
                             IdServiceName = "computers-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Замена вентилятора (кулера) компьютера", "Замена системы охлаждения компьютера", "Устранение перегрева компьютера, профилактические работы, чистка от пыли, замена термопасты и термопрокладок", "Прочие необходимые работы" },
                             PageId = 2,
-                            Service = "Шумит компьютер",
+                            Service = "Устарнение повышенного шума компьютера",
                             ServiceName = "Ремонт компьютеров",
                             ServicePrice = "1500"
                         },
@@ -808,7 +808,7 @@ namespace CompanyProject.API.Migrations
                             IdServiceName = "computers-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Замена вентилятора (кулера) компьютера", "Замена системы охлаждения компьютера", "Устранение перегрева компьютера, профилактические работы, чистка от пыли, замена термопасты и термопрокладок", "Прочие необходимые работы" },
                             PageId = 2,
-                            Service = "Перегревается компьютер",
+                            Service = "Устранение перегрева компьютера",
                             ServiceName = "Ремонт компьютеров",
                             ServicePrice = "1500"
                         },
@@ -918,7 +918,7 @@ namespace CompanyProject.API.Migrations
                             IdServiceName = "pc-service",
                             NeedWorks = new[] { "Чистка системы охлаждения процессора от пыли", "Чистка системы охлаждения видеокарты от пыли", "Чистка системы охлаждения материнмкой платы от пыли" },
                             PageId = 2,
-                            Service = "Чистка компьютера от пыли без разборки системного блока",
+                            Service = "Чистка компьютера от пыли без замены термопасты",
                             ServiceName = "Обслуживание компьютера",
                             ServicePrice = "1000"
                         },
@@ -938,7 +938,7 @@ namespace CompanyProject.API.Migrations
                             IdServiceName = "laptop-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Замена оперативной памяти ноутбука", "Замена видеокарты ноутбука", "Замена жесткого диска ноутбука", "Замена материнской платы ноутбука", "Ремонт системы охлаждения ноутбука", "Восстановление работоспособности жесткого диска ноутбука, повторная разметка секторов (Remap)", "Устранение перегрева ноутбука, профилактические работы, чистка от пыли, замена термопасты и термопрокладок", "Прочие необходимые работы" },
                             PageId = 3,
-                            Service = "Синий экран на ноутбуке",
+                            Service = "Устранение \"красного экрана\" на ноутбуке",
                             ServiceName = "Ремонт ноутбуков",
                             ServicePrice = "2500"
                         },
@@ -948,7 +948,7 @@ namespace CompanyProject.API.Migrations
                             IdServiceName = "laptop-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Замена материнской платы ноутбука", "Замена блока питания ноутбука", "Работы по замене шлейфов или питающих кабелей", "Ремонт блока питания (проводится в сервисном центре)", "Замена отдельных комплектующих ноутбука", "Прочие необходимые работы" },
                             PageId = 3,
-                            Service = "Красный экран на ноутбуке",
+                            Service = "Устранение \"синего экрана\" на ноутбуке",
                             ServiceName = "Ремонт ноутбуков",
                             ServicePrice = "2500"
                         },
@@ -958,7 +958,7 @@ namespace CompanyProject.API.Migrations
                             IdServiceName = "laptop-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Восстановление корректной работы, обеспечение совместимости драйвера с текущей версией операционной системы", "Настройка автозагрузки Windows", "Удаление временных, мусорных системных файлов", "Чистка системного реестра Windows", "Основная антивирусная профилактика (удаление СМС-вымогателя, трояна, баннера, других вирусов) ", "Выявление и устранение неполадок программного обеспечения", "Поиск и исправление ошибок системного реестра Windows", "Восстановление работоспособности жесткого диска ноутбука, повторная разметка секторов (Remap)", "Прочие необходимые работы" },
                             PageId = 3,
-                            Service = "Ошибки в работе ноутбука",
+                            Service = "Устарнение ошибок при работе ноутбука",
                             ServiceName = "Ремонт ноутбуков",
                             ServicePrice = "3000"
                         },
@@ -968,7 +968,7 @@ namespace CompanyProject.API.Migrations
                             IdServiceName = "laptop-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Установка Windows XP - Windows 10", "Восстановление корректной работы, обеспечение совместимости драйвера с текущей версией операционной системы", "Удаление временных, мусорных системных файлов", "Чистка системного реестра Windows", "Глубокая антивирусная профилактика (устранение последствий действия вирусов, восстановление работы операционной системы)", "Выявление и устранение неполадок программного обеспечения", "Поиск и исправление ошибок системного реестра Windows", "Ремонт системы охлаждения ноутбука", "Устранение перегрева ноутбука, профилактические работы, чистка от пыли, замена термопасты и термопрокладок", "Прочие необходимые работы" },
                             PageId = 3,
-                            Service = "Зависает ноутбук",
+                            Service = "Устранение зависания ноутбука",
                             ServiceName = "Ремонт ноутбуков",
                             ServicePrice = "2500"
                         },
@@ -978,7 +978,7 @@ namespace CompanyProject.API.Migrations
                             IdServiceName = "laptop-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Восстановление корректной работы, обеспечение совместимости драйвера с текущей версией операционной системы", "Чистка системного реестра Windows", "Выявление и устранение неполадок программного обеспечения", "Поиск и исправление ошибок системного реестра Windows", "Ремонт системы охлаждения ноутбука", "Устранение перегрева ноутбука, профилактические работы, чистка от пыли, замена термопасты и термопрокладок", "Замена оперативной памяти ноутбука", "Ремонт цепи питания ноутбука", "Прочие необходимые работы" },
                             PageId = 3,
-                            Service = "Самопроизвольная перезагрузка ноутбука",
+                            Service = "Устранение самопроизвольной перезагрузки ноутбука",
                             ServiceName = "Ремонт ноутбуков",
                             ServicePrice = "2500"
                         },
@@ -988,7 +988,7 @@ namespace CompanyProject.API.Migrations
                             IdServiceName = "laptop-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Замена вентилятора (кулера) ноутбука", "Ремонт системы охлаждения ноутбука", "Устранение перегрева ноутбука, профилактические работы, чистка от пыли, замена термопасты и термопрокладок", "Прочие необходимые работы" },
                             PageId = 3,
-                            Service = "Шумит ноутбук",
+                            Service = "Устарнение повышенного шума ноутбука",
                             ServiceName = "Ремонт ноутбуков",
                             ServicePrice = "2000"
                         },
@@ -998,7 +998,7 @@ namespace CompanyProject.API.Migrations
                             IdServiceName = "laptop-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Замена вентилятора (кулера) ноутбука", "Ремонт системы охлаждения ноутбука", "Устранение перегрева ноутбука, профилактические работы, чистка от пыли, замена термопасты и термопрокладок", "Прочие необходимые работы" },
                             PageId = 3,
-                            Service = "Перегревается ноутбук",
+                            Service = "Устранение перегрева ноутбука",
                             ServiceName = "Ремонт ноутбуков",
                             ServicePrice = "2000"
                         },
@@ -1344,57 +1344,57 @@ namespace CompanyProject.API.Migrations
                         });
                 });
 
-            modelBuilder.Entity("CompanyProject.Domain.EmployeeAggregate.EmployeeCustomer", b =>
+            modelBuilder.Entity("CompanyProject.Domain.Employee.EmployeeCustomer", b =>
                 {
-                    b.HasOne("CompanyProject.Domain.CustomerAggregate.Customer", "Customer")
+                    b.HasOne("CompanyProject.Domain.Customer.Customer", "Customer")
                         .WithMany("EmployeeCustomers")
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CompanyProject.Domain.EmployeeAggregate.Employee", "Employee")
+                    b.HasOne("CompanyProject.Domain.Employee.Employee", "Employee")
                         .WithMany("EmployeeCustomers")
                         .HasForeignKey("EmployeeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("CompanyProject.Domain.FeedbackAggregate.Feedback", b =>
+            modelBuilder.Entity("CompanyProject.Domain.Feedback.Feedback", b =>
                 {
-                    b.HasOne("CompanyProject.Domain.OrderAggregate.Order", "Order")
+                    b.HasOne("CompanyProject.Domain.Order.Order", "Order")
                         .WithOne("Feedback")
-                        .HasForeignKey("CompanyProject.Domain.FeedbackAggregate.Feedback", "OrderForeignKey")
+                        .HasForeignKey("CompanyProject.Domain.Feedback.Feedback", "OrderForeignKey")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("CompanyProject.Domain.OrderAggregate.Order", b =>
+            modelBuilder.Entity("CompanyProject.Domain.Order.Order", b =>
                 {
-                    b.HasOne("CompanyProject.Domain.CustomerAggregate.Customer", "Customer")
+                    b.HasOne("CompanyProject.Domain.Customer.Customer", "Customer")
                         .WithMany("Orders")
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CompanyProject.Domain.EmployeeAggregate.Employee", "Employee")
+                    b.HasOne("CompanyProject.Domain.Employee.Employee", "Employee")
                         .WithMany("Orders")
                         .HasForeignKey("EmployeeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("CompanyProject.Domain.ParagraphAggregate.Paragraph", b =>
+            modelBuilder.Entity("CompanyProject.Domain.Paragraph.Paragraph", b =>
                 {
-                    b.HasOne("CompanyProject.Domain.PageAggregate.Page", "Page")
+                    b.HasOne("CompanyProject.Domain.Page.Page", "Page")
                         .WithMany("Paragraphs")
                         .HasForeignKey("PageId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("CompanyProject.Domain.PriceListAggregate.PriceList", b =>
+            modelBuilder.Entity("CompanyProject.Domain.PriceList.PriceList", b =>
                 {
-                    b.HasOne("CompanyProject.Domain.PageAggregate.Page", "Page")
+                    b.HasOne("CompanyProject.Domain.Page.Page", "Page")
                         .WithMany("PriceLists")
                         .HasForeignKey("PageId")
                         .OnDelete(DeleteBehavior.Cascade)

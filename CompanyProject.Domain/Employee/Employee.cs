@@ -1,9 +1,9 @@
-﻿using CompanyProject.Domain.OrderAggregate;
+﻿using CompanyProject.Domain.Order;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace CompanyProject.Domain.EmployeeAggregate
+namespace CompanyProject.Domain.Employee
 {
     public class Employee
     {
@@ -22,7 +22,7 @@ namespace CompanyProject.Domain.EmployeeAggregate
         [DataType(DataType.MultilineText)]
         public string Address { get; set; }
         public double Rating { get; set; }
-        public virtual IEnumerable<Order> Orders { get; set; }
+        public virtual IEnumerable<Order.Order> Orders { get; set; }
         public virtual IEnumerable<EmployeeCustomer> EmployeeCustomers { get; set; }
 
         [Timestamp]

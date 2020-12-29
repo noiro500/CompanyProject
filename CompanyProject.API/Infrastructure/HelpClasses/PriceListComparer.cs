@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using CompanyProject.Domain.PriceListAggregate;
+using CompanyProject.Domain.PriceList;
 
 namespace CompanyProject.API.Infrastructure.HelpClasses
 {

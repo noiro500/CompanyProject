@@ -1,4 +1,4 @@
-﻿using CompanyProject.Domain.EmployeeAggregate;
+﻿using CompanyProject.Domain.Employee;
 using System;
 using System.Collections.Generic;
 using System.Text;

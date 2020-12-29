@@ -1,9 +1,9 @@
-﻿using CompanyProject.Domain.PageAggregate;
+﻿using CompanyProject.Domain.Page;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace CompanyProject.Domain.ParagraphAggregate
+namespace CompanyProject.Domain.Paragraph
 {
     public class Paragraph
     {
@@ -15,7 +15,7 @@ namespace CompanyProject.Domain.ParagraphAggregate
         public bool IsList { get; set; } = false;
         public bool IsMobileVisible { get; set; } = false;
         public string[] Content { get; set; }
-        public virtual Page Page { get; set; }
+        public virtual Page.Page Page { get; set; }
         public int PageId { get; set; }
 
         [Timestamp]

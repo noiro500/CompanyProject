@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace CompanyProject.Domain.CompanyContactAggregate
+namespace CompanyProject.Domain.CompanyContact
 {
     public class CompanyContact
     {

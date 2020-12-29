@@ -4,8 +4,8 @@ using System.IO;
 using System.Net.Mime;
 using System.Reflection;
 using System.Text.Json;
-using CompanyProject.Domain.ParagraphAggregate;
-using CompanyProject.Domain.PriceListAggregate;
+using CompanyProject.Domain.Paragraph;
+using CompanyProject.Domain.PriceList;
 using Microsoft.Extensions.FileProviders;
 
 namespace CompanyProject.Repository.InitialDataBase

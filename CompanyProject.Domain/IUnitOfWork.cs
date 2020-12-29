@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using CompanyProject.Domain.CompanyContactAggregate;
-using CompanyProject.Domain.CustomerAggregate;
-using CompanyProject.Domain.EmployeeAggregate;
-using CompanyProject.Domain.FeedbackAggregate;
-using CompanyProject.Domain.MessageAggregate;
-using CompanyProject.Domain.OrderAggregate;
-using CompanyProject.Domain.PageAggregate;
-using CompanyProject.Domain.ParagraphAggregate;
-using CompanyProject.Domain.PriceListAggregate;
+using CompanyProject.Domain.CompanyContact;
+using CompanyProject.Domain.Customer;
+using CompanyProject.Domain.Employee;
+using CompanyProject.Domain.Feedback;
+using CompanyProject.Domain.Message;
+using CompanyProject.Domain.Order;
+using CompanyProject.Domain.Page;
+using CompanyProject.Domain.Paragraph;
+using CompanyProject.Domain.PriceList;
 
 namespace CompanyProject.Domain
 {

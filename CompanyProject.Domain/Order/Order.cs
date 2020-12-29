@@ -1,10 +1,7 @@
-﻿using CompanyProject.Domain.FeedbackAggregate;
-using System;
+﻿using CompanyProject.Domain.Feedback;
 using System.ComponentModel.DataAnnotations;
-using CompanyProject.Domain.CustomerAggregate;
-using CompanyProject.Domain.EmployeeAggregate;
 
-namespace CompanyProject.Domain.OrderAggregate
+namespace CompanyProject.Domain.Order
 {
     public class Order
     {
@@ -35,11 +32,11 @@ namespace CompanyProject.Domain.OrderAggregate
 
         public decimal RealPrice { get; set; } = 0;
 
-        public virtual Customer Customer { get; set; }
+        public virtual Customer.Customer Customer { get; set; }
         public int CustomerId { get; set; }
-        public virtual Employee Employee { get; set; }
+        public virtual Employee.Employee Employee { get; set; }
         public int EmployeeId { get; set; }
-        public virtual Feedback Feedback { get; set; }
+        public virtual Feedback.Feedback Feedback { get; set; }
         public int FeedbackId { get; set; }
 
         [Timestamp]

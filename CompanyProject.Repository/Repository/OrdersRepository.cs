@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using CompanyProject.Domain.OrderAggregate;
+using CompanyProject.Domain.Order;
 
 namespace CompanyProject.Repository.Repository
 {

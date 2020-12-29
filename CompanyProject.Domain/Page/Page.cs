@@ -1,10 +1,10 @@
-﻿using CompanyProject.Domain.ParagraphAggregate;
+﻿using CompanyProject.Domain.Paragraph;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using CompanyProject.Domain.PriceListAggregate;
+using CompanyProject.Domain.PriceList;
 
-namespace CompanyProject.Domain.PageAggregate
+namespace CompanyProject.Domain.Page
 {
     public class Page
     {
@@ -15,8 +15,8 @@ namespace CompanyProject.Domain.PageAggregate
         public string Icon { get; set; } = null;
         public bool ToNavbar { get; set; } = false;
         public bool ToCard { get; set; } = false;
-        public virtual IEnumerable<Paragraph> Paragraphs { get; set; }
-        public virtual IEnumerable<PriceList> PriceLists { get; set; }
+        public virtual IEnumerable<Paragraph.Paragraph> Paragraphs { get; set; }
+        public virtual IEnumerable<PriceList.PriceList> PriceLists { get; set; }
 
         [Timestamp]
         public byte[] Timestamp { get; set; }

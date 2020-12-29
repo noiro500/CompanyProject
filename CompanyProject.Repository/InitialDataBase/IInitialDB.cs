@@ -1,7 +1,7 @@
-﻿using CompanyProject.Domain.ParagraphAggregate;
+﻿using CompanyProject.Domain.Paragraph;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using CompanyProject.Domain.PriceListAggregate;
+using CompanyProject.Domain.PriceList;
 
 namespace CompanyProject.Repository.InitialDataBase
 {

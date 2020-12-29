@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CompanyProject.Domain.PageAggregate
+namespace CompanyProject.Domain.Page
 {
     public interface IPagesRepository:IGenericRepository<Page>
     {

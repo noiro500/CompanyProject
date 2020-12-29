@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using CompanyProject.Domain.MessageAggregate;
+using CompanyProject.Domain.Message;
 
 namespace CompanyProject.Repository.Repository
 {
