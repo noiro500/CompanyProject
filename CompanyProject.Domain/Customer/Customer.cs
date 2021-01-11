@@ -47,7 +47,7 @@ namespace CompanyProject.Domain.Customer
         public string HouseNumber { get; set; }
 
         [Display(Name = "Номер квартиры/офиса")]
-        public string ApartmentOrOffice { get; set; } = null;
+        public string ApartmentOrOfficeNumber { get; set; } = null;
 
         public bool IsAdoptedPrivacyPolicy { get; set; }
 

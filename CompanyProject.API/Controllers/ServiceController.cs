@@ -35,7 +35,7 @@ namespace CompanyProject.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult MakeOrder(OrderViewModel order)
+        public async Task<IActionResult> MakeOrder(OrderViewModel order)
         {
             return View();
         }
