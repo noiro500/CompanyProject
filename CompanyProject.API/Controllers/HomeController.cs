@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using CompanyProject.API.ViewModels;
+using CompanyProject.ViewModels;
 using CompanyProject.Domain;
 using Microsoft.AspNetCore.Mvc;
 

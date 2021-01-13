@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using CompanyProject.API.ViewModels;
+using CompanyProject.ViewModels;
+//using CompanyProject.API.ViewModels;
 using CompanyProject.Domain;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+
 
 namespace CompanyProject.API.Infrastructure.ViewComponents
 {

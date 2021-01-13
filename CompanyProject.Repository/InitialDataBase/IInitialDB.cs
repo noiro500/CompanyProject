@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using CompanyProject.Domain.PriceList;
+using CompanyProject.Domain.RealAddress;
 
 namespace CompanyProject.Repository.InitialDataBase
 {
@@ -9,5 +10,6 @@ namespace CompanyProject.Repository.InitialDataBase
     { 
       IList<Paragraph> GetInitialDbContent();
       IList<PriceList> GetInitialDbPriceLists();
+      IList<RealAddress> GetInitialDbRealAddresses();
     }
 }

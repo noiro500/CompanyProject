@@ -37,6 +37,24 @@
     <Compile Remove="Migrations\20201102215314_InitialCreate.Designer.cs" />
     <Compile Remove="Migrations\20201106153220_initialCreate.cs" />
     <Compile Remove="Migrations\20201106153220_initialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20201225110854_Initialize.cs" />
+    <Compile Remove="Migrations\20201225110854_Initialize.Designer.cs" />
+    <Compile Remove="Migrations\20210113004355_Initial.cs" />
+    <Compile Remove="Migrations\20210113004355_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20210113004732_Initial.cs" />
+    <Compile Remove="Migrations\20210113004732_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20210113005253_Initial.cs" />
+    <Compile Remove="Migrations\20210113005253_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20210113005501_Initial.cs" />
+    <Compile Remove="Migrations\20210113005501_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20210113010241_Initial.cs" />
+    <Compile Remove="Migrations\20210113010241_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20210113021626_Initial.cs" />
+    <Compile Remove="Migrations\20210113021626_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20210113022251_Initial.cs" />
+    <Compile Remove="Migrations\20210113022251_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20210113030442_Initial.cs" />
+    <Compile Remove="Migrations\20210113030442_Initial.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -62,6 +80,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CompanyProject.Repository\CompanyProject.Repository.csproj" />
+    <ProjectReference Include="..\CompanyProject.ViewModels\CompanyProject.ViewModels.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -180,6 +199,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\Resources\DbSeed\InitialDBPriceLists.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Resources\DbSeed\InitialDbRealAddress.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\Resources\Files\Политика конфиденциальности.pdf">
@@ -499,6 +521,12 @@
     <ApplicationDefinition Include="wwwroot\lib\jquery\core.js" />
     <ApplicationDefinition Include="wwwroot\lib\jquery\jquery.js" />
     <None Include="wwwroot\styles\sass\bulma-with-edit.scss" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+    <Folder Include="ViewModels_\" />
+    <Folder Include="Views\Service\Shared\" />
   </ItemGroup>
 
 </Project>

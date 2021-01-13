@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using CompanyProject.API.ViewModels;
+using CompanyProject.ViewModels;
 using CompanyProject.Domain;
 using CompanyProject.Domain.Message;
 using Microsoft.AspNetCore.Mvc;
