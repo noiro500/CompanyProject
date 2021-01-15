@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using CompanyProject.Domain;
+using CompanyProject.Domain.AddressFormDb;
 using CompanyProject.Domain.CompanyContact;
 using CompanyProject.Domain.Customer;
 using CompanyProject.Domain.Employee;
@@ -39,6 +40,9 @@ namespace CompanyProject.Repository
         public IParagraphsRepository Paragraphs { get; }
 
         public IPriceListsRepository PriceLists { get; }
+
+        public IAddressFromDbRepository AddressFromDbs { get; }
+
         public UnitOfWork(CompanyProjectDbContext context)
         {
             _context = context;
@@ -51,6 +55,7 @@ namespace CompanyProject.Repository
             this.Pages = new PagesRepository(_context);
             this.Paragraphs = new ParagraphsRepository(_context);
             this.PriceLists = new PriceListsRepository(_context);
+            this.AddressFromDbs=new AddressFromDbRepository(_context);
         }
         public async Task<int> Complete()
         {

@@ -55,6 +55,20 @@
     <Compile Remove="Migrations\20210113022251_Initial.Designer.cs" />
     <Compile Remove="Migrations\20210113030442_Initial.cs" />
     <Compile Remove="Migrations\20210113030442_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20210113030714_Initial.cs" />
+    <Compile Remove="Migrations\20210113030714_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20210114090259_Initial.cs" />
+    <Compile Remove="Migrations\20210114090259_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20210114152554_Initial.cs" />
+    <Compile Remove="Migrations\20210114152554_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20210114153358_Initial.cs" />
+    <Compile Remove="Migrations\20210114153358_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20210115131615_Initial.cs" />
+    <Compile Remove="Migrations\20210115131615_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20210115131813_Initial.cs" />
+    <Compile Remove="Migrations\20210115131813_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20210115132003_Initial.cs" />
+    <Compile Remove="Migrations\20210115132003_Initial.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -201,7 +215,7 @@
     <Content Update="wwwroot\Resources\DbSeed\InitialDBPriceLists.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\Resources\DbSeed\InitialDbRealAddress.json">
+    <Content Update="wwwroot\Resources\DbSeed\InitialDbAddressFormDb.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\Resources\Files\Политика конфиденциальности.pdf">
@@ -524,7 +538,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\" />
     <Folder Include="ViewModels_\" />
     <Folder Include="Views\Service\Shared\" />
   </ItemGroup>

@@ -6,9 +6,9 @@ using System.Net.Mime;
 using System.Reflection;
 using System.Text.Json;
 using System.Threading.Tasks;
+using CompanyProject.Domain.AddressFormDb;
 using CompanyProject.Domain.Paragraph;
 using CompanyProject.Domain.PriceList;
-using CompanyProject.Domain.RealAddress;
 using Microsoft.Extensions.FileProviders;
 
 namespace CompanyProject.Repository.InitialDataBase
@@ -17,12 +17,11 @@ namespace CompanyProject.Repository.InitialDataBase
     {
         public IList<Paragraph> GetInitialDbContent()
         {
-            IFileProvider getCurrentDirectory=new PhysicalFileProvider(Directory.GetCurrentDirectory());
+            IFileProvider getCurrentDirectory = new PhysicalFileProvider(Directory.GetCurrentDirectory());
             var jsonData = JsonSerializer.Deserialize<List<Paragraph>>(File.ReadAllText(getCurrentDirectory.GetFileInfo("/wwwroot/Resources/DbSeed/InitialDBContentNew.json").PhysicalPath));
             int i = 0;
             jsonData.ForEach(p => p.ParagraphId = ++i);
             return jsonData;
-            //throw new System.NotImplementedException();
 
         }
 
@@ -33,19 +32,17 @@ namespace CompanyProject.Repository.InitialDataBase
             int i = 0;
             jsonData.ForEach(p => p.PriceListId = ++i);
             return jsonData;
-            //throw new System.NotImplementedException();
         }
 
-        public IList<RealAddress> GetInitialDbRealAddresses()
+        public IList<AddressFormDb> GetInitialDbRealAddresses()
         {
             IFileProvider getCurrentDirectory = new PhysicalFileProvider(Directory.GetCurrentDirectory());
-            var jsonData = JsonSerializer.Deserialize<List<RealAddress>>(File.ReadAllText(getCurrentDirectory.GetFileInfo("/wwwroot/Resources/DbSeed/InitialDbRealAddress.json").PhysicalPath)); 
+            var jsonData = JsonSerializer.Deserialize<List<AddressFormDb>>(File.ReadAllText(getCurrentDirectory.GetFileInfo("/wwwroot/Resources/DbSeed/InitialDbAddressFormDb.json").PhysicalPath)); 
             int i = 0;
-            jsonData.ForEach(p => p.RealAddressId = ++i);
+            jsonData.ForEach(p => p.AddressFormDbId = ++i);
             return jsonData;
 
-            //throw new NotImplementedException();
         }
-        
+
     }
 }

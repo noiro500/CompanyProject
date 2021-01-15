@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using CompanyProject.Domain.AddressFormDb;
 using CompanyProject.Domain.CompanyContact;
 using CompanyProject.Domain.Customer;
 using CompanyProject.Domain.Employee;
@@ -9,7 +10,6 @@ using CompanyProject.Domain.Order;
 using CompanyProject.Domain.Page;
 using CompanyProject.Domain.Paragraph;
 using CompanyProject.Domain.PriceList;
-using CompanyProject.Domain.RealAddress;
 using CompanyProject.Repository.InitialDataBase;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
@@ -32,7 +32,7 @@ namespace CompanyProject.Repository
         public DbSet<Message> Messages { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<PriceList> PriceLists { get; set; }
-        public DbSet<RealAddress> RealAddresses { get; set; }
+        public DbSet<AddressFormDb> AddressFormDbs { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Page>()
@@ -88,7 +88,7 @@ namespace CompanyProject.Repository
             modelBuilder.Entity<PriceList>().HasData(
                 _context.GetInitialDbPriceLists()
                 );
-            modelBuilder.Entity<RealAddress>().HasData(
+            modelBuilder.Entity<AddressFormDb>().HasData(
                 _context.GetInitialDbRealAddresses()
             );
 

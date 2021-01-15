@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using CompanyProject.Domain;
+using CompanyProject.Domain.AddressFormDb;
 using CompanyProject.Domain.CompanyContact;
 using CompanyProject.Domain.Customer;
 using CompanyProject.Domain.Employee;
@@ -33,6 +34,7 @@ namespace CompanyProject.Repository
             services.AddTransient<IPagesRepository, PagesRepository>();
             services.AddTransient<IParagraphsRepository, ParagraphsRepository>();
             services.AddTransient<IPriceListsRepository, PriceListsRepository>();
+            services.AddSingleton<IAddressFromDbRepository, AddressFromDbRepository>();
             services.AddDbContext<CompanyProjectDbContext>(options =>
                 options.UseLazyLoadingProxies().UseNpgsql(configConnectionToDb, b=>b.MigrationsAssembly("CompanyProject.API")));
             services.AddTransient<IUnitOfWork, UnitOfWork>();
