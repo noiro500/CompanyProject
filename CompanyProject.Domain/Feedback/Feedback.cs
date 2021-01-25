@@ -15,7 +15,7 @@ namespace CompanyProject.Domain.Feedback
         public virtual Order.Order Order { get; set; }
         public int OrderId { get; set; }
 
-        [Timestamp]
-        public byte[] Timestamp { get; set; }
+        //[Timestamp]
+        //public byte[] Timestamp { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace CompanyProject.Domain.CompanyContact
         [Required]
         public bool ToUse { get; set; } = true;
 
-        [Timestamp]
-        public byte[] Timestamp { get; set; }
+        //[Timestamp]
+        //public byte[] Timestamp { get; set; }
     }
 }

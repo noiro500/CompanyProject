@@ -28,7 +28,7 @@ namespace CompanyProject.Repository.InitialDataBase
         public IList<PriceList> GetInitialDbPriceLists()
         {
             IFileProvider getCurrentDirectory = new PhysicalFileProvider(Directory.GetCurrentDirectory());
-            var jsonData = JsonSerializer.Deserialize<List<PriceList>>(File.ReadAllText(getCurrentDirectory.GetFileInfo("/wwwroot/Resources/DbSeed/InitialDBContentNew.json").PhysicalPath));
+            var jsonData = JsonSerializer.Deserialize<List<PriceList>>(File.ReadAllText(getCurrentDirectory.GetFileInfo("/wwwroot/Resources/DbSeed/InitialDBPriceLists.json").PhysicalPath));
             int i = 0;
             jsonData.ForEach(p => p.PriceListId = ++i);
             return jsonData;
@@ -37,7 +37,7 @@ namespace CompanyProject.Repository.InitialDataBase
         public IList<AddressFormDb> GetInitialDbRealAddresses()
         {
             IFileProvider getCurrentDirectory = new PhysicalFileProvider(Directory.GetCurrentDirectory());
-            var jsonData = JsonSerializer.Deserialize<List<AddressFormDb>>(File.ReadAllText(getCurrentDirectory.GetFileInfo("/wwwroot/Resources/DbSeed/InitialDbAddressFormDb.json").PhysicalPath)); 
+            var jsonData = JsonSerializer.Deserialize<List<AddressFormDb>>(File.ReadAllText(getCurrentDirectory.GetFileInfo("/wwwroot/Resources/DbSeed/InitialDbAddressFormDb.json").PhysicalPath));
             int i = 0;
             jsonData.ForEach(p => p.AddressFormDbId = ++i);
             return jsonData;

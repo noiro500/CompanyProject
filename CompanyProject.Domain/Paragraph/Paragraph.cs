@@ -18,7 +18,7 @@ namespace CompanyProject.Domain.Paragraph
         public virtual Page.Page Page { get; set; }
         public int PageId { get; set; }
 
-        [Timestamp]
-        public byte[] Timestamp { get; set; }
+        //[Timestamp]
+        //public byte[] Timestamp { get; set; }
     }
 }

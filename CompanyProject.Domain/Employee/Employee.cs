@@ -25,7 +25,7 @@ namespace CompanyProject.Domain.Employee
         public virtual IEnumerable<Order.Order> Orders { get; set; }
         public virtual IEnumerable<EmployeeCustomer> EmployeeCustomers { get; set; }
 
-        [Timestamp]
-        public byte[] Timestamp { get; set; }
+        //[Timestamp]
+        //public byte[] Timestamp { get; set; }
     }
 }

@@ -33,7 +33,7 @@ namespace CompanyProject.Domain.Message
 
         public bool IsAdoptedPrivacyPolicy { get; set; }
 
-        [Timestamp]
-        public byte[] Timestamp { get; set; }
+        //[Timestamp]
+        //public byte[] Timestamp { get; set; }
     }
 }
