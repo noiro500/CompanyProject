@@ -17,38 +17,117 @@
                                placeholder="Как к Вам обращаться" />
                     </div>
                     <span asp-validation-for="CustomerName" class="has-text-danger"></span>
-                    </div>
-            </div>
-            <div class="columns">
-                <div class="column is-one-third">
-                    <label class="label" asp-for="PhoneNumber"></label>
-                    <div class="control">
-                        <input class="input" type="text" name="PhoneNumber" asp-for="PhoneNumber"
-                               placeholder="Ваш номер телефона" />
-                    </div>
-                </div>
-                <div class="column is-one-third">
-                    <label class="label" asp-for="AnotherPhoneNumber"></label>
-                    <div class="control">
-                        <input class="input" type="text" name="PhoneNumber" asp-for="AnotherPhoneNumber"
-                               placeholder="Рекомендуем указать номер WhatsApp" />
-                    </div>
-                </div>
-                <div class="column is-one-third">
-                    <label class="label" asp-for="Email"></label>
-                    <div class="control">
-                        <input class="input" type="email" name="Email" asp-for="Email"
-                               placeholder="Ваш адрес электронной почты" />
-                    </div>
                 </div>
             </div>
-            <div class="columns">
-                <div class="column is-two-fifths">
-                    <label class="label" asp-for="Territory"></label>
-                    <div class="control">
-                        <input class="input" type="email" name="Email" asp-for="Territory"
-                               placeholder="Ваш край/область" value="Ставропольский край" disabled/>
+            <div class="field">
+                <div class="columns">
+                    <div class="column is-one-third">
+                        <label class="label" asp-for="PhoneNumber"></label>
+                        <div class="control">
+                            <input class="input" type="text" name="PhoneNumber" asp-for="PhoneNumber"
+                                   placeholder="Ваш номер телефона" />
+                        </div>
                     </div>
+                    <div class="column is-one-third">
+                        <label class="label" asp-for="AnotherPhoneNumber"></label>
+                        <div class="control">
+                            <input class="input" type="text" name="PhoneNumber" asp-for="AnotherPhoneNumber"
+                                   placeholder="Рекомендуем указать номер WhatsApp" />
+                        </div>
+                    </div>
+                    <div class="column is-one-third">
+                        <label class="label" asp-for="Email"></label>
+                        <div class="control">
+                            <input class="input" type="email" name="Email" asp-for="Email"
+                                   placeholder="Ваш адрес электронной почты" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <div class="columns">
+                    <div class="column is-one-third">
+                        <label class="label" asp-for="Territory"></label>
+                        <div class="control">
+                            <input class="input" type="email" name="Email" asp-for="Territory"
+                                   placeholder="Ваш край/область" value="Ставропольский край" disabled />
+                        </div>
+                    </div>
+                    @* Сгенерировать из базы данных *@
+                    <div class="column is-one-third">
+                        <label class="label" asp-for="District"></label>
+                        <div class="select">
+                            <select name="District">
+                                <option>Район/Округ</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="column is-one-third">
+                        <label class="label" asp-for="Locality"></label>
+                        <div class="select">
+                            <select name="Locality">
+                                <option>Населенный пункт</option>
+                            </select>
+                        </div>
+                    </div>
+                    @*  *@
+                </div>
+            </div>
+            <div class="field">
+                <div class="columns">
+                    <div class="column is-one-third">
+                        <label class="label" asp-for="Street"></label>
+                        <div class="select">
+                            <select name="Street">
+                                <option>Улица/проспект/переулок</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="column is-one-third">
+                        <label class="label" asp-for="HouseNumber"></label>
+                        <div class="control">
+                            <input class="input" type="text" name="HouseNumber" asp-for="HouseNumber"
+                                   placeholder="Номер дома/строения" />
+                        </div>
+                    </div>
+                    <div class="column is-one-third">
+                        <label class="label" asp-for="ApartmentOrOffice"></label>
+                        <div class="control">
+                            <input class="input" type="text" name="ApartmentOrOffice" asp-for="ApartmentOrOffice"
+                                   placeholder="Номер квартиры/офиса" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <div class="columns">
+                    <div class="column is-full">
+                        <label class="label" asp-for="TypeOfFailure"></label>
+                        <div class="select">
+                            <select name="TypeOfFailure">
+                                <option>
+                                    Причина вызова мастера (если причины нет в списке, выберите 'Прочее'
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <div class="columns">
+                    <div class="column is-full">
+                        <label class="label" asp-for="Description"></label>
+                        <div class="control">
+                            <textarea class="textarea" id="message-content" name="Content" asp-for="Description" data-length="280" rows="4" maxlength="280" minlenght="20"  placeholder="Краткое описание причины вызова (максимум 280 символов)" style="resize: none"></textarea>
+                            <div><span asp-validation-for="Description" class="has-text-danger"></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-full">
+                <label class="label" asp-for="VisitTime"></label>
+                <div class="control">
+                    <input type="text" id="datepicker" placeholder="Выберите дату">
                 </div>
             </div>
         </div>

@@ -14,9 +14,19 @@
             </div>
         </div>
     }
-    else if (p.Content[0] == "NeedHelpAndPicturePV")
+    else if (p.Content[0] == "_NeedHelpAndPicturePartial")
     {
-        <partial name="_NeedHelpAndPicturePartial" />
+        <div class="columns is-vcentered">
+            <div class="column is-half">
+                <vc:blockquote-section name="NeedHelp" />
+            </div>
+            <div class="column is-half is-hidden-touch">
+                <div class="image displayed" style="max-width: 60%;">
+                    <img src="~/Resources/Images/computer_devushka.png" asp-append-version="true"/>
+                </div>
+            </div>
+        </div>
+
     }
     else if (p.IsSubtitle)
     {
@@ -24,7 +34,7 @@
             <div class="column is-full">
                 @foreach (var cnt in p.Content)
                 {
-                    <h3 class="subtitle is-3">@cnt</h3>
+                    <h3 class="subtitle is-3 is-black">@cnt</h3>
                 }
             </div>
         </div>
