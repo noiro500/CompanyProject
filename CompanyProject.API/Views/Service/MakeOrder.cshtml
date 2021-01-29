@@ -73,6 +73,7 @@
                     @*  *@
                 </div>
             </div>
+            @* Сгенерировать из базы данных *@
             <div class="field">
                 <div class="columns">
                     <div class="column is-one-third">
@@ -83,6 +84,7 @@
                             </select>
                         </div>
                     </div>
+                    @*  *@
                     <div class="column is-one-third">
                         <label class="label" asp-for="HouseNumber"></label>
                         <div class="control">
@@ -118,16 +120,20 @@
                     <div class="column is-full">
                         <label class="label" asp-for="Description"></label>
                         <div class="control">
-                            <textarea class="textarea" id="message-content" name="Content" asp-for="Description" data-length="280" rows="4" maxlength="280" minlenght="20"  placeholder="Краткое описание причины вызова (максимум 280 символов)" style="resize: none"></textarea>
+                            <textarea class="textarea" id="message-content" name="Content" asp-for="Description" data-length="280" rows="4" maxlength="280" minlenght="20" placeholder="Краткое описание причины вызова (максимум 280 символов)" style="resize: none"></textarea>
                             <div><span asp-validation-for="Description" class="has-text-danger"></span></div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="column is-full">
-                <label class="label" asp-for="VisitTime"></label>
-                <div class="control">
-                    <input type="text" id="datepicker" placeholder="Выберите дату">
+            <div class="field">
+                <div class="columns">
+                    <div class="column is-full">
+                        <label class="label" asp-for="VisitTime"></label>
+                        <div class="control">
+                            <input type="text" id="datepicker" placeholder="Выберите дату">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
