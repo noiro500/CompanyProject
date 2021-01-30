@@ -105,6 +105,12 @@
         });
     });
 
+    //настройка дат
+    let minDateOrder = new Date();
+    $('#datepicker').datepicker({
+        minDate: new Date()
+});
+
 });
 
 function SuccessSendForm(data) {
