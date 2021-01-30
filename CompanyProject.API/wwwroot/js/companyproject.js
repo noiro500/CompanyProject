@@ -91,6 +91,12 @@
     //    $('html, body').animate({scrollTop:0}, '300');
     //});
 
+    //настройка дат
+    let minDateOrder = new Date();
+    $('#datepicker').datepicker({
+        minDate: new Date()
+});
+
 });
 
 function SuccessSendForm(data) {
