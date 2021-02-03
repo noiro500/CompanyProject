@@ -73,6 +73,8 @@
     <Compile Remove="Migrations\20210115132409_Initial.Designer.cs" />
     <Compile Remove="Migrations\20210125212926_Initial.cs" />
     <Compile Remove="Migrations\20210125212926_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20210125213640_Initial.cs" />
+    <Compile Remove="Migrations\20210125213640_Initial.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -553,7 +555,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels_\" />
     <Folder Include="Views\Service\Shared\" />
   </ItemGroup>
 

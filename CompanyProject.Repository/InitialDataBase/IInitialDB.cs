@@ -10,6 +10,6 @@ namespace CompanyProject.Repository.InitialDataBase
     {
         IList<Paragraph> GetInitialDbContent();
         IList<PriceList> GetInitialDbPriceLists();
-        IList<AddressFormDb> GetInitialDbRealAddresses();
+        IList<AddressFromDb> GetInitialDbRealAddresses();
     }
 }

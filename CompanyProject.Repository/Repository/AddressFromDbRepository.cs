@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using CompanyProject.Domain.AddressFormDb;
+using CompanyProject.Domain.AddressFromDb;
 
 namespace CompanyProject.Repository.Repository
 {
@@ -13,17 +14,17 @@ namespace CompanyProject.Repository.Repository
         {
             _context = ctx;
         }
-        public Task<IList<AddressFormDb>> GetUsedDistrictsAsync(bool isUsed)
+        public Task<IList<AddressFromDb>> GetUsedDistrictsAsync(bool isUsed)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IList<AddressFormDb>> GetWorkLocalityAsync(string districtAoguid)
+        public Task<IList<AddressFromDb>> GetWorkLocalityAsync(string districtAoguid)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IList<AddressFormDb>> GetWorkStreetAsync(string locationAoguid)
+        public Task<IList<AddressFromDb>> GetWorkStreetAsync(string locationAoguid)
         {
             throw new NotImplementedException();
         }

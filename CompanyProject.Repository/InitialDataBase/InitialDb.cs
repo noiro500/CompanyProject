@@ -34,12 +34,12 @@ namespace CompanyProject.Repository.InitialDataBase
             return jsonData;
         }
 
-        public IList<AddressFormDb> GetInitialDbRealAddresses()
+        public IList<AddressFromDb> GetInitialDbRealAddresses()
         {
             IFileProvider getCurrentDirectory = new PhysicalFileProvider(Directory.GetCurrentDirectory());
-            var jsonData = JsonSerializer.Deserialize<List<AddressFormDb>>(File.ReadAllText(getCurrentDirectory.GetFileInfo("/wwwroot/Resources/DbSeed/InitialDbAddressFormDb.json").PhysicalPath));
+            var jsonData = JsonSerializer.Deserialize<List<AddressFromDb>>(File.ReadAllText(getCurrentDirectory.GetFileInfo("/wwwroot/Resources/DbSeed/InitialDbAddressFormDb.json").PhysicalPath));
             int i = 0;
-            jsonData.ForEach(p => p.AddressFormDbId = ++i);
+            jsonData.ForEach(p => p.AddressFromDbId = ++i);
             return jsonData;
 
         }

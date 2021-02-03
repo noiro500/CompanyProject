@@ -92,10 +92,13 @@
     //});
 
     //настройка дат
-    let minDateOrder = new Date();
+    var tomorrow = new Date();
+
     $('#datepicker').datepicker({
-        minDate: new Date()
-});
+        minDate: new Date(),
+        minHours: 9,
+        maxHours: 18
+    });
 
 });
 

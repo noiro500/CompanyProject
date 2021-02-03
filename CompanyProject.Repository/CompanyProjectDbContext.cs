@@ -32,7 +32,7 @@ namespace CompanyProject.Repository
         public DbSet<Message> Messages { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<PriceList> PriceLists { get; set; }
-        public DbSet<AddressFormDb> AddressFormDbs { get; set; }
+        public DbSet<AddressFromDb> AddressFormDbs { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Page>()
@@ -88,7 +88,7 @@ namespace CompanyProject.Repository
             modelBuilder.Entity<PriceList>().HasData(
                 _context.GetInitialDbPriceLists()
                 );
-            modelBuilder.Entity<AddressFormDb>().HasData(
+            modelBuilder.Entity<AddressFromDb>().HasData(
                 _context.GetInitialDbRealAddresses()
             );
 
