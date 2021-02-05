@@ -75,6 +75,14 @@
     <Compile Remove="Migrations\20210125212926_Initial.Designer.cs" />
     <Compile Remove="Migrations\20210125213640_Initial.cs" />
     <Compile Remove="Migrations\20210125213640_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20210202082346_Initial.cs" />
+    <Compile Remove="Migrations\20210202082346_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20210204072442_Initial.cs" />
+    <Compile Remove="Migrations\20210204072442_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20210204132638_Initial.cs" />
+    <Compile Remove="Migrations\20210204132638_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20210204134036_Initial.cs" />
+    <Compile Remove="Migrations\20210204134036_Initial.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -227,7 +235,7 @@
     <Content Update="wwwroot\Resources\DbSeed\InitialDBPriceLists.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\Resources\DbSeed\InitialDbAddressFormDb.json">
+    <Content Update="wwwroot\Resources\DbSeed\InitialDbAddressFromDb.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\Resources\Files\Политика конфиденциальности.pdf">

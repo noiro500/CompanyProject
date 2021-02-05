@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CompanyProject.Domain.AddressFormDb;
 using CompanyProject.Domain.AddressFromDb;
+using Microsoft.EntityFrameworkCore;
 
 namespace CompanyProject.Repository.Repository
 {
@@ -14,14 +15,26 @@ namespace CompanyProject.Repository.Repository
         {
             _context = ctx;
         }
-        public Task<IList<AddressFromDb>> GetUsedDistrictsAsync(bool isUsed)
+
+        //public async Task<IList<AddressFromDb>> GetAddressStringFromDbAsync(string parameter)
+        //{
+        //    return await _context.Set<AddressFromDb>().FindAsync(parameter);
+        //}
+
+        public async Task<IList<AddressFromDb>> GetUsedDistrictsAsync()
         {
-            throw new NotImplementedException();
+            var districts = await _context.Set<AddressFromDb>().Where(p => p.IsUsedInDistrict.Value==true).ToListAsync();
+            return districts;
         }
 
-        public Task<IList<AddressFromDb>> GetWorkLocalityAsync(string districtAoguid)
+        public async Task<IList<AddressFromDb>> GetWorkPopulatedAreaAsync(string district)
         {
-            throw new NotImplementedException();
+            var districtAoguid = (await _context.Set<AddressFromDb>()
+                .FirstOrDefaultAsync(p => (p.Offname == district && p.Aolevel == 3))).Aoguid;
+            var populatedAreas = (await _context.Set<AddressFromDb>()
+                .Where(a => (a.Parentguid == districtAoguid && (a.Aolevel == 6 | a.Aolevel == 4)))
+                .OrderBy(p=>p.Offname).ToListAsync());
+            return populatedAreas.ToList();
         }
 
         public Task<IList<AddressFromDb>> GetWorkStreetAsync(string locationAoguid)

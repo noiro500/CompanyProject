@@ -67,37 +67,32 @@
         $(this).toggleClass("is-active");
     });
 
-    //Всплывающее окно Toast на политику конфиденциальности
-    //$("input[type='checkbox']#privacy-policy").on('change',function() {
-    //    if (!$("input[type='checkbox']#privacy-policy").prop('checked')) {
-    //        $.toast('Hello');
-    //    }
-    //});
-
-
-    //$('.dropdown-trigger').dropdown();
-
-    ////Кнопка возврата вверх
-    //var btn = $('#button');
-    //$(window).scroll(function() {     
-    //    if ($(window).scrollTop() > 100) {
-    //        btn.addClass('show');
-    //    } else {
-    //        btn.removeClass('show');
-    //    }
-    //});
-    //btn.on('click', function(e) {
-    //    e.preventDefault();
-    //    $('html, body').animate({scrollTop:0}, '300');
-    //});
-
     //настройка дат
-    var tomorrow = new Date();
-
     $('#datepicker').datepicker({
         minDate: new Date(),
         minHours: 9,
         maxHours: 18
+    });
+
+    //Подгрузка списка округов/районов, населенных пунктов, улиц 
+    $('#territory').change(function () {
+        $.ajax({
+            type: 'GET',
+            url: companyProject.Urls.GetPartOfAddress + '?parameters=District',
+            success: function(result) {
+                $('#district-to-replace').html(result);
+                $('#district-to-replace').change(function() {
+                    var selectedParam = $('#district-to-replace option:selected').val();
+                    $.ajax({
+                        type: 'GET',
+                        url: companyProject.Urls.GetPartOfAddress + '?'+'[0]=PopulatedArea'+'&[1]=' +selectedParam,
+                        success: function(data) {
+                            $('#populated-area-to-replace').html(data);
+                        }
+                    });
+                });
+            }
+        });
     });
 
 });

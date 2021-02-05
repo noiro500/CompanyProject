@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Globalization;
-using CompanyProject.Domain.AddressFormDb;
+using CompanyProject.Domain.AddressFromDb;
 using CompanyProject.Domain.CompanyContact;
 using CompanyProject.Domain.Customer;
 using CompanyProject.Domain.Employee;
@@ -32,7 +32,7 @@ namespace CompanyProject.Repository
         public DbSet<Message> Messages { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<PriceList> PriceLists { get; set; }
-        public DbSet<AddressFromDb> AddressFormDbs { get; set; }
+        public DbSet<AddressFromDb> AddressFromDbs { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Page>()

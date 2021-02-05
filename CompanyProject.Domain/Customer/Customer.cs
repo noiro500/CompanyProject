@@ -36,7 +36,7 @@ namespace CompanyProject.Domain.Customer
 
         [Required]
         [Display(Name = "Населенный пункт")]
-        public string Locality { get; set; }
+        public string PopulatedArea { get; set; }
 
         [Required]
         [Display(Name = "Улица")]

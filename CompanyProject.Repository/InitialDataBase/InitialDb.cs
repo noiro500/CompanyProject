@@ -6,7 +6,7 @@ using System.Net.Mime;
 using System.Reflection;
 using System.Text.Json;
 using System.Threading.Tasks;
-using CompanyProject.Domain.AddressFormDb;
+using CompanyProject.Domain.AddressFromDb;
 using CompanyProject.Domain.Paragraph;
 using CompanyProject.Domain.PriceList;
 using Microsoft.Extensions.FileProviders;
@@ -37,7 +37,7 @@ namespace CompanyProject.Repository.InitialDataBase
         public IList<AddressFromDb> GetInitialDbRealAddresses()
         {
             IFileProvider getCurrentDirectory = new PhysicalFileProvider(Directory.GetCurrentDirectory());
-            var jsonData = JsonSerializer.Deserialize<List<AddressFromDb>>(File.ReadAllText(getCurrentDirectory.GetFileInfo("/wwwroot/Resources/DbSeed/InitialDbAddressFormDb.json").PhysicalPath));
+            var jsonData = JsonSerializer.Deserialize<List<AddressFromDb>>(File.ReadAllText(getCurrentDirectory.GetFileInfo("/wwwroot/Resources/DbSeed/InitialDbAddressFromDb.json").PhysicalPath));
             int i = 0;
             jsonData.ForEach(p => p.AddressFromDbId = ++i);
             return jsonData;

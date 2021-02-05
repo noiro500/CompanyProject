@@ -1,4 +1,4 @@
-﻿namespace CompanyProject.Domain.AddressFormDb
+﻿namespace CompanyProject.Domain.AddressFromDb
 {
     public class AddressFromDb
     {
@@ -10,7 +10,7 @@
         public string Offname { get; set; }
         public string Parentguid { get; set; }
         public int Regioncode { get; set; }
-        public bool IsUsed { get; set; } 
+        public bool? IsUsedInDistrict { get; set; }
 
     }
 }

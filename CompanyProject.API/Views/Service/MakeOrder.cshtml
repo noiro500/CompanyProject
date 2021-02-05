@@ -49,29 +49,30 @@
                     <div class="column is-one-third">
                         <label class="label" asp-for="Territory"></label>
                         @*<div class="control">
-            <input class="input" type="text" name="Territory" asp-for="Territory"
-                   placeholder="Ваш край/область" value="Ставропольский край" disabled />
-        </div>*@
+                <input class="input" type="text" name="Territory" asp-for="Territory"
+                       placeholder="Ваш край/область" value="Ставропольский край" disabled />
+            </div>*@
                         <div class="select">
-                            <select name="Territory">
+                            <select name="Territory" id="territory">
                                 <option disabled selected>Выберите край/область</option>
                                 <option value="Ставропольский край">Ставропольский край</option>
                             </select>
                         </div>
                     </div>
-                    @* Сгенерировать из базы данных *@
+
                     <div class="column is-one-third">
                         <label class="label" asp-for="District"></label>
-                        <div class="select">
+                        <div class="select" id="district-to-replace">
                             <select name="District">
-                                <option>Район/Округ</option>
+                                <option>Район/округ/городской округ</option>
                             </select>
                         </div>
                     </div>
+                    @* Сгенерировать из базы данных *@
                     <div class="column is-one-third">
-                        <label class="label" asp-for="Locality"></label>
-                        <div class="select">
-                            <select name="Locality">
+                        <label class="label" asp-for="PopulatedArea"></label>
+                        <div class="select" id="populated-area-to-replace">
+                            <select name="PopulatedArea">
                                 <option>Населенный пункт</option>
                             </select>
                         </div>
@@ -147,15 +148,15 @@
                     <div class="column is-full">
                         <label class="label" asp-for="SpecialInstruction"></label>
                         <div class="control">
-                            <textarea class="textarea" id="special-instruction-content" name="Content" asp-for="SpecialInstruction" 
-                                      data-length="280" rows="4" maxlength="280" minlenght="20" 
+                            <textarea class="textarea" id="special-instruction-content" name="Content" asp-for="SpecialInstruction"
+                                      data-length="280" rows="4" maxlength="280" minlenght="20"
                                       placeholder="Дополнительные сведения(схема проезда, код домофона и т.д.) (максимум 280 символов)" style="resize: none"></textarea>
                             <div><span asp-validation-for="SpecialInstruction" class="has-text-danger"></span></div>
                             <label class="checkbox">
-                                <input  id="privacy-policy" asp-for="IsAdoptedPrivacyPolicy" class="has-text-danger"/>
+                                <input id="privacy-policy" asp-for="IsAdoptedPrivacyPolicy" class="has-text-danger" />
                                 Я принимаю <a href="~/Resources/Files/Политика конфиденциальности.pdf">Политику конфиденциальности</a>
                             </label>
-                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -166,7 +167,7 @@
                             <button name="make-order-submit-form" class="button is-primary">Отправить</button>
                         </div>
                         <div class="control">
-                            <button  class="button is-primary is-light" type="reset">Очистить</button>
+                            <button class="button is-primary is-light" type="reset">Очистить</button>
                         </div>
                     </div>
                 </div>
@@ -174,4 +175,13 @@
         </div>
     </form>
 </div>
+@section Scripts
+{
+    <script>
+        var companyProject = companyProject || {};
+        companyProject.Urls = companyProject.Urls || {};
+        companyProject.Urls.baseUrl = '@Url.Content("~")';
+        companyProject.Urls.GetPartOfAddress= '@Url.Action("GetPartOfAddress", "Service")';
+    </script>
+}
 

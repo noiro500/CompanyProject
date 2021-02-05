@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompanyProject.Domain", "Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompanyProject.Repository", "CompanyProject.Repository\CompanyProject.Repository.csproj", "{52AB36E8-8BF3-48F8-A78E-082E1F990E21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyProject.ViewModels", "CompanyProject.ViewModels\CompanyProject.ViewModels.csproj", "{2355A171-7152-4A0A-9619-E7F51A285874}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompanyProject.ViewModels", "CompanyProject.ViewModels\CompanyProject.ViewModels.csproj", "{2355A171-7152-4A0A-9619-E7F51A285874}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

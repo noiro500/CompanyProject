@@ -25,12 +25,12 @@ namespace CompanyProject.ViewModels
         public int Territory { get; set; } = 26;
 
         [Required(ErrorMessage = "Не выбран район/округ")]
-        [Display(Name = "Район/округ: *")]
+        [Display(Name = "Район/округ/городской округ: *")]
         public string District { get; set; }
 
         [Required(ErrorMessage = "Не выбран населенный пункт")]
         [Display(Name = "Населенный пункт: *")]
-        public string Locality { get; set; }
+        public string PopulatedArea { get; set; }
 
         [Required(ErrorMessage = "Не выбрана улица/проспект/переулок")]
         [Display(Name = "Улица/проспект/переулок: *")]
