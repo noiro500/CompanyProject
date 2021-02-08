@@ -3,11 +3,15 @@
 <select name="@ViewBag.PartOfAddress">
     @if (ViewBag.PartOfAddress == "District")
     {
-    <option disabled selected>Выберите район/округ/городской округ</option>
+        <option disabled selected>Выберите район/округ/городской округ</option>
     }
     @if (ViewBag.PartOfAddress == "PopulatedArea")
     {
-        <option disabled selected>Выберите носеленный пункт</option>
+        <option disabled selected>Выберите населенный пункт</option>
+    }
+    @if (ViewBag.PartOfAddress == "Street")
+    {
+        <option disabled selected>Выберите улицу/проспект/переулок</option>
     }
     @foreach (var item in Model)
     {

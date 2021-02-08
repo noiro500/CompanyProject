@@ -32,8 +32,8 @@ namespace CompanyProject.ViewModels
         [Display(Name = "Населенный пункт: *")]
         public string PopulatedArea { get; set; }
 
-        [Required(ErrorMessage = "Не выбрана улица/проспект/переулок")]
-        [Display(Name = "Улица/проспект/переулок: *")]
+        //[Required(ErrorMessage = "Не выбрана улица/проспект/переулок")]
+        [Display(Name = "Улица/проспект/переулок: ")]
         public string Street { get; set; }
 
         [Required(ErrorMessage = "Не указан номер дома/строения")]

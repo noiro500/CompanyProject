@@ -10,7 +10,7 @@
         public string Offname { get; set; }
         public string Parentguid { get; set; }
         public int Regioncode { get; set; }
-        public bool? IsUsedInDistrict { get; set; }
+        public bool? IsUsedInDistrict { get; set; } = null;
 
     }
 }

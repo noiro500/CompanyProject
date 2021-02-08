@@ -18,20 +18,24 @@ namespace CompanyProject.API.Infrastructure.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync(IList<string> parameters)
         {
+            ViewBag.PartOfAddress = parameters[0];
             if (parameters[0]== "District")
             {
-                ViewBag.PartOfAddress = parameters[0];
-                var districts = await _unitOfWork.AddressFromDbs.GetUsedDistrictsAsync();
-                return View("GetPartOfAddressVc", districts);
+                var districtsList = await _unitOfWork.AddressFromDbs.GetUsedDistrictsAsync();
+                return View("GetPartOfAddressVc", districtsList);
             }
 
             else if (parameters[0] == "PopulatedArea")
             {
-                ViewBag.PartOfAddress = parameters[0];
-                var populatedArea = await _unitOfWork.AddressFromDbs.GetWorkPopulatedAreaAsync(parameters[1]);
-                return View("GetPartOfAddressVc", populatedArea);
+                var populatedAreaList = await _unitOfWork.AddressFromDbs.GetWorkPopulatedAreaAsync(parameters[1]);
+                return View("GetPartOfAddressVc", populatedAreaList);
             }
-            else return null;
+            else if (parameters[0] == "Street")
+            {
+                var strretList = await _unitOfWork.AddressFromDbs.GetWorkStreetAsync(parameters[1]);
+                return View("GetPartOfAddressVc", strretList);
+            }
+            else throw new Exception();
             
         }
     }

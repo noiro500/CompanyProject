@@ -15,15 +15,11 @@ namespace CompanyProject.Repository.Repository
         {
             _context = ctx;
         }
-
-        //public async Task<IList<AddressFromDb>> GetAddressStringFromDbAsync(string parameter)
-        //{
-        //    return await _context.Set<AddressFromDb>().FindAsync(parameter);
-        //}
-
+        
         public async Task<IList<AddressFromDb>> GetUsedDistrictsAsync()
         {
-            var districts = await _context.Set<AddressFromDb>().Where(p => p.IsUsedInDistrict.Value==true).ToListAsync();
+            var districts = await _context.Set<AddressFromDb>()
+                .Where(p => p.IsUsedInDistrict.Value == true).OrderBy(p => p.Offname).ToListAsync();
             return districts;
         }
 
@@ -31,15 +27,20 @@ namespace CompanyProject.Repository.Repository
         {
             var districtAoguid = (await _context.Set<AddressFromDb>()
                 .FirstOrDefaultAsync(p => (p.Offname == district && p.Aolevel == 3))).Aoguid;
-            var populatedAreas = (await _context.Set<AddressFromDb>()
+            var populatedAreasList = await _context.Set<AddressFromDb>()
                 .Where(a => (a.Parentguid == districtAoguid && (a.Aolevel == 6 | a.Aolevel == 4)))
-                .OrderBy(p=>p.Offname).ToListAsync());
-            return populatedAreas.ToList();
+                .OrderBy(p=>p.Offname).ToListAsync();
+            return populatedAreasList;
         }
 
-        public Task<IList<AddressFromDb>> GetWorkStreetAsync(string locationAoguid)
+        public async Task<IList<AddressFromDb>> GetWorkStreetAsync(string populatedArea)
         {
-            throw new NotImplementedException();
+            var populatedAreaAoguid= (await _context.Set<AddressFromDb>()
+                .FirstOrDefaultAsync(p => (p.Offname == populatedArea && (p.Aolevel == 6 | p.Aolevel == 4)))).Aoguid;
+            var streetList = await _context.Set<AddressFromDb>()
+                .Where(a => (a.Parentguid == populatedAreaAoguid && a.Aolevel == 7  ))
+                .OrderBy(p => p.Offname).ToListAsync();
+            return streetList;
         }
     }
 }

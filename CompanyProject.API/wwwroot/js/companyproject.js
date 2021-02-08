@@ -59,7 +59,7 @@
     //Ввод телефонного номера
     let telInput = $('input[type="tel"]');
     telInput.each(function () {
-        $('#whatsapp-number').mask("+7 (999) 999-99-99");
+        $('.phone-number').mask("+7 (999) 999-99-99");
     });
 
     //Dropdown
@@ -82,12 +82,22 @@
             success: function(result) {
                 $('#district-to-replace').html(result);
                 $('#district-to-replace').change(function() {
-                    var selectedParam = $('#district-to-replace option:selected').val();
+                    var selectedDistrict = $('#district-to-replace option:selected').val();
                     $.ajax({
                         type: 'GET',
-                        url: companyProject.Urls.GetPartOfAddress + '?'+'[0]=PopulatedArea'+'&[1]=' +selectedParam,
+                        url: companyProject.Urls.GetPartOfAddress + '?' + '[0]=PopulatedArea' + '&[1]=' + selectedDistrict,
                         success: function(data) {
                             $('#populated-area-to-replace').html(data);
+                            $('#populated-area-to-replace').change(function() {
+                                var selectPopulatedArea = $('#populated-area-to-replace option:selected').val();
+                                $.ajax({
+                                    type: 'GET',
+                                    url: companyProject.Urls.GetPartOfAddress + '?' + '[0]=Street' + '&[1]=' + selectPopulatedArea,
+                                    success: function(_data) {
+                                        $('#street-to-replace').html(_data);
+                                    }
+                                });
+                            });
                         }
                     });
                 });

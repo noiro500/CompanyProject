@@ -24,14 +24,14 @@
                     <div class="column is-one-third">
                         <label class="label" asp-for="PhoneNumber"></label>
                         <div class="control">
-                            <input class="input" type="text" name="PhoneNumber" asp-for="PhoneNumber"
+                            <input class="input phone-number" type="tel" name="PhoneNumber" asp-for="PhoneNumber"
                                    placeholder="Ваш номер телефона" />
                         </div>
                     </div>
                     <div class="column is-one-third">
                         <label class="label" asp-for="AnotherPhoneNumber"></label>
                         <div class="control">
-                            <input class="input" type="text" name="PhoneNumber" asp-for="AnotherPhoneNumber"
+                            <input class="input phone-number" type="tel" name="PhoneNumber" asp-for="AnotherPhoneNumber"
                                    placeholder="Рекомендуем указать номер WhatsApp" />
                         </div>
                     </div>
@@ -68,7 +68,6 @@
                             </select>
                         </div>
                     </div>
-                    @* Сгенерировать из базы данных *@
                     <div class="column is-one-third">
                         <label class="label" asp-for="PopulatedArea"></label>
                         <div class="select" id="populated-area-to-replace">
@@ -77,22 +76,19 @@
                             </select>
                         </div>
                     </div>
-                    @*  *@
                 </div>
             </div>
-            @* Сгенерировать из базы данных *@
             <div class="field">
                 <div class="columns">
                     <div class="column is-one-third">
                         <label class="label" asp-for="Street"></label>
-                        <div class="select">
+                        <div class="select" id="street-to-replace">
                             <select name="Street">
                                 <option>Улица/проспект/переулок</option>
                             </select>
                         </div>
                     </div>
-                    @*  *@
-                    <div class="column is-one-third">
+                   <div class="column is-one-third">
                         <label class="label" asp-for="HouseNumber"></label>
                         <div class="control">
                             <input class="input" type="text" name="HouseNumber" asp-for="HouseNumber"

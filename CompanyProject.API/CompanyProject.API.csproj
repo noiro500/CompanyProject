@@ -83,6 +83,8 @@
     <Compile Remove="Migrations\20210204132638_Initial.Designer.cs" />
     <Compile Remove="Migrations\20210204134036_Initial.cs" />
     <Compile Remove="Migrations\20210204134036_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20210205153007_Initial.cs" />
+    <Compile Remove="Migrations\20210205153007_Initial.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -563,6 +565,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Migrations\" />
     <Folder Include="Views\Service\Shared\" />
   </ItemGroup>
 
