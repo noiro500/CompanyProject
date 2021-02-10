@@ -17,6 +17,7 @@ namespace CompanyProject.API.Controllers
         {
             _unitOfWork = unitOfWork;
         }
+        [Route("/comments")]
         public IActionResult Comments()
         {
             return View();
@@ -29,11 +30,13 @@ namespace CompanyProject.API.Controllers
             return View(result);
         }
 
+        [Route("/about")]
         public IActionResult About()
         {
             return View();
         }
 
+        [Route("/contacts")]
         public IActionResult Contacts()
         {
             return View();
