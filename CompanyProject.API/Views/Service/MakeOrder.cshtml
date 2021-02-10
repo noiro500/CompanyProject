@@ -48,10 +48,6 @@
                 <div class="columns">
                     <div class="column is-one-third">
                         <label class="label" asp-for="Territory"></label>
-                        @*<div class="control">
-                <input class="input" type="text" name="Territory" asp-for="Territory"
-                       placeholder="Ваш край/область" value="Ставропольский край" disabled />
-            </div>*@
                         <div class="select">
                             <select name="Territory" id="territory">
                                 <option disabled selected>Выберите край/область</option>
@@ -59,7 +55,6 @@
                             </select>
                         </div>
                     </div>
-
                     <div class="column is-one-third">
                         <label class="label" asp-for="District"></label>
                         <div class="select" id="district-to-replace">
@@ -110,9 +105,10 @@
                         <label class="label" asp-for="TypeOfFailure"></label>
                         <div class="select">
                             <select name="TypeOfFailure">
-                                <option>
-                                    Причина вызова мастера (если причины нет в списке, выберите 'Прочее'
-                                </option>
+                                @*<option>
+                                    Причина вызова мастера (если причины нет в списке, выберите 'Прочее')
+                                </option>*@
+                                <vc:type-of-failure-vc/>
                             </select>
                         </div>
                     </div>

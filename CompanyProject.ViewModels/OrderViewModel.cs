@@ -13,7 +13,7 @@ namespace CompanyProject.ViewModels
         public string PhoneNumber { get; set; }
 
         [Display(Name = "Запасный номер телефона/WhatsApp:")]
-        public string AnotherPhoneNumber { get; set; } = null;
+        public string AnotherPhoneNumber { get; set; } = "Отсутствует";
 
         [EmailAddress(ErrorMessage = "Некорректный адрес электронной почты")]
         [Display(Name = "E-mail:")]
@@ -34,22 +34,22 @@ namespace CompanyProject.ViewModels
 
         //[Required(ErrorMessage = "Не выбрана улица/проспект/переулок")]
         [Display(Name = "Улица/проспект/переулок: ")]
-        public string Street { get; set; }
+        public string Street { get; set; } = "Отсутствует";
 
         [Required(ErrorMessage = "Не указан номер дома/строения")]
         [Display(Name = "Номер дома/строения: *")]
         public string HouseNumber { get; set; }
         
         [Display(Name = "Номер квартиры/офиса:")]
-        public string ApartmentOrOffice { get; set; } = null;
+        public string ApartmentOrOffice { get; set; } = "Отсутствует";
 
         [Required(ErrorMessage = "Не выбрана причмна вызова мастера")]
         [Display(Name = "Причина вызова мастера (если причины нет в списке, выберите 'Прочее' *):")]
-        public string TypeOfFailure { get; set; } = null;
+        public string TypeOfFailure { get; set; } = "Прочее";
 
         [DataType(DataType.MultilineText)]
         [Display(Name = "Краткое описание причины вызова:")]
-        public string Description { get; set; } = null;
+        public string Description { get; set; } = "Отсутствует";
 
         [Required(ErrorMessage = "Не указано предпочтительное время прихода мастера")]
         [DataType(DataType.DateTime)]

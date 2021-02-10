@@ -17,10 +17,10 @@ namespace CompanyProject.API.Infrastructure.ViewComponents
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync(int? pageNumber, bool isFull = false)
+        public async Task<IViewComponentResult> InvokeAsync(int pageNumber=0, bool isFull = false)
         {
             if (!isFull)
-                return View("PriceListTable", await _unitOfWork.PriceLists.GetPriceListByPageAsync(pageNumber.Value));
+                return View("PriceListTable", await _unitOfWork.PriceLists.GetPriceListByPageAsync(pageNumber));
             else
                 return View("PriceListTable", await _unitOfWork.PriceLists.GetFullPriceListAsync());
                 

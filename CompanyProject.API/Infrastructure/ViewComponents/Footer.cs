@@ -16,11 +16,9 @@ namespace CompanyProject.API.Infrastructure.ViewComponents
             _unitOfWork = unitOfWork;
         }
 
-        public IViewComponentResult Invoke()
+        public async Task<IViewComponentResult> InvokeAsync()
         {
-            //return Task.FromResult<IViewComponentResult>(View("Footer", repository.GetAllPages().OrderBy(i => i.PageId)));
-            return View("Footer", _unitOfWork.Pages.GetAll());
-
+            return View("Footer", await _unitOfWork.Pages.GetAll().ToListAsync());
         }
 
     }
