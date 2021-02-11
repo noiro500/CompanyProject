@@ -5,41 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20200930215152_Initial.cs" />
-    <Compile Remove="Migrations\20200930215152_Initial.Designer.cs" />
-    <Compile Remove="Migrations\20200930231821_InitialFirst.cs" />
-    <Compile Remove="Migrations\20200930231821_InitialFirst.Designer.cs" />
-    <Compile Remove="Migrations\20200930231902_InitialFirst.cs" />
-    <Compile Remove="Migrations\20200930231902_InitialFirst.Designer.cs" />
-    <Compile Remove="Migrations\20201007014640_InitialMigration.cs" />
-    <Compile Remove="Migrations\20201007014640_InitialMigration.Designer.cs" />
-    <Compile Remove="Migrations\20201009093340_InitialMigration.cs" />
-    <Compile Remove="Migrations\20201009093340_InitialMigration.Designer.cs" />
-    <Compile Remove="Migrations\20201021195733_Initial.cs" />
-    <Compile Remove="Migrations\20201021195733_Initial.Designer.cs" />
-    <Compile Remove="Migrations\20201022101943_Initial.cs" />
-    <Compile Remove="Migrations\20201022101943_Initial.Designer.cs" />
-    <Compile Remove="Migrations\20201022102101_Initial.cs" />
-    <Compile Remove="Migrations\20201022102101_Initial.Designer.cs" />
-    <Compile Remove="Migrations\20201022191717_Initial.cs" />
-    <Compile Remove="Migrations\20201022191717_Initial.Designer.cs" />
-    <Compile Remove="Migrations\20201028220334_Initial.cs" />
-    <Compile Remove="Migrations\20201028220334_Initial.Designer.cs" />
-    <Compile Remove="Migrations\20201028221315_Initial.cs" />
-    <Compile Remove="Migrations\20201028221315_Initial.Designer.cs" />
-    <Compile Remove="Migrations\20201029004457_Initial.cs" />
-    <Compile Remove="Migrations\20201029004457_Initial.Designer.cs" />
-    <Compile Remove="Migrations\20201029233926_Initial.cs" />
-    <Compile Remove="Migrations\20201029233926_Initial.Designer.cs" />
-    <Compile Remove="Migrations\20201030144030_InitialCreate.cs" />
-    <Compile Remove="Migrations\20201030144030_InitialCreate.Designer.cs" />
-    <Compile Remove="Migrations\20201102215314_InitialCreate.cs" />
-    <Compile Remove="Migrations\20201102215314_InitialCreate.Designer.cs" />
-    <Compile Remove="Migrations\20201106153220_initialCreate.cs" />
-    <Compile Remove="Migrations\20201106153220_initialCreate.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Remove="bundleconfig.json" />
     <Content Remove="Views\Shared\_LayoutMakeOrder.cshtml" />
   </ItemGroup>
