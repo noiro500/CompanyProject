@@ -59,7 +59,7 @@
     //Ввод телефонного номера
     let telInput = $('input[type="tel"]');
     telInput.each(function () {
-        $('#whatsapp-number').mask("+7 (999) 999-99-99");
+        $('.phone-number').mask("+7 (999) 999-99-99");
     });
 
     //Dropdown
@@ -67,31 +67,52 @@
         $(this).toggleClass("is-active");
     });
 
+    //настройка дат
+    $('#datepicker').datepicker({
+        minDate: new Date(),
+        minHours: 9,
+        maxHours: 18
+    });
 
+    //Подгрузка списка округов/районов, населенных пунктов, улиц 
+    $('#territory').change(function () {
+        $.ajax({
+            type: 'GET',
+            url: companyProject.Urls.GetPartOfAddress + '?parameters=District',
+            success: function(result) {
+                $('#district-to-replace').html(result);
+                $('#district-to-replace').change(function() {
+                    var selectedDistrict = $('#district-to-replace option:selected').val();
+                    $.ajax({
+                        type: 'GET',
+                        url: companyProject.Urls.GetPartOfAddress + '?' + '[0]=PopulatedArea' + '&[1]=' + selectedDistrict,
+                        success: function(data) {
+                            $('#populated-area-to-replace').html(data);
+                            $('#populated-area-to-replace').change(function() {
+                                var selectPopulatedArea = $('#populated-area-to-replace option:selected').val();
+                                $.ajax({
+                                    type: 'GET',
+                                    url: companyProject.Urls.GetPartOfAddress + '?' + '[0]=Street' + '&[1]=' + selectPopulatedArea,
+                                    success: function(_data) {
+                                        $('#street-to-replace').html(_data);
+                                    }
+                                });
+                            });
+                        }
+                    });
+                });
+            }
+        });
+    });
 
-    //Всплывающее окно Toast на политику конфиденциальности
-    //$("input[type='checkbox']#privacy-policy").on('change',function() {
-    //    if (!$("input[type='checkbox']#privacy-policy").prop('checked')) {
-    //        $.toast('Hello');
-    //    }
-    //});
+    //настройка дат
+    var tomorrow = new Date();
 
-
-    //$('.dropdown-trigger').dropdown();
-
-    ////Кнопка возврата вверх
-    //var btn = $('#button');
-    //$(window).scroll(function() {     
-    //    if ($(window).scrollTop() > 100) {
-    //        btn.addClass('show');
-    //    } else {
-    //        btn.removeClass('show');
-    //    }
-    //});
-    //btn.on('click', function(e) {
-    //    e.preventDefault();
-    //    $('html, body').animate({scrollTop:0}, '300');
-    //});
+    $('#datepicker').datepicker({
+        minDate: new Date(),
+        minHours: 9,
+        maxHours: 18
+    });
 
 });
 

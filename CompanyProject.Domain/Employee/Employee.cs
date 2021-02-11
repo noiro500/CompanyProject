@@ -9,7 +9,7 @@ namespace CompanyProject.Domain.Employee
     {
         public int EmployeeId { get; set; }
         [Required]
-        public string Name { get; set; }
+        public string FirstName { get; set; }
         [Required]
         public string Surname { get; set; }
         public string SecondName { get; set; }
@@ -25,7 +25,7 @@ namespace CompanyProject.Domain.Employee
         public virtual IEnumerable<Order.Order> Orders { get; set; }
         public virtual IEnumerable<EmployeeCustomer> EmployeeCustomers { get; set; }
 
-        [Timestamp]
-        public byte[] Timestamp { get; set; }
+        //[Timestamp]
+        //public byte[] Timestamp { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using CompanyProject.Domain.AddressFromDb;
 using CompanyProject.Domain.CompanyContact;
 using CompanyProject.Domain.Customer;
 using CompanyProject.Domain.Employee;
@@ -31,6 +32,7 @@ namespace CompanyProject.Repository
         public DbSet<Message> Messages { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<PriceList> PriceLists { get; set; }
+        public DbSet<AddressFromDb> AddressFromDbs { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Page>()
@@ -86,8 +88,9 @@ namespace CompanyProject.Repository
             modelBuilder.Entity<PriceList>().HasData(
                 _context.GetInitialDbPriceLists()
                 );
-
-
+            modelBuilder.Entity<AddressFromDb>().HasData(
+                _context.GetInitialDbRealAddresses()
+            );
 
             modelBuilder.Entity<CompanyContact>().HasData(
                 new CompanyContact
@@ -100,6 +103,7 @@ namespace CompanyProject.Repository
                     WhatsApp = "+7-(900)-000-00-00"
                 }
             );
+
             modelBuilder.Entity<Paragraph>().HasIndex(p => p.Content);
             modelBuilder.Entity<Page>().HasIndex(p => p.Name);
 

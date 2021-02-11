@@ -1,8 +1,10 @@
-﻿using System.Threading.Tasks;
-using CompanyProject.API.ViewModels;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using CompanyProject.ViewModels;
 using CompanyProject.Domain;
 using CompanyProject.Domain.Message;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CompanyProject.API.Controllers
 {
@@ -44,6 +46,12 @@ namespace CompanyProject.API.Controllers
         public IActionResult MakeOrder()
         {
             return View();
+        }
+
+        public IActionResult GetPartOfAddress(IList<string> parameters)
+        {
+            return ViewComponent("GetPartOfAddressVc", parameters);
+            
         }
     }
 }

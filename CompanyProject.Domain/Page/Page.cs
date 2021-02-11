@@ -18,7 +18,7 @@ namespace CompanyProject.Domain.Page
         public virtual IEnumerable<Paragraph.Paragraph> Paragraphs { get; set; }
         public virtual IEnumerable<PriceList.PriceList> PriceLists { get; set; }
 
-        [Timestamp]
-        public byte[] Timestamp { get; set; }
+        //[Timestamp]
+        //public byte[] Timestamp { get; set; }
     }
 }

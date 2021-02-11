@@ -39,7 +39,7 @@ namespace CompanyProject.Domain.Order
         public virtual Feedback.Feedback Feedback { get; set; }
         public int FeedbackId { get; set; }
 
-        [Timestamp]
-        public byte[] Timestamp { get; set; }
+        //[Timestamp]
+        //public byte[] Timestamp { get; set; }
     }
 }

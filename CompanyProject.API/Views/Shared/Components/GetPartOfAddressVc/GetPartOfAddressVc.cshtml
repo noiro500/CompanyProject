@@ -1,0 +1,21 @@
+﻿@model IList<CompanyProject.Domain.AddressFromDb.AddressFromDb>
+
+<select name="@ViewBag.PartOfAddress">
+    @if (ViewBag.PartOfAddress == "District")
+    {
+        <option disabled selected>Выберите район/округ/городской округ</option>
+    }
+    @if (ViewBag.PartOfAddress == "PopulatedArea")
+    {
+        <option disabled selected>Выберите населенный пункт</option>
+    }
+    @if (ViewBag.PartOfAddress == "Street")
+    {
+        <option disabled selected>Выберите улицу/проспект/переулок</option>
+    }
+    @foreach (var item in Model)
+    {
+        <option value="@item.Offname">@item.Offname</option>
+    }
+</select>
+
