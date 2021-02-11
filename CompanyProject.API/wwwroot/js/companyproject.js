@@ -86,15 +86,15 @@
                     $.ajax({
                         type: 'GET',
                         url: companyProject.Urls.GetPartOfAddress + '?' + '[0]=PopulatedArea' + '&[1]=' + selectedDistrict,
-                        success: function(data) {
-                            $('#populated-area-to-replace').html(data);
+                        success: function (result) {
+                            $('#populated-area-to-replace').html(result);
                             $('#populated-area-to-replace').change(function() {
                                 var selectPopulatedArea = $('#populated-area-to-replace option:selected').val();
                                 $.ajax({
                                     type: 'GET',
                                     url: companyProject.Urls.GetPartOfAddress + '?' + '[0]=Street' + '&[1]=' + selectPopulatedArea,
-                                    success: function(_data) {
-                                        $('#street-to-replace').html(_data);
+                                    success: function (result) {
+                                        $('#street-to-replace').html(result);
                                     }
                                 });
                             });
