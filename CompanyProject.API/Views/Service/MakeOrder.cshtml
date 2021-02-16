@@ -6,7 +6,7 @@
 }
 
 <div class="container">
-    <form asp-antiforgery="true" novalidate asp-controller="Service" asp-action="MakeOrder" method="post">
+    <form id="make-order" asp-antiforgery="true" novalidate asp-controller="Service" asp-action="MakeOrder" method="post">
         <div class="validation" asp-validation-summary="ModelOnly"></div>
         <div class="field">
             <div class="columns">
@@ -27,6 +27,7 @@
                             <input class="input phone-number" type="tel" name="PhoneNumber" asp-for="PhoneNumber"
                                    placeholder="Ваш номер телефона" />
                         </div>
+                        <span asp-validation-for="PhoneNumber" class="has-text-danger"></span>
                     </div>
                     <div class="column is-one-third">
                         <label class="label" asp-for="AnotherPhoneNumber"></label>
@@ -49,12 +50,13 @@
                     <div class="column is-one-third">
                         <label class="label" asp-for="Territory"></label>
                         <div class="select">
-                            <select name="Territory" id="territory">
-                                <option disabled selected>Выберите край/область</option>
+                            <select name="Territory" id="territory" required>
+                                <option disabled selected value="">Выберите край/область</option>
                                 <option value="Ставропольский край">Ставропольский край</option>
                             </select>
+                            
                         </div>
-                    </div>
+                        </div>
                     <div class="column is-one-third">
                         <label class="label" asp-for="District"></label>
                         <div class="select" id="district-to-replace">

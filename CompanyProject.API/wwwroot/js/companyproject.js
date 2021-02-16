@@ -113,6 +113,13 @@
         minHours: 9,
         maxHours: 18
     });
+    $('#make-order').validate({
+        messages: {
+            Territory: {
+                required: "test"
+            }
+        }
+    });
 
 });
 
@@ -158,7 +165,7 @@ function FailureSendForm(data) {
         stack: false,
         position: 'bottom-right',
         textAlign: 'left',
-        loader: false,
+        loader: false
         //loaderBg: '#9EC600'
     });
 }

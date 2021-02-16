@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20210210102810_Initial.cs" />
+    <Compile Remove="Migrations\20210210102810_Initial.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="bundleconfig.json" />
     <Content Remove="Views\Shared\_LayoutMakeOrder.cshtml" />
   </ItemGroup>
@@ -476,6 +481,10 @@
     <ApplicationDefinition Include="wwwroot\lib\jquery\core.js" />
     <ApplicationDefinition Include="wwwroot\lib\jquery\jquery.js" />
     <None Include="wwwroot\styles\sass\bulma-with-edit.scss" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

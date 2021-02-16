@@ -21,18 +21,18 @@ namespace CompanyProject.API.Infrastructure.ViewComponents
             ViewBag.PartOfAddress = parameters[0];
             if (parameters[0]== "District")
             {
-                var districtsList = await _unitOfWork.AddressFromDbs.GetUsedDistrictsAsync();
+                var districtsList = (await _unitOfWork.AddressFromDbs.GetUsedDistrictsAsync());
                 return View("GetPartOfAddressVc", districtsList);
             }
 
             else if (parameters[0] == "PopulatedArea")
             {
-                var populatedAreaList = await _unitOfWork.AddressFromDbs.GetWorkPopulatedAreaAsync(parameters[1]);
+                var populatedAreaList = (await _unitOfWork.AddressFromDbs.GetWorkPopulatedAreaAsync(parameters[1])).AsEnumerable();
                 return View("GetPartOfAddressVc", populatedAreaList);
             }
             else if (parameters[0] == "Street")
             {
-                var strretList = await _unitOfWork.AddressFromDbs.GetWorkStreetAsync(parameters[1]);
+                var strretList = (await _unitOfWork.AddressFromDbs.GetWorkStreetAsync(parameters[1])).AsEnumerable();
                 return View("GetPartOfAddressVc", strretList);
             }
             else throw new Exception();

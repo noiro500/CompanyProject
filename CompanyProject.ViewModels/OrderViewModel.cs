@@ -22,7 +22,7 @@ namespace CompanyProject.ViewModels
 
         [Required(ErrorMessage = "Не выбраны край/область")]
         [Display(Name = "Край/область: *")]
-        public int Territory { get; set; } = 26;
+        public string Territory { get; set; }
 
         [Required(ErrorMessage = "Не выбран район/округ")]
         [Display(Name = "Район/округ/городской округ: *")]
