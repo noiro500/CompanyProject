@@ -138,6 +138,9 @@ body {
     margin-left: auto !important;
     margin-right: auto !important;
 }
+input.input-validation-error {
+    border: 1px solid hsl(348, 100%, 61%);
+}
 
 
 /*.columns > div, article {

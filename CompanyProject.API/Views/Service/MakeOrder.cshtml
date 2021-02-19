@@ -14,9 +14,9 @@
                     <label class="label" asp-for="CustomerName"></label>
                     <div class="control">
                         <input class="input" type="text" name="CustomerName" asp-for="CustomerName"
-                               placeholder="Как к Вам обращаться" />
+                               placeholder="Как к Вам обращаться" required/>
                     </div>
-                    <span asp-validation-for="CustomerName" class="has-text-danger"></span>
+                    @*<span asp-validation-for="CustomerName" class="has-text-danger"></span>*@
                 </div>
             </div>
             <div class="field">
@@ -27,7 +27,7 @@
                             <input class="input phone-number" type="tel" name="PhoneNumber" asp-for="PhoneNumber"
                                    placeholder="Ваш номер телефона" />
                         </div>
-                        <span asp-validation-for="PhoneNumber" class="has-text-danger"></span>
+                        @*<span asp-validation-for="PhoneNumber" class="has-text-danger"></span>*@
                     </div>
                     <div class="column is-one-third">
                         <label class="label" asp-for="AnotherPhoneNumber"></label>
@@ -50,7 +50,7 @@
                     <div class="column is-one-third">
                         <label class="label" asp-for="Territory"></label>
                         <div class="select">
-                            <select name="Territory" id="territory" required>
+                            <select name="Territory" id="territory">
                                 <option disabled selected value="">Выберите край/область</option>
                                 <option value="Ставропольский край">Ставропольский край</option>
                             </select>

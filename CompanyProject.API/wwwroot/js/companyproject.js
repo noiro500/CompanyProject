@@ -114,9 +114,22 @@
         maxHours: 18
     });
     $('#make-order').validate({
+        errorClass: "has-text-danger",
+        focusCleanup: true,
+        rules: {
+            CustomerName: {
+                required: true
+            },
+            PhoneNumber: {
+                required: true
+                }
+        },
         messages: {
-            Territory: {
-                required: "test"
+            CustomerName: {
+                required: "Не указано полное имя заказчика"
+            },
+            PhoneNumber: {
+                required: "Не указан номер телефона"
             }
         }
     });
