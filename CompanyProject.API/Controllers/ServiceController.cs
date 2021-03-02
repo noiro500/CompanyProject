@@ -53,5 +53,8 @@ namespace CompanyProject.API.Controllers
             return ViewComponent("GetPartOfAddressVc", parameters);
             
         }
+
+        
+
     }
 }

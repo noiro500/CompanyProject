@@ -75,26 +75,26 @@
     });
 
     //Подгрузка списка округов/районов, населенных пунктов, улиц 
-    $('#territory').change(function () {
+    $('#Territory').change(function () {
         $.ajax({
             type: 'GET',
             url: companyProject.Urls.GetPartOfAddress + '?parameters=District',
             success: function(result) {
-                $('#district-to-replace').html(result);
-                $('#district-to-replace').change(function() {
-                    var selectedDistrict = $('#district-to-replace option:selected').val();
+                $('#District').html(result);
+                $('#District').change(function() {
+                    var selectedDistrict = $('#District option:selected').val();
                     $.ajax({
                         type: 'GET',
                         url: companyProject.Urls.GetPartOfAddress + '?' + '[0]=PopulatedArea' + '&[1]=' + selectedDistrict,
                         success: function (result) {
-                            $('#populated-area-to-replace').html(result);
-                            $('#populated-area-to-replace').change(function() {
-                                var selectPopulatedArea = $('#populated-area-to-replace option:selected').val();
+                            $('#PopulatedArea').html(result);
+                            $('#PopulatedArea').change(function() {
+                                var selectPopulatedArea = $('#PopulatedArea option:selected').val();
                                 $.ajax({
                                     type: 'GET',
                                     url: companyProject.Urls.GetPartOfAddress + '?' + '[0]=Street' + '&[1]=' + selectPopulatedArea,
                                     success: function (result) {
-                                        $('#street-to-replace').html(result);
+                                        $('#Street').html(result);
                                     }
                                 });
                             });
@@ -108,32 +108,13 @@
     //настройка дат
     var tomorrow = new Date();
 
-    $('#datepicker').datepicker({
+    $('#VisitTime').datepicker({
         minDate: new Date(),
         minHours: 9,
         maxHours: 18
     });
-    $('#make-order').validate({
-        errorClass: "has-text-danger",
-        focusCleanup: true,
-        rules: {
-            CustomerName: {
-                required: true
-            },
-            PhoneNumber: {
-                required: true
-                }
-        },
-        messages: {
-            CustomerName: {
-                required: "Не указано полное имя заказчика"
-            },
-            PhoneNumber: {
-                required: "Не указан номер телефона"
-            }
-        }
-    });
 
+    
 });
 
 function SuccessSendForm(data) {

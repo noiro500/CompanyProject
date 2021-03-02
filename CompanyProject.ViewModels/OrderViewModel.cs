@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CompanyProject.ViewModels
 {
@@ -20,21 +21,22 @@ namespace CompanyProject.ViewModels
         //[RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}", ErrorMessage = "Некорректный адрес")]
         public string Email { get; set; } = null;
 
+
         [Required(ErrorMessage = "Не выбраны край/область")]
         [Display(Name = "Край/область: *")]
-        public string Territory { get; set; }
+        public string? Territory { get; set; }
 
         [Required(ErrorMessage = "Не выбран район/округ")]
         [Display(Name = "Район/округ/городской округ: *")]
-        public string District { get; set; }
+        public string? District { get; set; }
 
         [Required(ErrorMessage = "Не выбран населенный пункт")]
         [Display(Name = "Населенный пункт: *")]
-        public string PopulatedArea { get; set; }
+        public string? PopulatedArea { get; set; }
 
         //[Required(ErrorMessage = "Не выбрана улица/проспект/переулок")]
         [Display(Name = "Улица/проспект/переулок: ")]
-        public string Street { get; set; } = "Отсутствует";
+        public string? Street { get; set; } = "Отсутствует";
 
         [Required(ErrorMessage = "Не указан номер дома/строения")]
         [Display(Name = "Номер дома/строения: *")]
@@ -43,21 +45,20 @@ namespace CompanyProject.ViewModels
         [Display(Name = "Номер квартиры/офиса:")]
         public string ApartmentOrOffice { get; set; } = "Отсутствует";
 
-        [Required(ErrorMessage = "Не выбрана причмна вызова мастера")]
+        [Required(ErrorMessage = "Не выбрана причина вызова мастера")]
         [Display(Name = "Причина вызова мастера (если причины нет в списке, выберите 'Прочее' *):")]
-        public string TypeOfFailure { get; set; } = "Прочее";
+        public string? TypeOfFailure { get; set; }
 
         [DataType(DataType.MultilineText)]
         [Display(Name = "Краткое описание причины вызова:")]
         public string Description { get; set; } = "Отсутствует";
 
         [Required(ErrorMessage = "Не указано предпочтительное время прихода мастера")]
-        [DataType(DataType.DateTime)]
         [Display(Name = "Предпочтитетльное время прихода мастера: *")]
-        public string VisitTime { get; set; }
+        public string? VisitTime { get; set; }
 
         [Display(Name = "Прочая необходимая информация (номер подъезда, код домофона и т.д.):")]
-        public string SpecialInstruction { get; set; } = null;
+        public string SpecialInstruction { get; set; } = "Отсутствует";
 
         public bool IsAdoptedPrivacyPolicy { get; set; }
     }

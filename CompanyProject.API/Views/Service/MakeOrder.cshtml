@@ -13,10 +13,11 @@
                 <div class="column is-full">
                     <label class="label" asp-for="CustomerName"></label>
                     <div class="control">
-                        <input class="input" type="text" name="CustomerName" asp-for="CustomerName"
-                               placeholder="Как к Вам обращаться" required/>
+                        <input class="input" type="text" asp-for="CustomerName"
+                               placeholder="Как к Вам обращаться" />
+                        <span asp-validation-for="CustomerName" class="has-text-danger"></span>
                     </div>
-                    @*<span asp-validation-for="CustomerName" class="has-text-danger"></span>*@
+                    
                 </div>
             </div>
             <div class="field">
@@ -24,22 +25,22 @@
                     <div class="column is-one-third">
                         <label class="label" asp-for="PhoneNumber"></label>
                         <div class="control">
-                            <input class="input phone-number" type="tel" name="PhoneNumber" asp-for="PhoneNumber"
+                            <input class="input phone-number" type="tel" asp-for="PhoneNumber"
                                    placeholder="Ваш номер телефона" />
                         </div>
-                        @*<span asp-validation-for="PhoneNumber" class="has-text-danger"></span>*@
+                        <span asp-validation-for="PhoneNumber" class="has-text-danger"></span>
                     </div>
                     <div class="column is-one-third">
                         <label class="label" asp-for="AnotherPhoneNumber"></label>
                         <div class="control">
-                            <input class="input phone-number" type="tel" name="PhoneNumber" asp-for="AnotherPhoneNumber"
+                            <input class="input phone-number" type="tel" asp-for="AnotherPhoneNumber"
                                    placeholder="Рекомендуем указать номер WhatsApp" />
                         </div>
                     </div>
                     <div class="column is-one-third">
                         <label class="label" asp-for="Email"></label>
                         <div class="control">
-                            <input class="input" type="email" name="Email" asp-for="Email"
+                            <input class="input" type="email" asp-for="Email"
                                    placeholder="Ваш адрес электронной почты" />
                         </div>
                     </div>
@@ -50,27 +51,30 @@
                     <div class="column is-one-third">
                         <label class="label" asp-for="Territory"></label>
                         <div class="select">
-                            <select name="Territory" id="territory">
+                            @*<select name="Territory" id="territory">*@
+                            <select asp-for="Territory">
                                 <option disabled selected value="">Выберите край/область</option>
                                 <option value="Ставропольский край">Ставропольский край</option>
                             </select>
-                            
+                            <span asp-validation-for="Territory" class="has-text-danger"></span>
                         </div>
                         </div>
                     <div class="column is-one-third">
                         <label class="label" asp-for="District"></label>
-                        <div class="select" id="district-to-replace">
-                            <select name="District">
-                                <option>Район/округ/городской округ</option>
+                        <div class="select" @*id="district-to-replace"*@>
+                            <select asp-for="District">
+                                <option disabled selected value="">Район/округ/городской округ</option>
                             </select>
+                            <span asp-validation-for="District" class="has-text-danger"></span>
                         </div>
                     </div>
                     <div class="column is-one-third">
                         <label class="label" asp-for="PopulatedArea"></label>
-                        <div class="select" id="populated-area-to-replace">
-                            <select name="PopulatedArea">
-                                <option>Населенный пункт</option>
+                        <div class="select" @*id="populated-area-to-replace"*@>
+                            <select asp-for="PopulatedArea">
+                                <option disabled selected value="">Населенный пункт</option>
                             </select>
+                            <span asp-validation-for="PopulatedArea" class="has-text-danger"></span>
                         </div>
                     </div>
                 </div>
@@ -79,10 +83,11 @@
                 <div class="columns">
                     <div class="column is-one-third">
                         <label class="label" asp-for="Street"></label>
-                        <div class="select" id="street-to-replace">
-                            <select name="Street">
-                                <option>Улица/проспект/переулок</option>
+                        <div class="select">
+                            <select asp-for="Street">
+                                <option disabled selected value="">Улица/проспект/переулок</option>
                             </select>
+                            <span asp-validation-for="Street" class="has-text-danger"></span>
                         </div>
                     </div>
                    <div class="column is-one-third">
@@ -90,6 +95,7 @@
                         <div class="control">
                             <input class="input" type="text" name="HouseNumber" asp-for="HouseNumber"
                                    placeholder="Номер дома/строения" />
+                            <span asp-validation-for="HouseNumber" class="has-text-danger"></span>
                         </div>
                     </div>
                     <div class="column is-one-third">
@@ -97,7 +103,7 @@
                         <div class="control">
                             <input class="input" type="text" name="ApartmentOrOffice" asp-for="ApartmentOrOffice"
                                    placeholder="Номер квартиры/офиса" />
-                        </div>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -106,12 +112,13 @@
                     <div class="column is-full">
                         <label class="label" asp-for="TypeOfFailure"></label>
                         <div class="select">
-                            <select name="TypeOfFailure">
+                            <select asp-for="TypeOfFailure">
                                 @*<option>
-                                    Причина вызова мастера (если причины нет в списке, выберите 'Прочее')
-                                </option>*@
-                                <vc:type-of-failure-vc/>
+                Причина вызова мастера (если причины нет в списке, выберите 'Прочее')
+            </option>*@
+                                <vc:type-of-failure-vc />
                             </select>
+                            <span asp-validation-for="TypeOfFailure" class="has-text-danger"></span>
                         </div>
                     </div>
                 </div>
@@ -122,8 +129,7 @@
                         <label class="label" asp-for="Description"></label>
                         <div class="control">
                             <textarea class="textarea" id="description-content" name="Content" asp-for="Description" data-length="280" rows="4" maxlength="280" minlenght="20" placeholder="Краткое описание причины вызова (максимум 280 символов)" style="resize: none"></textarea>
-                            <div><span asp-validation-for="Description" class="has-text-danger"></span></div>
-                        </div>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -132,8 +138,9 @@
                     <div class="column is-one-third">
                         <label class="label" asp-for="VisitTime"></label>
                         <div class="control">
-                            <input type="text" id="datepicker" class=" input datepicker-here" data-position="top center" data-timepicker="true" />
-                        </div>
+                            <input type="text" asp-for="VisitTime" class=" input datepicker-here" data-position="top center" data-timepicker="true"/>
+                            <span asp-validation-for="VisitTime" class="has-text-danger"></span>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -143,7 +150,7 @@
                         <label class="label" asp-for="SpecialInstruction"></label>
                         <div class="control">
                             <textarea class="textarea" id="special-instruction-content" name="Content" asp-for="SpecialInstruction"
-                                      data-length="280" rows="4" maxlength="280" minlenght="20"
+                                      data-length="280" rows="4" maxlength="280"
                                       placeholder="Дополнительные сведения(схема проезда, код домофона и т.д.) (максимум 280 символов)" style="resize: none"></textarea>
                             <div><span asp-validation-for="SpecialInstruction" class="has-text-danger"></span></div>
                             <label class="checkbox">
@@ -175,7 +182,8 @@
         var companyProject = companyProject || {};
         companyProject.Urls = companyProject.Urls || {};
         companyProject.Urls.baseUrl = '@Url.Content("~")';
-        companyProject.Urls.GetPartOfAddress= '@Url.Action("GetPartOfAddress", "Service")';
+        companyProject.Urls.GetPartOfAddress = '@Url.Action("GetPartOfAddress", "Service")';
+        //companyProject.Urls.ValidateTerritory= '@Url.Action("ValidateTerritory", "Service")';
     </script>
 }
 
