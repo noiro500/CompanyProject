@@ -42,10 +42,17 @@ namespace CompanyProject.API.Controllers
             return View();
         }
 
-        [HttpGet]
         public IActionResult MakeOrder()
         {
             return View();
+        }
+
+        public IActionResult MakeOrderConfirm(OrderViewModel order)
+        {
+            if (!order.IsAdoptedPrivacyPolicy)
+                return Json(false);
+            else
+                return ViewComponent("MakeOrderCheckingData", order);
         }
 
         public IActionResult GetPartOfAddress(IList<string> parameters)

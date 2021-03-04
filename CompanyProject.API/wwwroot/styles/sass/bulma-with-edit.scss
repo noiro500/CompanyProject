@@ -138,9 +138,22 @@ body {
     margin-left: auto !important;
     margin-right: auto !important;
 }
-input.input-validation-error {
-    border: 1px solid hsl(348, 100%, 61%);
+/*input {
+    &.input-validation-error {
+        border: 1px solid hsl(348, 100%, 61%);
+    }
 }
+select {
+    &.input-validation-error {
+        border-color: red;
+    }
+}*/
+input.input-validation-error,
+select.input-validation-error {
+    border-color: hsl(348, 100%, 61%) !important;
+}
+
+
 
 
 /*.columns > div, article {

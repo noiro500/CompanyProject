@@ -118,10 +118,9 @@
 });
 
 function SuccessSendForm(data) {
-    //$('button[name="submitForm"]').attr('disabled', true);
     if (!JSON.parse(data)) {
         $.toast({
-            text: "Сообщение не отправлено. Необходимо принять Политику конфиденциальности.", // Text that is to be shown in the toast
+            text: "Сообщение не отправлено. Необходимо принять \"Политику конфиденциальности\".", // Text that is to be shown in the toast
             heading: 'Ошибка',
             icon: 'error',
             showHideTransition: 'fade',
@@ -163,6 +162,41 @@ function FailureSendForm(data) {
         //loaderBg: '#9EC600'
     });
 }
+
+function TermAndCondition(data) {
+    if (!JSON.parse(data)) {
+        $.toast({
+            text:
+                "Необходимо принять \"Политику конфиденциальности\".", 
+            heading: 'Ошибка',
+            icon: 'error',
+            showHideTransition: 'fade',
+            allowToastClose: true,
+            hideAfter: 3000,
+            stack: false,
+            position: 'bottom-right',
+            textAlign: 'left',
+            loader: false
+        });
+    }
+}
+function Failure(data) {
+    $.toast({
+        text: "Внутренняя ошибка. Пожалуйста, попробуйте позднее",
+        heading: 'Ошибка',
+        icon: 'error',
+        showHideTransition: 'fade',
+        allowToastClose: true,
+        hideAfter: 3000,
+        stack: false,
+        position: 'bottom-right',
+        textAlign: 'left',
+        loader: false
+        //loaderBg: '#9EC600'
+    });
+}
+
+
 
 
 
