@@ -1,5 +1,27 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model OrderViewModel
+
+<div class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">A Demo of Card Modal</p>
+            <button class="delete" id="closetop" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="content">
+            <h1>Modal Heading</h1>
+            <p>The h1 headings content here</p>
+            <h2>Sub heading</h2>
+            <p>The h2 headings content here</p>
+            <h3>Third heading</h3>
+            <p>The h3 headings content here</p>
+            </div>  
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-info">Yes</button>
+            <button class="button is-info">No</button>
+            <button class="button is-danger" id="closebtn">Close</button>
+        </footer>
+    </div>
+
+</div>

@@ -11,7 +11,7 @@ namespace CompanyProject.API.Infrastructure.ViewComponents
     {
         public IViewComponentResult Invoke(OrderViewModel order)
         {
-            return View("MakeOrderCheckingData");
+            return View("MakeOrderCheckingData", order);
         }
     }
 }

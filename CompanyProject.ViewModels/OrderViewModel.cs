@@ -46,7 +46,7 @@ namespace CompanyProject.ViewModels
         public string ApartmentOrOffice { get; set; } = "Отсутствует";
 
         [Required(ErrorMessage = "Не выбрана причина вызова мастера")]
-        [Display(Name = "Причина вызова мастера (если причины нет в списке, выберите 'Прочее' *):")]
+        [Display(Name = "Причина вызова мастера (если причины нет в списке, выберите 'Прочее'): *")]
         public string? TypeOfFailure { get; set; }
 
         [DataType(DataType.MultilineText)]
@@ -60,6 +60,6 @@ namespace CompanyProject.ViewModels
         [Display(Name = "Прочая необходимая информация (номер подъезда, код домофона и т.д.):")]
         public string SpecialInstruction { get; set; } = "Отсутствует";
 
-        public bool IsAdoptedPrivacyPolicy { get; set; }
+        public bool IsAdoptedPrivacyPolicy { get; set; } 
     }
 }

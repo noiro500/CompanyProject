@@ -106,15 +106,29 @@
     });
 
     //настройка дат
-    var tomorrow = new Date();
-
     $('#VisitTime').datepicker({
         minDate: new Date(),
         minHours: 9,
         maxHours: 18
     });
+    //var validator = $('#make-order').validate();
+    //validator.element("#IsAdoptedPrivacyPolicy");
 
-    
+    //Модальное окно проверки даты
+    //$(".modal").addClass("is-active");
+    //$("#checking-data").click(function () {
+    //    $(".modal").addClass("is-active");
+    //});
+    //$(".modal-close").click(function () {
+    //    $(".modal").removeClass("is-active");
+    //});
+    //$("#closebtn").click(function () {
+    //    $(".modal").removeClass("is-active");
+    //});
+    //$("#closetop").click(function () {
+    //    $(".modal").removeClass("is-active");
+    //});
+    $("#checking-data").on("click", SuccessData);
 });
 
 function SuccessSendForm(data) {
@@ -163,24 +177,30 @@ function FailureSendForm(data) {
     });
 }
 
-function TermAndCondition(data) {
-    if (!JSON.parse(data)) {
-        $.toast({
-            text:
-                "Необходимо принять \"Политику конфиденциальности\".", 
-            heading: 'Ошибка',
-            icon: 'error',
-            showHideTransition: 'fade',
-            allowToastClose: true,
-            hideAfter: 3000,
-            stack: false,
-            position: 'bottom-right',
-            textAlign: 'left',
-            loader: false
-        });
-    }
+function SuccessData() {
+    var a = $("#IsAdoptedPrivacyPolicy:checked").val();
+    console.log(a);
+    //if (!/*JSON.parse*/(data)) {
+    //    console.log(data);
+    //    $.toast({
+    //        text:
+    //            "Необходимо принять \"Политику конфиденциальности\".",
+    //        heading: 'Ошибка',
+    //        icon: 'error',
+    //        showHideTransition: 'fade',
+    //        allowToastClose: true,
+    //        hideAfter: 3000,
+    //        stack: false,
+    //        position: 'bottom-right',
+    //        textAlign: 'left',
+    //        loader: false
+    //    });
+    //}
+    //else {
+    //    console.log(data.value);
+    //}
 }
-function Failure(data) {
+function Failure() {
     $.toast({
         text: "Внутренняя ошибка. Пожалуйста, попробуйте позднее",
         heading: 'Ошибка',

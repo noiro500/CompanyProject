@@ -6,14 +6,14 @@
 }
 
 <div class="container">
-    <form id="make-order" asp-antiforgery="true" novalidate asp-controller="Service" asp-action="MakeOrderConfirm" 
+    @*<form id="make-order" asp-antiforgery="true" novalidate asp-controller="Service" asp-action="MakeOrderConfirm" 
           data-ajax="true"
           data-ajax-method="POST"
           data-ajax-mode="replace"
-          data-ajax-success="TermAndCondition"
+          data-ajax-success="SuccessData"
           data-ajax-failure="Failure"
-          >
-    @*<form id="make-order" asp-antiforgery="true" novalidate>*@
+          >*@
+    <form id="make-order" asp-antiforgery="true" novalidate method="post">
         <div class="validation" asp-validation-summary="ModelOnly"></div>
         <div class="field">
             <div class="columns">
@@ -58,7 +58,6 @@
                     <div class="column is-one-third">
                         <label class="label" asp-for="Territory"></label>
                         <div class="select">
-                            @*<select name="Territory" id="territory">*@
                             <select asp-for="Territory">
                                 <option disabled selected value="">Выберите край/область</option>
                                 <option value="Ставропольский край">Ставропольский край</option>
@@ -68,7 +67,7 @@
                         </div>
                     <div class="column is-one-third">
                         <label class="label" asp-for="District"></label>
-                        <div class="select" @*id="district-to-replace"*@>
+                        <div class="select">
                             <select asp-for="District">
                                 <option disabled selected value="">Район/округ/городской округ</option>
                             </select>
@@ -77,7 +76,7 @@
                     </div>
                     <div class="column is-one-third">
                         <label class="label" asp-for="PopulatedArea"></label>
-                        <div class="select" @*id="populated-area-to-replace"*@>
+                        <div class="select">
                             <select asp-for="PopulatedArea">
                                 <option disabled selected value="">Населенный пункт</option>
                             </select>
@@ -120,9 +119,6 @@
                         <label class="label" asp-for="TypeOfFailure"></label>
                         <div class="select">
                             <select asp-for="TypeOfFailure">
-                                @*<option>
-                Причина вызова мастера (если причины нет в списке, выберите 'Прочее')
-            </option>*@
                                 <vc:type-of-failure-vc />
                             </select>
                             <span asp-validation-for="TypeOfFailure" class="has-text-danger"></span>
@@ -163,7 +159,7 @@
                                 <input asp-for="IsAdoptedPrivacyPolicy" class="has-text-danger" />
                                 Я принимаю <a href="~/Resources/Files/Политика конфиденциальности.pdf">Политику конфиденциальности</a>
                             </label>
-                            <span asp-validation-for="IsAdoptedPrivacyPolicy" class="has-text-danger"></span>
+                            @*<span asp-validation-for="IsAdoptedPrivacyPolicy" class="has-text-danger"></span>*@
                         </div>
                     </div>
                 </div>
@@ -172,7 +168,7 @@
                 <div class="column is-full">
                     <div class=" field is-grouped">
                         <div class="control">
-                            <button name="make-order-submit-form" class="button is-primary">Далее</button>
+                            <button name="CheckingData" id="checking-data" class="button is-primary">Далее</button>
                         </div>
                         <div class="control">
                             <button class="button is-primary is-light" type="reset">Очистить</button>
@@ -190,7 +186,7 @@
         companyProject.Urls = companyProject.Urls || {};
         companyProject.Urls.baseUrl = '@Url.Content("~")';
         companyProject.Urls.GetPartOfAddress = '@Url.Action("GetPartOfAddress", "Service")';
-        //companyProject.Urls.ValidateTerritory= '@Url.Action("ValidateTerritory", "Service")';
+        @*companyProject.Urls.ValidateTerritory= '@Url.Action("ValidateTerritory", "Service")';*@
     </script>
 }
 
