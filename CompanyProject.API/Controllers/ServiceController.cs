@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using CompanyProject.ViewModels;
 using CompanyProject.Domain;
@@ -47,14 +48,34 @@ namespace CompanyProject.API.Controllers
             return View();
         }
 
+        //public IActionResult MakeOrderConfirm(OrderViewModel order)
+        //{
+        //    if (!order.IsAdoptedPrivacyPolicy)
+        //        return Json(false);
+        //    else
+        //        return ViewComponent("MakeOrderCheckingData", order);
+        //}
+
+        [HttpPost]
         public IActionResult MakeOrderConfirm(OrderViewModel order)
         {
-            if (!order.IsAdoptedPrivacyPolicy)
-                return Json(false);
+            if (order != null)
+            {
+                var orderProperties = order.GetType().GetProperties();
+                foreach (var propertyInfo in orderProperties)
+                {
+                    if (propertyInfo.GetValue(order) == null)
+                    {
+                        propertyInfo.SetValue(order, "Отсутствует");
+                    }
+                }
+                return PartialView("ContentViews/PartialView/MakeOrderConfirm", order);
+            }
             else
-                return ViewComponent("MakeOrderCheckingData", order);
+                return NotFound();
         }
 
+        [HttpPost]
         public IActionResult GetPartOfAddress(IList<string> parameters)
         {
             return ViewComponent("GetPartOfAddressVc", parameters);

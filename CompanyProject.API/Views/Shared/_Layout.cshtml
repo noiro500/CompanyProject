@@ -9,6 +9,7 @@
         <link href="~/styles/css/bulma-with-edit.css" rel="stylesheet" asp-append-version="true" />
         <link href="~/styles/css/uvitekskmv-style.css" rel="stylesheet" asp-append-version="true" />
         <link href="~/styles/css/jquery.toast.css" rel="stylesheet" asp-append-version="true" />
+        <link href="~/styles/css/datepicker.css" rel="stylesheet" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
         <link href="~/styles/css/bulma-with-edit.min.css" rel="stylesheet" asp-append-version="true" />
@@ -17,6 +18,7 @@
     </environment>
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="~/styles/css/datepicker.min.css" rel="stylesheet" asp-append-version="true" />
 </head>
 <body>
     <main>
@@ -45,6 +47,7 @@
         <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js" asp-append-version="true"></script>
         <script src="~/js/jquery.maskedinput.js" asp-append-version="true"></script>
         <script src="~/js/jquery.toast.js" asp-append-version="true"></script>
+        <script src="~/js/datepicker.js" asp-append-version="true"></script>
     </environment>
     <environment exclude="Development">
         <script src="~/lib/jquery/jquery.slim.min.js" asp-append-version="true"></script>
@@ -62,6 +65,7 @@
                 asp-fallback-src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
                 asp-fallback-test="window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive">
         </script>
+        <script src="~/js/datepicker.min.js" asp-append-version="true"></script>
     </environment>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

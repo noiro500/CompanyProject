@@ -5,7 +5,7 @@
     ViewData["Title"] = "Вызвать мастера";
 }
 
-<div class="container">
+<div class="container" id="makeOrderContainer">
     @*<form id="make-order" asp-antiforgery="true" novalidate asp-controller="Service" asp-action="MakeOrderConfirm" 
           data-ajax="true"
           data-ajax-method="POST"
@@ -41,7 +41,7 @@
                         <label class="label" asp-for="AnotherPhoneNumber"></label>
                         <div class="control">
                             <input class="input phone-number" type="tel" asp-for="AnotherPhoneNumber"
-                                   placeholder="Рекомендуем указать номер WhatsApp" />
+                                   placeholder="Рекомендуем указать номер WhatsApp"  value=""/>
                         </div>
                     </div>
                     <div class="column is-one-third">
@@ -64,7 +64,7 @@
                             </select>
                             <span asp-validation-for="Territory" class="has-text-danger"></span>
                         </div>
-                        </div>
+                    </div>
                     <div class="column is-one-third">
                         <label class="label" asp-for="District"></label>
                         <div class="select">
@@ -96,7 +96,7 @@
                             <span asp-validation-for="Street" class="has-text-danger"></span>
                         </div>
                     </div>
-                   <div class="column is-one-third">
+                    <div class="column is-one-third">
                         <label class="label" asp-for="HouseNumber"></label>
                         <div class="control">
                             <input class="input" type="text" name="HouseNumber" asp-for="HouseNumber"
@@ -109,7 +109,7 @@
                         <div class="control">
                             <input class="input" type="text" name="ApartmentOrOffice" asp-for="ApartmentOrOffice"
                                    placeholder="Номер квартиры/офиса" />
-                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -132,7 +132,7 @@
                         <label class="label" asp-for="Description"></label>
                         <div class="control">
                             <textarea class="textarea" id="description-content" name="Content" asp-for="Description" data-length="280" rows="4" maxlength="280" minlenght="20" placeholder="Краткое описание причины вызова (максимум 280 символов)" style="resize: none"></textarea>
-                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -143,7 +143,7 @@
                         <div class="control">
                             <input type="text" asp-for="VisitTime" class=" input datepicker-here" data-position="top center" data-timepicker="true"/>
                             <span asp-validation-for="VisitTime" class="has-text-danger"></span>
-                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -179,6 +179,7 @@
         </div>
     </form>
 </div>
+<div id="modalContent"></div>
 @section Scripts
 {
     <script>
@@ -186,7 +187,7 @@
         companyProject.Urls = companyProject.Urls || {};
         companyProject.Urls.baseUrl = '@Url.Content("~")';
         companyProject.Urls.GetPartOfAddress = '@Url.Action("GetPartOfAddress", "Service")';
-        @*companyProject.Urls.ValidateTerritory= '@Url.Action("ValidateTerritory", "Service")';*@
+        companyProject.Urls.MakeOrderConfirm = '@Url.Action("MakeOrderConfirm", "Service")';
     </script>
 }
 

@@ -1,6 +1,6 @@
 ﻿@model IList<CompanyProject.API.Infrastructure.ViewComponents.TypeOfFailureViewModel>
 
-    <option disabled selected>Причина вызова мастера (если причины нет в списке, выберите 'Прочее')</option>
+    <option disabled selected value="">Причина вызова мастера (если причины нет в списке, выберите 'Прочее')</option>
 @foreach (var item in Model)
 {
 <option value="@item.ServiceName - @item.Service">@item.ServiceName - @item.Service</option>

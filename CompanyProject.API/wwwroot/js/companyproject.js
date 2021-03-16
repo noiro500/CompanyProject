@@ -52,7 +52,6 @@
     $('textarea').keypress(function (event) {
         if (event.keyCode == 13) {
             event.preventDefault();
-            whenEnterPressed();
         }
     });
 
@@ -77,22 +76,25 @@
     //Подгрузка списка округов/районов, населенных пунктов, улиц 
     $('#Territory').change(function () {
         $.ajax({
-            type: 'GET',
-            url: companyProject.Urls.GetPartOfAddress + '?parameters=District',
+            type: 'POST',
+            url: companyProject.Urls.GetPartOfAddress,
+            data: { parameters: ["District"]},
             success: function(result) {
                 $('#District').html(result);
                 $('#District').change(function() {
                     var selectedDistrict = $('#District option:selected').val();
                     $.ajax({
-                        type: 'GET',
-                        url: companyProject.Urls.GetPartOfAddress + '?' + '[0]=PopulatedArea' + '&[1]=' + selectedDistrict,
+                        type: "POST",
+                        url: companyProject.Urls.GetPartOfAddress ,
+                        data: { parameters: ["PopulatedArea", selectedDistrict]},
                         success: function (result) {
                             $('#PopulatedArea').html(result);
                             $('#PopulatedArea').change(function() {
                                 var selectPopulatedArea = $('#PopulatedArea option:selected').val();
                                 $.ajax({
-                                    type: 'GET',
-                                    url: companyProject.Urls.GetPartOfAddress + '?' + '[0]=Street' + '&[1]=' + selectPopulatedArea,
+                                    type: 'POST',
+                                    url: companyProject.Urls.GetPartOfAddress,
+                                    data: { parameters: ["Street", selectPopulatedArea] },
                                     success: function (result) {
                                         $('#Street').html(result);
                                     }
@@ -111,25 +113,30 @@
         minHours: 9,
         maxHours: 18
     });
-    //var validator = $('#make-order').validate();
-    //validator.element("#IsAdoptedPrivacyPolicy");
 
-    //Модальное окно проверки даты
-    //$(".modal").addClass("is-active");
-    //$("#checking-data").click(function () {
-    //    $(".modal").addClass("is-active");
-    //});
-    //$(".modal-close").click(function () {
-    //    $(".modal").removeClass("is-active");
-    //});
-    //$("#closebtn").click(function () {
-    //    $(".modal").removeClass("is-active");
-    //});
-    //$("#closetop").click(function () {
-    //    $(".modal").removeClass("is-active");
-    //});
+    $("#make-order input[name='IsAdoptedPrivacyPolicy']")[0].checked = true;
     $("#checking-data").on("click", SuccessData);
 });
+
+function CheckFormField() {
+    var custimerName = !!($("#CustomerName").val());
+    var phoneNumber = !!($("#PhoneNumber").val());
+    var territory = !!($("#Territory").val());
+    var district = !!($("#District").val());
+    var populatedArea = !!($("#PopulatedArea").val());
+    var houseNumber = !!($("#PopulatedArea").val());
+    var typeOfFailure = !!($("#TypeOfFailure").val());
+    if (!custimerName ||
+        !phoneNumber ||
+        !territory ||
+        !district ||
+        !populatedArea ||
+        !houseNumber ||
+        !typeOfFailure
+    )
+        return false;
+    else return true;
+}
 
 function SuccessSendForm(data) {
     if (!JSON.parse(data)) {
@@ -177,28 +184,41 @@ function FailureSendForm(data) {
     });
 }
 
-function SuccessData() {
-    var a = $("#IsAdoptedPrivacyPolicy:checked").val();
-    console.log(a);
-    //if (!/*JSON.parse*/(data)) {
-    //    console.log(data);
-    //    $.toast({
-    //        text:
-    //            "Необходимо принять \"Политику конфиденциальности\".",
-    //        heading: 'Ошибка',
-    //        icon: 'error',
-    //        showHideTransition: 'fade',
-    //        allowToastClose: true,
-    //        hideAfter: 3000,
-    //        stack: false,
-    //        position: 'bottom-right',
-    //        textAlign: 'left',
-    //        loader: false
-    //    });
-    //}
-    //else {
-    //    console.log(data.value);
-    //}
+function SuccessData(event) {
+    if (!CheckFormField())
+        return;
+    var privacyPolicyIsChecked = $('#IsAdoptedPrivacyPolicy').is(':checked');
+    if (!Boolean(privacyPolicyIsChecked)) {
+        event.preventDefault();
+        $.toast({
+            text:
+                "Необходимо принять \"Политику конфиденциальности\".",
+            heading: 'Ошибка',
+            icon: 'error',
+            showHideTransition: 'fade',
+            allowToastClose: true,
+            hideAfter: 3000,
+            stack: false,
+            position: 'bottom-right',
+            textAlign: 'left',
+            loader: false
+        });
+    } else {
+        $.ajaxSetup({
+            cache: false
+        });
+        event.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: companyProject.Urls.MakeOrderConfirm,
+            data: $('#make-order').serializeArray(),
+            success: function (data) {
+                
+                $("#modalContent").html(data);
+                $(".modal").addClass("is-active");
+            }
+        });
+    }
 }
 function Failure() {
     $.toast({
