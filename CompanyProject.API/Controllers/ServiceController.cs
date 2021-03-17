@@ -62,7 +62,7 @@ namespace CompanyProject.API.Controllers
             if (order != null)
             {
                 var orderProperties = order.GetType().GetProperties();
-                ViewBag.OrderPropCount = orderProperties.Length;
+                //ViewBag.OrderPropCount = orderProperties.Length;
                 foreach (var propertyInfo in orderProperties)
                 {
                     if (propertyInfo.GetValue(order) == null)
