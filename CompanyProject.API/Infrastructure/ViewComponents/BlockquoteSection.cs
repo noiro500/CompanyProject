@@ -5,9 +5,9 @@ namespace CompanyProject.API.Infrastructure.ViewComponents
 {
     public class BlockquoteSection : ViewComponent
     {
-        public Task<IViewComponentResult> InvokeAsync(string name)
+        public IViewComponentResult Invoke(string name)
         {
-            return Task.FromResult<IViewComponentResult>(View("BlockquoteSection", name));
+            return View("BlockquoteSection", name);
         }
     }
 }
