@@ -38,7 +38,7 @@ namespace CompanyProject.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult MakeOrder(OrderViewModel order)
+        public async Task<IActionResult> MakeOrder(OrderViewModel order)
         {
             return View();
         }
@@ -62,7 +62,6 @@ namespace CompanyProject.API.Controllers
             if (order != null)
             {
                 var orderProperties = order.GetType().GetProperties();
-                ViewBag.OrderPropCount = orderProperties.Length;
                 foreach (var propertyInfo in orderProperties)
                 {
                     if (propertyInfo.GetValue(order) == null)
