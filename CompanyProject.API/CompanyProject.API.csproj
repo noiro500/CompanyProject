@@ -220,7 +220,6 @@
     <None Include="Views\MenuFirstLine\Comments.cshtml" />
     <None Include="Views\MenuFirstLine\Contacts.cshtml" />
     <None Include="Views\MenuFirstLine\FullPriceList.cshtml" />
-    <None Include="Views\Shared\Components\BlockquoteSection\BlockquoteSection.cshtml" />
     <None Include="Views\Shared\Components\Cards\Cards.cshtml" />
     <None Include="Views\Shared\Components\PriceListTable\PriceListTable.cshtml" />
     <None Include="Views\Shared\Components\TopMenu\TopMenu.cshtml" />

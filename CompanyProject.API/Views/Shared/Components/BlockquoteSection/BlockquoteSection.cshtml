@@ -3,57 +3,57 @@
 @if (@Model == "NeedHelp")
 {
     @*<div class="columns">*@
-        @*<div class="column is-half">*@
-            <div class="content">
-                <blockquote id="NeedHelp" class="blockquote-style" style="border-left-color: #d81b60;">
-                    <div class="container">
-                        <div class="columns">
-                            <div class="column is-full is-size-5 has-text-centered">
-                                <b>Нужна помощь?</b><br />
-                                <span>Обращайтесь!</span>
-                                <br />
-                                <i class="fas fa-phone-volume" style="font-size: 24px; color: black"></i>
-                                <span class="font-tel">&nbsp;<vc:company-info info="PhoneNumber" /></span> <br />
-                                <i class="fas fa-comment-alt" style="font-size: 18px; color: black"></i>
-                                <span class="is-size-6">&nbsp;&nbsp;&nbsp;WhatsApp <vc:company-info info="WhatsApp" /></span><br />
-                                <a asp-controller="Service" asp-action="MakeOrder" class="button is-primary">
-                                    <i class="fas fa-wrench" style="font-size: 18px"></i>&nbsp;&nbsp;
-                                    <b>ВЫЗВАТЬ МАСТЕРА</b>
-                                </a>
-                            </div>
-                            
-                        </div>
+    @*<div class="column is-half">*@
+    <div class="content">
+        <blockquote id="NeedHelp" class="blockquote-style" style="border-left-color: #d81b60;">
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-full is-size-5 has-text-centered">
+                        <b>Нужна помощь?</b><br />
+                        <span>Обращайтесь!</span>
+                        <br />
+                        <i class="fas fa-phone-volume" style="font-size: 24px; color: black"></i>
+                        <span class="font-tel">&nbsp;<vc:company-info info="PhoneNumber" /></span> <br />
+                        <i class="fas fa-comment-alt" style="font-size: 18px; color: black"></i>
+                        <span class="is-size-6">&nbsp;&nbsp;&nbsp;WhatsApp <vc:company-info info="WhatsApp" /></span><br />
+                        <a asp-controller="Service" asp-action="MakeOrder" class="button is-primary">
+                            <i class="fas fa-wrench" style="font-size: 18px"></i>&nbsp;&nbsp;
+                            <b>ВЫЗВАТЬ МАСТЕРА</b>
+                        </a>
                     </div>
-                </blockquote>
+
+                </div>
             </div>
-        @*</div>*@
+        </blockquote>
+    </div>
+    @*</div>*@
     @*</div>*@
 }
 
 @if (@Model == "SendMessage")
 {
-@*<div class="columns">*@
+    @*<div class="columns">*@
     @*<div class="column is-half">*@
-        <div class="content">
-            <blockquote id="SendMessage" class="blockquote-style" style="border-left-color: #d81b60;">
-                <div class="container">
-                    <div class="columns">
-                        <div class="column is-full is-size-5 has-text-centered">
-                            <i class="fas fa-info" style="font-size: 24px; color: orangered"></i>
-                            <b>&nbsp;&nbsp;Проконсультируйтесь по вашей проблеме</b><br />
-                            <i class="fas fa-user-clock" style="font-size: 18px; color: orangered"></i>
-                            <span>&nbsp;&nbsp;<vc:company-info info="WorkTime" /></span> <br />
-                            <i class="fas fa-phone-volume" style="font-size: 24px; color: orangered"></i>
-                            <span class="font-tel">&nbsp;<vc:company-info info="PhoneNumber" /></span> <br />
-                            <i class="fas fa-comment-alt" style="font-size: 18px; color: orangered"></i>
-                            <span class="is-size-6">&nbsp;&nbsp;&nbsp;WhatsApp <vc:company-info info="WhatsApp" /></span><br />
-                            <span>или</span><br />
-                            <a href="#short-message" data-target="formFromBq" class="modal-trigger term black-text">отправте нам сообщение</a><br />
-                        </div>
+    <div class="content">
+        <blockquote id="SendMessage" class="blockquote-style" style="border-left-color: #d81b60;">
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-full is-size-5 has-text-centered">
+                        <i class="fas fa-info" style="font-size: 24px; color: orangered"></i>
+                        <b>&nbsp;&nbsp;Проконсультируйтесь по вашей проблеме</b><br />
+                        <i class="fas fa-user-clock" style="font-size: 18px; color: orangered"></i>
+                        <span>&nbsp;&nbsp;<vc:company-info info="WorkTime" /></span> <br />
+                        <i class="fas fa-phone-volume" style="font-size: 24px; color: orangered"></i>
+                        <span class="font-tel">&nbsp;<vc:company-info info="PhoneNumber" /></span> <br />
+                        <i class="fas fa-comment-alt" style="font-size: 18px; color: orangered"></i>
+                        <span class="is-size-6">&nbsp;&nbsp;&nbsp;WhatsApp <vc:company-info info="WhatsApp" /></span><br />
+                        <span>или</span><br />
+                        <a href="#short-message" data-target="formFromBq" class="modal-trigger term black-text">отправте нам сообщение</a><br />
                     </div>
                 </div>
-            </blockquote>
-        </div>
+            </div>
+        </blockquote>
+    </div>
     @*</div>*@
-@*</div>*@
+    @*</div>*@
 }
