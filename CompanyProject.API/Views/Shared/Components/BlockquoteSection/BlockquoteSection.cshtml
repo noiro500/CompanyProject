@@ -1,9 +1,7 @@
 ﻿@model string
 
-@if (@Model == "NeedHelp")
+@if (Model == "NeedHelp")
 {
-    @*<div class="columns">*@
-    @*<div class="column is-half">*@
     <div class="content">
         <blockquote id="NeedHelp" class="blockquote-style" style="border-left-color: #d81b60;">
             <div class="container">
@@ -26,15 +24,11 @@
             </div>
         </blockquote>
     </div>
-    @*</div>*@
-    @*</div>*@
 }
 
-@if (@Model == "SendMessage")
+@if (Model == "SendMessage")
 {
-    @*<div class="columns">*@
-    @*<div class="column is-half">*@
-    <div class="content">
+        <div class="content">
         <blockquote id="SendMessage" class="blockquote-style" style="border-left-color: #d81b60;">
             <div class="container">
                 <div class="columns">
@@ -54,6 +48,4 @@
             </div>
         </blockquote>
     </div>
-    @*</div>*@
-    @*</div>*@
 }

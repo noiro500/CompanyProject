@@ -5,7 +5,7 @@ namespace CompanyProject.ViewModels
     public class OrderViewModel
     {
         [Required(ErrorMessage = "Не указано полное имя заказчика")]
-        [RegularExpression(@"^[а-яА-Я""'\s-]*$", ErrorMessage = "Некорректные символы. Допускаются только руские буквы")]
+        [RegularExpression(@"^[а-яА-Я""'\s-]*$", ErrorMessage = "Некорректные символы. Допускаются только русские буквы!")]
         [MaxLength(100)]
         [Display(Name = "Полное имя заказчика (на русском языке): *")]
         public string CustomerName { get; set; }
@@ -22,7 +22,6 @@ namespace CompanyProject.ViewModels
         [MaxLength(100)]
         [Display(Name = "E-mail:")]
         public string Email { get; set; }
-
 
         [Required(ErrorMessage = "Не выбраны край/область")]
         [Display(Name = "Край/область: *")]
@@ -54,15 +53,19 @@ namespace CompanyProject.ViewModels
         public string? TypeOfFailure { get; set; }
 
         [DataType(DataType.MultilineText)]
-        [Display(Name = "Краткое описание причины вызова:")]
+        [StringLength(280, MinimumLength = 20, ErrorMessage = "Слишком короткая длина сообщения (необходимо от 20 до 280 символов)")]
+        [RegularExpression(@"^[а-яА-Я""'\s-]*$", ErrorMessage = "Некорректные символы. Допускаются только русские буквы!")]
+        [Display(Name = "Краткое описание причины вызова (на русском языке):")]
         public string Description { get; set; }
 
         [Required(ErrorMessage = "Не указано предпочтительное время прихода мастера")]
-        [Display(Name = "Предпочтитетльное время прихода мастера: *")]
+        [Display(Name = "Предпочтительное время прихода мастера: *")]
         public string? VisitTime { get; set; }
 
         [DataType(DataType.MultilineText)]
-        [Display(Name = "Прочая необходимая информация (номер подъезда, код домофона и т.д.):")]
+        [RegularExpression(@"^[а-яА-Я""'\s-]*$", ErrorMessage = "Некорректные символы. Допускаются только русские буквы!")]
+        [StringLength(280, MinimumLength = 20, ErrorMessage = "Слишком короткая длина сообщения (необходимо от 20 до 280 символов)")]
+        [Display(Name = "Прочая необходимая информация (номер подъезда, код домофона и т.д.) (на русском языке):")]
         public string SpecialInstruction { get; set; }
 
         public bool IsAdoptedPrivacyPolicy { get; set; } 

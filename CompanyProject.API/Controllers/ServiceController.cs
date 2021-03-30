@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using CompanyProject.ViewModels;
 using CompanyProject.Domain;
@@ -48,29 +51,25 @@ namespace CompanyProject.API.Controllers
             return View();
         }
 
-        //public IActionResult MakeOrderConfirm(OrderViewModel order)
-        //{
-        //    if (!order.IsAdoptedPrivacyPolicy)
-        //        return Json(false);
-        //    else
-        //        return ViewComponent("MakeOrderCheckingData", order);
-        //}
-
         [HttpPost]
         public IActionResult MakeOrderConfirm(OrderViewModel order)
         {
             if (order != null)
             {
                 var orderProperties = order.GetType().GetProperties();
-                //ViewBag.OrderPropCount = orderProperties.Length;
+                ViewBag.orderPropLength = orderProperties.Length;
+                var dictionaryAttributes = new Dictionary<string, string>();
                 foreach (var propertyInfo in orderProperties)
                 {
                     if (propertyInfo.GetValue(order) == null)
                     {
                         propertyInfo.SetValue(order, "Отсутствует");
                     }
+                    
+                    if (propertyInfo.GetCustomAttribute<DisplayAttribute>()!= null)
+                        dictionaryAttributes.Add(propertyInfo.GetCustomAttribute<DisplayAttribute>().Name, propertyInfo.GetValue(order).ToString());
                 }
-                return PartialView("ContentViews/PartialView/MakeOrderConfirm", order);
+                return PartialView("ContentViews/PartialView/MakeOrderConfirm", dictionaryAttributes);
             }
             else
                 return NotFound();

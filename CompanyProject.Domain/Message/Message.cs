@@ -8,6 +8,7 @@ namespace CompanyProject.Domain.Message
         public int MessageId { get; set; }
 
         [Required (ErrorMessage = "Не указано имя")]
+        [RegularExpression(@"^[а-яА-Я""'\s-]*$", ErrorMessage = "Некорректные символы. Допускаются только русские буквы!")]
         [Display(Name = "Ваше имя: *")]
         public string PeopleName { get; set; }
 
@@ -21,11 +22,13 @@ namespace CompanyProject.Domain.Message
         public string Email { get; set; } = null;
 
         [Required(ErrorMessage = "Не указана тема сообщения")]
+        [RegularExpression(@"^[а-яА-Я""'\s-]*$", ErrorMessage = "Некорректные символы. Допускаются только русские буквы!")]
         [StringLength(50, ErrorMessage = "Максимальная длина темы - 50 символов")]
         [Display(Name = "Тема сообщения: *")]
         public string SubjectMessage { get; set; }
 
         [Required(ErrorMessage = "Не введено сообщение")]
+        [RegularExpression(@"^[а-яА-Я""'\s-]*$", ErrorMessage = "Некорректные символы. Допускаются только русские буквы!")]
         [Display(Name = "Сообщение: *")]
         [DataType(DataType.MultilineText)]
         [StringLength(280, MinimumLength = 20, ErrorMessage = "Длина строки должна быть от 20 до 280 символов")]

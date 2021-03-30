@@ -115,7 +115,13 @@
     });
 
     $("#make-order input[name='IsAdoptedPrivacyPolicy']")[0].checked = true;
-    $("#checking-data").on("click", SuccessData);
+    $("#checking-data").on("click", CheckMakeOrderForm);
+
+    //Перезагрузка страницы с кнопки "Очистить"
+    $("#reset-button").on("click",
+        function() {
+            location.reload();
+        });
 });
 
 function CheckFormField() {
@@ -184,7 +190,7 @@ function FailureSendForm(data) {
     });
 }
 
-function SuccessData(event) {
+function CheckMakeOrderForm(event) {
     if (!CheckFormField())
         return;
     var privacyPolicyIsChecked = $('#IsAdoptedPrivacyPolicy').is(':checked');

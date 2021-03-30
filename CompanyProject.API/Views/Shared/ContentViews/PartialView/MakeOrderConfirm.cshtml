@@ -1,23 +1,28 @@
-﻿@model OrderViewModel
+﻿@model IDictionary<string, string>
 <div class="modal">
     <div class="modal-background"></div>
     <div class="modal-card">
         <header class="modal-card-head">
-            <p class="modal-card-title">Проверте введенные данные</p>
+            <p class="modal-card-title">Проверьте введенные данные</p>
             <button class="delete" id="closetop" aria-label="close"></button>
         </header>
         <section class="modal-card-body">
             <div class="content">
                 <div class="container">
-                    <label class="label" asp-for="CustomerName"></label>
-                    <p>@Model.CustomerName</p>
-                    <hr />
+                    <div class="field">
+                        @foreach (var field in Model)
+                        {
+                            <label class="label"> @field.Key</label>
+                            <p>@field.Value</p>
+                            <hr style="margin-top: 0px"/>
+                        }
+                    </div>
                 </div>
             </div>
         </section>
         <footer class="modal-card-foot">
-            <button class="button is-info">Yes</button>
-            <button class="button is-info">No</button>
+            <button class="button is-info">Вызвать мастера</button>
+            <button class="button is-info">Отмена</button>
             <button class="button is-danger" id="closebtn">Close</button>
         </footer>
     </div>
