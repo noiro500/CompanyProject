@@ -41,9 +41,9 @@ namespace CompanyProject.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult MakeOrder(OrderViewModel order)
+        public IActionResult MakeOrderConfirmResult(IDictionary<string, string> order)
         {
-            return View();
+            return ViewComponent("MakeOrderConfirmResult", order);
         }
 
         public IActionResult MakeOrder()
