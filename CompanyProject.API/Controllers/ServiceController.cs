@@ -43,7 +43,7 @@ namespace CompanyProject.API.Controllers
         [HttpPost]
         public IActionResult MakeOrderConfirmResult(IDictionary<string, string> order)
         {
-            return ViewComponent("MakeOrderConfirmResult", order);
+            return PartialView("MakeOrderConfirmResult", order);
         }
 
         public IActionResult MakeOrder()
@@ -76,10 +76,27 @@ namespace CompanyProject.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult GetPartOfAddress(IList<string> parameters)
+        public async Task<IActionResult> GetPartOfAddress(IList<string> parameters)
         {
-            return ViewComponent("GetPartOfAddressVc", parameters);
-            
+            ViewBag.PartOfAddress = parameters[0];
+            if (parameters[0] == "District")
+            {
+                var districtsList = (await _unitOfWork.AddressFromDbs.GetUsedDistrictsAsync());
+                return PartialView("ContentViews/PartialView/GetPartOfAddress", districtsList);
+            }
+
+            else if (parameters[0] == "PopulatedArea")
+            {
+                var populatedAreaList = (await _unitOfWork.AddressFromDbs.GetWorkPopulatedAreaAsync(parameters[1])).AsEnumerable();
+                return PartialView("ContentViews/PartialView/GetPartOfAddress", populatedAreaList);
+            }
+            else if (parameters[0] == "Street")
+            {
+                var strretList = (await _unitOfWork.AddressFromDbs.GetWorkStreetAsync(parameters[1])).AsEnumerable();
+                return PartialView("ContentViews/PartialView/GetPartOfAddress", strretList);
+            }
+            else throw new Exception();
+
         }
 
         
