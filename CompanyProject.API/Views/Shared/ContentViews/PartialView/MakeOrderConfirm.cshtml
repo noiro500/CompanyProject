@@ -1,4 +1,5 @@
-﻿@model IDictionary<string, string>
+﻿@using System.Text.Json
+@model IDictionary<string, string>
 <div class="modal">
     <div class="modal-background"></div>
     <div class="modal-card">
@@ -8,23 +9,23 @@
         </header>
         <section class="modal-card-body">
             <div class="content">
-                <div class="container">
+                <div id="modal-data" class="container">
                     <div class="field">
                         @foreach (var field in Model)
                         {
                             <label class="label"> @field.Key</label>
                             <p>@field.Value</p>
-                            <hr style="margin-top: 0px"/>
+                            <hr style="margin-top: 0px" />
                         }
                     </div>
                 </div>
             </div>
         </section>
         <footer class="modal-card-foot">
-            <button class="button is-info" onclick="MakeOrderConfirm(@Model)">Вызвать мастера</button>
+            <button id="button-confirm" class="button is-info" data-attr="@{ JsonSerializer.Serialize(Model);}" onclick="MakeOrderConfirmFunc()">Вызвать мастера</button>
             <button class="button is-info">Отмена</button>
             <button class="button is-danger" id="closebtn">Close</button>
         </footer>
     </div>
-
 </div>
+}

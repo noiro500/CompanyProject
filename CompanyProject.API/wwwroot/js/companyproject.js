@@ -114,9 +114,12 @@
         maxHours: 18
     });
 
-    $("#make-order input[name='IsAdoptedPrivacyPolicy']")[0].checked = true;
+    var a = $(this).find("#make-order");
+    if (a.length) {
+        $("#make-order input[name='IsAdoptedPrivacyPolicy']")[0].checked = true;
+    }
     $("#checking-data").on("click", CheckMakeOrderForm);
-
+       
     //Перезагрузка страницы с кнопки "Очистить"
     $("#reset-button").on("click",
         function() {
@@ -239,6 +242,17 @@ function Failure() {
         textAlign: 'left',
         loader: false
         //loaderBg: '#9EC600'
+    });
+}
+function MakeOrderConfirmFunc(/*dicParameter*/) {
+    var param = $('#button-confirm').attr('data-attr');
+    $.ajax({
+        type: "POST",
+        url: companyProject.Urls.MakeOrderConfirmResult,
+        data: param,
+        success: function(data) {
+            $("#modal-data").html(data);
+        }
     });
 }
 

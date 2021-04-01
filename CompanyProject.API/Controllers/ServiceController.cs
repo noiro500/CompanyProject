@@ -41,7 +41,7 @@ namespace CompanyProject.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult MakeOrderConfirmResult(IDictionary<string, string> order)
+        public IActionResult MakeOrderConfirmResult(IDictionary<string, string> orderViewModel)
         {
             return PartialView("ContentViews/PartialView/MakeOrderConfirmResult");
         }
