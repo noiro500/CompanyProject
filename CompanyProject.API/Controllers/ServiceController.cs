@@ -43,7 +43,7 @@ namespace CompanyProject.API.Controllers
         [HttpPost]
         public IActionResult MakeOrderConfirmResult(IDictionary<string, string> order)
         {
-            return PartialView("MakeOrderConfirmResult", order);
+            return PartialView("ContentViews/PartialView/MakeOrderConfirmResult");
         }
 
         public IActionResult MakeOrder()
