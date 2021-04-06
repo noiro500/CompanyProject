@@ -46,24 +46,24 @@ namespace CompanyProject.Repository
             modelBuilder.Entity<Customer>()
                 .HasMany(o => o.Orders)
                 .WithOne(c => c.Customer);
-            modelBuilder.Entity<Employee>()
-                .HasMany(o => o.Orders)
-                .WithOne(e => e.Employee);
-            modelBuilder.Entity<Order>()
-                .HasOne(o => o.Feedback)
-                .WithOne(i => i.Order)
-                .HasForeignKey<Feedback>(o => o.OrderForeignKey);
+            //modelBuilder.Entity<Employee>()
+            //    .HasMany(o => o.Orders)
+            //    .WithOne(e => e.Employee);
+            //modelBuilder.Entity<Order>()
+            //    .HasOne(o => o.Feedback)
+            //    .WithOne(i => i.Order)
+            //    .HasForeignKey<Feedback>(o => o.OrderForeignKey);
 
-            modelBuilder.Entity<EmployeeCustomer>()
-                .HasKey(t => new { t.EmployeeId, t.CustomerId });
-            modelBuilder.Entity<EmployeeCustomer>()
-                .HasOne(e => e.Employee)
-                .WithMany(e => e.EmployeeCustomers)
-                .HasForeignKey(c => c.EmployeeId);
-            modelBuilder.Entity<EmployeeCustomer>()
-                .HasOne(c => c.Customer)
-                .WithMany(e => e.EmployeeCustomers)
-                .HasForeignKey(c => c.CustomerId);
+            //modelBuilder.Entity<EmployeeCustomer>()
+            //    .HasKey(t => new { t.EmployeeId, t.CustomerId });
+            //modelBuilder.Entity<EmployeeCustomer>()
+            //    .HasOne(e => e.Employee)
+            //    .WithMany(e => e.EmployeeCustomers)
+            //    .HasForeignKey(c => c.EmployeeId);
+            //modelBuilder.Entity<EmployeeCustomer>()
+            //    .HasOne(c => c.Customer)
+            //    .WithMany(e => e.EmployeeCustomers)
+            //    .HasForeignKey(c => c.CustomerId);
 
             modelBuilder.Entity<Page>().HasData(
                 new Page[]

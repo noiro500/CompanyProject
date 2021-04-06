@@ -16,14 +16,15 @@ namespace CompanyProject.Repository
         {
             _context = ctx;
         }
-        public async Task AddAsync(T entity) => await _context.Set<T>().AddAsync(entity);
-        
-        public void Delete(T entity) => _context.Set<T>().Remove(entity);
 
-        public IQueryable<T> GetAll() => _context.Set<T>();
+        public async Task AddEntityAsync(T entity) => await _context.Set<T>().AddAsync(entity);
+
+        public void DeleteEntity(T entity) => _context.Set<T>().Remove(entity);
+
+        public IQueryable<T> GetAllEntity() => _context.Set<T>();
 
         public async Task<T> GetByIdAsync(int id) =>await _context.Set<T>().FindAsync(id);
 
-        public void Update(T entity) => _context.Set<T>().Update(entity);
+        public void UpdateEntity(T entity) => _context.Set<T>().Update(entity);
     }
 }

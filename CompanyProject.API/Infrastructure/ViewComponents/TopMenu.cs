@@ -39,7 +39,7 @@ namespace CompanyProject.API.Infrastructure.ViewComponents
                     "gray", "Контакты")
             };
             //var navBar = await _context.GetAllAsync();
-            var navBar = await _unitOfWork.Pages.GetAll().ToListAsync();
+            var navBar = await _unitOfWork.Pages.GetAllEntity().ToListAsync();
             var topMenuNavBar=new List<TopMenuLineViewModel>();
             foreach (var page in navBar)
             {

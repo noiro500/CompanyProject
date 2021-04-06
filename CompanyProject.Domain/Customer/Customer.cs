@@ -11,50 +11,52 @@ namespace CompanyProject.Domain.Customer
     {
         public int CustomerId { set; get; }
 
-        [Display(Name = "Полное имя заказчика: *")]
+        [Required]
+        //[Display(Name = "Полное имя заказчика: *")]
         public string CustomerName { get; set; }
 
         [Required]
-        [Display(Name = "Номер телефона: *")]
+        //[Display(Name = "Номер телефона: *")]
         public string PhoneNumber { get; set; }
 
-        [Display(Name = "Запасный номер телефона/WhatsApp:")]
+        //[Display(Name = "Запасный номер телефона/WhatsApp:")]
         public string AnotherPhoneNumber { get; set; } = "Отсутствует";
 
-        [EmailAddress(ErrorMessage = "Некорректный адрес E-mail")]
-        [Display(Name = "E-mail:")]
+        //[EmailAddress(ErrorMessage = "Некорректный адрес E-mail")]
+        //[Display(Name = "E-mail:")]
         //[RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}", ErrorMessage = "Некорректный адрес")]
         public string Email { get; set; } = null;
 
-        [Required(ErrorMessage = "Не выбраны край/область")]
-        [Display(Name = "Край/область: *")]
-        public int Territory { get; set; } = 26;
+        //[Required(ErrorMessage = "Не выбраны край/область")]
+        //[Display(Name = "Край/область: *")]
+        [Required]
+        public string Territory { get; set; }
 
         [Required]
-        [Display(Name = "Район/округ/городской округ: *")]
+        //[Display(Name = "Район/округ/городской округ: *")]
         public string District { get; set; }
 
         [Required]
-        [Display(Name = "Населенный пункт: *")]
+        //[Display(Name = "Населенный пункт: *")]
         public string PopulatedArea { get; set; }
 
-        [Display(Name = "Улица/проспект/переулок: ")] 
-        public string Street { get; set; } = "Отсутствует";
+        //[Display(Name = "Улица/проспект/переулок: ")] 
+        public string Street { get; set; }
 
         [Required]
-        [Display(Name = "Номер дома/строения: *")]
+        //[Display(Name = "Номер дома/строения: *")]
         public string HouseNumber { get; set; }
 
-        [Display(Name = "ННомер квартиры/офиса:")]
-        public string ApartmentOrOfficeNumber { get; set; } = "Отсутствует";
+        //[Display(Name = "Номер квартиры/офиса:")]
+        public string ApartmentOrOfficeNumber { get; set; }
 
         public bool IsAdoptedPrivacyPolicy { get; set; }
 
         public virtual IEnumerable<Order.Order> Orders { get; set; }
-        public virtual IEnumerable<EmployeeCustomer> EmployeeCustomers { get; set; }
+        //public virtual IEnumerable<EmployeeCustomer> EmployeeCustomers { get; set; }
 
         //[Timestamp]
         //public byte[] Timestamp { get; set; }
-        
+
     }
 }

@@ -22,8 +22,8 @@ namespace CompanyProject.Domain.Employee
         [DataType(DataType.MultilineText)]
         public string Address { get; set; }
         public double Rating { get; set; }
-        public virtual IEnumerable<Order.Order> Orders { get; set; }
-        public virtual IEnumerable<EmployeeCustomer> EmployeeCustomers { get; set; }
+        //public virtual IEnumerable<Order.Order> Orders { get; set; }
+        //public virtual IEnumerable<EmployeeCustomer> EmployeeCustomers { get; set; }
 
         //[Timestamp]
         //public byte[] Timestamp { get; set; }

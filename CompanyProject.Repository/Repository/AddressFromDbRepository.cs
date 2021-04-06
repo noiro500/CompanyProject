@@ -8,14 +8,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CompanyProject.Repository.Repository
 {
-    class AddressFromDbRepository : IAddressFromDbRepository
+    class AddressFromDbRepository :GenericRepository<AddressFromDb>, IAddressFromDbRepository
     {
-        protected readonly CompanyProjectDbContext _context;
-        public AddressFromDbRepository(CompanyProjectDbContext ctx)
+        //protected readonly CompanyProjectDbContext _context;
+        public AddressFromDbRepository(CompanyProjectDbContext ctx):base(ctx)
         {
-            _context = ctx;
+            //_context = ctx;
         }
-        
+
         public async Task<IList<AddressFromDb>> GetUsedDistrictsAsync()
         {
             var districts = await _context.Set<AddressFromDb>()

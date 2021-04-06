@@ -125,6 +125,7 @@
         function() {
             location.reload();
         });
+
 });
 
 function CheckFormField() {
@@ -222,7 +223,6 @@ function CheckMakeOrderForm(event) {
             url: companyProject.Urls.MakeOrderConfirm,
             data: $('#make-order').serializeArray(),
             success: function (data) {
-                
                 $("#modalContent").html(data);
                 $(".modal").addClass("is-active");
             }
@@ -244,18 +244,33 @@ function Failure() {
         //loaderBg: '#9EC600'
     });
 }
-function MakeOrderConfirmFunc(/*dicParameter*/) {
-    var param = $('#button-confirm').attr('data-attr');
-    $.ajax({
-        type: "POST",
-        url: companyProject.Urls.MakeOrderConfirmResult,
-        data: param,
-        success: function(data) {
-            $("#modal-data").html(data);
-        }
-    });
-}
 
+//Работа с модальным окном "Проверьте введенные данные"
+function WorkWithModalWindow(param) {
+    if (param === "makeOrderConfirm") {
+        $.ajax({
+            type: "POST",
+            //dataType: 'json',
+            //contentType: 'application/json',
+            url: companyProject.Urls.MakeOrderConfirmResult,
+            //data: dicParameter,
+            success: function (data) {
+                $("#modal-data").html(data);
+            }
+        });
+        $('#button-confirm').addClass('is-hidden');
+        $('#button-edit').addClass('is-hidden');
+        return;
+    }
+    if (param === "edit") {
+        $(".modal").removeClass("is-active");
+        return;
+    }
+    if (param === 'close') {
+        $(location).attr('href', companyProject.Urls.Index);
+        return;
+    }
+}
 
 
 
