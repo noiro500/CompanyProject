@@ -1,4 +1,5 @@
-﻿using CompanyProject.Domain.Feedback;
+﻿using System;
+using CompanyProject.Domain.Feedback;
 using System.ComponentModel.DataAnnotations;
 
 namespace CompanyProject.Domain.Order
@@ -7,24 +8,24 @@ namespace CompanyProject.Domain.Order
     {
         public int OrderId { get; set; }
 
-        [Display(Name = "Тип неисправности")] 
-        public string TypeOfFailure { get; set; } = null;
-
         [Required]
+        //[Display(Name = "Тип неисправности")] 
+        public string TypeOfFailure { get; set; }
+
         [DataType(DataType.MultilineText)] 
-        public string Description { get; set; } = null;
+        public string Description { get; set; }
 
         [Required]
-        [DataType(DataType.DateTime)]
-        public string CreateTime { get; set; }
+        //[DataType(DataType.DateTime)]
+        public string CreateTime { get; set; } = DateTime.Now.ToString();
 
         [Required]
-        [DataType(DataType.DateTime)]
-        [Display(Name="Предпочтитетльное время прихода мастера")]
+        //[DataType(DataType.DateTime)]
+        //[Display(Name="Предпочтитетльное время прихода мастера")]
         public string VisitTime { get; set; }
 
-        [Display(Name = "Прочая необходимая информация")]
-        public string SpecialInstruction { get; set; } = null;
+        //[Display(Name = "Прочая необходимая информация")]
+        public string SpecialInstruction { get; set; }
         
         public bool IsCompleted { get; set; } = false;
 
@@ -34,10 +35,10 @@ namespace CompanyProject.Domain.Order
 
         public virtual Customer.Customer Customer { get; set; }
         public int CustomerId { get; set; }
-        public virtual Employee.Employee Employee { get; set; }
-        public int EmployeeId { get; set; }
-        public virtual Feedback.Feedback Feedback { get; set; }
-        public int FeedbackId { get; set; }
+        //public virtual Employee.Employee Employee { get; set; }
+        //public int EmployeeId { get; set; }
+        //public virtual Feedback.Feedback Feedback { get; set; }
+        //public int FeedbackId { get; set; }
 
         //[Timestamp]
         //public byte[] Timestamp { get; set; }

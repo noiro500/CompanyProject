@@ -9,9 +9,9 @@ namespace CompanyProject.Domain
     public interface IGenericRepository<T> where T : class
     {
         Task<T> GetByIdAsync(int id);
-        IQueryable<T> GetAll();
-        Task AddAsync(T entity);
-        void Delete(T entity);
-        void Update(T entity);
+        IQueryable<T> GetAllEntity();
+        Task AddEntityAsync(T entity);
+        void DeleteEntity(T entity);
+        void UpdateEntity(T entity);
     }
 }

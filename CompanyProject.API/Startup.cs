@@ -25,7 +25,8 @@ namespace CompanyProject.API
         }
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddMvc()/*.AddSessionStateTempDataProvider()*/;
+            //services.AddSession();
             services.AddRepository(Configuration["DataBase:PsqlRepository:ConnectionString"]);
         }
 
@@ -46,6 +47,7 @@ namespace CompanyProject.API
             //app.UseExceptionHandler("/Home/Error");
             app.UseStatusCodePages();
             app.UseRouting();
+            //app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {

@@ -18,7 +18,7 @@ namespace CompanyProject.API.Infrastructure.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            return View("Footer", await _unitOfWork.Pages.GetAll().ToListAsync());
+            return View("Footer", await _unitOfWork.Pages.GetAllEntity().ToListAsync());
         }
 
     }

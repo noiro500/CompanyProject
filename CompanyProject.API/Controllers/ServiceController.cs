@@ -1,14 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
+using System.Text.Encodings.Web;
+using System.Text.Json;
+using System.Text.Unicode;
 using System.Threading.Tasks;
 using CompanyProject.ViewModels;
 using CompanyProject.Domain;
+using CompanyProject.Domain.Customer;
 using CompanyProject.Domain.Message;
+using CompanyProject.Domain.Order;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.CodeAnalysis.CSharp;
 
 namespace CompanyProject.API.Controllers
 {
@@ -34,16 +41,64 @@ namespace CompanyProject.API.Controllers
             else
             {
                 //await _message.AddMessageAsync(mes);
-                await _unitOfWork.Messages.AddAsync(mes);
+                await _unitOfWork.Messages.AddEntityAsync(mes);
                 await _unitOfWork.Complete();
                 return Json("true");
             }
         }
 
         [HttpPost]
-        public IActionResult MakeOrderConfirmResult(IDictionary<string, string> orderViewModel)
+        public async Task<IActionResult> MakeOrderConfirmResult()
         {
-            return PartialView("ContentViews/PartialView/MakeOrderConfirmResult");
+            if (TempData.ContainsKey("orderViewModel"))
+            {
+                var orderViewModel = JsonSerializer.Deserialize<OrderViewModel>((TempData["orderViewModel"] as string));
+                var customer = await _unitOfWork.Customers.GetCustomerByPhoneAsync(orderViewModel.PhoneNumber);
+                var order = new Order
+                {
+                    OrderId = 0,
+                    TypeOfFailure = orderViewModel.TypeOfFailure,
+                    Description = orderViewModel.Description,
+                    VisitTime = orderViewModel.VisitTime,
+                    SpecialInstruction = orderViewModel.SpecialInstruction,
+                    Price = 0
+                };
+                if (customer == null)
+                {
+                    customer = new Customer
+                    {
+                        CustomerId = 0,
+                        CustomerName = orderViewModel.CustomerName,
+                        PhoneNumber = orderViewModel.PhoneNumber,
+                        AnotherPhoneNumber = orderViewModel.AnotherPhoneNumber,
+                        Email = orderViewModel.Email,
+                        Territory = orderViewModel.Territory,
+                        District = orderViewModel.District,
+                        PopulatedArea = orderViewModel.PopulatedArea,
+                        Street = orderViewModel.Street,
+                        HouseNumber = orderViewModel.HouseNumber,
+                        ApartmentOrOfficeNumber = orderViewModel.ApartmentOrOffice,
+                        IsAdoptedPrivacyPolicy = orderViewModel.IsAdoptedPrivacyPolicy
+                    };
+                }
+                customer.Orders = new List<Order> { order };
+                //var order = new Order
+                //{
+                //    OrderId = 0,
+                //    TypeOfFailure = orderViewModel.TypeOfFailure,
+                //    Description = orderViewModel.Description,
+                //    VisitTime = orderViewModel.VisitTime,
+                //    SpecialInstruction = orderViewModel.SpecialInstruction,
+                //    Price = 0
+                //};
+
+                await _unitOfWork.Customers.AddEntityAsync(customer);
+                await _unitOfWork.Complete();
+                return PartialView("ContentViews/PartialView/MakeOrderResult");
+
+            }
+            else
+                return PartialView("ContentViews/PartialView/MakeOrderResult");
         }
 
         public IActionResult MakeOrder()
@@ -54,26 +109,41 @@ namespace CompanyProject.API.Controllers
         [HttpPost]
         public IActionResult MakeOrderConfirm(OrderViewModel order)
         {
-            if (order != null)
+            if (ModelState.IsValid)
             {
-                var orderProperties = order.GetType().GetProperties();
-                ViewBag.orderPropLength = orderProperties.Length;
-                var dictionaryAttributes = new Dictionary<string, string>();
-                foreach (var propertyInfo in orderProperties)
+                if (order != null)
                 {
-                    if (propertyInfo.GetValue(order) == null)
+                    var orderProperties = order.GetType().GetProperties();
+                    ViewBag.orderPropLength = orderProperties.Length;
+                    var dictionaryAttributes = new Dictionary<string, string>();
+                    foreach (var propertyInfo in orderProperties)
                     {
-                        propertyInfo.SetValue(order, "Отсутствует");
+                        if (propertyInfo.GetValue(order) == null)
+                        {
+                            propertyInfo.SetValue(order, "Отсутствует");
+                        }
+
+                        if (propertyInfo.GetCustomAttribute<DisplayAttribute>() != null)
+                            dictionaryAttributes.Add(propertyInfo.GetCustomAttribute<DisplayAttribute>().Name,
+                                propertyInfo.GetValue(order).ToString());
                     }
-                    
-                    if (propertyInfo.GetCustomAttribute<DisplayAttribute>()!= null)
-                        dictionaryAttributes.Add(propertyInfo.GetCustomAttribute<DisplayAttribute>().Name, propertyInfo.GetValue(order).ToString());
+
+                    var options = new JsonSerializerOptions
+                    {
+                        Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
+                        WriteIndented = true
+                    };
+                    TempData["orderViewModel"] = JsonSerializer.Serialize(order, options);
+                    ;
+                    return PartialView("ContentViews/PartialView/MakeOrderConfirmPartial", dictionaryAttributes);
                 }
-                return PartialView("ContentViews/PartialView/MakeOrderConfirm", dictionaryAttributes);
+                else
+                    return NotFound();
             }
-            else
-                return NotFound();
+
+            return View("Error");
         }
+
 
         [HttpPost]
         public async Task<IActionResult> GetPartOfAddress(IList<string> parameters)
