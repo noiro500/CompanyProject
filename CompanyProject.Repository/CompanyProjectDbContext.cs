@@ -37,36 +37,6 @@ namespace CompanyProject.Repository
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Order>().OwnsOne(typeof(Address), "AddressData");
-            //modelBuilder.Entity<Page>()
-            //    .HasMany(p => p.Paragraphs)
-            //    .WithOne(p => p.Page);
-
-            //modelBuilder.Entity<PriceList>()
-            //    .HasOne(p => p.Page)
-            //    .WithMany(p => p.PriceLists);
-
-            //modelBuilder.Entity<Customer>()
-            //    .HasMany(o => o.Orders)
-            //    .WithOne(c => c.Customer);
-            //modelBuilder.Entity<Employee>()
-            //    .HasMany(o => o.Orders)
-            //    .WithOne(e => e.Employee);
-            //modelBuilder.Entity<Order>()
-            //    .HasOne(o => o.Feedback)
-            //    .WithOne(i => i.Order)
-            //    .HasForeignKey<Feedback>(o => o.OrderForeignKey);
-
-            //modelBuilder.Entity<EmployeeCustomer>()
-            //    .HasKey(t => new { t.EmployeeId, t.CustomerId });
-            //modelBuilder.Entity<EmployeeCustomer>()
-            //    .HasOne(e => e.Employee)
-            //    .WithMany(e => e.EmployeeCustomers)
-            //    .HasForeignKey(c => c.EmployeeId);
-            //modelBuilder.Entity<EmployeeCustomer>()
-            //    .HasOne(c => c.Customer)
-            //    .WithMany(e => e.EmployeeCustomers)
-            //    .HasForeignKey(c => c.CustomerId);
-
             modelBuilder.Entity<Page>().HasData(
                 new Page[]
                 {

@@ -52,7 +52,6 @@ namespace CompanyProject.API.Controllers
             {
                 var isNewCustomer = true;
                 var orderViewModel = JsonSerializer.Deserialize<OrderViewModel>((TempData["orderViewModel"] as string));
-                //var customer = await _unitOfWork.Customers.GetCustomerByPhoneAsync(orderViewModel.PhoneNumber);
                 var customer = (await _unitOfWork.Customers.GetWithInclude(p => p.Orders))
                     .FirstOrDefault(p=>p.PhoneNumber== orderViewModel.PhoneNumber);
                 if (customer == null)
@@ -88,7 +87,6 @@ namespace CompanyProject.API.Controllers
                 if(!isNewCustomer)
                     customer.Orders.Add(order);
                 _unitOfWork.Customers.UpdateEntity(customer);
-                //await _unitOfWork.Customers.AddEntityAsync(customer);
                 await _unitOfWork.Complete();
                 return PartialView("ContentViews/PartialView/MakeOrderResult");
 
