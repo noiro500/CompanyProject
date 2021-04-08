@@ -36,7 +36,7 @@ namespace CompanyProject.Repository
             services.AddTransient<IPriceListsRepository, PriceListsRepository>();
             services.AddTransient<IAddressFromDbRepository, AddressFromDbRepository>();
             services.AddDbContext<CompanyProjectDbContext>(options =>
-                options.UseLazyLoadingProxies().UseNpgsql(configConnectionToDb, b=>b.MigrationsAssembly("CompanyProject.API")));
+                options/*.UseLazyLoadingProxies()*/.UseNpgsql(configConnectionToDb, b=>b.MigrationsAssembly("CompanyProject.API")));
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             return services;
         }

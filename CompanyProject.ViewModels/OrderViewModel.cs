@@ -46,7 +46,7 @@ namespace CompanyProject.ViewModels
         [DataType(DataType.Text)]
         [Display(Name = "Номер квартиры/офиса:")]
         [MaxLength(10)]
-        public string ApartmentOrOffice { get; set; }
+        public string ApartmentOrOfficeNumber { get; set; }
 
         [Required(ErrorMessage = "Не выбрана причина вызова мастера")]
         [Display(Name = "Причина вызова мастера (если причины нет в списке, выберите 'Прочее'): *")]

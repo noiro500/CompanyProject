@@ -15,10 +15,10 @@ namespace CompanyProject.Domain.Paragraph
         public bool IsList { get; set; } = false;
         public bool IsMobileVisible { get; set; } = false;
         public string[] Content { get; set; }
-        public virtual Page.Page Page { get; set; }
         public int PageId { get; set; }
+        public Page.Page Page { get; set; }
+        
 
-        //[Timestamp]
-        //public byte[] Timestamp { get; set; }
+        
     }
 }

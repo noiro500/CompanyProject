@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using CompanyProject.Domain;
 using CompanyProject.Domain.AddressFromDb;
 using CompanyProject.Domain.CompanyContact;
 using CompanyProject.Domain.Customer;
@@ -35,17 +36,18 @@ namespace CompanyProject.Repository
         public DbSet<AddressFromDb> AddressFromDbs { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Page>()
-                .HasMany(p => p.Paragraphs)
-                .WithOne(p => p.Page);
+            modelBuilder.Entity<Order>().OwnsOne(typeof(Address), "AddressData");
+            //modelBuilder.Entity<Page>()
+            //    .HasMany(p => p.Paragraphs)
+            //    .WithOne(p => p.Page);
 
-            modelBuilder.Entity<PriceList>()
-                .HasOne(p => p.Page)
-                .WithMany(p => p.PriceLists);
+            //modelBuilder.Entity<PriceList>()
+            //    .HasOne(p => p.Page)
+            //    .WithMany(p => p.PriceLists);
 
-            modelBuilder.Entity<Customer>()
-                .HasMany(o => o.Orders)
-                .WithOne(c => c.Customer);
+            //modelBuilder.Entity<Customer>()
+            //    .HasMany(o => o.Orders)
+            //    .WithOne(c => c.Customer);
             //modelBuilder.Entity<Employee>()
             //    .HasMany(o => o.Orders)
             //    .WithOne(e => e.Employee);

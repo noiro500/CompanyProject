@@ -15,10 +15,11 @@ namespace CompanyProject.Domain.Page
         public string Icon { get; set; } = null;
         public bool ToNavbar { get; set; } = false;
         public bool ToCard { get; set; } = false;
-        public virtual IEnumerable<Paragraph.Paragraph> Paragraphs { get; set; }
-        public virtual IEnumerable<PriceList.PriceList> PriceLists { get; set; }
+        //public virtual IEnumerable<Paragraph.Paragraph> Paragraphs { get; set; }
+        //public virtual IEnumerable<PriceList.PriceList> PriceLists { get; set; }
+        public List<Paragraph.Paragraph> Paragraphs { get; set; }
+        public List<PriceList.PriceList> PriceLists { get; set; }
 
-        //[Timestamp]
-        //public byte[] Timestamp { get; set; }
+
     }
 }
