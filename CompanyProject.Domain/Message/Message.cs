@@ -35,8 +35,6 @@ namespace CompanyProject.Domain.Message
         public string Content { get; set; }
 
         public bool IsAdoptedPrivacyPolicy { get; set; }
-
-        //[Timestamp]
-        //public byte[] Timestamp { get; set; }
+        
     }
 }

@@ -41,8 +41,8 @@ namespace CompanyProject.Repository.Repository
         }
         private IDictionary<string, List<PriceList>> GetPriceListResultDictionary( ref List<PriceList> priceListResultFromDb)
         {
-            IDictionary<string, List<PriceList>> resultDictionary = new Dictionary<string, List<PriceList>>();
-            IList<string> serviceName = new List<string>();
+            var resultDictionary = new Dictionary<string, List<PriceList>>();
+            var serviceName = new List<string>();
             foreach (var priceList in priceListResultFromDb)
             {
                 serviceName.Add(priceList.ServiceName);

@@ -21,8 +21,6 @@ namespace CompanyProject.API.Controllers
 {
     public class ServiceController : Controller
     {
-        /*private readonly IMessageRepository _message;*/
-        //private readonly IOrderRepository _repository;
         private readonly IUnitOfWork _unitOfWork;
 
         public ServiceController(IUnitOfWork unitOfWork)
@@ -52,17 +50,11 @@ namespace CompanyProject.API.Controllers
         {
             if (TempData.ContainsKey("orderViewModel"))
             {
+                var isNewCustomer = true;
                 var orderViewModel = JsonSerializer.Deserialize<OrderViewModel>((TempData["orderViewModel"] as string));
-                var customer = await _unitOfWork.Customers.GetCustomerByPhoneAsync(orderViewModel.PhoneNumber);
-                var order = new Order
-                {
-                    OrderId = 0,
-                    TypeOfFailure = orderViewModel.TypeOfFailure,
-                    Description = orderViewModel.Description,
-                    VisitTime = orderViewModel.VisitTime,
-                    SpecialInstruction = orderViewModel.SpecialInstruction,
-                    Price = 0
-                };
+                //var customer = await _unitOfWork.Customers.GetCustomerByPhoneAsync(orderViewModel.PhoneNumber);
+                var customer = (await _unitOfWork.Customers.GetWithInclude(p => p.Orders))
+                    .FirstOrDefault(p=>p.PhoneNumber== orderViewModel.PhoneNumber);
                 if (customer == null)
                 {
                     customer = new Customer
@@ -72,27 +64,31 @@ namespace CompanyProject.API.Controllers
                         PhoneNumber = orderViewModel.PhoneNumber,
                         AnotherPhoneNumber = orderViewModel.AnotherPhoneNumber,
                         Email = orderViewModel.Email,
+                        IsAdoptedPrivacyPolicy = orderViewModel.IsAdoptedPrivacyPolicy
+                    };
+                    await _unitOfWork.Customers.AddEntityAsync(customer);
+                }
+                else
+                    isNewCustomer = false;
+                var order = new Order(
+                    0, orderViewModel.TypeOfFailure, orderViewModel.Description, orderViewModel.VisitTime,
+                    orderViewModel.SpecialInstruction,
+                    new Address
+                    {
+
                         Territory = orderViewModel.Territory,
                         District = orderViewModel.District,
                         PopulatedArea = orderViewModel.PopulatedArea,
                         Street = orderViewModel.Street,
                         HouseNumber = orderViewModel.HouseNumber,
-                        ApartmentOrOfficeNumber = orderViewModel.ApartmentOrOffice,
-                        IsAdoptedPrivacyPolicy = orderViewModel.IsAdoptedPrivacyPolicy
-                    };
-                }
-                customer.Orders = new List<Order> { order };
-                //var order = new Order
-                //{
-                //    OrderId = 0,
-                //    TypeOfFailure = orderViewModel.TypeOfFailure,
-                //    Description = orderViewModel.Description,
-                //    VisitTime = orderViewModel.VisitTime,
-                //    SpecialInstruction = orderViewModel.SpecialInstruction,
-                //    Price = 0
-                //};
-
-                await _unitOfWork.Customers.AddEntityAsync(customer);
+                        ApartmentOrOfficeNumber = orderViewModel.ApartmentOrOfficeNumber
+                    },
+                    false, 0, 0
+                );
+                if(!isNewCustomer)
+                    customer.Orders.Add(order);
+                _unitOfWork.Customers.UpdateEntity(customer);
+                //await _unitOfWork.Customers.AddEntityAsync(customer);
                 await _unitOfWork.Complete();
                 return PartialView("ContentViews/PartialView/MakeOrderResult");
 
