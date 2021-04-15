@@ -4,8 +4,8 @@
     <div class="modal-background"></div>
     <div class="modal-card">
         <header class="modal-card-head">
-            <p class="modal-card-title">Проверьте введенные данные</p>
-            <button class="delete" id="closetop" aria-label="close"></button>
+            <p id="modal-title" class="modal-card-title">Проверьте введенные данные</p>
+            <button class="delete" id="closetop" onclick="WorkWithModalWindow('close')"></button>
         </header>
         <section class="modal-card-body">
             <div class="content">
@@ -15,17 +15,16 @@
                         {
                             <label class="label"> @field.Key</label>
                             <p>@field.Value</p>
-                            <hr style="margin-top: 0px"/>
+                            <hr style="margin-top: 0px" />
                         }
                     </div>
                 </div>
             </div>
         </section>
-        <footer class="modal-card-foot">
+        <footer id="modal-card-footer" class="modal-card-foot">
             <button id="button-confirm" class="button is-info" onclick="WorkWithModalWindow('makeOrderConfirm')">Вызвать мастера</button>
             <button id="button-edit" class="button is-info" onclick="WorkWithModalWindow('edit')">Редактировать</button>
             <button id="button-close" class="button is-danger" onclick="WorkWithModalWindow('close')">Close</button>
-        </footer>
+            </footer>
     </div>
 </div>
-}

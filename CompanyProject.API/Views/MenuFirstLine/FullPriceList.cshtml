@@ -15,13 +15,13 @@
                         <th colspan="2" class="is-size-5 has-text-white has-text-centered">Что Вас интересует?</th>
                     </tr>
                 </thead>
-                <tbody> 
-                    @for (int i = 0, j = Model.Count>>1; j < Model.Count; i++, j++)
+                <tbody>
+                    @for (int i = 0, j = Model.Count >> 1; j < Model.Count; i++, j++)
                     {
                         <tr>
-                        <td class="is-size-6"><a asp-fragment="@Model[i].IdServiceName"><u>@Model[i].ServiceName</u></a></td>
-                        <td class="is-size-6"><a asp-fragment="@Model[j].IdServiceName"><u>@Model[j].ServiceName</u></a></td>
-                    </tr>
+                            <td class="is-size-6"><a asp-fragment="@Model[i].IdServiceName"><u>@Model[i].ServiceName</u></a></td>
+                            <td class="is-size-6"><a asp-fragment="@Model[j].IdServiceName"><u>@Model[j].ServiceName</u></a></td>
+                        </tr>
                     }
                 </tbody>
             </table>
@@ -36,5 +36,7 @@
     <vc:price-list-table page-number=0 is-full="true" />
     <p class="is-size-7">* В случае если по каким-либо причинам невозможно произвести восстановление данных, то с заказчика услуги <b>взымается стоимость понесенных затрат (диагностики) в размере 1000 (одной тысячи) рублей.</b> </p>
     <p class="is-size-7">В стоимость услуг <b>не включена</b> стоимость компьютерных комплектующих, расходных материалов, а также всех прочих запасных частей, необходимых для выполнения указанных работ.</p>
+    <p class="is-size-7">Указанная стоимость услуг является <b>ориентировочной</b>. Окончательная стоимость определяется после диагностики оборудования.</p>
+    <p class="is-size-7">Не является офертой.</p>
     <br />
 </div>

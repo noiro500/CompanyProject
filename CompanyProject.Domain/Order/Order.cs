@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace CompanyProject.Domain.Order
 {
-    public class Order 
+    public class Order
     {
         public Order()
         {

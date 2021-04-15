@@ -67,10 +67,52 @@
     });
 
     //настройка дат
-    $('#datepicker').datepicker({
-        minDate: new Date(),
-        minHours: 9,
-        maxHours: 18
+    
+    //$('#datepicker').datepicker({
+    //    minDate: new Date(),
+    //    minHours: 9,
+    //    maxHours: 18,
+    //    minutesStep: 30,
+    //    position: "center top"
+    //});
+    var start = new Date(),
+        prevDay,
+        startHours = 9;
+    // 09:00
+    start.setHours(9);
+    start.setMinutes(0);
+    // Если сегодня суббота или воскресенье - 10:00
+    if ([6, 0].indexOf(start.getDay()) != -1) {
+        start.setHours(10);
+        startHours = 10;
+    }
+    $('#VisitTime').datepicker({
+        position: "top center",
+        timepicker: true,
+        startDate: start,
+        minHours: startHours,
+        maxHours: 19,
+        onSelect: function(fd, d, picker) {
+            // Ничего не делаем если выделение было снято
+            if (!d) return;
+            var day = d.getDay();
+            // Обновляем состояние календаря только если была изменена дата
+            if (prevDay != undefined && prevDay == day) return;
+            prevDay = day;
+            // Если выбранный день суббота или воскресенье, то устанавливаем
+            // часы для выходных, в противном случае восстанавливаем начальные значения
+            if (day == 6 || day == 0) {
+                picker.update({
+                    minHours: 10,
+                    maxHours: 16
+                });
+            } else {
+                picker.update({
+                    minHours: 9,
+                    maxHours: 19
+                });
+            }
+        }
     });
 
     //Подгрузка списка округов/районов, населенных пунктов, улиц 
@@ -250,16 +292,14 @@ function WorkWithModalWindow(param) {
     if (param === "makeOrderConfirm") {
         $.ajax({
             type: "POST",
-            //dataType: 'json',
-            //contentType: 'application/json',
             url: companyProject.Urls.MakeOrderConfirmResult,
-            //data: dicParameter,
             success: function (data) {
+                $('#modal-title').text('Заказ принят в работу');
                 $("#modal-data").html(data);
+                $('#button-confirm').addClass('is-hidden');
+                $('#button-edit').addClass('is-hidden');
             }
         });
-        $('#button-confirm').addClass('is-hidden');
-        $('#button-edit').addClass('is-hidden');
         return;
     }
     if (param === "edit") {

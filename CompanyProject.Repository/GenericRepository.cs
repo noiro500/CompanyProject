@@ -24,11 +24,11 @@ namespace CompanyProject.Repository
 
         public IQueryable<T> GetAllEntity() => _context.Set<T>();
 
-        public async Task<T> GetByIdAsync(int id)
+        public async Task<T> GetEntityByIdAsync(int id)
         {
             return await _context.Set<T>().FindAsync(id);
         }
-
+        
         public void UpdateEntity(T entity) => _context.Set<T>().Update(entity);
 
         public async Task<IEnumerable<T>> GetWithInclude(params Expression<Func<T, object>>[] includeProperties)

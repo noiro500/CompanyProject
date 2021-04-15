@@ -9,10 +9,19 @@
             <h1 class="title is-1 has-text-danger"><b>Ooooooops!!!</b></h1>
             <span>Что-то пошло не так, но мы работаем над проблемой и скоро ее устраним. По всем вопросам, пожалуйста, <a href="#short-message">позвоните или напишите</a> нам.</span>
             <environment include="Development">
-                @if (Model.ShowRequestId)
+                @if (Model != null)
+                {
+                    if (Model.ShowRequestId)
+                    {
+                        <p>
+                            <strong>Request ID:</strong> <code>@Model.RequestId</code>
+                        </p>
+                    }
+                }
+                else
                 {
                     <p>
-                        <strong>Request ID:</strong> <code>@Model.RequestId</code>
+                        <strong>Model is null</strong>
                     </p>
                 }
             </environment>

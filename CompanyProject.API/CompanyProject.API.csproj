@@ -430,8 +430,4 @@
     <None Include="wwwroot\styles\sass\bulma-with-edit.scss" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Migrations\" />
-  </ItemGroup>
-
 </Project>

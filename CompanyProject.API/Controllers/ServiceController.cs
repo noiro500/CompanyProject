@@ -4,9 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Unicode;
+using System.Threading;
 using System.Threading.Tasks;
 using CompanyProject.ViewModels;
 using CompanyProject.Domain;
@@ -16,6 +18,7 @@ using CompanyProject.Domain.Order;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.EntityFrameworkCore;
 
 namespace CompanyProject.API.Controllers
 {
@@ -53,7 +56,7 @@ namespace CompanyProject.API.Controllers
                 var isNewCustomer = true;
                 var orderViewModel = JsonSerializer.Deserialize<OrderViewModel>((TempData["orderViewModel"] as string));
                 var customer = (await _unitOfWork.Customers.GetWithInclude(p => p.Orders))
-                    .FirstOrDefault(p=>p.PhoneNumber== orderViewModel.PhoneNumber);
+                    .FirstOrDefault(p => p.PhoneNumber == orderViewModel.PhoneNumber);
                 if (customer == null)
                 {
                     customer = new Customer
@@ -69,6 +72,7 @@ namespace CompanyProject.API.Controllers
                 }
                 else
                     isNewCustomer = false;
+
                 var order = new Order(
                     0, orderViewModel.TypeOfFailure, orderViewModel.Description, orderViewModel.VisitTime,
                     orderViewModel.SpecialInstruction,
@@ -84,15 +88,30 @@ namespace CompanyProject.API.Controllers
                     },
                     false, 0, 0
                 );
-                if(!isNewCustomer)
-                    customer.Orders.Add(order);
-                _unitOfWork.Customers.UpdateEntity(customer);
+                customer.Orders.Add(order);
+                if (!isNewCustomer)
+                    _unitOfWork.Customers.UpdateEntity(customer);
                 await _unitOfWork.Complete();
-                return PartialView("ContentViews/PartialView/MakeOrderResult");
+                var onePrice =await _unitOfWork.PriceLists.GetAllEntity()
+                    //.Where(p => p.Service == order.TypeOfFailure.Substring(order.TypeOfFailure.IndexOf("- ")).Remove(0, 2))
+                    .FirstOrDefaultAsync(p=>p.Service ==order.TypeOfFailure.Substring(order.TypeOfFailure.IndexOf("- "))
+                        .Remove(0, 2));
+
+                string minPrice=(onePrice==null)? "Стоимость будет определена после диагностики" : onePrice.ServicePrice;
+                   var makeOrderResultDic = new Dictionary<string, string>()
+                {
+                    {"Ваш номер заказа:", order.OrderId.ToString() },
+                    {"Причина вызова мастера/курьера:", order.TypeOfFailure },
+                    {"Время прихода мастера/курьера:", order.VisitTime },
+                    {"Минимальная (ориентировочная) стоимость:", minPrice}
+                };
+
+                int id = order.OrderId;
+                return PartialView("ContentViews/PartialView/MakeOrderResult", makeOrderResultDic);
 
             }
             else
-                return PartialView("ContentViews/PartialView/MakeOrderResult");
+                return StatusCode(405);
         }
 
         public IActionResult MakeOrder()
@@ -108,7 +127,6 @@ namespace CompanyProject.API.Controllers
                 if (order != null)
                 {
                     var orderProperties = order.GetType().GetProperties();
-                    ViewBag.orderPropLength = orderProperties.Length;
                     var dictionaryAttributes = new Dictionary<string, string>();
                     foreach (var propertyInfo in orderProperties)
                     {
@@ -128,7 +146,6 @@ namespace CompanyProject.API.Controllers
                         WriteIndented = true
                     };
                     TempData["orderViewModel"] = JsonSerializer.Serialize(order, options);
-                    ;
                     return PartialView("ContentViews/PartialView/MakeOrderConfirmPartial", dictionaryAttributes);
                 }
                 else
