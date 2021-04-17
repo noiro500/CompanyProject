@@ -1,4 +1,173 @@
-﻿@{
+﻿@model string
+@{
     ViewData["Title"] = "О компании";
 }
-<div>From About</div>
+
+@section Styles{
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
+}
+<section style="background-color: ghostwhite">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-half">
+                <br />
+                <h2 class="subtitle is-2" style="color: #d81b60"><b>О компании</b></h2>
+                <p style="text-align: justify">
+                    Квалифицированный специалист компании «@Model» избавит Вас от сомнений,
+                    отремонтирует и настроит технику быстро и качественно, ответит на все интересующие
+                    Вас вопросы
+                </p>
+            </div>
+            <div class="column is-half is-hidden-touch">
+                <div class="image displayed" style="max-width: 70%">
+                    <br />
+                    <img src="~/Resources/Images/service-center-photo.png" alt="О компании" asp-append-version="true" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br />
+<br />
+<article>
+    <div class="container">
+        <div class="columns">
+            <div class="column is-full">
+                <h3 class="subtitle is-3"><b>Немного о нас</b></h3>
+                <p style="text-align: justify">
+                    «@Model» занимается профессиональным обслуживанием компьютеров и другой вычислительной техники на территории Кавказских Минеральных Вод.
+                    Мы работаем как с частными лицами, так и с корпоративными клиентами. Штат сотрудников фирмы состоит только из мастеров своего дела:
+                    менеджеры находят общий язык и взаимопонимание со всеми людьми, руководители организации «@Model» обладают должными
+                    управленческими качествами, мастера по ремонту компетентны во всех областях, связанными с компьютерной техникой.
+                </p><br />
+                <p style="text-align: justify">Наша компания предоставит Вам по-настоящему качественные услуги по ремонту и настройке компьютера!</p><br />
+                <p style="text-align: justify">
+                    Квалифицированный специалист компании «@Model» избавит Вас от сомнений, произведет ремонт и настройку оборудования качественно,
+                    быстро, ответит на все интересующие Вас вопросы.
+                </p>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column is-full">
+                <h3 class="subtitle is-3"><b>Оборудование</b></h3>
+                <p style="text-align: justify">В нашем арсенале есть все необходимое оборудование для профессионального и самого сложного ремонта практически любой техники:</p>
+                <section class="section">
+                    <div class="container is-clipped">
+                        <div id="slider">
+                            <div class="card">
+                                <div class="card-image">
+                                    <figure class="image is-16by9 is-covered">
+                                        <img src="https://images.unsplash.com/photo-1550921082-c282cdc432d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                                             alt="" />
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <div class="item__title">
+                                        Mon titre 1
+                                    </div>
+                                    <div class="item__description">
+                                        Ici une petite description pour tester le slider
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-image">
+                                    <figure class="image is-16by9 is-covered">
+                                        <img src="https://images.unsplash.com/photo-1550945771-515f118cef86?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
+                                             alt="" />
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <div class="item__title">
+                                        Mon titre 2
+                                    </div>
+                                    <div class="item__description">
+                                        Ici une petite description pour tester le slider
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-image">
+                                    <figure class="image is-16by9 is-covered">
+                                        <img src="https://images.unsplash.com/photo-1550971264-3f7e4a7bb349?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                                             alt="" />
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <div class="item__title">
+                                        Mon titre 3
+                                    </div>
+                                    <div class="item__description">
+                                        Ici une petite description pour tester le slider
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-image">
+                                    <figure class="image is-16by9 is-covered">
+                                        <img src="https://images.unsplash.com/photo-1550931937-2dfd45a40da0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                                             alt="" />
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <div class="item__title">
+                                        Mon titre 4
+                                    </div>
+                                    <div class="item__description">
+                                        Ici une petite description pour tester le slider
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-image">
+                                    <figure class="image is-16by9 is-covered">
+                                        <img src="https://images.unsplash.com/photo-1550930516-af8b8cc4f871?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
+                                             alt="" />
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <div class="item__title">
+                                        Mon titre 5
+                                    </div>
+                                    <div class="item__description">
+                                        Ici une petite description pour tester le slider
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-image">
+                                    <figure class="image video-container is-16by9">
+                                        <iframe type="text/html" src="https://www.youtube.com/embed/H0v773vKS_U" frameborder="0"></iframe>
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <div class="item__title">
+                                        Mon titre 6
+                                    </div>
+                                    <div class="item__description">
+                                        Ici une petite description pour tester le slider
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</article>
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
+    <script>
+        bulmaCarousel.attach('#slider', {
+            slidesToScroll: 1,
+            slidesToShow: 3,
+            infinite: true
+        });
+    </script>
+}

@@ -107,7 +107,7 @@ namespace CompanyProject.API.Controllers
                 };
 
                 int id = order.OrderId;
-                return PartialView("ContentViews/PartialView/MakeOrderResult", makeOrderResultDic);
+                return PartialView("ContentViews/PartialView/_MakeOrderResult", makeOrderResultDic);
 
             }
             else
@@ -146,7 +146,7 @@ namespace CompanyProject.API.Controllers
                         WriteIndented = true
                     };
                     TempData["orderViewModel"] = JsonSerializer.Serialize(order, options);
-                    return PartialView("ContentViews/PartialView/MakeOrderConfirmPartial", dictionaryAttributes);
+                    return PartialView("ContentViews/PartialView/_MakeOrderConfirm", dictionaryAttributes);
                 }
                 else
                     return NotFound();
@@ -163,18 +163,18 @@ namespace CompanyProject.API.Controllers
             if (parameters[0] == "District")
             {
                 var districtsList = (await _unitOfWork.AddressFromDbs.GetUsedDistrictsAsync());
-                return PartialView("ContentViews/PartialView/GetPartOfAddress", districtsList);
+                return PartialView("ContentViews/PartialView/_GetPartOfAddress", districtsList);
             }
 
             else if (parameters[0] == "PopulatedArea")
             {
                 var populatedAreaList = (await _unitOfWork.AddressFromDbs.GetWorkPopulatedAreaAsync(parameters[1])).AsEnumerable();
-                return PartialView("ContentViews/PartialView/GetPartOfAddress", populatedAreaList);
+                return PartialView("ContentViews/PartialView/_GetPartOfAddress", populatedAreaList);
             }
             else if (parameters[0] == "Street")
             {
                 var strretList = (await _unitOfWork.AddressFromDbs.GetWorkStreetAsync(parameters[1])).AsEnumerable();
-                return PartialView("ContentViews/PartialView/GetPartOfAddress", strretList);
+                return PartialView("ContentViews/PartialView/_GetPartOfAddress", strretList);
             }
             else throw new Exception();
 

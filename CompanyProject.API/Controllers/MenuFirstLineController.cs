@@ -33,7 +33,8 @@ namespace CompanyProject.API.Controllers
         [Route("/about")]
         public IActionResult About()
         {
-            return View();
+            string companyName = "Нова Компьютерс";
+            return View("About", companyName);
         }
 
         [Route("/contacts")]
