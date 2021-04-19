@@ -1,4 +1,6 @@
-﻿@model string
+﻿@using Microsoft.Extensions.FileProviders
+@using System.IO
+@model string
 @{
     ViewData["Title"] = "О компании";
 }
@@ -10,6 +12,14 @@
     <environment exclude="Development">
         <link href="~/styles/css/bulma-carousel.min.css" rel="stylesheet" />
     </environment>
+}
+@{
+    var files = Directory.EnumerateFiles($"wwwroot/Resources/Images/AboutCarousel").ToList();
+    var carouselDictinaryAbout = new Dictionary<string, List<string>>
+    {
+        { files[0] , new List<string> { "Цифровой микроскоп", "С помощью цифрового микроскопа становится возможным увидеть мельчайшие детали ремонтируемого устройства"}},
+        {files[1].Replace("\\", "/").Replace("wwwroot", "~"), new List<string>{ "Осциллограф", "Осциллограф помогает нам увидеть скрытые процессы, идущие в ремонтируемой технике" } }
+    };
 }
 <section style="background-color: ghostwhite">
     <div class="container">
@@ -55,23 +65,24 @@
         <div class="columns">
             <div class="column is-full">
                 <h3 class="subtitle is-3"><b>Оборудование</b></h3>
-                <p style="text-align: justify">В нашем арсенале есть все необходимое оборудование для профессионального и самого сложного ремонта практически любой техники:</p>
-                <section class="section">
+                <p style="text-align: justify">В нашем распоряжении есть все необходимое оборудование для профессионального и самого сложного ремонта практически любой техники:</p>
+                <section class="section ">
                     <div class="container is-clipped">
                         <div id="slider">
                             <div class="card">
                                 <div class="card-image">
                                     <figure class="image is-16by9 is-covered">
-                                        <img src="https://images.unsplash.com/photo-1550921082-c282cdc432d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
-                                             alt="" />
+                                        @*<img src="~/Resources/Images/AboutCarousel/oscilloscope.jpg"
+                                        alt="Осциллограф" />*@
+                                        <img src=@carouselDictinaryAbout.Keys.ToList()[1].Replace("\\", "/")/>
                                     </figure>
                                 </div>
                                 <div class="card-content">
                                     <div class="item__title">
-                                        Mon titre 1
+                                       Осциллограф
                                     </div>
                                     <div class="item__description">
-                                        Ici une petite description pour tester le slider
+                                        Осциллограф помогает нам увидеть скрытые процессы, идущие в ремонтируемой технике 
                                     </div>
                                 </div>
                             </div>
