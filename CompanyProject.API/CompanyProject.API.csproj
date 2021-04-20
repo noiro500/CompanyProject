@@ -182,16 +182,13 @@
     <Content Update="wwwroot\Resources\Images\AboutCarousel\microscope.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\Resources\Images\AboutCarousel\oscilloscope.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Update="wwwroot\Resources\Images\AboutCarousel\post-card.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\Resources\Images\AboutCarousel\power-lab.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\Resources\Images\AboutCarousel\soldering station.jpg">
+    <Content Update="wwwroot\Resources\Images\AboutCarousel\soldering-station.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\Resources\Images\AboutCarousel\test-components-pc.jpg">

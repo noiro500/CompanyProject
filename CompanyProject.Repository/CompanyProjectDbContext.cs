@@ -69,8 +69,9 @@ namespace CompanyProject.Repository
                 {
                     CompanyContactId = 1,
                     CompanyName = "<span class=\"has-text-black\">Нова<span> <span class=\"color-title\">Компьютерс</span>",
+                    SimpleCompanyName = "Нова Компьютерс",
                     Address =
-                        "РФ, Ставропольский край, Минераловодский городской округ, п. Бородыновка, ул. Железнодорожная 7а, 2",
+                        "РФ, Ставропольский край, Минераловодский городской округ, Населенный пункт, ул. Улица, дом 7а, офис 2",
                     PhoneNumber = "+7-(900)-000-00-00",
                     WhatsApp = "+7-(900)-000-00-00"
                 }

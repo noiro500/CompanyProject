@@ -27,19 +27,14 @@ namespace CompanyProject.Domain.Order
             RealPrice = realPrice;
         }
         public int OrderId { get; set; }
-        [Required]
-        //[Display(Name = "Тип неисправности")] 
+        [Required] 
         public string TypeOfFailure { get; set; }
         [DataType(DataType.MultilineText)] 
         public string Description { get; set; }
         [Required]
-        //[DataType(DataType.DateTime)]
         public string CreateTime { get; set; }
         [Required]
-        //[DataType(DataType.DateTime)]
-        //[Display(Name="Предпочтитетльное время прихода мастера")]
         public string VisitTime { get; set; }
-        //[Display(Name = "Прочая необходимая информация")]
         public string SpecialInstruction { get; set; }
         private Address AddressData { get; set; }
         public bool IsCompleted { get; set; } = false;

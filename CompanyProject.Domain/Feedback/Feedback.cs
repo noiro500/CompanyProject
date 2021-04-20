@@ -8,6 +8,9 @@ namespace CompanyProject.Domain.Feedback
     {
         public int FeedbackId { get; set; }
         public uint Rating { get; set; } = 5;
+        [Required (ErrorMessage = "Не указан заголовок отзыва")]
+        public string FeedbackTitle { get; set; }
+        [Required (ErrorMessage = "Не введен текст отзыва")]
         [DataType(DataType.MultilineText)]
         public string FeedbackText { get; set; }
         //public int OrderForeignKey { get; set; }

@@ -31,16 +31,17 @@ namespace CompanyProject.API.Controllers
         }
 
         [Route("/about")]
-        public IActionResult About()
+        public async Task<IActionResult> About()
         {
-            string companyName = "Нова Компьютерс";
-            return View("About", companyName);
+            var companyInfo = await _unitOfWork.CompanyContacts.GetToUseAsync("ToUse");
+            return View("About", companyInfo);
         }
 
         [Route("/contacts")]
-        public IActionResult Contacts()
+        public async Task<IActionResult> Contacts()
         {
-            return View();
+            var companyInfo = await _unitOfWork.CompanyContacts.GetToUseAsync("ToUse");
+            return View("Contacts", companyInfo);
         }
     }
 }

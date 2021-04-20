@@ -50,18 +50,9 @@ namespace CompanyProject.API.Infrastructure.ViewComponents
                     page.Name, page.Icon, "black", page.ScreenName
                     ));
             }
-            //navBar.AsParallel().ForAll(page =>
-            //{
-            //    if (page.Name != "Index")
-            //        topMenuNavBar.Add(new TopMenuLine(
-            //        false, page.ToNavbar, false, "Home",
-            //        page.Name, page.Icon, "black", page.ScreenName
-            //        ));
-            //});
             IDictionary<string, List<TopMenuLineViewModel>> topMenuDictionary=new Dictionary<string, List<TopMenuLineViewModel>>();
             topMenuDictionary["firstLine"] = topMenuFirstLine;
             topMenuDictionary["topMenuNavBar"] = topMenuNavBar;
-            //return Task.FromResult<IViewComponentResult>(View("TopMenu", context.GetAllPages()));
             return View("TopMenu", topMenuDictionary);
         } 
 
