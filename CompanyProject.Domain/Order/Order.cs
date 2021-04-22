@@ -45,12 +45,5 @@ namespace CompanyProject.Domain.Order
         public Customer.Customer Customer { get; set; }
         
         public Feedback.Feedback Feedback { get; set; }
-        //public virtual Employee.Employee Employee { get; set; }
-        //public int EmployeeId { get; set; }
-        //public virtual Feedback.Feedback Feedback { get; set; }
-        //public int FeedbackId { get; set; }
-
-        //[Timestamp]
-        //public byte[] Timestamp { get; set; }
     }
 }
