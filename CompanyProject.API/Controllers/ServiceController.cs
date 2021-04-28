@@ -51,67 +51,77 @@ namespace CompanyProject.API.Controllers
         [HttpPost]
         public async Task<IActionResult> MakeOrderConfirmResult()
         {
-            if (TempData.ContainsKey("orderViewModel"))
+            try
             {
-                var isNewCustomer = true;
-                var orderViewModel = JsonSerializer.Deserialize<OrderViewModel>((TempData["orderViewModel"] as string));
-                var customer = (await _unitOfWork.Customers.GetWithInclude(p => p.Orders))
-                    .FirstOrDefault(p => p.PhoneNumber == orderViewModel.PhoneNumber);
-                if (customer == null)
+                if (TempData.ContainsKey("orderViewModel"))
                 {
-                    customer = new Customer
+                    var isNewCustomer = true;
+                    var orderViewModel =
+                        JsonSerializer.Deserialize<OrderViewModel>((TempData["orderViewModel"] as string));
+                    var customer = (await _unitOfWork.Customers.GetWithInclude(p => p.Orders))
+                        .FirstOrDefault(p => p.PhoneNumber == orderViewModel.PhoneNumber);
+                    if (customer == null)
                     {
-                        CustomerId = 0,
-                        CustomerName = orderViewModel.CustomerName,
-                        PhoneNumber = orderViewModel.PhoneNumber,
-                        AnotherPhoneNumber = orderViewModel.AnotherPhoneNumber,
-                        Email = orderViewModel.Email,
-                        IsAdoptedPrivacyPolicy = orderViewModel.IsAdoptedPrivacyPolicy
+                        customer = new Customer
+                        {
+                            CustomerId = 0,
+                            CustomerName = orderViewModel.CustomerName,
+                            PhoneNumber = orderViewModel.PhoneNumber,
+                            AnotherPhoneNumber = orderViewModel.AnotherPhoneNumber,
+                            Email = orderViewModel.Email,
+                            IsAdoptedPrivacyPolicy = orderViewModel.IsAdoptedPrivacyPolicy
+                        };
+                        await _unitOfWork.Customers.AddEntityAsync(customer);
+                    }
+                    else
+                        isNewCustomer = false;
+
+                    var order = new Order(
+                        0, orderViewModel.TypeOfFailure, orderViewModel.Description, orderViewModel.VisitTime,
+                        orderViewModel.SpecialInstruction,
+                        new Address
+                        {
+
+                            Territory = orderViewModel.Territory,
+                            District = orderViewModel.District,
+                            PopulatedArea = orderViewModel.PopulatedArea,
+                            Street = orderViewModel.Street,
+                            HouseNumber = orderViewModel.HouseNumber,
+                            ApartmentOrOfficeNumber = orderViewModel.ApartmentOrOfficeNumber
+                        },
+                        false, 0, 0
+                    );
+                    customer.Orders.Add(order);
+                    if (!isNewCustomer)
+                        _unitOfWork.Customers.UpdateEntity(customer);
+                    await _unitOfWork.Complete();
+                    var onePrice = await _unitOfWork.PriceLists.GetAllEntity()
+                        //.Where(p => p.Service == order.TypeOfFailure.Substring(order.TypeOfFailure.IndexOf("- ")).Remove(0, 2))
+                        .FirstOrDefaultAsync(p => p.Service == order.TypeOfFailure
+                            .Substring(order.TypeOfFailure.IndexOf("- "))
+                            .Remove(0, 2));
+
+                    string minPrice = (onePrice == null)
+                        ? "Стоимость будет определена после диагностики"
+                        : onePrice.ServicePrice;
+                    var makeOrderResultDic = new Dictionary<string, string>()
+                    {
+                        {"Ваш номер заказа:", order.OrderId.ToString()},
+                        {"Причина вызова мастера/курьера:", order.TypeOfFailure},
+                        {"Время прихода мастера/курьера:", order.VisitTime},
+                        {"Минимальная (ориентировочная) стоимость:", minPrice}
                     };
-                    await _unitOfWork.Customers.AddEntityAsync(customer);
+                    return PartialView("ContentViews/PartialView/_MakeOrderResult", makeOrderResultDic);
+
                 }
                 else
-                    isNewCustomer = false;
-
-                var order = new Order(
-                    0, orderViewModel.TypeOfFailure, orderViewModel.Description, orderViewModel.VisitTime,
-                    orderViewModel.SpecialInstruction,
-                    new Address
-                    {
-
-                        Territory = orderViewModel.Territory,
-                        District = orderViewModel.District,
-                        PopulatedArea = orderViewModel.PopulatedArea,
-                        Street = orderViewModel.Street,
-                        HouseNumber = orderViewModel.HouseNumber,
-                        ApartmentOrOfficeNumber = orderViewModel.ApartmentOrOfficeNumber
-                    },
-                    false, 0, 0
-                );
-                customer.Orders.Add(order);
-                if (!isNewCustomer)
-                    _unitOfWork.Customers.UpdateEntity(customer);
-                await _unitOfWork.Complete();
-                var onePrice =await _unitOfWork.PriceLists.GetAllEntity()
-                    //.Where(p => p.Service == order.TypeOfFailure.Substring(order.TypeOfFailure.IndexOf("- ")).Remove(0, 2))
-                    .FirstOrDefaultAsync(p=>p.Service ==order.TypeOfFailure.Substring(order.TypeOfFailure.IndexOf("- "))
-                        .Remove(0, 2));
-
-                string minPrice=(onePrice==null)? "Стоимость будет определена после диагностики" : onePrice.ServicePrice;
-                   var makeOrderResultDic = new Dictionary<string, string>()
-                {
-                    {"Ваш номер заказа:", order.OrderId.ToString() },
-                    {"Причина вызова мастера/курьера:", order.TypeOfFailure },
-                    {"Время прихода мастера/курьера:", order.VisitTime },
-                    {"Минимальная (ориентировочная) стоимость:", minPrice}
-                };
-
-                int id = order.OrderId;
-                return PartialView("ContentViews/PartialView/_MakeOrderResult", makeOrderResultDic);
-
+                    return StatusCode(405);
             }
-            else
-                return StatusCode(405);
+            catch (Exception e)
+            {
+                _unitOfWork.Dispose();
+                return BadRequest();
+            }
         }
 
         public IActionResult MakeOrder()

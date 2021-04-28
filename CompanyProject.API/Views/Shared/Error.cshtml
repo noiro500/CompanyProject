@@ -1,30 +1,44 @@
 ﻿@model ErrorViewModel
 @{
+    Layout = null;
     ViewData["Title"] = "Error";
 }
-<div class="container">
-    <br />
-    <div class="columns">
-        <div class="column">
-            <h1 class="title is-1 has-text-danger"><b>Ooooooops!!!</b></h1>
-            <span>Что-то пошло не так, но мы работаем над проблемой и скоро ее устраним. По всем вопросам, пожалуйста, <a href="#short-message">позвоните или напишите</a> нам.</span>
-            <environment include="Development">
-                @if (Model != null)
-                {
-                    if (Model.ShowRequestId)
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <environment include="Development">
+        <link href="~/styles/css/bulma-with-edit.css" rel="stylesheet" asp-append-version="true" />
+    </environment>
+    <environment exclude="Development">
+        <link href="~/styles/css/bulma-with-edit.min.css" rel="stylesheet" asp-append-version="true" />
+    </environment>
+</head>
+<body>
+    <div class="container">
+        <br />
+        <div class="columns">
+            <div class="column">
+                <h1 class="title is-1 has-text-danger"><b>Ooooooops!!!</b></h1>
+                <span>Что-то пошло не так, но мы работаем над проблемой и скоро ее устраним. По всем вопросам, пожалуйста, <a href="#short-message">позвоните или напишите</a> нам.</span>
+                <environment include="Development">
+                    @if (Model != null)
+                    {
+                        if (Model.ShowRequestId)
+                        {
+                            <p>
+                                <strong>Request ID:</strong> <code>@Model.RequestId</code>
+                            </p>
+                        }
+                    }
+                    else
                     {
                         <p>
-                            <strong>Request ID:</strong> <code>@Model.RequestId</code>
+                            <strong>Model is null</strong>
                         </p>
                     }
-                }
-                else
-                {
-                    <p>
-                        <strong>Model is null</strong>
-                    </p>
-                }
-            </environment>
+                </environment>
+            </div>
         </div>
     </div>
-</div>
+</body>

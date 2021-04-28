@@ -288,7 +288,9 @@ function Failure() {
 }
 
 //Работа с модальным окном "Проверьте введенные данные"
+let ajaxSuccess = true;
 function WorkWithModalWindow(param) {
+    
     if (param === "makeOrderConfirm") {
         $.ajax({
             type: "POST",
@@ -296,8 +298,21 @@ function WorkWithModalWindow(param) {
             success: function (data) {
                 $('#modal-title').text('Заказ принят в работу');
                 $("#modal-data").html(data);
+                $('#button-close').removeClass('is-loading');
+                ajaxSuccess = true;
+            },
+            beforeSend: function() {
                 $('#button-confirm').addClass('is-hidden');
                 $('#button-edit').addClass('is-hidden');
+                $('#button-close').addClass('is-loading');
+
+            },
+            error: function() {
+                $('#modal-title').text('Что-то пошло не так');
+                $("#modal-data").html('<p>Сожалеем, но во время формирования Вашего заказа ' +
+                    'произошла непредвиденная ошибка. Пожалуйста, повторите заказ позже.</p>');
+                $('#button-close').removeClass('is-loading');
+                ajaxSuccess = false;
             }
         });
         return;
@@ -307,7 +322,12 @@ function WorkWithModalWindow(param) {
         return;
     }
     if (param === 'close') {
-        $(location).attr('href', companyProject.Urls.Index);
+        if(ajaxSuccess)
+            $(location).attr('href', companyProject.Urls.Index);
+        else {
+            $(location).attr('href', companyProject.Urls.Error);
+            ajaxSuccess = true;
+        }
         return;
     }
 }
