@@ -38,7 +38,6 @@ namespace CompanyProject.API.Infrastructure.ViewComponents
                     "MenuFirstLine", "Contacts", "fas fa-map-marker-alt",
                     "gray", "Контакты")
             };
-            //var navBar = await _context.GetAllAsync();
             var navBar = await _unitOfWork.Pages.GetAllEntity().ToListAsync();
             var topMenuNavBar=new List<TopMenuLineViewModel>();
             foreach (var page in navBar)
