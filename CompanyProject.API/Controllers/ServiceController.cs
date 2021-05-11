@@ -41,7 +41,6 @@ namespace CompanyProject.API.Controllers
             }
             else
             {
-                //await _message.AddMessageAsync(mes);
                 await _unitOfWork.Messages.AddEntityAsync(mes);
                 await _unitOfWork.Complete();
                 return Json("true");
@@ -96,7 +95,6 @@ namespace CompanyProject.API.Controllers
                         _unitOfWork.Customers.UpdateEntity(customer);
                     await _unitOfWork.Complete();
                     var onePrice = await _unitOfWork.PriceLists.GetAllEntity()
-                        //.Where(p => p.Service == order.TypeOfFailure.Substring(order.TypeOfFailure.IndexOf("- ")).Remove(0, 2))
                         .FirstOrDefaultAsync(p => p.Service == order.TypeOfFailure
                             .Substring(order.TypeOfFailure.IndexOf("- "))
                             .Remove(0, 2));
@@ -186,7 +184,8 @@ namespace CompanyProject.API.Controllers
                 var strretList = (await _unitOfWork.AddressFromDbs.GetWorkStreetAsync(parameters[1])).AsEnumerable();
                 return PartialView("ContentViews/PartialView/_GetPartOfAddress", strretList);
             }
-            else throw new Exception();
+            else
+                return BadRequest();
 
         }
 

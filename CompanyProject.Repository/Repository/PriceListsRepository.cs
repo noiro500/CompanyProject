@@ -49,7 +49,6 @@ namespace CompanyProject.Repository.Repository
             }
 
             var uniqueServiceName = serviceName.Distinct().ToList();
-            //uniqueServiceName.Sort();
             foreach (var usn in uniqueServiceName)
             {
                 resultDictionary.Add(usn, priceListResultFromDb.Where(n => n.ServiceName == usn).ToList());
