@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Globalization;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Unicode;
-using System.Threading;
 using System.Threading.Tasks;
 using CompanyProject.ViewModels;
 using CompanyProject.Domain;
@@ -16,8 +13,6 @@ using CompanyProject.Domain.Customer;
 using CompanyProject.Domain.Message;
 using CompanyProject.Domain.Order;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.EntityFrameworkCore;
 
 namespace CompanyProject.API.Controllers
@@ -78,7 +73,7 @@ namespace CompanyProject.API.Controllers
                     var order = new Order(
                         0, orderViewModel.TypeOfFailure, orderViewModel.Description, orderViewModel.VisitTime,
                         orderViewModel.SpecialInstruction,
-                        new Address
+                        new Address()
                         {
 
                             Territory = orderViewModel.Territory,
