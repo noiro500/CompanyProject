@@ -14,13 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20210210102810_Initial.cs" />
-    <Compile Remove="Migrations\20210210102810_Initial.Designer.cs" />
-    <Compile Remove="Migrations\20210216203341_Initial.cs" />
-    <Compile Remove="Migrations\20210216203341_Initial.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Remove="bundleconfig.json" />
     <Content Remove="Views\Shared\_LayoutMakeOrder.cshtml" />
   </ItemGroup>
