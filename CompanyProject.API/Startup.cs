@@ -43,11 +43,12 @@ namespace CompanyProject.API
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            //app.UseExceptionHandler("/Home/Error");
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+            }
             app.UseStatusCodePages();
             app.UseRouting();
-            //app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {

@@ -155,7 +155,7 @@ namespace CompanyProject.API.Controllers
                     return NotFound();
             }
 
-            return View("Error");
+            return BadRequest();
         }
 
 
