@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading.Tasks;
 using CompanyProject.Domain;
 using CompanyProject.Domain.AddressFromDb;
@@ -15,14 +12,28 @@ using CompanyProject.Domain.Page;
 using CompanyProject.Domain.Paragraph;
 using CompanyProject.Domain.PriceList;
 using CompanyProject.Repository.Repository;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Internal;
 
 namespace CompanyProject.Repository
 {
     public class UnitOfWork : IUnitOfWork
     {
         private readonly CompanyProjectDbContext _context;
+
+        public UnitOfWork(CompanyProjectDbContext context)
+        {
+            _context = context;
+            CompanyContacts = new CompanyContactsRepository(_context);
+            Customers = new CustomersRepository(_context);
+            Employees = new EmployeesRepository(_context);
+            Feedbacks = new FeedbacksRepository(_context);
+            Messages = new MessagesRepository(_context);
+            Orders = new OrdersRepository(_context);
+            Pages = new PagesRepository(_context);
+            Paragraphs = new ParagraphsRepository(_context);
+            PriceLists = new PriceListsRepository(_context);
+            AddressFromDbs = new AddressFromDbRepository(_context);
+        }
+
         public ICompanyContactsRepository CompanyContacts { get; }
 
         public ICustomersRepository Customers { get; }
@@ -43,33 +54,18 @@ namespace CompanyProject.Repository
 
         public IAddressFromDbRepository AddressFromDbs { get; }
 
-        public UnitOfWork(CompanyProjectDbContext context)
-        {
-            _context = context;
-            this.CompanyContacts = new CompanyContactsRepository(_context);
-            this.Customers = new CustomersRepository(_context);
-            this.Employees = new EmployeesRepository(_context);
-            this.Feedbacks = new FeedbacksRepository(_context);
-            this.Messages = new MessagesRepository(_context);
-            this.Orders = new OrdersRepository(_context);
-            this.Pages = new PagesRepository(_context);
-            this.Paragraphs = new ParagraphsRepository(_context);
-            this.PriceLists = new PriceListsRepository(_context);
-            this.AddressFromDbs=new AddressFromDbRepository(_context);
-        }
         public async Task Complete()
         {
-            await using var transaction =await _context.Database.BeginTransactionAsync();
+            await using var transaction = await _context.Database.BeginTransactionAsync();
             try
             {
                 await _context.SaveChangesAsync();
-               await transaction.CommitAsync();
+                await transaction.CommitAsync();
             }
             catch (Exception)
             {
-               await transaction.RollbackAsync();
+                await transaction.RollbackAsync();
             }
-
         }
 
         public void Dispose()
