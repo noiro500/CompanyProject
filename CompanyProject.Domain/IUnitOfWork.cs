@@ -27,6 +27,6 @@ namespace CompanyProject.Domain
         IParagraphsRepository Paragraphs { get; }
         IPriceListsRepository PriceLists { get; }
         IAddressFromDbRepository AddressFromDbs { get; }
-        Task<int> Complete();
+        Task Complete();
     }
 }

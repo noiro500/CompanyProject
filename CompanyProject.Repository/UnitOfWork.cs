@@ -57,9 +57,18 @@ namespace CompanyProject.Repository
             this.PriceLists = new PriceListsRepository(_context);
             this.AddressFromDbs=new AddressFromDbRepository(_context);
         }
-        public async Task<int> Complete()
+        public async Task Complete()
         {
-            return await _context.SaveChangesAsync();
+            await using var transaction =await _context.Database.BeginTransactionAsync();
+            try
+            {
+                await _context.SaveChangesAsync();
+               await transaction.CommitAsync();
+            }
+            catch (Exception)
+            {
+               await transaction.RollbackAsync();
+            }
 
         }
 
