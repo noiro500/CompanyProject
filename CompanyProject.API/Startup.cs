@@ -25,8 +25,7 @@ namespace CompanyProject.API
         }
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc()/*.AddSessionStateTempDataProvider()*/;
-            //services.AddSession();
+            services.AddMvc();
             services.AddRepository(Configuration["DataBase:PsqlRepository:ConnectionString"]);
         }
 
