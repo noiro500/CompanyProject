@@ -16,7 +16,6 @@ using CompanyProject.Domain.PriceList;
 using CompanyProject.Repository.InitialDataBase;
 using CompanyProject.Repository.Repository;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 namespace CompanyProject.Repository
 {
@@ -34,7 +33,7 @@ namespace CompanyProject.Repository
             services.AddTransient<IPagesRepository, PagesRepository>();
             services.AddTransient<IParagraphsRepository, ParagraphsRepository>();
             services.AddTransient<IPriceListsRepository, PriceListsRepository>();
-            services.AddTransient<IAddressFromDbRepository, AddressFromDbRepository>();
+            services.AddSingleton<IAddressFromDbRepository, AddressFromDbRepository>();
             services.AddDbContext<CompanyProjectDbContext>(options =>
                 options.UseNpgsql(configConnectionToDb, b=>b.MigrationsAssembly("CompanyProject.API")));
             services.AddTransient<IUnitOfWork, UnitOfWork>();
