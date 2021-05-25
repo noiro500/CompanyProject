@@ -1,17 +1,21 @@
 ﻿using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using CompanyProject.API.Infrastructure.Log;
 using CompanyProject.ViewModels;
 using CompanyProject.Domain;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace CompanyProject.API.Controllers
 {
     public class HomeController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly ILogger _logger;
         public HomeController(IUnitOfWork unitOfWork)
         {
+            _logger = Log.CreateLogger<HomeController>();
             _unitOfWork = unitOfWork;
         }
         public async Task<IActionResult> Index()

@@ -1,20 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using CompanyProject.API.Infrastructure.HelpClasses;
+using CompanyProject.API.Infrastructure.Log;
 using CompanyProject.Domain;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore; 
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace CompanyProject.API.Controllers
 {
     public class MenuFirstLineController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly ILogger _logger;
 
         public MenuFirstLineController(IUnitOfWork unitOfWork)
         {
+            _logger = Log.CreateLogger<HomeController>();
             _unitOfWork = unitOfWork;
         }
         [Route("/comments")]

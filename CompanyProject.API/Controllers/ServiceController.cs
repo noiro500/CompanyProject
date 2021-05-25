@@ -7,6 +7,7 @@ using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Unicode;
 using System.Threading.Tasks;
+using CompanyProject.API.Infrastructure.Log;
 using CompanyProject.ViewModels;
 using CompanyProject.Domain;
 using CompanyProject.Domain.Customer;
@@ -14,15 +15,18 @@ using CompanyProject.Domain.Message;
 using CompanyProject.Domain.Order;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace CompanyProject.API.Controllers
 {
     public class ServiceController : Controller
     {
+        private readonly ILogger _logger;
         private readonly IUnitOfWork _unitOfWork;
 
         public ServiceController(IUnitOfWork unitOfWork)
         {
+            _logger = Log.CreateLogger<HomeController>();
             _unitOfWork = unitOfWork;
         }
 
