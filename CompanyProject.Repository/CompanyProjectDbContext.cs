@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using CompanyProject.Domain;
+using CompanyProject.Domain.Address;
 using CompanyProject.Domain.AddressFromDb;
 using CompanyProject.Domain.CompanyContact;
 using CompanyProject.Domain.Customer;
@@ -14,6 +15,7 @@ using CompanyProject.Domain.PriceList;
 using CompanyProject.Repository.InitialDataBase;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.Extensions.Logging;
 
 namespace CompanyProject.Repository
 {
@@ -90,6 +92,11 @@ namespace CompanyProject.Repository
             modelBuilder.Entity<Feedback>().Property(f => f.FeedbackText).HasMaxLength(280);
             modelBuilder.Entity<Message>().Property(p => p.Content).HasMaxLength(2000);
 
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.LogTo(System.Console.WriteLine, LogLevel.Information);
         }
     }
 }

@@ -116,29 +116,29 @@
     });
 
     //Подгрузка списка округов/районов, населенных пунктов, улиц 
-    $('#Territory').change(function () {
+    $('#AddressData_Territory').change(function () {
         $.ajax({
             type: 'POST',
             url: companyProject.Urls.GetPartOfAddress,
             data: { parameters: ["District"]},
             success: function(result) {
-                $('#District').html(result);
-                $('#District').change(function() {
-                    var selectedDistrict = $('#District option:selected').val();
+                $('#AddressData_District').html(result);
+                $('#AddressData_District').change(function() {
+                    var selectedDistrict = $('#AddressData_District option:selected').val();
                     $.ajax({
                         type: "POST",
                         url: companyProject.Urls.GetPartOfAddress ,
                         data: { parameters: ["PopulatedArea", selectedDistrict]},
                         success: function (result) {
-                            $('#PopulatedArea').html(result);
-                            $('#PopulatedArea').change(function() {
-                                var selectPopulatedArea = $('#PopulatedArea option:selected').val();
+                            $('#AddressData_PopulatedArea').html(result);
+                            $('#AddressData_PopulatedArea').change(function() {
+                                var selectPopulatedArea = $('#AddressData_PopulatedArea option:selected').val();
                                 $.ajax({
                                     type: 'POST',
                                     url: companyProject.Urls.GetPartOfAddress,
                                     data: { parameters: ["Street", selectPopulatedArea] },
                                     success: function (result) {
-                                        $('#Street').html(result);
+                                        $('#AddressData_Street').html(result);
                                     }
                                 });
                             });
@@ -173,10 +173,10 @@
 function CheckFormField() {
     var custimerName = !!($("#CustomerName").val());
     var phoneNumber = !!($("#PhoneNumber").val());
-    var territory = !!($("#Territory").val());
-    var district = !!($("#District").val());
-    var populatedArea = !!($("#PopulatedArea").val());
-    var houseNumber = !!($("#PopulatedArea").val());
+    var territory = !!($("#AddressData_Territory").val());
+    var district = !!($("#AddressData_District").val());
+    var populatedArea = !!($("#AddressData_PopulatedArea").val());
+    var houseNumber = !!($("#AddressData_HouseNumber").val());
     var typeOfFailure = !!($("#TypeOfFailure").val());
     if (!custimerName ||
         !phoneNumber ||

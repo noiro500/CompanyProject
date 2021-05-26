@@ -24,7 +24,7 @@ namespace CompanyProject.Repository
         public static IServiceCollection AddRepository(this IServiceCollection services, string configConnectionToDb)
         {
             services.AddSingleton<IInitialDb, InitialDb>();
-            services.AddTransient<ICompanyContactsRepository, CompanyContactsRepository>();
+            services.AddScoped<ICompanyContactsRepository, CompanyContactsRepository>();
             services.AddTransient<ICustomersRepository, CustomersRepository>();
             services.AddTransient<IEmployeesRepository, EmployeesRepository>();
             services.AddTransient<IFeedbacksRepository, FeedbacksRepository>();
@@ -32,7 +32,7 @@ namespace CompanyProject.Repository
             services.AddTransient<IOrdersRepository, OrdersRepository>();
             services.AddTransient<IPagesRepository, PagesRepository>();
             services.AddTransient<IParagraphsRepository, ParagraphsRepository>();
-            services.AddTransient<IPriceListsRepository, PriceListsRepository>();
+            services.AddScoped<IPriceListsRepository, PriceListsRepository>();
             services.AddScoped<IAddressFromDbRepository, AddressFromDbRepository>();
             services.AddDbContext<CompanyProjectDbContext>(options =>
                 options.UseNpgsql(configConnectionToDb, b=>b.MigrationsAssembly("CompanyProject.API")));

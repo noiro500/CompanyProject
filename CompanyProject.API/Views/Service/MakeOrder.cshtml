@@ -49,31 +49,31 @@
             <div class="field">
                 <div class="columns">
                     <div class="column is-one-third">
-                        <label class="label" asp-for="Territory"></label>
+                        <label class="label" asp-for="AddressData.Territory"></label>
                         <div class="select">
-                            <select asp-for="Territory">
+                            <select asp-for="AddressData.Territory">
                                 <option disabled selected value="">Выберите край/область</option>
                                 <option value="Ставропольский край">Ставропольский край</option>
                             </select>
-                            <span asp-validation-for="Territory" class="has-text-danger"></span>
+                            <span asp-validation-for="AddressData.Territory" class="has-text-danger"></span>
                         </div>
                     </div>
                     <div class="column is-one-third">
-                        <label class="label" asp-for="District"></label>
+                        <label class="label" asp-for="AddressData.District"></label>
                         <div class="select">
-                            <select asp-for="District">
+                            <select asp-for="AddressData.District">
                                 <option disabled selected value="">Район/округ/городской округ</option>
                             </select>
-                            <span asp-validation-for="District" class="has-text-danger"></span>
+                            <span asp-validation-for="AddressData.District" class="has-text-danger"></span>
                         </div>
                     </div>
                     <div class="column is-one-third">
-                        <label class="label" asp-for="PopulatedArea"></label>
+                        <label class="label" asp-for="AddressData.PopulatedArea"></label>
                         <div class="select">
-                            <select asp-for="PopulatedArea">
+                            <select asp-for="AddressData.PopulatedArea">
                                 <option disabled selected value="">Населенный пункт</option>
                             </select>
-                            <span asp-validation-for="PopulatedArea" class="has-text-danger"></span>
+                            <span asp-validation-for="AddressData.PopulatedArea" class="has-text-danger"></span>
                         </div>
                     </div>
                 </div>
@@ -81,26 +81,26 @@
             <div class="field">
                 <div class="columns">
                     <div class="column is-one-third">
-                        <label class="label" asp-for="Street"></label>
+                        <label class="label" asp-for="AddressData.Street"></label>
                         <div class="select">
-                            <select asp-for="Street">
+                            <select asp-for="AddressData.Street">
                                 <option disabled selected value="">Улица/проспект/переулок</option>
                             </select>
-                            <span asp-validation-for="Street" class="has-text-danger"></span>
+                            <span asp-validation-for="AddressData.Street" class="has-text-danger"></span>
                         </div>
                     </div>
                     <div class="column is-one-third">
-                        <label class="label" asp-for="HouseNumber"></label>
+                        <label class="label" asp-for="AddressData.HouseNumber"></label>
                         <div class="control">
-                            <input class="input" type="text" name="HouseNumber" asp-for="HouseNumber"
+                            <input class="input" type="text" name="AddressData.HouseNumber" asp-for="AddressData.HouseNumber"
                                    placeholder="Номер дома/строения" />
-                            <span asp-validation-for="HouseNumber" class="has-text-danger"></span>
+                            <span asp-validation-for="AddressData.HouseNumber" class="has-text-danger"></span>
                         </div>
                     </div>
                     <div class="column is-one-third">
-                        <label class="label" asp-for="ApartmentOrOfficeNumber"></label>
+                        <label class="label" asp-for="AddressData.ApartmentOrOfficeNumber"></label>
                         <div class="control">
-                            <input class="input" type="text" name="ApartmentOrOffice" asp-for="ApartmentOrOfficeNumber"
+                            <input class="input" type="text" name="AddressData.ApartmentOrOfficeNumber" asp-for="AddressData.ApartmentOrOfficeNumber"
                                    placeholder="Номер квартиры/офиса" />
                         </div>
                     </div>
@@ -150,6 +150,7 @@
                                       rows="4" maxlength="280" 
                                       placeholder="Дополнительные сведения(схема проезда, код домофона и т.д.) (максимум 280 символов)" style="resize: none"></textarea>
                             <span asp-validation-for="SpecialInstruction" class="has-text-danger"></span>
+                            <br />
                             <label class="checkbox">
                                 <input asp-for="IsAdoptedPrivacyPolicy" class="has-text-danger" />
                                 Я принимаю <a href="~/Resources/Files/Политика конфиденциальности.pdf">Политику конфиденциальности</a>
@@ -165,7 +166,7 @@
                             <button name="CheckingData" id="checking-data" class="button is-primary">Далее</button>
                         </div>
                         <div class="control">
-                            <button id="reset-button" class="button is-primary is-light" @*type="reset"*@>Очистить</button>
+                            <button id="reset-button" class="button is-primary is-light">Очистить</button>
                         </div>
                     </div>
                 </div>

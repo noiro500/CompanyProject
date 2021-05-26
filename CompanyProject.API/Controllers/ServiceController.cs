@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Unicode;
 using System.Threading.Tasks;
+using AutoMapper;
 using CompanyProject.API.Infrastructure.Log;
 using CompanyProject.ViewModels;
 using CompanyProject.Domain;
@@ -23,11 +25,13 @@ namespace CompanyProject.API.Controllers
     {
         private readonly ILogger _logger;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
-        public ServiceController(IUnitOfWork unitOfWork)
+        public ServiceController(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _logger = Log.CreateLogger<HomeController>();
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         //Ajax send form
@@ -60,47 +64,27 @@ namespace CompanyProject.API.Controllers
                         .FirstOrDefault(p => p.PhoneNumber == orderViewModel.PhoneNumber);
                     if (customer == null)
                     {
-                        customer = new Customer
-                        {
-                            CustomerId = 0,
-                            CustomerName = orderViewModel.CustomerName,
-                            PhoneNumber = orderViewModel.PhoneNumber,
-                            AnotherPhoneNumber = orderViewModel.AnotherPhoneNumber,
-                            Email = orderViewModel.Email,
-                            IsAdoptedPrivacyPolicy = orderViewModel.IsAdoptedPrivacyPolicy
-                        };
+                        customer = _mapper.Map<Customer>(orderViewModel);
                         await _unitOfWork.Customers.AddEntityAsync(customer);
                     }
                     else
                         isNewCustomer = false;
-
-                    var order = new Order(
-                        0, orderViewModel.TypeOfFailure, orderViewModel.Description, orderViewModel.VisitTime,
-                        orderViewModel.SpecialInstruction,
-                        new Address()
-                        {
-
-                            Territory = orderViewModel.Territory,
-                            District = orderViewModel.District,
-                            PopulatedArea = orderViewModel.PopulatedArea,
-                            Street = orderViewModel.Street,
-                            HouseNumber = orderViewModel.HouseNumber,
-                            ApartmentOrOfficeNumber = orderViewModel.ApartmentOrOfficeNumber
-                        },
-                        false, 0, 0
-                    );
-                    customer.Orders.Add(order);
+                    var order = _mapper.Map<Order>(orderViewModel);
+                    order.CreateTime=DateTime.Now.ToString(CultureInfo.CurrentCulture);
                     if (!isNewCustomer)
                         _unitOfWork.Customers.UpdateEntity(customer);
-                    await _unitOfWork.Complete();
                     var onePrice = await _unitOfWork.PriceLists.GetAllEntity()
                         .FirstOrDefaultAsync(p => p.Service == order.TypeOfFailure
                             .Substring(order.TypeOfFailure.IndexOf("- "))
                             .Remove(0, 2));
-
                     string minPrice = (onePrice == null)
                         ? "Стоимость будет определена после диагностики"
                         : onePrice.ServicePrice;
+                    order.Price = decimal.TryParse(minPrice, out var price)
+                        ? price
+                        : 0;
+                    customer.Orders.Add(order);
+                    await _unitOfWork.Complete();
                     var makeOrderResultDic = new Dictionary<string, string>()
                     {
                         {"Ваш номер заказа:", order.OrderId.ToString()},
@@ -159,7 +143,7 @@ namespace CompanyProject.API.Controllers
                     return NotFound();
             }
 
-            return BadRequest();
+            return View("Error");
         }
 
 

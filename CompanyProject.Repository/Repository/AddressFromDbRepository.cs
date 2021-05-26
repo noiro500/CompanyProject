@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CompanyProject.Repository.Repository
 {
-    class AddressFromDbRepository :GenericRepository<AddressFromDb>, IAddressFromDbRepository
+    public class AddressFromDbRepository :GenericRepository<AddressFromDb>, IAddressFromDbRepository
     {
         //protected readonly CompanyProjectDbContext _context;
         public AddressFromDbRepository(CompanyProjectDbContext ctx):base(ctx)
