@@ -59,7 +59,7 @@ namespace CompanyProject.Repository
             await using var transaction = await _context.Database.BeginTransactionAsync();
             try
             {
-                await _context.SaveChangesAsync();
+                await _context.BulkSaveChangesAsync();
                 await transaction.CommitAsync();
             }
             catch (Exception)
