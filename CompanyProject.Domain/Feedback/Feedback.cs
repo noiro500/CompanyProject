@@ -13,7 +13,6 @@ namespace CompanyProject.Domain.Feedback
         [Required (ErrorMessage = "Не введен текст отзыва")]
         [DataType(DataType.MultilineText)]
         public string FeedbackText { get; set; }
-        //public int OrderForeignKey { get; set; }
         public int OrderId { get; set; }
         public Order.Order Order { get; set; }
         

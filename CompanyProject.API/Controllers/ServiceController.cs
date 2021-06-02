@@ -45,7 +45,7 @@ namespace CompanyProject.API.Controllers
             else
             {
                 await _unitOfWork.Messages.AddEntityAsync(mes);
-                await _unitOfWork.Complete();
+                await _unitOfWork.CompleteAsync();
                 return Json("true");
             }
         }
@@ -84,7 +84,7 @@ namespace CompanyProject.API.Controllers
                         ? price
                         : 0;
                     customer.Orders.Add(order);
-                    await _unitOfWork.Complete();
+                    await _unitOfWork.CompleteAsync();
                     var makeOrderResultDic = new Dictionary<string, string>()
                     {
                         {"Ваш номер заказа:", order.OrderId.ToString()},

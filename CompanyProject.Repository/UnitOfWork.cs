@@ -54,7 +54,7 @@ namespace CompanyProject.Repository
 
         public IAddressFromDbRepository AddressFromDbs { get; }
 
-        public async Task Complete()
+        public async Task CompleteAsync()
         {
             await using var transaction = await _context.Database.BeginTransactionAsync();
             try
