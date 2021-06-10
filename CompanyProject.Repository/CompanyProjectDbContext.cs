@@ -44,15 +44,15 @@ namespace CompanyProject.Repository
                 new Page[]
                 {
                     new Page {PageId = 1, Name = "Index"},
-                    new Page {PageId = 2, Name = "ComputersRepair", ScreenName = "Ремонт компьютеров", Icon ="fas fa-wrench", ToNavbar = true, ToCard = true},
-                    new Page {PageId = 3, Name = "LaptopsRepair", ScreenName = "Ремонт ноутбуков", Icon ="fas fa-laptop-medical", ToNavbar=true, ToCard = true},
-                    new Page {PageId = 4, Name = "HelpDesk", ScreenName = "Компьютерная помощь",Icon = "fas fa-ambulance", ToCard = true},
-                    new Page {PageId = 5, Name = "InternetNetworks", ScreenName = "Интернет и сети", Icon = "fas fa-network-wired", ToNavbar = true, ToCard = true},
-                    new Page {PageId = 6, Name = "DataRecovery", ScreenName = "Восстановление данных", Icon = "fas fa-database", ToCard = true},
-                    new Page {PageId = 7, Name = "B2b", ScreenName = "ИТ-услуги для бизнеса", Icon = "fas fa-industry", ToNavbar = true, ToCard = true},
-                    new Page {PageId = 8, Name = "LaptopUpgrade", ScreenName = "Модернизация ноутбука", Icon = "fas fa-laptop", ToCard = true},
-                    new Page {PageId = 9, Name = "PcAssembly", ScreenName = "Сборка компьютера",Icon = "fas fa-tv", ToCard = true},
-                    new Page {PageId = 10, Name = "OfficeEquipment", ScreenName = "Oргтехника", Icon = "fas fa-print", ToNavbar = true}
+                    new Page {PageId = 2, Name = "ComputersRepair", ScreenName = "Ремонт компьютеров", Icon ="fas fa-wrench", ToNavbar = true, ToCard = true, AspController = "Home"},
+                    new Page {PageId = 3, Name = "LaptopsRepair", ScreenName = "Ремонт ноутбуков", Icon ="fas fa-laptop-medical", ToNavbar=true, ToCard = true, AspController = "Home"},
+                    new Page {PageId = 4, Name = "HelpDesk", ScreenName = "Компьютерная помощь",Icon = "fas fa-ambulance", ToNavbar = true, ToCard = true, AspController = "Home"},
+                    new Page {PageId = 5, Name = "InternetNetworks", ScreenName = "Интернет и сети", Icon = "fas fa-network-wired", ToNavbar = true, ToCard = true, AspController = "Home"},
+                    new Page {PageId = 6, Name = "DataRecovery", ScreenName = "Восстановление данных", Icon = "fas fa-database", ToCard = true, AspController = "Home"},
+                    new Page {PageId = 7, Name = "B2b", ScreenName = "ИТ-услуги для бизнеса", Icon = "fas fa-industry", ToNavbar = true, ToCard = true, AspController = "Home"},
+                    new Page {PageId = 8, Name = "LaptopUpgrade", ScreenName = "Модернизация ноутбука", Icon = "fas fa-laptop", ToCard = true, AspController = "Home"},
+                    new Page {PageId = 9, Name = "PcAssembly", ScreenName = "Сборка компьютера",Icon = "fas fa-tv", ToCard = true, AspController = "Home"},
+                    new Page {PageId = 10, Name = "OfficeEquipment", ScreenName = "Oргтехника", Icon = "fas fa-print", ToNavbar = true, AspController = "Home"}
                 }
             );
 

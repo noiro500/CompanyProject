@@ -18,8 +18,7 @@ namespace CompanyProject.API.Infrastructure.ViewComponents
     }
     public class TypeOfFailureVc:ViewComponent
     {
-        //private readonly IUnitOfWork _unitOfWork;
-        private readonly CompanyProjectDbContext _context;
+       private readonly CompanyProjectDbContext _context;
 
         public TypeOfFailureVc(CompanyProjectDbContext ctx)
         {
@@ -37,8 +36,8 @@ namespace CompanyProject.API.Infrastructure.ViewComponents
                 var index = typeOfFailure[i].Service.IndexOf('(');
                 if (index > 0)
                 {
-                    var strigForReplace = typeOfFailure[i].Service.Remove(index);
-                    typeOfFailure[i].Service = strigForReplace;
+                    var stringForReplace = typeOfFailure[i].Service.Remove(index);
+                    typeOfFailure[i].Service = stringForReplace;
                 }
             }
 

@@ -17,6 +17,7 @@ namespace CompanyProject.Domain.Page
         public bool ToCard { get; set; } = false;
         //public virtual IEnumerable<Paragraph.Paragraph> Paragraphs { get; set; }
         //public virtual IEnumerable<PriceList.PriceList> PriceLists { get; set; }
+        public string AspController { get; set; }
         public List<Paragraph.Paragraph> Paragraphs { get; set; }
         public List<PriceList.PriceList> PriceLists { get; set; }
 

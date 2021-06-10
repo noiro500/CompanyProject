@@ -20,7 +20,6 @@ namespace CompanyProject.API.Infrastructure.ViewComponents
         }
 
         public async Task<IViewComponentResult> InvokeAsync(int pageNumber = 0, bool isFull = false)
-        //public async Task<IViewComponentResult> InvokeAsync(IList<PriceList> priceList, bool isFull = false)
         {
             if (!isFull)
                 return View("PriceListTable", await _unitOfWork.PriceLists.GetPriceListByPageAsync(pageNumber));
