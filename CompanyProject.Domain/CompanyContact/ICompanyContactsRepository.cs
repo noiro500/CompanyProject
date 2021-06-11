@@ -8,6 +8,5 @@ namespace CompanyProject.Domain.CompanyContact
     public interface ICompanyContactsRepository:IGenericRepository<CompanyContact>
     {
         public Task<CompanyContact> GetToUseCompanyAsync(string parameter);
-        public CompanyContact GetToUseCompany(string parameter);
     }
 }

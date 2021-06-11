@@ -10,32 +10,27 @@ namespace CompanyProject.API.Infrastructure.ViewComponents
 {
     public class CompanyInfo : ViewComponent
     {
-        //private readonly IRepository<CompanyContact> _companyContact;
         private readonly IUnitOfWork _unitOfWork;
-        private readonly CompanyContact _companyContacts;
 
         public CompanyInfo(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
-            _companyContacts = _unitOfWork.CompanyContacts.GetToUseCompany("ToUse");
-
         }
         public async Task<IViewComponentResult> InvokeAsync(string info)
         {
-            //var companyInfo =(await _unitOfWork.CompanyContacts.GetToUseCompanyAsync("ToUse"));
+            var companyInfo =await _unitOfWork.CompanyContacts.GetToUseCompanyAsync( "ToUse");
 
             if (info.Equals("CompanyName", System.StringComparison.CurrentCultureIgnoreCase))
-                return new HtmlContentViewComponentResult(new HtmlString(_companyContacts.CompanyName));
+                return new HtmlContentViewComponentResult(new HtmlString(companyInfo.CompanyName));
             if (info.Equals("Address", System.StringComparison.CurrentCultureIgnoreCase))
-                return Content(_companyContacts.Address);
+                return Content(companyInfo.Address);
             if (info.Equals("PhoneNumber", System.StringComparison.CurrentCultureIgnoreCase))
-                return Content(_companyContacts.PhoneNumber);
+                return Content(companyInfo.PhoneNumber);
             if (info.Equals("WhatsApp", System.StringComparison.CurrentCultureIgnoreCase))
-                return Content(_companyContacts.WhatsApp);
+                return Content(companyInfo.WhatsApp);
             if (info.Equals("WorkTime", StringComparison.CurrentCultureIgnoreCase))
-                return Content(_companyContacts.WorkTime);
-            //else return Content("Info not send");
-            else return Content("Нет данных");
+                return Content(companyInfo.WorkTime);
+            else return Content("Info not send");
         }
     }
 }
