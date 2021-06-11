@@ -35,14 +35,14 @@ namespace CompanyProject.API.Controllers
         [Route("/about")]
         public async Task<IActionResult> About()
         {
-            var companyInfo = await _unitOfWork.CompanyContacts.GetToUseAsync("ToUse");
+            var companyInfo = await _unitOfWork.CompanyContacts.GetToUseCompanyAsync("ToUse");
             return View("About", companyInfo);
         }
 
         [Route("/contacts")]
         public async Task<IActionResult> Contacts()
         {
-            var companyInfo = await _unitOfWork.CompanyContacts.GetToUseAsync("ToUse");
+            var companyInfo = await _unitOfWork.CompanyContacts.GetToUseCompanyAsync("ToUse");
             return View("Contacts", companyInfo);
         }
     }
