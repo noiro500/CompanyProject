@@ -21,22 +21,42 @@ namespace CompanyProject.API.Infrastructure.ViewComponents
         {
             var topMenuFirstLine = new List<TopMenuLineViewModel>
             {
-                new TopMenuLineViewModel(
-                    true, false,  true,
-                    "MenuFirstLine", "Comments", "fas fa-star",
-                    "orange", "Отзывы"),
-                new TopMenuLineViewModel(
-                    true, false, false,
-                    "MenuFirstLine", "FullPriceList","fas fa-ruble-sign",
-                    "gray", "Цены"),
-                new TopMenuLineViewModel(
-                    true, false, false,
-                    "MenuFirstLine", "About","fas fa-info",
-                    "gray", "О Компании"),
-                new TopMenuLineViewModel(
-                    true, false, false,
-                    "MenuFirstLine", "Contacts", "fas fa-map-marker-alt",
-                    "gray", "Контакты")
+                new TopMenuLineViewModel{
+                    FirstLine =true,
+                    AspAction ="Comments", 
+                    AspController = "MenuFirstLine", 
+                    Icon = "fas fa-star", 
+                    IconColor ="orange", 
+                    NavBar = false, 
+                    NeedStar = true, 
+                    ScreenName = "Отзывы"},
+                new TopMenuLineViewModel{
+                    FirstLine =true,
+                    AspAction ="FullPriceList", 
+                    AspController = "MenuFirstLine", 
+                    Icon = "fas fa-ruble-sign", 
+                    IconColor ="gray", 
+                    NavBar = false, 
+                    NeedStar = false, 
+                    ScreenName = "Цены"},
+                new TopMenuLineViewModel{
+                    FirstLine =true,
+                    NavBar = false,
+                    NeedStar = false,
+                    AspController = "MenuFirstLine",
+                    AspAction ="About", 
+                    Icon = "fas fa-info", 
+                    IconColor ="gray", 
+                    ScreenName = "О Компании"},
+                new TopMenuLineViewModel{
+                    FirstLine =true,
+                    NavBar = false,
+                    NeedStar = false,
+                    AspController = "MenuFirstLine",
+                    AspAction ="Contacts", 
+                    Icon = "fas fa-map-marker-alt", 
+                    IconColor ="gray", 
+                    ScreenName = "Контакты"}
             };
             var navBar = await _unitOfWork.Pages.GetAllEntity().ToListAsync();
             var topMenuNavBar=new List<TopMenuLineViewModel>();
@@ -44,10 +64,15 @@ namespace CompanyProject.API.Infrastructure.ViewComponents
             {
                 if (page.Name == "Index")
                     continue;
-                topMenuNavBar.Add(new TopMenuLineViewModel(
-                    false, page.ToNavbar, false, "Home",
-                    page.Name, page.Icon, "black", page.ScreenName
-                    ));
+                topMenuNavBar.Add(new TopMenuLineViewModel{
+                    FirstLine =false,
+                    NavBar = page.ToNavbar,
+                    NeedStar = false,
+                    AspController = "Home",
+                    AspAction ="page.Name", 
+                    Icon = page.Icon, 
+                    IconColor ="black", 
+                    ScreenName = page.ScreenName});
             }
             IDictionary<string, List<TopMenuLineViewModel>> topMenuDictionary=new Dictionary<string, List<TopMenuLineViewModel>>();
             topMenuDictionary["firstLine"] = topMenuFirstLine;
