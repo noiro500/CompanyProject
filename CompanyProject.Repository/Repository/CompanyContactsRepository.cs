@@ -26,14 +26,5 @@ namespace CompanyProject.Repository.Repository
             }
             else return null;
         }
-        public CompanyContact GetToUseCompany(string parameter)
-        {
-            if (parameter.Equals("ToUse"))
-            {
-                return (_context.Set<CompanyContact>().AsNoTracking())
-                    .FirstOrDefault(c => c.ToUse);
-            }
-            else return null;
-        }
     }
 }
