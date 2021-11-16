@@ -1,11 +1,11 @@
-﻿using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using CompanyProject.API.Infrastructure.Log;
-using CompanyProject.ViewModels;
+﻿using CompanyProject.API.Infrastructure.Log;
 using CompanyProject.Domain;
+using CompanyProject.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace CompanyProject.API.Controllers
 {
@@ -77,7 +77,7 @@ namespace CompanyProject.API.Controllers
         public async Task<IActionResult> PcAssembly()
         {
             return View("ComputersRepair", (await _unitOfWork.Pages.GetWithInclude(p => p.Paragraphs))
-                .FirstOrDefault(t => t.PageId == 2)); 
+                .FirstOrDefault(t => t.PageId == 2));
         }
 
         [Route("office-equipment")]
