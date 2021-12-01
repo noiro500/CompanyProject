@@ -94,12 +94,6 @@
     <Content Update="wwwroot\js\jquery.toast.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\lib\bulma\bulma.css">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\lib\bulma\bulma.min.css">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Update="wwwroot\lib\jquery-validate\additional-methods.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -257,7 +251,9 @@
     <None Include="Views\Shared\_Layout.cshtml" />
     <None Include="Views\_ViewImports.cshtml" />
     <None Include="Views\_ViewStart.cshtml" />
-    <None Include="wwwroot\lib\bulma\bulma.sass" />
+    <None Include="wwwroot\lib\bulma\sass\.DS_Store" />
+    <None Include="wwwroot\lib\bulma\sass\base\.DS_Store" />
+    <None Include="wwwroot\lib\bulma\sass\base\animations.sass" />
     <None Include="wwwroot\lib\bulma\sass\base\generic.sass" />
     <None Include="wwwroot\lib\bulma\sass\base\helpers.sass" />
     <None Include="wwwroot\lib\bulma\sass\base\minireset.sass" />
@@ -317,6 +313,7 @@
     <None Include="wwwroot\lib\bulma\sass\utilities\animations.sass" />
     <None Include="wwwroot\lib\bulma\sass\utilities\controls.sass" />
     <None Include="wwwroot\lib\bulma\sass\utilities\derived-variables.sass" />
+    <None Include="wwwroot\lib\bulma\sass\utilities\extends.sass" />
     <None Include="wwwroot\lib\bulma\sass\utilities\functions.sass" />
     <None Include="wwwroot\lib\bulma\sass\utilities\initial-variables.sass" />
     <None Include="wwwroot\lib\bulma\sass\utilities\mixins.sass" />
