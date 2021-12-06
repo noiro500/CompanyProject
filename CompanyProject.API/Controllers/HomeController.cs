@@ -21,7 +21,7 @@ namespace CompanyProject.API.Controllers
         public async Task<IActionResult> Index()
         {
             return View((await _unitOfWork.Pages.GetWithInclude(p => p.Paragraphs))
-                .FirstOrDefault(t => t.PageId == 1));
+                .FirstOrDefault(t => t.PageId == 2));
         }
 
         [Route("computers-repair")]
