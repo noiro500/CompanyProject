@@ -83,6 +83,9 @@ body {
     flex-direction: column;
     /*text-align: justify;*/
 }
+body >footer {
+    margin-top: auto;
+}
 
 .blockquote-style {
     display: none;

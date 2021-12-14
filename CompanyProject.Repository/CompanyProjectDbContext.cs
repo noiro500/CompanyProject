@@ -1,7 +1,4 @@
-﻿using System;
-using System.Globalization;
-using CompanyProject.Domain;
-using CompanyProject.Domain.Address;
+﻿using CompanyProject.Domain.Address;
 using CompanyProject.Domain.AddressFromDb;
 using CompanyProject.Domain.CompanyContact;
 using CompanyProject.Domain.Customer;
@@ -14,12 +11,13 @@ using CompanyProject.Domain.Paragraph;
 using CompanyProject.Domain.PriceList;
 using CompanyProject.Repository.InitialDataBase;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Globalization;
 
 namespace CompanyProject.Repository
 {
-    public class CompanyProjectDbContext:DbContext
+    public class CompanyProjectDbContext : DbContext
     {
         private readonly IInitialDb _context;
         public CompanyProjectDbContext(DbContextOptions<CompanyProjectDbContext> options, IInitialDb ctx) : base(options)

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿#nullable enable
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CompanyProject.Domain.Address
 {
@@ -38,11 +34,11 @@ namespace CompanyProject.Domain.Address
         [Required(ErrorMessage = "Не указан номер дома/строения")]
         [MaxLength(10)]
         [Display(Name = "Номер дома/строения: *")]
-        public string HouseNumber { get; set; }
-        
+        public string? HouseNumber { get; set; }
+
         [DataType(DataType.Text)]
         [Display(Name = "Номер квартиры/офиса:")]
         [MaxLength(10)]
-        public string ApartmentOrOfficeNumber { get; set; }
+        public string? ApartmentOrOfficeNumber { get; set; }
     }
 }

@@ -81,6 +81,10 @@ body {
   /*text-align: justify;*/
 }
 
+body > footer {
+  margin-top: auto;
+}
+
 .blockquote-style {
   display: none;
   margin-left: 10px;

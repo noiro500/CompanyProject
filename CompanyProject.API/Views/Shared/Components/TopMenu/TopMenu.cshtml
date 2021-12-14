@@ -29,8 +29,9 @@
 </div>
 <hr class="is-hidden-mobile" style="margin-top: 10px;" />
 
-<div class="container">
-    <div class="columns">
+<div style="position: sticky; top: 0; z-index: 1;">
+<div class="container" style="background: white">
+    <div class="columns" >
         <div class="column font-title is-hidden-mobile">
             <a asp-controller="Home" asp-action="Index">
                 <vc:company-info info="CompanyName" />
@@ -63,9 +64,10 @@
         </div>
     </div>
 </div>
+</div>
 <br />
 
-<nav class="navbar is-link" role="navigation">
+<nav class="navbar is-link" role="navigation" >
     <div class="container">
         <div class="navbar-brand is-hidden-tablet">
             <a class="navbar-item font-title" style="font-size: 20px" asp-controller="Home" asp-action="Index">
