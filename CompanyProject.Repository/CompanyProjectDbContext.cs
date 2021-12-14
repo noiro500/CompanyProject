@@ -95,7 +95,7 @@ namespace CompanyProject.Repository
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.LogTo(System.Console.WriteLine, LogLevel.Information);
+            optionsBuilder.LogTo(System.Console.WriteLine, LogLevel.Warning);
         }
     }
 }

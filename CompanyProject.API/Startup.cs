@@ -22,7 +22,7 @@ namespace CompanyProject.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddRepository(Configuration["ConnectionStrings:ConnectionStringToPostgreSQL"]);
+            services.AddRepository(Configuration["ConnectionStrings:ConnectionStringToPostgreSQLAzure"]);
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
