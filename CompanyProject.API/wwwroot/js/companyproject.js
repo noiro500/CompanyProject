@@ -50,7 +50,7 @@
 
     ////Подсчет символов и запрет enter в textarea
     $('textarea').keypress(function (event) {
-        if (event.keyCode == 13) {
+        if (event.keyCode === 13) {
             event.preventDefault();
         }
     });
@@ -66,15 +66,9 @@
         $(this).toggleClass("is-active");
     });
 
-    //настройка дат
-    
-    //$('#datepicker').datepicker({
-    //    minDate: new Date(),
-    //    minHours: 9,
-    //    maxHours: 18,
-    //    minutesStep: 30,
-    //    position: "center top"
-    //});
+    /******************/
+    /* настройка дат  */
+    /******************/
     var start = new Date(),
         prevDay,
         startHours = 9;
@@ -90,6 +84,7 @@
         position: "top center",
         timepicker: true,
         startDate: start,
+        minDate: start,
         minHours: startHours,
         maxHours: 19,
         onSelect: function(fd, d, picker) {
@@ -101,15 +96,15 @@
             prevDay = day;
             // Если выбранный день суббота или воскресенье, то устанавливаем
             // часы для выходных, в противном случае восстанавливаем начальные значения
-            if (day == 6 || day == 0) {
+            if (day === 6 || day === 0) {
                 picker.update({
                     minHours: 10,
-                    maxHours: 16
+                    maxHours: 15
                 });
             } else {
                 picker.update({
                     minHours: 9,
-                    maxHours: 19
+                    maxHours: 18
                 });
             }
         }
@@ -150,11 +145,11 @@
     });
 
     //настройка дат
-    $('#VisitTime').datepicker({
-        minDate: new Date(),
-        minHours: 9,
-        maxHours: 18
-    });
+    //$('#VisitTime').datepicker({
+    //    minDate: new Date(),
+    //    minHours: 9,
+    //    maxHours: 18
+    //});
 
     var a = $(this).find("#make-order");
     if (a.length) {
