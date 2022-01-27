@@ -69,14 +69,13 @@
     /******************/
     /* настройка дат  */
     /******************/
-    var start = new Date(),
-        prevDay,
-        startHours = 9;
+    var start = new Date();
+    var startHours = 9;
     // 09:00
     start.setHours(9);
     start.setMinutes(0);
     // Если сегодня суббота или воскресенье - 10:00
-    if ([6, 0].indexOf(start.getDay()) != -1) {
+    if ([6, 0].indexOf(start.getDay()) !== -1) {
         start.setHours(10);
         startHours = 10;
     }
@@ -84,7 +83,7 @@
         position: "top center",
         timepicker: true,
         startDate: start,
-        minDate: start,
+        minDate: start, 
         minHours: startHours,
         maxHours: 19,
         onSelect: function(fd, d, picker) {
@@ -109,6 +108,7 @@
             }
         }
     });
+    $('#VisitTime').datepicker("minDate: +1d");
 
     //Подгрузка списка округов/районов, населенных пунктов, улиц 
     $('#AddressData_Territory').change(function () {
