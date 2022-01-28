@@ -108,7 +108,6 @@
             }
         }
     });
-    $('#VisitTime').datepicker("minDate: +1d");
 
     //Подгрузка списка округов/районов, населенных пунктов, улиц 
     $('#AddressData_Territory').change(function () {
@@ -143,14 +142,7 @@
             }
         });
     });
-
-    //настройка дат
-    //$('#VisitTime').datepicker({
-    //    minDate: new Date(),
-    //    minHours: 9,
-    //    maxHours: 18
-    //});
-
+    
     var a = $(this).find("#make-order");
     if (a.length) {
         $("#make-order input[name='IsAdoptedPrivacyPolicy']")[0].checked = true;
@@ -158,22 +150,22 @@
     $("#checking-data").on("click", CheckMakeOrderForm);
        
     //Перезагрузка страницы с кнопки "Очистить"
-    $("#reset-button").on("click",
-        function() {
-            location.reload();
-        });
+    //$("#reset-button").on("click",
+    //    function() {
+    //        location.reload();
+    //    });
 
 });
 
 function CheckFormField() {
-    var custimerName = !!($("#CustomerName").val());
+    var customerName = !!($("#CustomerName").val());
     var phoneNumber = !!($("#PhoneNumber").val());
     var territory = !!($("#AddressData_Territory").val());
     var district = !!($("#AddressData_District").val());
     var populatedArea = !!($("#AddressData_PopulatedArea").val());
     var houseNumber = !!($("#AddressData_HouseNumber").val());
     var typeOfFailure = !!($("#TypeOfFailure").val());
-    if (!custimerName ||
+    if (!customerName ||
         !phoneNumber ||
         !territory ||
         !district ||

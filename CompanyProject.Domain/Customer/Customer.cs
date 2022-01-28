@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace CompanyProject.Domain.Customer
 {
@@ -9,7 +8,7 @@ namespace CompanyProject.Domain.Customer
 
         //[Required]
         public string CustomerName { get; set; }
-        [Required]
+        //[Required]
         public string PhoneNumber { get; set; }
         public string AnotherPhoneNumber { get; set; } = "Отсутствует";
         public string Email { get; set; } = null;
