@@ -1,18 +1,17 @@
-﻿using System;
+﻿using CompanyProject.Domain;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
-using CompanyProject.Domain;
-using Microsoft.EntityFrameworkCore;
 
 namespace CompanyProject.Repository
 {
     public abstract class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         protected readonly CompanyProjectDbContext _context;
-        
+
         protected GenericRepository(CompanyProjectDbContext ctx)
         {
             _context = ctx;
@@ -24,11 +23,8 @@ namespace CompanyProject.Repository
 
         public IQueryable<T> GetAllEntity() => _context.Set<T>();
 
-        public async Task<T> GetEntityByIdAsync(int id)
-        {
-            return await _context.Set<T>().FindAsync(id);
-        }
-        
+        public async Task<T> GetEntityByIdAsync(int id) => await _context.Set<T>().FindAsync(id);
+
         public void UpdateEntity(T entity) => _context.Set<T>().Update(entity);
 
         public async Task<IEnumerable<T>> GetWithInclude(params Expression<Func<T, object>>[] includeProperties)

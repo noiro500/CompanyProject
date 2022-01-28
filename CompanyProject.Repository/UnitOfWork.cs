@@ -10,6 +10,7 @@ using CompanyProject.Domain.Page;
 using CompanyProject.Domain.Paragraph;
 using CompanyProject.Domain.PriceList;
 using CompanyProject.Repository.Repository;
+using EFCore.BulkExtensions;
 using System;
 using System.Threading.Tasks;
 
