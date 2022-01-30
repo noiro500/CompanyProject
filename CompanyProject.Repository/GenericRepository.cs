@@ -21,7 +21,7 @@ namespace CompanyProject.Repository
 
         public void DeleteEntity(T entity) => _context.Set<T>().Remove(entity);
 
-        public IQueryable<T> GetAllEntity() => _context.Set<T>();
+        public IQueryable<T> GetAllEntity() => _context.Set<T>().AsNoTracking();
 
         public async Task<T> GetEntityByIdAsync(int id) => await _context.Set<T>().FindAsync(id);
 
@@ -29,13 +29,13 @@ namespace CompanyProject.Repository
 
         public async Task<IEnumerable<T>> GetWithInclude(params Expression<Func<T, object>>[] includeProperties)
         {
-            return await Include(includeProperties).ToListAsync();
+            return await Include(includeProperties).AsNoTracking().ToListAsync();
         }
         public IEnumerable<T> GetWithInclude(Func<T, bool> predicate,
             params Expression<Func<T, object>>[] includeProperties)
         {
             var query = Include(includeProperties);
-            return query.Where(predicate);
+            return query.AsNoTracking().AsEnumerable().Where(predicate);
         }
         public IQueryable<T> Include(params Expression<Func<T, object>>[] includeProperties)
         {
