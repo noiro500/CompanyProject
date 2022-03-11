@@ -163,9 +163,6 @@
     <Content Update="wwwroot\Resources\DbSeed\InitialDBContentNew.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\Resources\DbSeed\InitialDBPriceLists.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Update="wwwroot\Resources\Files\Политика конфиденциальности.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
