@@ -10,6 +10,7 @@ using CompanyProject.Domain.Page;
 using CompanyProject.Domain.Paragraph;
 using CompanyProject.Domain.PriceList;
 using CompanyProject.Repository.InitialDataBase;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
@@ -17,7 +18,7 @@ using System.Globalization;
 
 namespace CompanyProject.Repository
 {
-    public class CompanyProjectDbContext : DbContext
+    public class CompanyProjectDbContext : IdentityDbContext
     {
         private readonly IInitialDb _context;
         public CompanyProjectDbContext(DbContextOptions<CompanyProjectDbContext> options, IInitialDb ctx) : base(options)
