@@ -1,4 +1,14 @@
-﻿using System;
+﻿using AutoMapper;
+using CompanyProject.API.Infrastructure.Log;
+using CompanyProject.Domain;
+using CompanyProject.Domain.Customer;
+using CompanyProject.Domain.Message;
+using CompanyProject.Domain.Order;
+using CompanyProject.ViewModels;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
@@ -8,16 +18,6 @@ using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Unicode;
 using System.Threading.Tasks;
-using AutoMapper;
-using CompanyProject.API.Infrastructure.Log;
-using CompanyProject.ViewModels;
-using CompanyProject.Domain;
-using CompanyProject.Domain.Customer;
-using CompanyProject.Domain.Message;
-using CompanyProject.Domain.Order;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 
 namespace CompanyProject.API.Controllers
 {
@@ -38,7 +38,7 @@ namespace CompanyProject.API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddMessageToDbAsyncTask(Message mes)
         {
-            if(!mes.IsAdoptedPrivacyPolicy)
+            if (!mes.IsAdoptedPrivacyPolicy)
             {
                 return Json("false");
             }
@@ -70,7 +70,7 @@ namespace CompanyProject.API.Controllers
                     else
                         isNewCustomer = false;
                     var order = _mapper.Map<Order>(orderViewModel);
-                    order.CreateTime=DateTime.Now.ToString(CultureInfo.CurrentCulture);
+                    order.CreateTime = DateTime.Now.ToString(CultureInfo.CurrentCulture);
                     if (!isNewCustomer)
                         _unitOfWork.Customers.UpdateEntity(customer);
                     var onePrice = await _unitOfWork.PriceLists.GetAllEntity()
@@ -172,7 +172,7 @@ namespace CompanyProject.API.Controllers
 
         }
 
-        
+
 
     }
 }

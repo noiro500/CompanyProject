@@ -1,6 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using CompanyProject.Domain;
+﻿using CompanyProject.Domain;
 using CompanyProject.Domain.AddressFromDb;
 using CompanyProject.Domain.CompanyContact;
 using CompanyProject.Domain.Customer;
@@ -12,6 +10,8 @@ using CompanyProject.Domain.Page;
 using CompanyProject.Domain.Paragraph;
 using CompanyProject.Domain.PriceList;
 using CompanyProject.Repository.Repository;
+using System;
+using System.Threading.Tasks;
 
 namespace CompanyProject.Repository
 {
@@ -59,7 +59,7 @@ namespace CompanyProject.Repository
             await using var transaction = await _context.Database.BeginTransactionAsync();
             try
             {
-                await _context.BulkSaveChangesAsync();
+                await _context.SaveChangesAsync();
                 await transaction.CommitAsync();
             }
             catch (Exception)

@@ -69,14 +69,13 @@
     /******************/
     /* настройка дат  */
     /******************/
-    var start = new Date(),
-        prevDay,
-        startHours = 9;
+    var start = new Date();
+    var startHours = 9;
     // 09:00
     start.setHours(9);
     start.setMinutes(0);
     // Если сегодня суббота или воскресенье - 10:00
-    if ([6, 0].indexOf(start.getDay()) != -1) {
+    if ([6, 0].indexOf(start.getDay()) !== -1) {
         start.setHours(10);
         startHours = 10;
     }
@@ -84,7 +83,7 @@
         position: "top center",
         timepicker: true,
         startDate: start,
-        minDate: start,
+        minDate: start, 
         minHours: startHours,
         maxHours: 19,
         onSelect: function(fd, d, picker) {
@@ -143,14 +142,7 @@
             }
         });
     });
-
-    //настройка дат
-    //$('#VisitTime').datepicker({
-    //    minDate: new Date(),
-    //    minHours: 9,
-    //    maxHours: 18
-    //});
-
+    
     var a = $(this).find("#make-order");
     if (a.length) {
         $("#make-order input[name='IsAdoptedPrivacyPolicy']")[0].checked = true;
@@ -158,22 +150,22 @@
     $("#checking-data").on("click", CheckMakeOrderForm);
        
     //Перезагрузка страницы с кнопки "Очистить"
-    $("#reset-button").on("click",
-        function() {
-            location.reload();
-        });
+    //$("#reset-button").on("click",
+    //    function() {
+    //        location.reload();
+    //    });
 
 });
 
 function CheckFormField() {
-    var custimerName = !!($("#CustomerName").val());
+    var customerName = !!($("#CustomerName").val());
     var phoneNumber = !!($("#PhoneNumber").val());
     var territory = !!($("#AddressData_Territory").val());
     var district = !!($("#AddressData_District").val());
     var populatedArea = !!($("#AddressData_PopulatedArea").val());
     var houseNumber = !!($("#AddressData_HouseNumber").val());
     var typeOfFailure = !!($("#TypeOfFailure").val());
-    if (!custimerName ||
+    if (!customerName ||
         !phoneNumber ||
         !territory ||
         !district ||
