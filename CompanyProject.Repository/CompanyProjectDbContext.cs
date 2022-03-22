@@ -9,8 +9,8 @@ using CompanyProject.Domain.Order;
 using CompanyProject.Domain.Page;
 using CompanyProject.Domain.Paragraph;
 using CompanyProject.Domain.PriceList;
+using CompanyProject.Domain.User;
 using CompanyProject.Repository.InitialDataBase;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
@@ -18,7 +18,7 @@ using System.Globalization;
 
 namespace CompanyProject.Repository
 {
-    public class CompanyProjectDbContext : IdentityDbContext
+    public class CompanyProjectDbContext : DbContext
     {
         private readonly IInitialDb _context;
         public CompanyProjectDbContext(DbContextOptions<CompanyProjectDbContext> options, IInitialDb ctx) : base(options)
@@ -29,12 +29,14 @@ namespace CompanyProject.Repository
         public DbSet<Paragraph> Paragraphs { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<User> Users { get; set; }
         public DbSet<CompanyContact> CompanyContacts { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<PriceList> PriceLists { get; set; }
         public DbSet<AddressFromDb> AddressFromDbs { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
