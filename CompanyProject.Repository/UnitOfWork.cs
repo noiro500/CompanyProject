@@ -9,10 +9,10 @@ using CompanyProject.Domain.Order;
 using CompanyProject.Domain.Page;
 using CompanyProject.Domain.Paragraph;
 using CompanyProject.Domain.PriceList;
-using CompanyProject.Domain.User;
 using CompanyProject.Repository.Repository;
 using System;
 using System.Threading.Tasks;
+using CompanyProject.Domain.Interfaces;
 
 namespace CompanyProject.Repository
 {
@@ -26,7 +26,6 @@ namespace CompanyProject.Repository
             CompanyContacts = new CompanyContactsRepository(_context);
             Customers = new CustomersRepository(_context);
             Employees = new EmployeesRepository(_context);
-            Users = new UsersRepository(_context);
             Feedbacks = new FeedbacksRepository(_context);
             Messages = new MessagesRepository(_context);
             Orders = new OrdersRepository(_context);
@@ -41,7 +40,6 @@ namespace CompanyProject.Repository
         public ICustomersRepository Customers { get; }
 
         public IEmployeesRepository Employees { get; }
-        public IUsersRepository Users { get; }
 
         public IFeedbacksRepository Feedbacks { get; }
 

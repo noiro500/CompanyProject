@@ -11,11 +11,11 @@
         <div class="field">
             <div class="columns">
                 <div class="column is-full">
-                    <label class="label" asp-for="CustomerName"></label>
+                    <label class="label" asp-for="Name"></label>
                     <div class="control">
-                        <input class="input" type="text" asp-for="CustomerName"
+                        <input class="input" type="text" asp-for="Name"
                                placeholder="Как к Вам обращаться" />
-                        <span asp-validation-for="CustomerName" class="has-text-danger"></span>
+                        <span asp-validation-for="Name" class="has-text-danger"></span>
                     </div>
 
                 </div>
@@ -31,10 +31,10 @@
                         <span asp-validation-for="PhoneNumber" class="has-text-danger"></span>
                     </div>
                     <div class="column is-one-third">
-                        <label class="label" asp-for="AnotherPhoneNumber"></label>
+                        <label class="label" asp-for="MessagerNumber"></label>
                         <div class="control">
-                            <input class="input phone-number" type="tel" asp-for="AnotherPhoneNumber"
-                                   placeholder="Рекомендуем указать номер WhatsApp"  value=""/>
+                            <input class="input phone-number" type="tel" asp-for="MessagerNumber"
+                                   placeholder="Рекомендуем указать номер WhatsApp/Telegram"  value=""/>
                         </div>
                     </div>
                     <div class="column is-one-third">

@@ -26,6 +26,7 @@ namespace CompanyProject.API
         {
             services.AddMvc().AddFluentValidation();
             services.AddRepository(Configuration["ConnectionStrings:ConnectionStringToPostgreSQLAzure"]);
+            services.AddCors();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddTransient<IValidator<Message>, MessageValidator>();
 
@@ -51,7 +52,7 @@ namespace CompanyProject.API
             }
             app.UseStatusCodePages();
             app.UseRouting();
-
+            app.UseCors(options => options.AllowAnyOrigin());
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

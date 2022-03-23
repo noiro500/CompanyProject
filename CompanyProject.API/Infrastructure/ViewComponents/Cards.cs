@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CompanyProject.ViewModels;
 using CompanyProject.Domain;
+using CompanyProject.Domain.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;

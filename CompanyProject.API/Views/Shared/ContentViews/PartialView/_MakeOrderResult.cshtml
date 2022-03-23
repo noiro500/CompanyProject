@@ -3,7 +3,8 @@
     @foreach (var field in Model)
     {
         <label class="label"> @field.Key</label>
-        @if (field.Key == "Ваш номер заказа:")
+        @if (field.Key == "Ваш номер заказа:" || field.Key =="Причина вызова мастера:" ||
+             field.Key =="Время прихода мастера:")
         {
             <p>@field.Value</p>
         }

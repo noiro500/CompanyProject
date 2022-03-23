@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using CompanyProject.Domain;
 using CompanyProject.Domain.CompanyContact;
+using CompanyProject.Domain.Interfaces;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
