@@ -9,7 +9,6 @@ using CompanyProject.Domain.Order;
 using CompanyProject.Domain.Page;
 using CompanyProject.Domain.Paragraph;
 using CompanyProject.Domain.PriceList;
-using CompanyProject.Domain.User;
 using CompanyProject.Repository.InitialDataBase;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -29,14 +28,13 @@ namespace CompanyProject.Repository
         public DbSet<Paragraph> Paragraphs { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Customer> Customers { get; set; }
-        public DbSet<User> Users { get; set; }
         public DbSet<CompanyContact> CompanyContacts { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<PriceList> PriceLists { get; set; }
         public DbSet<AddressFromDb> AddressFromDbs { get; set; }
-
+        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -80,11 +78,10 @@ namespace CompanyProject.Repository
                     WhatsApp = "+7-(900)-000-00-00"
                 }
             );
-
             modelBuilder.Entity<Paragraph>().HasIndex(p => p.Content);
             modelBuilder.Entity<Page>().HasIndex(p => p.Name);
 
-            modelBuilder.Entity<Customer>().HasIndex(c => new { TelephoneNumber = c.PhoneNumber/*, c.Address*/ });
+            modelBuilder.Entity<Customer>().HasIndex(c => new { TelephoneNumber = c.PhoneNumber });
             modelBuilder.Entity<Order>().HasIndex(o => o.VisitTime);
 
             modelBuilder.Entity<Order>().Property(i => i.IsCompleted).HasDefaultValue(false);

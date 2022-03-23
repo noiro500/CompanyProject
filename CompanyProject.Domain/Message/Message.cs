@@ -12,7 +12,7 @@ namespace CompanyProject.Domain.Message
 
         //[Required(ErrorMessage = "Не указан номер WhatsApp/Telegram")]
         [Display(Name = "Номер WhatsApp/Telegram: *")]
-        public string WhatsAppNumber { get; set; }
+        public string MessagerNumber { get; set; }
 
         [EmailAddress(ErrorMessage = "Некорректный адрес E-mail")]
         [Display(Name = "E-mail:")]

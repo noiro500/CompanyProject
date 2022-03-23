@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using CompanyProject.Domain.Interfaces;
 
 namespace CompanyProject.API.Controllers
 {

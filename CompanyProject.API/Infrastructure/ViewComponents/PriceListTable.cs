@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using CompanyProject.Domain;
+using CompanyProject.Domain.Interfaces;
 using CompanyProject.Domain.PriceList;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp.Syntax;

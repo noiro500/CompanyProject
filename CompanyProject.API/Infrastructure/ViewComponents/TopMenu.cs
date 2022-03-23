@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using CompanyProject.Domain.Interfaces;
 
 namespace CompanyProject.API.Infrastructure.ViewComponents
 {

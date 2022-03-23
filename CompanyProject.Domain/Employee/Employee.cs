@@ -1,23 +1,21 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using CompanyProject.Domain.Interfaces;
 
 namespace CompanyProject.Domain.Employee
 {
-    public class Employee
+    public class Employee:IUser
     {
-        public int EmployeeId { get; set; }
-        //[Required]
-        public string FirstName { get; set; }
-        //[Required]
-        public string Surname { get; set; }
-        public string SecondName { get; set; }
-        //[Required]
+        public Guid EmployeeId { get; set; }
+        public string Name { get; set; }
         public string Passport { get; set; }
-        //[Required]
-        [DataType(DataType.PhoneNumber)]
-        public string Telephone { get; set; }
-        //[Required]
-        [DataType(DataType.MultilineText)]
+        public string PhoneNumber { get; set; }
+        public string MessagerNumber { get; set; }
+        public string Email { get; set; }
+        public string UserLogin { get; set; }
+        public string PasswordHash { get; set; }
+        public string PassportNumber { get; set; }
         public string Address { get; set; }
-        public double Rating { get; set; }
+        public double? Rating { get; set; }
     }
 }

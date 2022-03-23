@@ -18,6 +18,7 @@ using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Unicode;
 using System.Threading.Tasks;
+using CompanyProject.Domain.Interfaces;
 
 namespace CompanyProject.API.Controllers
 {
@@ -83,13 +84,14 @@ namespace CompanyProject.API.Controllers
                     order.Price = decimal.TryParse(minPrice, out var price)
                         ? price
                         : 0;
+
                     customer.Orders.Add(order);
                     await _unitOfWork.CompleteAsync();
                     var makeOrderResultDic = new Dictionary<string, string>()
                     {
                         {"Ваш номер заказа:", order.OrderId.ToString()},
-                        {"Причина вызова мастера/курьера:", order.TypeOfFailure},
-                        {"Время прихода мастера/курьера:", order.VisitTime},
+                        {"Причина вызова мастера:", order.TypeOfFailure},
+                        {"Время прихода мастера:", order.VisitTime},
                         {"Минимальная (ориентировочная) стоимость:", minPrice}
                     };
                     return PartialView("ContentViews/PartialView/_MakeOrderResult", makeOrderResultDic);
@@ -101,7 +103,8 @@ namespace CompanyProject.API.Controllers
             catch (Exception e)
             {
                 _unitOfWork.Dispose();
-                return BadRequest();
+                return StatusCode(405);
+                //return BadRequest();
             }
         }
 

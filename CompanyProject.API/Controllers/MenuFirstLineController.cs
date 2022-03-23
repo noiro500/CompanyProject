@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using CompanyProject.API.Infrastructure.HelpClasses;
 using CompanyProject.API.Infrastructure.Log;
 using CompanyProject.Domain;
+using CompanyProject.Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
