@@ -41,14 +41,7 @@
                                 <span style="font-size: 10px;">* Необходимость тех или иных работ определяется мастером, зависит от результатов диагностики и может изменятся.</span>
                             </ul>
                         </td>
-                        @if (mod.Key == "ИТ-услуги для бизнеса")
-                        {
-                            <td class="has-text-right">@workList.ServicePrice</td>
-                        }
-                        else
-                        {
-                            <td class="has-text-right">@workList.ServicePrice рублей</td>
-                        }
+                        <td class="has-text-right">@workList.ServicePrice рублей</td>
                     </tr>
                     </tbody>
                 }
