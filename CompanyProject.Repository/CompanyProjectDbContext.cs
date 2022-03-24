@@ -90,6 +90,8 @@ namespace CompanyProject.Repository
             modelBuilder.Entity<Feedback>().Property(r => r.Rating).HasMaxLength(1);
             modelBuilder.Entity<Feedback>().Property(f => f.FeedbackText).HasMaxLength(280);
             modelBuilder.Entity<Message>().Property(p => p.Content).HasMaxLength(2000);
+            modelBuilder.Entity<Message>().Property(p => p.PeopleName).HasMaxLength(30);
+            modelBuilder.Entity<Message>().Property(p => p.SubjectMessage).HasMaxLength(50);
 
         }
 
