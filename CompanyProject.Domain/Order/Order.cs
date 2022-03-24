@@ -8,7 +8,7 @@ namespace CompanyProject.Domain.Order
     public class Order
     {
         public Guid OrderId { get; set; }
-        public double OrderNumber { get; set; }
+        public double? OrderNumber { get; set; }
         public string TypeOfFailure { get; set; }
         public string Description { get; set; }
         public string CreateTime { get; set; }

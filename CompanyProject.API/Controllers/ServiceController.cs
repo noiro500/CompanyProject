@@ -45,6 +45,8 @@ namespace CompanyProject.API.Controllers
             }
             else
             {
+                var messageNumber = await _unitOfWork.Messages.GetAllEntity().MaxAsync(m => m.MessageNumber);
+                mes.MessageNumber = ++messageNumber ?? 1;
                 await _unitOfWork.Messages.AddEntityAsync(mes);
                 await _unitOfWork.CompleteAsync();
                 return Json("true");
@@ -84,12 +86,13 @@ namespace CompanyProject.API.Controllers
                     order.Price = decimal.TryParse(minPrice, out var price)
                         ? price
                         : 0;
-
+                    var lastOrderNumber = await _unitOfWork.Orders.GetAllEntity().MaxAsync(p=>p.OrderNumber);
+                    order.OrderNumber = ++lastOrderNumber ?? 1;
                     customer.Orders.Add(order);
                     await _unitOfWork.CompleteAsync();
                     var makeOrderResultDic = new Dictionary<string, string>()
                     {
-                        {"Ваш номер заказа:", order.OrderId.ToString()},
+                        {"Ваш номер заказа:", order.OrderNumber.ToString()},
                         {"Причина вызова мастера:", order.TypeOfFailure},
                         {"Время прихода мастера:", order.VisitTime},
                         {"Минимальная (ориентировочная) стоимость:", minPrice}
