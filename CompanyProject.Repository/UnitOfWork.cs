@@ -11,8 +11,10 @@ using CompanyProject.Domain.Paragraph;
 using CompanyProject.Domain.PriceList;
 using CompanyProject.Repository.Repository;
 using System;
+using System.Data;
 using System.Threading.Tasks;
 using CompanyProject.Domain.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace CompanyProject.Repository
 {
@@ -59,7 +61,7 @@ namespace CompanyProject.Repository
 
         public async Task CompleteAsync()
         {
-            await using var transaction = await _context.Database.BeginTransactionAsync();
+            await using var transaction = await _context.Database.BeginTransactionAsync(IsolationLevel.RepeatableRead);
             try
             {
                 await _context.SaveChangesAsync();
