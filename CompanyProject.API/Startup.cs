@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
+using CompanyProject.Domain.Address;
+using CompanyProject.ViewModels;
 
 namespace CompanyProject.API
 {
@@ -29,6 +31,8 @@ namespace CompanyProject.API
             services.AddCors();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddTransient<IValidator<Message>, MessageValidator>();
+            services.AddTransient<IValidator<OrderViewModel>, OrderViewModelValidator>();
+            services.AddTransient<IValidator<Address>, AddressValidator>();
 
         }
 
