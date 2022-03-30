@@ -41,12 +41,12 @@ namespace CompanyProject.ViewModels
             RuleFor(x=>x.PhoneNumber).NotEmpty().WithMessage("Не указан номер телефона");
             RuleFor(x => x.Email).EmailAddress().WithMessage("Некорректный адрес электронной почты");
             RuleFor(x => x.TypeOfFailure).NotEmpty().WithMessage("Не выбрана причина вызова мастера").NotNull().WithMessage("Не выбрана причина вызова мастера");
-            RuleFor(x=>x.Description).Length(20, 280).WithMessage("Слишком короткая длина сообщения (необходимо от 20 до 280 символов)")
+            RuleFor(x=>x.Description).MaximumLength(2000) .WithMessage("Длина сообщения не более 2000 символов")
                 .Matches(@"^[а-яА-Я(-)""'\s-]*$").WithMessage("Некорректные символы. Допускаются только русские символы!");
             RuleFor(x => x.VisitTime).NotEmpty().WithMessage("Не указано предпочтительное время прихода мастера");
             RuleFor(x => x.SpecialInstruction).Matches(@"^[а-яА-Я(-)""'\s-]*$")
                 .WithMessage("Некорректные символы. Допускаются только русские буквы!")
-                .Length(20, 280).WithMessage("Слишком короткая длина сообщения (необходимо от 20 до 280 символов)");
+                .MaximumLength(2000).WithMessage("Длина сообщения не более 2000 символов");
             RuleFor(x => x.AddressData).SetValidator(new AddressValidator());
             
         }
