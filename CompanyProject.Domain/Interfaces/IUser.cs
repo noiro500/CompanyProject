@@ -11,7 +11,7 @@ namespace CompanyProject.Domain.Interfaces
         public string Name { get; set; }
         public string UserLogin { get; set; }
         public string PhoneNumber { get; set; }
-        public string MessagerNumber { get; set; }
+        public string MNumber { get; set; }
         public string Email { get; set; }
         public string PasswordHash { get; set; }
         public string PassportNumber { get; set; }

@@ -158,14 +158,14 @@
 });
 
 function CheckFormField() {
-    var Name = !!($("#Name").val());
+    var name = !!($("#Name").val());
     var phoneNumber = !!($("#PhoneNumber").val());
     var territory = !!($("#AddressData_Territory").val());
     var district = !!($("#AddressData_District").val());
     var populatedArea = !!($("#AddressData_PopulatedArea").val());
     var houseNumber = !!($("#AddressData_HouseNumber").val());
     var typeOfFailure = !!($("#TypeOfFailure").val());
-    if (!Name ||
+    if (!name ||
         !phoneNumber ||
         !territory ||
         !district ||

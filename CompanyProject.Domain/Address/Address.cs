@@ -1,44 +1,36 @@
 ﻿#nullable enable
 using System.ComponentModel.DataAnnotations;
+using FluentValidation;
 
 namespace CompanyProject.Domain.Address
 {
     public class Address
     {
-        //[Required]
-        //public string Territory { get; set; }
-        //[Required]
-        //public string District { get; set; }
-        //[Required]
-        //public string PopulatedArea { get; set; }
-        //public string Street { get; set; }
-        //[Required]
-        //public string HouseNumber { get; set; }
-        //public string ApartmentOrOfficeNumber { get; set; }
-
-        [Required(ErrorMessage = "Не выбраны край/область")]
         [Display(Name = "Край/область: *")]
         public string? Territory { get; set; }
-
-        [Required(ErrorMessage = "Не выбран район/округ")]
         [Display(Name = "Район/округ/городской округ: *")]
         public string? District { get; set; }
-
-        [Required(ErrorMessage = "Не выбран населенный пункт")]
         [Display(Name = "Населенный пункт: *")]
         public string? PopulatedArea { get; set; }
-
         [Display(Name = "Улица/проспект/переулок: ")]
         public string? Street { get; set; }
-
-        [Required(ErrorMessage = "Не указан номер дома/строения")]
-        [MaxLength(10)]
         [Display(Name = "Номер дома/строения: *")]
         public string? HouseNumber { get; set; }
-
-        [DataType(DataType.Text)]
         [Display(Name = "Номер квартиры/офиса:")]
-        [MaxLength(10)]
         public string? ApartmentOrOfficeNumber { get; set; }
+    }
+
+    public class AddressValidator : AbstractValidator<Address>
+    {
+        public AddressValidator()
+        {
+            RuleFor(x => x.Territory).NotEmpty().WithMessage("Не выбраны край/область").NotNull().WithMessage("Не выбраны край/область");
+            RuleFor(x => x.District).NotEmpty().WithMessage("Не выбран район/округ").NotNull().WithMessage("Не выбран район/округ");
+            RuleFor(x => x.PopulatedArea).NotEmpty().WithMessage("Не выбран населенный пункт").NotNull().WithMessage("Не выбран населенный пункт");
+            RuleFor(x => x.HouseNumber).NotEmpty().WithMessage("Не указан номер дома/строения").NotNull().WithMessage("Не указан номер дома/строения")
+                .MaximumLength(10).WithMessage("Максимально не более 10 символов");
+            RuleFor(x => x.ApartmentOrOfficeNumber).MaximumLength(10)
+                .WithMessage("Максимально не более 10 символов");
+        }
     }
 }
