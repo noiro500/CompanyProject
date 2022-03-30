@@ -1,5 +1,4 @@
-﻿
-using CompanyProject.Domain.Address;
+﻿using CompanyProject.Domain.Address;
 using System.ComponentModel.DataAnnotations;
 
 

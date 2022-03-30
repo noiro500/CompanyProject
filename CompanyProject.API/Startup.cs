@@ -36,6 +36,7 @@ namespace CompanyProject.API
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
             Log.LoggerFactory = loggerFactory;
+
             app.UseStaticFiles();
             app.UseForwardedHeaders(new ForwardedHeadersOptions
             {
@@ -49,11 +50,12 @@ namespace CompanyProject.API
             else
             {
                 app.UseExceptionHandler("/Home/Error");
+                app.UseHsts();
             }
+            app.UseHttpsRedirection();
             app.UseStatusCodePages();
             app.UseRouting();
-            app.UseCors(options => options.AllowAnyOrigin());
-            app.UseEndpoints(endpoints =>
+           app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
