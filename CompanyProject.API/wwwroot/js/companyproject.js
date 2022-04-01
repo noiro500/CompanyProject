@@ -148,12 +148,7 @@
         $("#make-order input[name='IsAdoptedPrivacyPolicy']")[0].checked = true;
     }
     $("#checking-data").on("click", CheckMakeOrderForm);
-       
-    //Перезагрузка страницы с кнопки "Очистить"
-    //$("#reset-button").on("click",
-    //    function() {
-    //        location.reload();
-    //    });
+      
 
 });
 
@@ -164,17 +159,16 @@ function CheckFormField() {
     var district = !!($("#AddressData_District").val());
     var populatedArea = !!($("#AddressData_PopulatedArea").val());
     var houseNumber = !!($("#AddressData_HouseNumber").val());
-    var typeOfFailure = !!($("#TypeOfFailure").val());
     if (!name ||
         !phoneNumber ||
         !territory ||
         !district ||
         !populatedArea ||
-        !houseNumber ||
-        !typeOfFailure
-    )
+        !houseNumber
+    ) {
+        console.log("Форма не прошла проверку из метода CheckFormField()");
         return false;
-    else return true;
+    } else return true;
 }
 
 function SuccessSendForm(data) {
