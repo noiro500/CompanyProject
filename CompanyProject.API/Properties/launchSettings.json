@@ -19,13 +19,10 @@
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Release"
       },
+      "hotReloadEnabled": true,
       "applicationUrl": "http://localhost:5000"
-    },
-    "Профиль 1": {
-      "commandName": "IIS Express",
-      "launchBrowser": true
     }
   }
 }
