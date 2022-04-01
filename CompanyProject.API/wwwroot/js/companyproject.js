@@ -166,9 +166,12 @@ function CheckFormField() {
         !populatedArea ||
         !houseNumber
     ) {
-        console.log("Форма не прошла проверку из метода CheckFormField()");
+        alert("Форма не прошла проверку из метода CheckFormField()");
         return false;
-    } else return true;
+    } else {
+        alert("Форма проверку прошла в методе CheckFormField()");
+         return true;
+    }
 }
 
 function SuccessSendForm(data) {
