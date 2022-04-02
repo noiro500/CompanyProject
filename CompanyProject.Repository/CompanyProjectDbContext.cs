@@ -93,7 +93,7 @@ namespace CompanyProject.Repository
             modelBuilder.Entity<Message>().Property(p => p.PeopleName).HasMaxLength(30);
             modelBuilder.Entity<Message>().Property(p => p.SubjectMessage).HasMaxLength(50);
 
-            //modelBuilder.Entity<Order>().Navigation(e => e.AddressData).IsRequired();
+            modelBuilder.Entity<Order>().Navigation(e => e.AddressData).IsRequired();
 
         }
 

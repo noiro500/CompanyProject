@@ -165,13 +165,10 @@ function CheckFormField() {
         !district ||
         !populatedArea ||
         !houseNumber
-    ) {
-        alert("Форма не прошла проверку из метода CheckFormField()");
+    ) 
         return false;
-    } else {
-        alert("Форма проверку прошла в методе CheckFormField()");
-         return true;
-    }
+    else 
+        return true;
 }
 
 function SuccessSendForm(data) {

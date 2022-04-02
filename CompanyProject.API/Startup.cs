@@ -57,13 +57,10 @@ namespace CompanyProject.API
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                //app.UseHsts();
             }
-
-            //app.UseHttpsRedirection();
             app.UseStatusCodePages();
             app.UseRouting();
-           app.UseEndpoints(endpoints =>
+            app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",

@@ -139,28 +139,28 @@
     <Content Update="wwwroot\lib\jquery\jquery.unobtrusive-ajax.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\Resources\CardImage\b2b.png">
+    <Content Update="wwwroot\Resources\CardImage\B2b.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\Resources\CardImage\computersrepair.png">
+    <Content Update="wwwroot\Resources\CardImage\ComputersRepair.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\Resources\CardImage\datarecovery.png">
+    <Content Update="wwwroot\Resources\CardImage\DataRecovery.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\Resources\CardImage\helpdesk.png">
+    <Content Update="wwwroot\Resources\CardImage\HelpDesk.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\Resources\CardImage\internetnetworks.png">
+    <Content Update="wwwroot\Resources\CardImage\InternetNetworks.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\Resources\CardImage\laptopsrepair.png">
+    <Content Update="wwwroot\Resources\CardImage\LaptopsRepair.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\Resources\CardImage\laptopupgrade.png">
+    <Content Update="wwwroot\Resources\CardImage\LaptopUpgrade.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\Resources\CardImage\pcassembly.png">
+    <Content Update="wwwroot\Resources\CardImage\PcAssembly.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\Resources\DbSeed\InitialDBContentNew.json">
