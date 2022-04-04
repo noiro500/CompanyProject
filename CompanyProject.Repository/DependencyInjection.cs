@@ -36,8 +36,6 @@ namespace CompanyProject.Repository
             services.AddDbContext<CompanyProjectDbContext>(options =>
                 options.UseNpgsql(configConnectionToDb, b => b.MigrationsAssembly("CompanyProject.API")));
             services.AddTransient<IUnitOfWork, UnitOfWork>();
-            services.AddDataProtection()
-                .PersistKeysToDbContext<CompanyProjectDbContext>();
             return services;
         }
     }
