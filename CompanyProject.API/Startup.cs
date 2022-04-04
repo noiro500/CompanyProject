@@ -28,7 +28,7 @@ namespace CompanyProject.API
         {
             services.AddMvc().AddFluentValidation();
             services.AddRepository(Configuration["ConnectionStrings:ConnectionStringToPostgreSQLAzure"]);
-            services.AddCors();
+            //services.AddCors();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddTransient<IValidator<Message>, MessageValidator>();
             services.AddTransient<IValidator<OrderViewModel>, OrderViewModelValidator>();
@@ -45,11 +45,7 @@ namespace CompanyProject.API
                 ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
             });
             app.UseStaticFiles();
-            app.UseForwardedHeaders(new ForwardedHeadersOptions
-            {
-                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
-            });
-
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
