@@ -14,16 +14,18 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Globalization;
+using Microsoft.AspNetCore.DataProtection.EntityFrameworkCore;
 
 namespace CompanyProject.Repository
 {
-    public class CompanyProjectDbContext : DbContext
+    public class CompanyProjectDbContext : DbContext, IDataProtectionKeyContext
     {
         private readonly IInitialDb _context;
         public CompanyProjectDbContext(DbContextOptions<CompanyProjectDbContext> options, IInitialDb ctx) : base(options)
         {
             _context = ctx;
         }
+        public DbSet<DataProtectionKey> DataProtectionKeys { get; set; }
         public DbSet<Page> Pages { get; set; }
         public DbSet<Paragraph> Paragraphs { get; set; }
         public DbSet<Order> Orders { get; set; }

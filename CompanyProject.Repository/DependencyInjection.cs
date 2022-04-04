@@ -12,6 +12,7 @@ using CompanyProject.Domain.Paragraph;
 using CompanyProject.Domain.PriceList;
 using CompanyProject.Repository.InitialDataBase;
 using CompanyProject.Repository.Repository;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -35,6 +36,8 @@ namespace CompanyProject.Repository
             services.AddDbContext<CompanyProjectDbContext>(options =>
                 options.UseNpgsql(configConnectionToDb, b => b.MigrationsAssembly("CompanyProject.API")));
             services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddDataProtection()
+                .PersistKeysToDbContext<CompanyProjectDbContext>();
             return services;
         }
     }
