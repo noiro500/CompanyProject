@@ -107,7 +107,6 @@ namespace CompanyProject.API.Controllers
             {
                 _unitOfWork.Dispose();
                 return StatusCode(405);
-                //return BadRequest();
             }
         }
 

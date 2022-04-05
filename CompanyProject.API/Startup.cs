@@ -13,7 +13,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using CompanyProject.Domain.Address;
 using CompanyProject.ViewModels;
-using Microsoft.AspNetCore.DataProtection;
+using Microsoft.AspNetCore.HttpOverrides;
 
 namespace CompanyProject.API
 {
@@ -34,7 +34,7 @@ namespace CompanyProject.API
             services.AddTransient<IValidator<Message>, MessageValidator>();
             services.AddTransient<IValidator<OrderViewModel>, OrderViewModelValidator>();
             services.AddTransient<IValidator<Address>, AddressValidator>();
-            
+            services.AddHttpsRedirection(option => option.HttpsPort = 5001);
 
         }
 
@@ -46,8 +46,8 @@ namespace CompanyProject.API
             {
                 ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
             });
-            app.UseStaticFiles();
-            
+           
+            app.UseAuthentication();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -56,8 +56,10 @@ namespace CompanyProject.API
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+            app.UseStaticFiles();
             app.UseStatusCodePages();
             app.UseRouting();
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

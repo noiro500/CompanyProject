@@ -29,13 +29,17 @@
 </div>
 <hr class="is-hidden-mobile" style="margin-top: 10px;" />
 
-<div class="container" style="background: white">
+<div class="container is-fluid" style="background: white">
+
     <div class="columns" >
+
         <div class="column font-title is-hidden-mobile">
+             <img class="image" src="~/Resources/Images/Logo/CompanyLogo.png" alt="Нова Компьютерс"  width="10%" asp-append-version="true">
             <a asp-controller="Home" asp-action="Index">
                 <vc:company-info info="CompanyName" />
             </a>
         </div>
+         
         <div class="column is-hidden-mobile">
             <a asp-fragment="short-message">
                 <i class="fas fa-phone-square-alt" style="font-size: 18px; color: black"></i>
@@ -53,7 +57,7 @@
             <i class="fas fa-comment-alt" style="font-size: 18px; color: black"></i>
             <span>&nbsp;&nbsp;&nbsp;WhatsApp: <vc:company-info info="WhatsApp" /></span>
         </div>
-        <div class="column" style="margin-top: -10px;">
+        <div class="column" @*style="margin-top: -10px;"*@>
             <span class="font-title">Нужна помощь?</span>
             <br />
             <a asp-controller="Service" asp-action="MakeOrder" class="button is-primary" style="padding-right: 40px;">
@@ -73,9 +77,9 @@
 </div>
 <br />
 
-<nav class="navbar is-link" role="navigation" >
+<nav class="navbar is-link " role="navigation" >
     <div class="container">
-        <div class="navbar-brand is-hidden-tablet">
+        <div class="navbar-brand  is-hidden-tablet">
             <a class="navbar-item font-title" style="font-size: 20px" asp-controller="Home" asp-action="Index">
                 <vc:company-info info="CompanyName" />
                 </a>
@@ -85,7 +89,7 @@
                 <span aria-hidden="true"></span>
             </a>
         </div>
-        <div id="navbarMenu" class="navbar-menu">
+        <div id="navbarMenu" class="navbar-menu ">
             <div id="basicNavBarMenu" class="navbar-start">
                 @foreach (var m in Model["topMenuNavBar"].Where(m => @m.NavBar))
                 {
@@ -106,15 +110,6 @@
 
             </div>
 
-            @*<div id="navbarButtons" class="navbar-end is-centered">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a href="#" class="button is-success">
-                            <strong>Вход</strong>
-                        </a>
-                    </div>
-                </div>
-            </div>*@
         </div>
     </div>
 </nav>

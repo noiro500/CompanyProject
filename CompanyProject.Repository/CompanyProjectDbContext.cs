@@ -14,7 +14,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Globalization;
-using Microsoft.AspNetCore.DataProtection.EntityFrameworkCore;
 
 namespace CompanyProject.Repository
 {

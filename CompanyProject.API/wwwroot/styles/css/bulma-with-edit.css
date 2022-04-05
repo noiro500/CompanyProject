@@ -1,19 +1,5 @@
 ﻿@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Jura:400,700|Open+Sans:400,700&subset=cyrillic,cyrillic-ext");
-/*@font-face {
-    font-family: 'Jura, sans-serif';
-    src: url('/fonts/Jura/Jura-VariableFont_wght.ttf'), format('truetype');
-}
-@font-face {
-    font-family: 'Jura, sans-serif';
-    src: url('/fonts/Jura/static/Jura-Bold.ttf'), format('truetype');
-    font-weight: bold;
-}
-@font-face {
-    font-family: 'Jura, sans-serif';
-    src: url('/fonts/Jura/static/Jura-Light.ttf'), format('truetype');
-    font-weight: lighter;
-}*/
 .font-title {
   font-style: normal;
   font-variant-caps: normal;
@@ -150,25 +136,16 @@ body > footer {
   margin-right: auto !important;
 }
 
-/*input {
-    &.input-validation-error {
-        border: 1px solid hsl(348, 100%, 61%);
-    }
-}
-select {
-    &.input-validation-error {
-        border-color: red;
-    }
-}*/
 input.input-validation-error,
 select.input-validation-error {
   border-color: #ff3860 !important;
 }
 
-/*.columns > div, article {
-    background: #ddd;
-    border: 1px solid #fff;
-}*/
+.columns > div, article {
+  background: #ddd;
+  border: 1px solid #fff;
+}
+
 /*! bulma.io v0.9.0 | MIT License | github.com/jgthms/bulma */
 @keyframes spinAround {
   from {

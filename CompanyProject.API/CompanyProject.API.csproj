@@ -16,6 +16,10 @@
     <Nullable>disable</Nullable>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>False</Optimize>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Remove="Views\Shared\Components\GetPartOfAddressVc\**" />
     <Content Remove="Views\Shared\Components\GetPartOfAddressVc\**" />
@@ -67,24 +71,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="wwwroot\fonts\Jura\Jura-VariableFont_wght.ttf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\fonts\Jura\static\Jura-Bold.ttf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\fonts\Jura\static\Jura-Light.ttf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\fonts\Jura\static\Jura-Medium.ttf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\fonts\Jura\static\Jura-Regular.ttf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\fonts\Jura\static\Jura-SemiBold.ttf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Update="wwwroot\js\awesomeIcons.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -221,6 +207,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\Resources\Images\notebook.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Resources\Images\pcb.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\Resources\Images\remont-komputerov.jpg">
@@ -463,10 +452,6 @@
     <ApplicationDefinition Include="wwwroot\lib\jquery\core.js" />
     <ApplicationDefinition Include="wwwroot\lib\jquery\jquery.js" />
     <None Include="wwwroot\styles\sass\bulma-with-edit.scss" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\fonts\" />
   </ItemGroup>
 
 </Project>
