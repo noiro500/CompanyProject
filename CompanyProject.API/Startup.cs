@@ -29,7 +29,7 @@ namespace CompanyProject.API
         {
             services.AddMvc().AddFluentValidation();
             services.AddRepository(Configuration["ConnectionStrings:ConnectionStringToPostgreSQLAzure"]);
-            //services.AddCors();
+            services.AddCors();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddTransient<IValidator<Message>, MessageValidator>();
             services.AddTransient<IValidator<OrderViewModel>, OrderViewModelValidator>();
@@ -60,6 +60,8 @@ namespace CompanyProject.API
             app.UseStatusCodePages();
             app.UseRouting();
             app.UseAuthorization();
+            app.UseCors(builder => builder.WithOrigins("https://www.nova-computers.ru", "https://nova-computers.ru",
+                "http://www.nova-computers.ru", "http://nova-computers.ru"));
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
