@@ -5,8 +5,8 @@
     ViewData["Title"] = "Вызвать мастера";
 }
 
-<div class="container">
-    <form id="make-order" asp-antiforgery="true" novalidate method="post">
+<div class="container" style="padding-left: 0.75rem;padding-right: 0.75rem;">
+    <form id="make-order" asp-antiforgery="true" novalidate method="post" >
         <div class="validation" asp-validation-summary="ModelOnly"></div>
         <div class="field">
             <div class="columns">
@@ -153,7 +153,7 @@
                             <br />
                             <label class="checkbox">
                                 <input asp-for="IsAdoptedPrivacyPolicy" class="has-text-danger" />
-                                Я принимаю <a href="~/Resources/Files/Политика конфиденциальности.pdf">Политику конфиденциальности</a>
+                                Я принимаю <a href="~/Resources/Files/privacy.pdf">Политику конфиденциальности</a>
                             </label>
                         </div>
                     </div>

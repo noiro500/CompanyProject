@@ -20,27 +20,6 @@
     });
 
 
-    //Поведение Card в зависимости от изменения разрешения экрана
-    let resizeHandler = function () {
-        if ($(window).width() <= 768) {
-            $('.card-content').addClass('is-hidden');
-            $('.column-card').removeClass().addClass('column is-full column-card');
-        }
-        if ($(window).width() >= 769 && $(window).width() <= 1023) {
-            $('.card-content').removeClass('is-hidden');
-            $('.column-card').removeClass().addClass('column is-half column-card');
-        }
-        if ($(window).width() >= 1024 && $(window).width() <= 1215) {
-            $('.card-content').removeClass('is-hidden');
-            $('.column-card').removeClass().addClass('column is-one-third column-card');
-        }
-        if ($(window).width() >= 1216) {
-            $('.card-content').removeClass('is-hidden');
-            $('.column-card').removeClass().addClass('column is-one-quarter column-card');
-        }
-    }
-    $(window).on('load resize', resizeHandler);
-
     $('.blockquote-style').fadeIn(2000);
 
     $(".work-list-dropdown").hide();

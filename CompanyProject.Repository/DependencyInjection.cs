@@ -35,6 +35,11 @@ namespace CompanyProject.Repository
             services.AddScoped<IAddressFromDbRepository, AddressFromDbRepository>();
             services.AddDbContext<CompanyProjectDbContext>(options =>
                 options.UseNpgsql(configConnectionToDb, b => b.MigrationsAssembly("CompanyProject.API")));
+#if RELEASE
+            services.AddDataProtection()
+                .PersistKeysToDbContext<CompanyProjectDbContext>();
+#endif
+
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             return services;
         }
