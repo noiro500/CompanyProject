@@ -74,6 +74,11 @@ u:hover {
   /* Параметры линии */
 }
 
+.is-touch-pegging {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
 body {
   display: flex;
   min-height: 100vh;

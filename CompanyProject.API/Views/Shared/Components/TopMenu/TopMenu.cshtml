@@ -31,15 +31,15 @@
 
 <div class="container" style="background: white">
 
-    <div class="columns" >
-        <div class="column font-title is-hidden-mobile">
-             @*<img class="image" src="~/Resources/Images/Logo/CompanyLogo.png" alt="Нова Компьютерс"  width="10%" asp-append-version="true">*@
+    <div class="columns">
+        <div class="column font-title is-hidden-touch">
+            @*<img class="image" src="~/Resources/Images/Logo/CompanyLogo.png" alt="Нова Компьютерс"  width="10%" asp-append-version="true">*@
             <a asp-controller="Home" asp-action="Index">
                 <vc:company-info info="CompanyName" />
             </a>
         </div>
-         
-        <div class="column is-hidden-mobile">
+
+        <div class="column is-hidden-touch">
             <a asp-fragment="short-message">
                 <i class="fas fa-phone-square-alt" style="font-size: 18px; color: black"></i>
                 <span class="has-text-black">&nbsp;&nbsp;&nbsp;<span class="term">Заказать обратный звонок</span></span>
@@ -50,13 +50,13 @@
                 <span class="has-text-black">&nbsp;&nbsp;<span class="term">Отправить сообщение с вопросом</span></span>
             </a>
         </div>
-        <div class="column">
+        <div class="column" style="margin-left:0.75rem;">
             <i class="fas fa-phone-volume" style="font-size: 24px; color: black"></i>
             <span class="font-tel">&nbsp;<vc:company-info info="PhoneNumber" /></span> <br />
             <i class="fas fa-comment-alt" style="font-size: 18px; color: black"></i>
             <span>&nbsp;&nbsp;&nbsp;WhatsApp: <vc:company-info info="WhatsApp" /></span>
         </div>
-        <div class="column" style="margin-top: -20px;">
+        <div class="column" style="margin-top: -20px;margin-left:0.75rem;">
             <span class="font-title">Нужна помощь?</span>
             <br />
             <a asp-controller="Service" asp-action="MakeOrder" class="button is-primary" style="padding-right: 40px;">
@@ -66,22 +66,22 @@
         </div>
         @*<div class="column">
             <a href="#" class="button is-warning">
-                <strong>Зарегистрироваться</strong>
+            <strong>Зарегистрироваться</strong>
             </a> <br />
             <a href="#" class="button is-success">
-                <strong>Вход</strong>
+            <strong>Вход</strong>
             </a>
-        </div>*@
+            </div>*@
     </div>
 </div>
 <br />
 
-<nav class="navbar is-link " role="navigation" >
+<nav class="navbar is-link " role="navigation">
     <div class="container">
-        <div class="navbar-brand  is-hidden-tablet">
-            <a class="navbar-item font-title" style="font-size: 20px" asp-controller="Home" asp-action="Index">
-                <vc:company-info info="CompanyName" />
-                </a>
+        <div class="navbar-brand  is-hidden-desktop">
+            <a class="navbar-item font-title" style="font-size: 20px" asp-controller="MenuFirstLine" asp-action="FullPriceList">
+                @*<vc:company-info info="CompanyName" />*@ Цены на услуги
+            </a>
             <a role="button" class="navbar-burger burger" data-target="navbarMenu">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
