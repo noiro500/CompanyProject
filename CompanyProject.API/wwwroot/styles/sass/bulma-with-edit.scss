@@ -63,7 +63,6 @@ input.input-validation-error, textarea.input-validation-error {
     border: 1px solid red;
 }
 
-
 u:hover {
     text-decoration: none;
 }
@@ -75,6 +74,11 @@ u:hover {
 .term {
     border-bottom: 1px dashed black;
     /* Параметры линии */
+}
+
+.is-touch-pegging {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
 }
 
 body {

@@ -46,7 +46,7 @@ namespace CompanyProject.API
             {
                 ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
             });
-           
+            
             app.UseAuthentication();
             if (env.IsDevelopment())
             {
