@@ -39,9 +39,11 @@ namespace CompanyProject.API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddMessageToDbAsyncTask(Message mes)
         {
+            if (mes.Description is not null)
+                return Json(JsonSerializer.Serialize(new {parameter = "description"}));
             if (!mes.IsAdoptedPrivacyPolicy)
             {
-                return Json("false");
+                return Json(JsonSerializer.Serialize(new { parameter = "false" }));
             }
             else
             {
@@ -49,7 +51,7 @@ namespace CompanyProject.API.Controllers
                 mes.MessageNumber = ++messageNumber ?? 1;
                 await _unitOfWork.Messages.AddEntityAsync(mes);
                 await _unitOfWork.CompleteAsync();
-                return Json("true");
+                return Json(JsonSerializer.Serialize(new { parameter = "true" }));
             }
         }
 

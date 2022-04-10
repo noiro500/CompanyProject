@@ -78,7 +78,8 @@ namespace CompanyProject.Repository
                     Address =
                         "РФ, Ставропольский край, Минераловодский городской округ, Населенный пункт, ул. Улица, дом 7а, офис 2",
                     PhoneNumber = "+7-(900)-000-00-00",
-                    WhatsApp = "+7-(900)-000-00-00"
+                    WhatsApp = "+7-(900)-000-00-00",
+                    WorkTime = "9:00 - 19:00, выходные: восересенье, понедельник"
                 }
             );
             modelBuilder.Entity<Paragraph>().HasIndex(p => p.Content);

@@ -10,6 +10,7 @@ namespace CompanyProject.Domain.Message
 
         [Display(Name = "Ваше имя: *")]
         public string PeopleName { get; set; }
+        public string Description { get; set; }   //Поле для отлова спам ботов
         [Display(Name = "Номер WhatsApp/Telegram: *")]
         public string MNumber { get; set; }
 

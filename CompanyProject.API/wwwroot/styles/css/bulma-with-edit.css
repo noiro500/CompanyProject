@@ -9149,7 +9149,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
     display: inline-flex !important;
   }
 }
-.is-hidden {
+.is-hidden, #_description {
   display: none !important;
 }
 

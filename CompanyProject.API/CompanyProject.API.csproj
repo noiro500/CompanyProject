@@ -452,7 +452,7 @@
     <None Include="wwwroot\lib\jquery-validate\localization\methods_pt.min.js" />
     <ApplicationDefinition Include="wwwroot\lib\jquery\core.js" />
     <ApplicationDefinition Include="wwwroot\lib\jquery\jquery.js" />
-    <None Include="wwwroot\styles\sass\bulma-with-edit.scss" />
+    <None Include="wwwroot\styles\scss\bulma-with-edit.scss" />
   </ItemGroup>
 
 </Project>
