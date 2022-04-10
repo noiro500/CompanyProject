@@ -151,7 +151,12 @@ function CheckFormField() {
 }
 
 function SuccessSendForm(data) {
-    if (!JSON.parse(data)) {
+    let respons = JSON.parse(data);
+    if (respons.parameter === "description") {
+        $('button[name="submit-form"]').attr('disabled', true);
+        return;
+    }
+    if (respons.parameter==="false") {
         $.toast({
             text: "Сообщение не отправлено. Необходимо принять \"Политику конфиденциальности\".", // Text that is to be shown in the toast
             heading: 'Ошибка',

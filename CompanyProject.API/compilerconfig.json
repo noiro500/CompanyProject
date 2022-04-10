@@ -1,7 +1,7 @@
 ﻿[
   {
     "outputFile": "wwwroot/styles/css/bulma-with-edit.css",
-    "inputFile": "wwwroot/styles/sass/bulma-with-edit.scss"
+    "inputFile": "wwwroot/styles/scss/bulma-with-edit.scss"
   },
   {
     "outputFile": "wwwroot/lib/bulma/bulma.css",
