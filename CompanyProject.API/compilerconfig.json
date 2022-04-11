@@ -6,13 +6,5 @@
   {
     "outputFile": "wwwroot/lib/bulma/bulma.css",
     "inputFile": "wwwroot/lib/bulma/bulma.sass"
-  },
-  {
-    "outputFile": "wwwroot/js/bulma-carousel.min.js",
-    "inputFile": "wwwroot/js/bulma-carousel.js"
-  },
-  {
-    "outputFile": "wwwroot/js/companyproject.min.js",
-    "inputFile": "wwwroot/js/companyproject.js"
   }
 ]
