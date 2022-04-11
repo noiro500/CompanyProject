@@ -30,16 +30,15 @@
 <hr class="is-hidden-mobile" style="margin-top: 10px;" />
 
 <div class="container" style="background: white">
-
-    <div class="columns">
-        <div class="column font-title is-hidden-touch">
+    <partial name="ContentViews/PartialView/_TopMenuForMobile" />
+    <div class="columns is-hidden-touch">
+        <div class="column font-title">
             @*<img class="image" src="~/Resources/Images/Logo/CompanyLogo.png" alt="Нова Компьютерс"  width="10%" asp-append-version="true">*@
             <a asp-controller="Home" asp-action="Index">
                 <vc:company-info info="CompanyName" />
             </a>
         </div>
-
-        <div class="column is-hidden-touch">
+        <div class="column">
             <a asp-fragment="short-message">
                 <i class="fas fa-phone-square-alt" style="font-size: 18px; color: black"></i>
                 <span class="has-text-black">&nbsp;&nbsp;&nbsp;<span class="term">Заказать обратный звонок</span></span>
@@ -64,7 +63,7 @@
                 <b>&nbsp;&nbsp;&nbsp;ВЫЗВАТЬ МАСТЕРА</b>
             </a>
         </div>
-        @*<div class="column">
+             @*<div class="column">
             <a href="#" class="button is-warning">
             <strong>Зарегистрироваться</strong>
             </a> <br />
@@ -80,7 +79,10 @@
     <div class="container">
         <div class="navbar-brand  is-hidden-desktop">
             <a class="navbar-item font-title" style="font-size: 20px" asp-controller="MenuFirstLine" asp-action="FullPriceList">
-                @*<vc:company-info info="CompanyName" />*@ Цены на услуги
+                Цены на услуги
+            </a>
+            <a class="navbar-item font-title" style="font-size: 20px" asp-controller="MenuFirstLine" asp-action="Contacts">
+                Контакты
             </a>
             <a role="button" class="navbar-burger burger" data-target="navbarMenu">
                 <span aria-hidden="true"></span>
