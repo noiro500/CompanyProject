@@ -162,11 +162,14 @@ select.input-validation-error {
 #_description {
     @extend .is-hidden
 }
+
+.is-text-justify {
+    text-align: justify
+}
 /*.columns > div, article {
     background: #ddd;
     border: 1px solid #fff;
 }*/
-
 $primary: #d81b60;
 $footer-background-color: #3273dc;
 $footer-padding: 1rem 0.25rem 0.75rem;
