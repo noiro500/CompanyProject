@@ -33,7 +33,9 @@ namespace CompanyProject.Repository
             services.AddTransient<IParagraphsRepository, ParagraphsRepository>();
             services.AddScoped<IPriceListsRepository, PriceListsRepository>();
             services.AddScoped<IAddressFromDbRepository, AddressFromDbRepository>();
-            services.AddDbContext<CompanyProjectDbContext>(options =>
+            //services.AddDbContextPool<CompanyProjectDbContext>(options =>
+            //    options.UseNpgsql(configConnectionToDb, b => b.MigrationsAssembly("CompanyProject.API")));
+            services.AddDbContextPool<CompanyProjectDbContext>(options =>
                 options.UseNpgsql(configConnectionToDb, b => b.MigrationsAssembly("CompanyProject.API")));
 #if RELEASE
             services.AddDataProtection()
