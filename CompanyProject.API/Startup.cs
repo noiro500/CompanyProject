@@ -28,15 +28,11 @@ namespace CompanyProject.API
         }
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddMvc().AddFluentValidation();
             services.AddControllersWithViews().AddFluentValidation();
             services.AddRepository(Configuration["ConnectionStrings:ConnectionStringToPostgreSQLAzure"]);
             services.AddCors();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            services.AddTransient<IValidator<Message>, MessageValidator>();
-            services.AddTransient<IValidator<OrderViewModel>, OrderViewModelValidator>();
-            services.AddTransient<IValidator<Address>, AddressValidator>();
-            }
+        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
