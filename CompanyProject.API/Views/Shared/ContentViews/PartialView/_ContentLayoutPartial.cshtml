@@ -9,7 +9,7 @@
             <div class="column is-full">
                 @foreach (var cnt in p.Content)
                 {
-                    <h2 class="title is-2">@cnt</h2>
+                    <h2 class="title is-2">@(new HtmlString(@cnt))</h2>
                 }
             </div>
         </div>
@@ -34,7 +34,7 @@
             <div class="column is-full">
                 @foreach (var cnt in p.Content)
                 {
-                    <h3 class="subtitle is-3 is-black">@cnt</h3>
+                    <h3 class="subtitle is-3 is-black">@(new HtmlString(@cnt))</h3>
                 }
             </div>
         </div>
@@ -44,14 +44,14 @@
         <div class="columns">
             @if (p.HasPicture)
             {
-                <div class="column " style="padding-top: 0px;">
+                <div class="column is-text-justify" style="padding-top: 0px;">
                     @if (p.IsList)
                     {
                         <div class="content">
                             <ul>
                                 @foreach (var cnt in p.Content)
                                 {
-                                    <li>@cnt</li>
+                                    <li>@(new HtmlString(@cnt))</li>
                                 }
                             </ul>
                         </div>
@@ -60,7 +60,7 @@
                     {
                         @foreach (var cnt in p.Content)
                         {
-                            <span>@cnt</span>
+                            <span>@(new HtmlString(@cnt))</span>
                         }
                     }
                 </div>
@@ -72,14 +72,14 @@
             }
             else
             {
-                <div class="column is-full" style="padding-top: 0px;">
+                <div class="column is-full is-text-justify" style="padding-top: 0px;">
                     @if (p.IsList)
                     {
                         <div class="content">
                             <ul>
                                 @foreach (var cnt in p.Content)
                                 {
-                                    <li>@cnt</li>
+                                    <li>@(new HtmlString(@cnt))</li>
                                 }
                             </ul>
                         </div>
@@ -88,7 +88,7 @@
                     {
                         @foreach (var cnt in p.Content)
                         {
-                            <span>@cnt</span>
+                            <span>@(new HtmlString(@cnt))</span>
                         }
                     }
                 </div>

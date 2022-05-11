@@ -14,16 +14,19 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Globalization;
+using Microsoft.AspNetCore.DataProtection.EntityFrameworkCore;
 
 namespace CompanyProject.Repository
 {
-    public class CompanyProjectDbContext : DbContext
+    public class CompanyProjectDbContext : DbContext, IDataProtectionKeyContext
     {
         private readonly IInitialDb _context;
         public CompanyProjectDbContext(DbContextOptions<CompanyProjectDbContext> options, IInitialDb ctx) : base(options)
         {
             _context = ctx;
         }
+
+        public DbSet<DataProtectionKey> DataProtectionKeys { get; set; } = null;
         public DbSet<Page> Pages { get; set; }
         public DbSet<Paragraph> Paragraphs { get; set; }
         public DbSet<Order> Orders { get; set; }
@@ -75,7 +78,8 @@ namespace CompanyProject.Repository
                     Address =
                         "РФ, Ставропольский край, Минераловодский городской округ, Населенный пункт, ул. Улица, дом 7а, офис 2",
                     PhoneNumber = "+7-(900)-000-00-00",
-                    WhatsApp = "+7-(900)-000-00-00"
+                    WhatsApp = "+7-(900)-000-00-00",
+                    WorkTime = "9:00 - 19:00, выходные: восересенье, понедельник"
                 }
             );
             modelBuilder.Entity<Paragraph>().HasIndex(p => p.Content);

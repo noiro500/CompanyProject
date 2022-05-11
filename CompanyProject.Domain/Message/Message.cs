@@ -10,6 +10,7 @@ namespace CompanyProject.Domain.Message
 
         [Display(Name = "Ваше имя: *")]
         public string PeopleName { get; set; }
+        public string Description { get; set; }   //Поле для отлова спам ботов
         [Display(Name = "Номер WhatsApp/Telegram: *")]
         public string MNumber { get; set; }
 
@@ -40,7 +41,7 @@ namespace CompanyProject.Domain.Message
                 .Matches(@"^[а-яА-Я0-9._%+""'\s-]*$").WithMessage("Некорректные символы. Допускаются только русские символы!")
                 .MaximumLength(50).WithMessage("Максимальная длина темы - 50 символов");
             RuleFor(x => x.Content).NotEmpty().WithMessage("Не введено сообщение").Matches(@"^[а-яА-Я0-9._%+""'\s-]*$")
-                .WithMessage("Некорректные символы. ыДопускаются только русские символы!")
+                .WithMessage("Некорректные символы. Допускаются только русские символы!")
                 .Length(20, 2000).WithMessage("Длина сообщения должна быть от 20 до 2000 символов");
 
 

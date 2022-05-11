@@ -74,6 +74,11 @@ u:hover {
   /* Параметры линии */
 }
 
+.is-touch-pegging {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
 body {
   display: flex;
   min-height: 100vh;
@@ -141,11 +146,14 @@ select.input-validation-error {
   border-color: #ff3860 !important;
 }
 
-.columns > div, article {
-  background: #ddd;
-  border: 1px solid #fff;
+.is-text-justify {
+  text-align: justify;
 }
 
+/*.columns > div, article {
+    background: #ddd;
+    border: 1px solid #fff;
+}*/
 /*! bulma.io v0.9.0 | MIT License | github.com/jgthms/bulma */
 @keyframes spinAround {
   from {
@@ -9145,7 +9153,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
     display: inline-flex !important;
   }
 }
-.is-hidden {
+.is-hidden, #_description {
   display: none !important;
 }
 

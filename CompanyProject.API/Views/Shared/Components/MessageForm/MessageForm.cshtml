@@ -1,6 +1,6 @@
 ﻿@model CompanyProject.Domain.Message.Message
 
-<form asp-antiforgery="true" id="short-message" class="short-message" novalidate asp-controller="Service" asp-action="AddMessageToDbAsyncTask"
+<form asp-antiforgery="true" id="short-message" class="short-message is-touch-pegging" novalidate asp-controller="Service" asp-action="AddMessageToDbAsyncTask"
       data-ajax="true"
       data-ajax-method="POST"
       data-ajax-mode="replace"
@@ -16,6 +16,14 @@
                     <input class="input" type="text" id="peple-name" name="PeopleName" asp-for="PeopleName" placeholder="Как к вам обрщаться?"/>
                 </div>
                 <span asp-validation-for="PeopleName" class="has-text-danger"></span>
+                
+                <div id="_description">
+                <label class="label" asp-for="Description"></label>
+                    <div class="control">
+                        <input class="input" type="text" id="description" name="Description" asp-for="Description" placeholder="Описание"/>
+                    </div>
+                </div>
+
             </div>
             <div class="column is-half">
                 <label class="label" asp-for="SubjectMessage"></label>
@@ -60,7 +68,7 @@
                     <div><span asp-validation-for="Content" class="has-text-danger"></span></div>
                     <label class="checkbox">
                         <input  id="privacy-policy" asp-for="IsAdoptedPrivacyPolicy" class="has-text-danger"/>
-                        Я принимаю <a href="~/Resources/Files/Политика конфиденциальности.pdf">Политику конфиденциальности</a>
+                        Я принимаю <a href="~/Resources/Files/privacy.pdf">Политику конфиденциальности</a>
                     </label>
                 </div>
             </div>
@@ -73,7 +81,7 @@
                 <button name="submit-form" class="button is-primary">Отправить</button>
             </div>
             <div class="control">
-                <button id="reset-button"  class="button is-primary is-light" type="reset">Очистить</button>
+                <button name="reset-button"  class="button is-primary is-light" type="reset">Очистить</button>
             </div>
         </div>
         </div>

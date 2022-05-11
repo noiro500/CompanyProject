@@ -14,6 +14,7 @@
     <EnableNETAnalyzers>False</EnableNETAnalyzers>
     <PlatformTarget>x64</PlatformTarget>
     <Nullable>disable</Nullable>
+    <UserSecretsId>f5f6b19e-f96e-4bd1-961d-254ffb8a011a</UserSecretsId>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -170,7 +171,7 @@
     <Content Update="wwwroot\Resources\DbSeed\InitialDBContentNew.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\Resources\Files\Политика конфиденциальности.pdf">
+    <Content Update="wwwroot\Resources\Files\privacy.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\Resources\Images\AboutCarousel\microscope.jpg">
@@ -451,7 +452,7 @@
     <None Include="wwwroot\lib\jquery-validate\localization\methods_pt.min.js" />
     <ApplicationDefinition Include="wwwroot\lib\jquery\core.js" />
     <ApplicationDefinition Include="wwwroot\lib\jquery\jquery.js" />
-    <None Include="wwwroot\styles\sass\bulma-with-edit.scss" />
+    <None Include="wwwroot\styles\scss\bulma-with-edit.scss" />
   </ItemGroup>
 
 </Project>

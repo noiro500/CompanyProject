@@ -11,9 +11,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
+using System.IO;
 using CompanyProject.Domain.Address;
 using CompanyProject.ViewModels;
-using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.AspNetCore.DataProtection;
 
 namespace CompanyProject.API
 {
@@ -27,15 +28,10 @@ namespace CompanyProject.API
         }
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().AddFluentValidation();
+            services.AddControllersWithViews().AddFluentValidation();
             services.AddRepository(Configuration["ConnectionStrings:ConnectionStringToPostgreSQLAzure"]);
             services.AddCors();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            services.AddTransient<IValidator<Message>, MessageValidator>();
-            services.AddTransient<IValidator<OrderViewModel>, OrderViewModelValidator>();
-            services.AddTransient<IValidator<Address>, AddressValidator>();
-            services.AddHttpsRedirection(option => option.HttpsPort = 5001);
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,7 +42,7 @@ namespace CompanyProject.API
             {
                 ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
             });
-           
+            
             app.UseAuthentication();
             if (env.IsDevelopment())
             {

@@ -64,5 +64,11 @@
     "inputFiles": [
       "wwwroot/js/companyproject.js"
     ]
+  },
+  {
+    "outputFileName": "wwwroot/styles/css/bulma-with-edit.min.css",
+    "inputFiles": [
+      "wwwroot/styles/css/bulma-with-edit.css"
+    ]
   }
 ]
