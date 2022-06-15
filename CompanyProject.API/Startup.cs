@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
 using System.IO;
+using AspNetCore.ReCaptcha;
 using CompanyProject.Domain.Address;
 using CompanyProject.ViewModels;
 using Microsoft.AspNetCore.DataProtection;
@@ -32,6 +33,7 @@ namespace CompanyProject.API
             services.AddRepository(Configuration["ConnectionStrings:ConnectionStringToPostgreSQLAzure"]);
             services.AddCors();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddReCaptcha(Configuration.GetSection("ReCaptcha"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
