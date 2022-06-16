@@ -1,5 +1,8 @@
-var builder = WebApplication.CreateBuilder(args);
+using System.Configuration;
+using CompanyProjectContent.Infrastructure;
+using Microsoft.EntityFrameworkCore;;
 
+var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();

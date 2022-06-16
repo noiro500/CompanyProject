@@ -3,7 +3,6 @@
     public class Paragraph
     {
         public int ParagraphId { get; set; }
-        public bool IsCard { get; set; }
         public bool IsGlobalTitle { get; set; } = false;
         public bool IsSubtitle { get; set; } = false;
         public bool HasPicture { get; set; } = false;
