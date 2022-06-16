@@ -39,7 +39,7 @@ namespace CompanyProject.API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddMessageToDbAsyncTask(Message mes)
         {
-            if (/*mes.Description is not null*/!ModelState.IsValid)
+            if (!ModelState.IsValid)
                 return Json(JsonSerializer.Serialize(new {parameter = "description"}));
             if (!mes.IsAdoptedPrivacyPolicy)
             {
