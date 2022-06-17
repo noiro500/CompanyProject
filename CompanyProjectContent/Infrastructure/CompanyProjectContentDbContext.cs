@@ -13,4 +13,10 @@ public class CompanyProjectContentDbContext:DbContext
     public DbSet<IndexPageCard> IndexPageCards { get; set; }
     public DbSet<Page> Pages { get; set; }
     public DbSet<Paragraph> Paragraphs { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<IndexPageCard>().HasKey(x => x.IndexPageCardId);
+    }
+
 }
