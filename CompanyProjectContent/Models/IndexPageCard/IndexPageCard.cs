@@ -2,7 +2,7 @@
 
 public class IndexPageCard
 {
-    public int PageId { get; set; }
+    public int IndexPageCardId { get; set; }
     public string Name { get; set; }
     public string? ScreenName { get; set; }
     public string? Icon { get; set; }
