@@ -8,8 +8,8 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="Infrastructure\InitialDbContent\" />
     <Folder Include="Models\IndexPageCard\" />
-    <Folder Include="Infrastructure\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -52,7 +52,7 @@
     <Content Update="wwwroot\Resources\CardImage\PcAssembly.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\Resources\DbSeed\InitialDBContentNew.json">
+    <Content Update="wwwroot\Resources\DbSeed\InitialDbParagraphContent.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
