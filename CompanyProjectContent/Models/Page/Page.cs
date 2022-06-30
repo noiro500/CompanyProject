@@ -13,7 +13,7 @@ namespace CompanyProjectContent.Models.Page
         public bool ToCard { get; set; } = false;
         //public string AspController { get; set; }
         public List<Paragraph.Paragraph> Paragraphs { get; set; }
-        
+
 
 
     }

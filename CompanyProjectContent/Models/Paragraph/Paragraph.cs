@@ -12,8 +12,8 @@
         public string[] Content { get; set; }
         public int PageId { get; set; }
         public Page.Page Page { get; set; }
-        
 
-        
+
+
     }
 }

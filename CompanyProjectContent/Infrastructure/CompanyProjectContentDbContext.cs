@@ -28,6 +28,10 @@ public class CompanyProjectContentDbContext:DbContext
         modelBuilder.Entity<Paragraph>().HasData(
             _content.InitialDbParagraphContent()
         );
+        modelBuilder.Entity<Paragraph>()
+            .HasOne(p => p.Page)
+            .WithMany(p => p.Paragraphs);
+
 
         //modelBuilder.Entity<IndexPageCard>().HasKey(x => x.IndexPageCardId);
     }
