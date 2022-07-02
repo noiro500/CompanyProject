@@ -34,6 +34,8 @@ namespace CompanyProject.API
             services.AddCors();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddReCaptcha(Configuration.GetSection("ReCaptcha"));
+            
+            services.AddHttpClient();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

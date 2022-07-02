@@ -1,5 +1,17 @@
-﻿namespace CompanyProjectContent.Infrastructure.DTO;
+﻿using System.Collections.Generic;
 
+namespace CompanyProject.API.Infrastructure.HelpClasses;
+
+public class PageDto
+{
+    public int PageId { get; set; }
+    public string Name { get; set; }
+    public string? ScreenName { get; set; }
+    public string? Icon { get; set; }
+    public bool ToNavbar { get; set; } = false;
+    public bool ToCard { get; set; } = false;
+    public List<ParagraphDto> Paragraphs { get; set; }
+}
 public class ParagraphDto
 {
     public int ParagraphId { get; set; }

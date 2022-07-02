@@ -4,6 +4,7 @@ using CompanyProjectContent.Models.Page;
 using EntityFrameworkCore.UnitOfWork.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Schema;
 
 namespace CompanyProjectContent.Controllers;
 
@@ -33,14 +34,14 @@ public class ContentController : ControllerBase
             ScreenName = result.ScreenName,
             Icon = result.Icon,
             ToNavbar = result.ToNavbar,
-            ToCard = result.ToCard,
+            ToCard = result.ToCard
             };
         var listParagraphs = new List<ParagraphDto>();
         foreach (var resultParagraph in result.Paragraphs)
         {
             listParagraphs.Add(new ParagraphDto
             {
-                Content = resultParagraph.Content,
+                Content = resultParagraph.Content.ToList(),
                 HasPicture = resultParagraph.HasPicture,
                 IsGlobalTitle = resultParagraph.IsGlobalTitle,
                 IsList = resultParagraph.IsList,
@@ -51,6 +52,6 @@ public class ContentController : ControllerBase
             });
         }
         pageResult.Paragraphs= listParagraphs.ToList();
-        return Ok( pageResult);
+        return Ok(JsonSerializer.Serialize(pageResult));
     }
 }
