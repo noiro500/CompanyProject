@@ -1,11 +1,16 @@
-﻿using CompanyProject.API.Infrastructure.Log;
+﻿using System.Collections.Generic;
+using CompanyProject.API.Infrastructure.Log;
 using CompanyProject.Domain;
 using CompanyProject.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using CompanyProject.API.Infrastructure.HelpClasses;
 using CompanyProject.Domain.Interfaces;
 
 namespace CompanyProject.API.Controllers
@@ -14,15 +19,31 @@ namespace CompanyProject.API.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly ILogger _logger;
-        public HomeController(IUnitOfWork unitOfWork)
+        private readonly IHttpClientFactory _httpClientFactory;
+        public HomeController(IUnitOfWork unitOfWork, IHttpClientFactory httpClientFactory)
         {
             _logger = Log.CreateLogger<HomeController>();
             _unitOfWork = unitOfWork;
+            _httpClientFactory = httpClientFactory;
         }
         public async Task<IActionResult> Index()
         {
-            return View((await _unitOfWork.Pages.GetWithInclude(p => p.Paragraphs))
-                .FirstOrDefault(t => t.PageId == 1));
+            //return View((await _unitOfWork.Pages.GetWithInclude(p => p.Paragraphs))
+            //    .FirstOrDefault(t => t.PageId == 1));
+            var httpRequestMessage=new HttpRequestMessage(
+                HttpMethod.Get, $"http://localhost:5263/api/v1/Content/{nameof(Index)}");
+            var httpClient = _httpClientFactory.CreateClient();
+            var httpResponseMessage = await httpClient.SendAsync(httpRequestMessage);
+            if (httpResponseMessage.IsSuccessStatusCode)
+            {
+                await using var contentStream = await httpResponseMessage.Content.ReadAsStreamAsync();
+                //var resultAsync = (await JsonSerializer.DeserializeAsync<JsonElement>(contentStream)).GetRawText();
+                //var resultAsync = await JsonSerializer.DeserializeAsync<dynamic>(contentStream);
+                var resultJsonAsync = JsonSerializer.DeserializeAsync<PageDto>(contentStream);
+                return Json(resultJsonAsync);
+            }
+            
+            return Json(new {Error=""});
         }
 
         [Route("computers-repair")]

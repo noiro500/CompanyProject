@@ -1,4 +1,5 @@
 using System.Configuration;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 using CompanyProjectContent.Infrastructure;
 using CompanyProjectContent.Infrastructure.InitialDBContent;
@@ -8,9 +9,7 @@ using Microsoft.EntityFrameworkCore;;
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
-builder.Services.AddControllers()
-    /*.AddJsonOptions(options=>
-        options.JsonSerializerOptions.ReferenceHandler=ReferenceHandler.IgnoreCycles)*/;
+builder.Services.AddControllers();
 builder.Services.AddDbContext<CompanyProjectContentDbContext>(options =>
     options.UseNpgsql(builder.Configuration["ConnectionStrings:ConnectionStringToPostgreSQLAzure"], sqlOptions =>
             sqlOptions.MigrationsAssembly(typeof(CompanyProjectContentDbContext).Assembly.GetName().Name)));
