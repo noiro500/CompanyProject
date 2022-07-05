@@ -39,8 +39,8 @@ namespace CompanyProject.API.Controllers
                 await using var contentStream = await httpResponseMessage.Content.ReadAsStreamAsync();
                 //var resultAsync = (await JsonSerializer.DeserializeAsync<JsonElement>(contentStream)).GetRawText();
                 //var resultAsync = await JsonSerializer.DeserializeAsync<dynamic>(contentStream);
-                var resultJsonAsync = JsonSerializer.DeserializeAsync<PageDto>(contentStream);
-                return Json(resultJsonAsync);
+                var resultAsync =await JsonSerializer.DeserializeAsync<PageDto>(contentStream);
+                return View(resultAsync);
             }
             
             return Json(new {Error=""});

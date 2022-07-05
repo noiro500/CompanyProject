@@ -35,8 +35,8 @@ namespace CompanyProject.Repository
             services.AddTransient<IFeedbacksRepository, FeedbacksRepository>();
             services.AddTransient<IMessagesRepository, MessagesRepository>();
             services.AddTransient<IOrdersRepository, OrdersRepository>();
-            services.AddScoped<IPagesRepository, PagesRepository>();
-            services.AddScoped<IParagraphsRepository, ParagraphsRepository>();
+            services.AddScoped<IPagesRepository, PagesRepository_IsNotUsed>();
+            services.AddScoped<IParagraphsRepository, ParagraphsRepository_IsNotUsed>();
             services.AddScoped<IPriceListsRepository, PriceListsRepository>();
             services.AddScoped<IAddressFromDbRepository, AddressFromDbRepository>();
             services.AddDbContext<CompanyProjectDbContext>(options =>
