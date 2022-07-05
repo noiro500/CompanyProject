@@ -31,8 +31,8 @@ namespace CompanyProject.Repository
             Feedbacks = new FeedbacksRepository(_context);
             Messages = new MessagesRepository(_context);
             Orders = new OrdersRepository(_context);
-            Pages = new PagesRepository(_context);
-            Paragraphs = new ParagraphsRepository(_context);
+            Pages = new PagesRepository_IsNotUsed(_context);
+            Paragraphs = new ParagraphsRepository_IsNotUsed(_context);
             PriceLists = new PriceListsRepository(_context);
             AddressFromDbs = new AddressFromDbRepository(_context);
         }

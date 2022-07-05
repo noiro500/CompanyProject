@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompanyProject.Repository",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompanyProject.ViewModels", "CompanyProject.ViewModels\CompanyProject.ViewModels.csproj", "{2355A171-7152-4A0A-9619-E7F51A285874}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyProjectContent", "CompanyProjectContent\CompanyProjectContent.csproj", "{52566BE1-221F-46B4-940B-CB19C6B74646}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompanyProjectContentService", "CompanyProjectContent\CompanyProjectContentService.csproj", "{52566BE1-221F-46B4-940B-CB19C6B74646}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

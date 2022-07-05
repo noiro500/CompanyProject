@@ -8,9 +8,9 @@ using CompanyProject.Domain.Page;
 
 namespace CompanyProject.Repository.Repository
 {
-    public class PagesRepository:GenericRepository<Page>, IPagesRepository
+    public class PagesRepository_IsNotUsed:GenericRepository<Page>, IPagesRepository
     {
-        public PagesRepository(CompanyProjectDbContext ctx) : base(ctx)
+        public PagesRepository_IsNotUsed(CompanyProjectDbContext ctx) : base(ctx)
         {
         }
 
