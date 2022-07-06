@@ -13,9 +13,11 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.IO;
 using AspNetCore.ReCaptcha;
+using CompanyProject.API.Infrastructure.RefitInterfaces;
 using CompanyProject.Domain.Address;
 using CompanyProject.ViewModels;
 using Microsoft.AspNetCore.DataProtection;
+using Refit;
 
 namespace CompanyProject.API
 {
@@ -35,7 +37,12 @@ namespace CompanyProject.API
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddReCaptcha(Configuration.GetSection("ReCaptcha"));
             
-            services.AddHttpClient();
+            //services.AddHttpClient();
+            services.AddRefitClient<IContentService>()
+                .ConfigureHttpClient(httpClient =>
+                {
+                    httpClient.BaseAddress = new Uri("http://localhost:5263/");
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
