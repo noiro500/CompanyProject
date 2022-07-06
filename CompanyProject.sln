@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompanyProject.ViewModels",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompanyProjectContentService", "CompanyProjectContent\CompanyProjectContentService.csproj", "{52566BE1-221F-46B4-940B-CB19C6B74646}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyProjectCardsService", "CompanyProjectCardsService\CompanyProjectCardsService.csproj", "{A088FCA6-C4D1-4E05-B050-79B42D9D8284}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{52566BE1-221F-46B4-940B-CB19C6B74646}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52566BE1-221F-46B4-940B-CB19C6B74646}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52566BE1-221F-46B4-940B-CB19C6B74646}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A088FCA6-C4D1-4E05-B050-79B42D9D8284}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A088FCA6-C4D1-4E05-B050-79B42D9D8284}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A088FCA6-C4D1-4E05-B050-79B42D9D8284}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A088FCA6-C4D1-4E05-B050-79B42D9D8284}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
