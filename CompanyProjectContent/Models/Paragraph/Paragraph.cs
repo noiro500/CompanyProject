@@ -1,4 +1,4 @@
-﻿namespace CompanyProjectContent.Models.Paragraph
+﻿namespace CompanyProjectContentService.Models.Paragraph
 {
     public class Paragraph
     {

@@ -1,10 +1,9 @@
-﻿using CompanyProjectContent.Infrastructure.InitialDBContent;
-using CompanyProjectContent.Models.IndexPageCard;
-using CompanyProjectContent.Models.Page;
-using CompanyProjectContent.Models.Paragraph;
+﻿using CompanyProjectContentService.Infrastructure.InitialDbContent;
+using CompanyProjectContentService.Models.Page;
+using CompanyProjectContentService.Models.Paragraph;
 using Microsoft.EntityFrameworkCore;
 
-namespace CompanyProjectContent.Infrastructure;
+namespace CompanyProjectContentService.Infrastructure;
 
 public class CompanyProjectContentDbContext:DbContext
 {

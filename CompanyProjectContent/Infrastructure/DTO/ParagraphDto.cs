@@ -1,6 +1,6 @@
-﻿namespace CompanyProjectContent.Infrastructure.DTO;
+﻿namespace CompanyProjectContentService.Infrastructure.DTO;
 
-public class ParagraphDto
+public class ParagraphDtoOld
 {
     public int ParagraphId { get; set; }
     public bool IsGlobalTitle { get; set; } = false;

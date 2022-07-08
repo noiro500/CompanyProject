@@ -1,7 +1,7 @@
-﻿using CompanyProjectContent.Models.Page;
-using CompanyProjectContent.Models.Paragraph;
+﻿using CompanyProjectContentService.Models.Page;
+using CompanyProjectContentService.Models.Paragraph;
 
-namespace CompanyProjectContent.Infrastructure.InitialDBContent;
+namespace CompanyProjectContentService.Infrastructure.InitialDbContent;
 
 public interface IInitialDbContent
 {
