@@ -1,20 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using CompanyProject.API.Infrastructure.Log;
-using CompanyProject.Domain;
 using CompanyProject.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using CompanyProject.API.Infrastructure.HelpClasses;
 using CompanyProject.API.Infrastructure.RefitInterfaces;
 using CompanyProject.Domain.Interfaces;
-using Refit;
 
 namespace CompanyProject.API.Controllers
 {

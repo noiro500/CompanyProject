@@ -1,9 +1,8 @@
-﻿using System.Diagnostics;
-using CompanyProjectContent.Models.Paragraph;
-using System.Text.Json;
-using CompanyProjectContent.Models.Page;
+﻿using System.Text.Json;
+using CompanyProjectContentService.Models.Page;
+using CompanyProjectContentService.Models.Paragraph;
 
-namespace CompanyProjectContent.Infrastructure.InitialDBContent;
+namespace CompanyProjectContentService.Infrastructure.InitialDbContent;
 
 public class InitialDbContent : IInitialDbContent
 {
@@ -18,18 +17,18 @@ public class InitialDbContent : IInitialDbContent
     {
         string filePath = Path.Combine(_webHostEnvironment.WebRootPath, "Resources", "DbSeed",
             "InitialDbPageContent.json");
-        var jsonData = JsonSerializer.Deserialize<List<Page>>(File.ReadAllText(filePath));
+        var resultData = JsonSerializer.Deserialize<List<Page>>(File.ReadAllText(filePath));
         int i = 0;
-        jsonData.ForEach(p => p.PageId = ++i);
-        return jsonData;
+        resultData.ForEach(p => p.PageId = ++i);
+        return resultData;
     }
     public IList<Paragraph> InitialDbParagraphContent()
     {
         string filePath = Path.Combine(_webHostEnvironment.WebRootPath, "Resources", "DbSeed",
             "InitialDbParagraphContent.json");
-        var jsonData = JsonSerializer.Deserialize<List<Paragraph>>(File.ReadAllText(filePath));
+        var resultData = JsonSerializer.Deserialize<List<Paragraph>>(File.ReadAllText(filePath));
         int i = 0;
-        jsonData.ForEach(p => p.ParagraphId = ++i);
-        return jsonData;
+        resultData.ForEach(p => p.ParagraphId = ++i);
+        return resultData;
     }
 }

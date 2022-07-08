@@ -1,7 +1,5 @@
 using CompanyProject.API.Infrastructure.Log;
-using CompanyProject.Domain.Message;
 using CompanyProject.Repository;
-using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -12,11 +10,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
 using System.IO;
+using System.Reflection;
 using AspNetCore.ReCaptcha;
 using CompanyProject.API.Infrastructure.RefitInterfaces;
-using CompanyProject.Domain.Address;
-using CompanyProject.ViewModels;
-using Microsoft.AspNetCore.DataProtection;
+using Microsoft.Extensions.FileProviders;
 using Refit;
 
 namespace CompanyProject.API
@@ -28,6 +25,7 @@ namespace CompanyProject.API
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            
         }
         public void ConfigureServices(IServiceCollection services)
         {

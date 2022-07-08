@@ -1,4 +1,4 @@
-﻿namespace CompanyProjectContent.Models.IndexPageCard;
+﻿namespace CompanyProjectContentService.Models.IndexPageCard;
 
 public class IndexPageCard
 {
