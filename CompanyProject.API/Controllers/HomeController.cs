@@ -15,21 +15,19 @@ namespace CompanyProject.API.Controllers
     public class HomeController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ILogger _logger;
-        private readonly IHttpClientFactory _httpClientFactory;
+        //private readonly ILogger _logger;
+        //private readonly IHttpClientFactory _httpClientFactory;
         private readonly IContentService _contentService;
-        public HomeController(IUnitOfWork unitOfWork, IHttpClientFactory httpClientFactory, IContentService contentService)
+        public HomeController(IUnitOfWork unitOfWork,  IContentService contentService)
         {
-            _logger = Log.CreateLogger<HomeController>();
             _unitOfWork = unitOfWork;
-            _httpClientFactory = httpClientFactory;
             _contentService = contentService;
         }
         public async Task<IActionResult> Index()
         {
             try
             {
-                var resultAsync = await _contentService.GetPageContent(RouteData.Values["action"].ToString());
+                var resultAsync = await _contentService.GetPageContentAsync(RouteData.Values["action"].ToString());
                 return View(resultAsync);
             }
             catch (Exception)

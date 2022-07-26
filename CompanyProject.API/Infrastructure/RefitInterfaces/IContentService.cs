@@ -8,5 +8,5 @@ namespace CompanyProject.API.Infrastructure.RefitInterfaces;
 public interface IContentService
 {
     [Get("/api/v1/Content/{pageName}")]
-    Task<PageDto> GetPageContent(string pageName);
+    Task<PageDto> GetPageContentAsync(string pageName);
 }
