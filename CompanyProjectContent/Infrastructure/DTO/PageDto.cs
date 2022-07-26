@@ -9,7 +9,7 @@ public class PageDtoOld
     public bool ToNavbar { get; set; } = false;
     //public bool ToCard { get; set; } = false;
     //public string AspController { get; set; }
-    public List<_ParagraphDto> Paragraphs { get; set; }
+    public List<ParagraphDtoOld> Paragraphs { get; set; }
 
     
 }

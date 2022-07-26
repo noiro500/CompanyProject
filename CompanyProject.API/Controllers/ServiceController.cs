@@ -105,7 +105,7 @@ namespace CompanyProject.API.Controllers
                 else
                     return StatusCode(405);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 _unitOfWork.Dispose();
                 return StatusCode(405);
