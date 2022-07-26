@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using CompanyProject.API.Infrastructure.Dto;
 using CompanyProject.API.Infrastructure.HelpClasses;
 using Refit;
 

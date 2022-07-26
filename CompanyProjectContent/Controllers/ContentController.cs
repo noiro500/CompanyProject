@@ -52,7 +52,8 @@ public class ContentController : ControllerBase
         //    });
         //}
         //pageResult.Paragraphs= listParagraphs.ToList();
-        //var pageResult=new PageDto(result.PageId, result.Name,result.ScreenName,result.Icon,result.ToNavbar,result.ToCard, new List<ParagraphDto>(result.Paragraphs))
+        var a = result.Paragraphs.Select(x=>x.Content);
+        var pageResult = new PageDto(result.PageId, result.Name, result.ScreenName, result.Icon, result.ToNavbar);
         return Ok(/*JsonSerializer.Serialize(pageResult)*/);
     }
 }

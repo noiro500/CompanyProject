@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CompanyProject.API.Infrastructure.HelpClasses;
+namespace CompanyProject.API.Infrastructure.Dto;
 
 //public class PageDto
 //{
