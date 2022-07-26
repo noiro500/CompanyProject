@@ -15,8 +15,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompanyProjectContentServic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompanyProjectCardsService", "CompanyProjectCardsService\CompanyProjectCardsService.csproj", "{A088FCA6-C4D1-4E05-B050-79B42D9D8284}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcelotApiGateway", "OcelotApiGateway\OcelotApiGateway.csproj", "{61072F48-784A-4381-BFD6-01BAEA37FC3C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,10 +45,6 @@ Global
 		{A088FCA6-C4D1-4E05-B050-79B42D9D8284}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A088FCA6-C4D1-4E05-B050-79B42D9D8284}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A088FCA6-C4D1-4E05-B050-79B42D9D8284}.Release|Any CPU.Build.0 = Release|Any CPU
-		{61072F48-784A-4381-BFD6-01BAEA37FC3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{61072F48-784A-4381-BFD6-01BAEA37FC3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{61072F48-784A-4381-BFD6-01BAEA37FC3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{61072F48-784A-4381-BFD6-01BAEA37FC3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
