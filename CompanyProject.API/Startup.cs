@@ -39,7 +39,7 @@ namespace CompanyProject.API
             services.AddRefitClient<IContentService>()
                 .ConfigureHttpClient(httpClient =>
                 {
-                    httpClient.BaseAddress = new Uri("http://localhost:5010/");
+                    httpClient.BaseAddress = new Uri("http://localhost:5000/");
                 });
         }
 

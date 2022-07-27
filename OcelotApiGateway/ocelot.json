@@ -1,6 +1,23 @@
 {
-  "GlobalConfiguration": {},
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:5000"
+  },
   "Routes": [
-    {}
+    {
+      //"ServiceName": "CompanyProjectContentService",
+      "UpstreamPathTemplate": "/gateway/v1/Content/{pageName}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/v1/Content/{pageName}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5010
+        }
+      ],
+      "FileCacheOptions": {
+        "TtlSeconds": 10
+      }
+    }
   ]
 }
