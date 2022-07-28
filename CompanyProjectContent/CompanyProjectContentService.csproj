@@ -9,7 +9,6 @@
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="Infrastructure\InitialDbContent\" />
-    <Folder Include="Models\IndexPageCard\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,30 +28,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="wwwroot\Resources\CardImage\B2b.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\Resources\CardImage\ComputersRepair.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\Resources\CardImage\DataRecovery.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\Resources\CardImage\HelpDesk.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\Resources\CardImage\InternetNetworks.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\Resources\CardImage\LaptopsRepair.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\Resources\CardImage\LaptopUpgrade.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\Resources\CardImage\PcAssembly.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Update="wwwroot\Resources\DbSeed\InitialDbParagraphContent.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

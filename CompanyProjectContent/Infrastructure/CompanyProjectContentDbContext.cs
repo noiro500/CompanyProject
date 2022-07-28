@@ -34,8 +34,8 @@ public class CompanyProjectContentDbContext:DbContext
 
         //modelBuilder.Entity<IndexPageCard>().HasKey(x => x.IndexPageCardId);
     }
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.LogTo(System.Console.WriteLine, LogLevel.Warning);
-    }
+    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //{
+    //    optionsBuilder.LogTo(System.Console.WriteLine, LogLevel.Warning);
+    //}
 }

@@ -1,0 +1,15 @@
+{
+  "CardId": "null",
+  "PageNameForCard": "null",
+  "CardHeader": [
+    {
+      "CardHeaderTitle": "null",
+      "CardHeaderIcon": "null"
+    }
+  ],
+  "CardImage": "null",
+  "CardContent": "null",
+  "CardFooter": {
+    "CardFooterItems": []
+  }
+}
