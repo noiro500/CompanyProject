@@ -2,7 +2,7 @@
 
 namespace CompanyProjectCardsService.Infrastructure.InitialDbContent;
 
-public interface IInitialDbContext
+public interface IInitialDbContent
 {
     IList<Card> InitialDbCardsContent();
 }

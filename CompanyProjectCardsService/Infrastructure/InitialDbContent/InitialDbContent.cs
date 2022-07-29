@@ -2,7 +2,7 @@
 
 namespace CompanyProjectCardsService.Infrastructure.InitialDbContent;
 
-public class InitialDbContext : IInitialDbContext
+public class InitialDbContent : IInitialDbContent
 {
     public IList<Card> InitialDbCardsContent()
     {

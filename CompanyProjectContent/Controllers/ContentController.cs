@@ -26,7 +26,11 @@ public class ContentController : ControllerBase
         var result =await repository.FirstOrDefaultAsync(query);
         if (result is null)
             return NoContent();
-        var pageResult = new PageDto(result.PageId, result.Name, result.ScreenName, result.Icon, result.ToNavbar, result.Paragraphs);
+        var pageResult = new PageDto(result.Paragraphs)
+        {
+            Icon = result.Icon, Name = result.Name, PageId = result.PageId,
+            ScreenName = result.ScreenName, ToNavbar = result.ToNavbar
+        };
         return Ok(JsonSerializer.Serialize<PageDto>(pageResult));
     }
 }
