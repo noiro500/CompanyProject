@@ -1,4 +1,5 @@
 ﻿using CompanyProjectCardsService.Model;
+using CompanyProjectCardsService.Infrastructure.InitialDbContent;
 using Microsoft.EntityFrameworkCore;
 
 namespace CompanyProjectCardsService.Infrastructure;
@@ -14,7 +15,9 @@ public class CompanyProjectCardDbContext:DbContext
     public DbSet<Card> Cards { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        //modelBuilder.Entity<Card>().HasData(
-        //    )
+        modelBuilder.Entity<Card>().HasData(
+            _content.InitialDbCardsContent()
+        );
+        modelBuilder.Entity<Card>().OwnsOne(u => u.CardFooter);
     }
 }

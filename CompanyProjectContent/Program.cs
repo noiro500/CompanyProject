@@ -1,10 +1,6 @@
-using System.Configuration;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using CompanyProjectContentService.Infrastructure;
 using CompanyProjectContentService.Infrastructure.InitialDbContent;
 using EntityFrameworkCore.UnitOfWork.Extensions;
-using Microsoft.CodeAnalysis.Host.Mef;
 using Microsoft.EntityFrameworkCore;;
 
 var builder = WebApplication.CreateBuilder(args);
