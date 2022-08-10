@@ -1,15 +1,26 @@
 {
-  "CardId": "null",
-  "PageNameForCard": "null",
-  "CardHeader": [
+  "CardId": null,
+  "PageNameForCard": null,
+  "CardIsLink": false,
+  "CardLinkAddress": null, 
+  "CardHasHeader": false, 
+  "CardHeader": 
     {
-      "CardHeaderTitle": "null",
-      "CardHeaderIcon": "null"
-    }
-  ],
-  "CardImage": "null",
-  "CardContent": "null",
+      "CardHeaderIsLink": false, 
+      "cardHeaderLinkAddress": null, 
+      "CardHeaderTitle": null,
+      "CardHeaderIcon": null
+    },
+  "CardImage": null,
+  "CardContent": null,
+  "CardHasFooter": false, 
   "CardFooter": {
-    "CardFooterItems": []
+    "CardFooterItems": [
+      {
+        "CardFooterItemIsLink": false,
+        "CardFooterItemLinkAddress": null,
+        "CardFooterItemContent": null
+      }
+    ]
   }
 }
