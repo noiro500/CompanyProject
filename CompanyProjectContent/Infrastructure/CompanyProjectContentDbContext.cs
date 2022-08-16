@@ -15,8 +15,7 @@ public class CompanyProjectContentDbContext:DbContext
         _content=ctn;
     }
     
-    //public DbSet<IndexPageCard> IndexPageCards { get; set; }
-    public DbSet<Page> Pages { get; set; }
+   public DbSet<Page> Pages { get; set; }
     public DbSet<Paragraph> Paragraphs { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

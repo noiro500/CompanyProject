@@ -1,0 +1,21 @@
+[
+  {
+    "MainCardId": 1,
+    "PageNameForCard": "Index",
+    "CardIsLink": true,
+    "CardLinkController": "Home",
+    "CardLinkAction": "ComputersRepair",
+    "CardHasHeader": true,
+    "CardHeaderIsLink": false,
+    "CardHeaderLinkController": null,
+    "CardHeaderLinkAction": null,
+    "CardHeaderContent": "Ремонт компьютеров",
+    "CardHeaderIcon": null,
+    "CardHasImage": false,
+    "CardImage": null,
+    "CardContent": [
+      "Image_ComputersRepair.png"
+    ],
+    "CardHasFooter": false
+  }
+]
