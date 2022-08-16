@@ -1,6 +1,7 @@
 ﻿using CompanyProjectCardsService.Model;
 using CompanyProjectCardsService.Infrastructure.InitialDbContent;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json;
 
 namespace CompanyProjectCardsService.Infrastructure;
 
@@ -12,21 +13,19 @@ public class CompanyProjectCardDbContext : DbContext
     {
         _content = ctn;
     }
-    public DbSet<Card> Cards { get; set; }
+    public DbSet<MainCard> MainCards { get; set; }
+    //public DbSet<CardFooterItem> CardFooterItems { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        //modelBuilder.Entity<Card>().HasData(
-        //    _content.InitialDbCardsContent()
-        //);
-        modelBuilder.Entity<CardFooter>()
-            .HasMany(p => p.CardFooterItems).WithOne();
-        modelBuilder.Entity<Card>()
-            .HasOne(c => c.CardFooter)
-            .WithOne(c => c.Card)
-            .HasForeignKey<CardFooter>(k => k.CardFooterForeignKey);
-        modelBuilder.Entity<Card>()
-            .HasOne(c => c.CardHeader)
-            .WithOne(c => c.Card)
-            .HasForeignKey<CardHeader>(k => k.CardHeaderForeignKey);
+        modelBuilder.Entity<MainCard>().HasData(
+            _content.InitialDbMainCardsContent()
+        );
+        modelBuilder.Entity<CardFooterItem>().HasData(
+            _content.InitialDbCardFooterItemContent()
+        );
+
+        modelBuilder.Entity<CardFooterItem>()
+            .HasOne(p => p.MainCard)
+            .WithMany(c => c.CardFooterItems);
     }
 }

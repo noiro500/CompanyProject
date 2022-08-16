@@ -4,5 +4,6 @@ namespace CompanyProjectCardsService.Infrastructure.InitialDbContent;
 
 public interface IInitialDbContent
 {
-    IList<Card> InitialDbCardsContent();
+    IList<MainCard> InitialDbMainCardsContent();
+    IList<CardFooterItem> InitialDbCardFooterItemContent();
 }

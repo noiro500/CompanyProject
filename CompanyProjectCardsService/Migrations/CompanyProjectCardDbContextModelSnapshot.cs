@@ -22,63 +22,13 @@ namespace CompanyProjectCardsService.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("CompanyProjectCardsService.Model.Card", b =>
-                {
-                    b.Property<Guid>("CardId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("CardContent")
-                        .HasColumnType("text");
-
-                    b.Property<bool>("CardHasFooter")
-                        .HasColumnType("boolean");
-
-                    b.Property<bool>("CardHasHeader")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("CardImage")
-                        .HasColumnType("text");
-
-                    b.Property<bool>("CardIsLink")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("CardLinkAddress")
-                        .HasColumnType("text");
-
-                    b.Property<string>("PageNameForCard")
-                        .HasColumnType("text");
-
-                    b.HasKey("CardId");
-
-                    b.ToTable("Cards");
-                });
-
-            modelBuilder.Entity("CompanyProjectCardsService.Model.CardFooter", b =>
-                {
-                    b.Property<Guid>("CardFooterId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("CardFooterForeignKey")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("CardFooterId");
-
-                    b.HasIndex("CardFooterForeignKey")
-                        .IsUnique();
-
-                    b.ToTable("CardFooter");
-                });
-
             modelBuilder.Entity("CompanyProjectCardsService.Model.CardFooterItem", b =>
                 {
-                    b.Property<Guid>("CardFooterItemId")
+                    b.Property<int>("CardFooterItemId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("integer");
 
-                    b.Property<Guid?>("CardFooterId")
-                        .HasColumnType("uuid");
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("CardFooterItemId"));
 
                     b.Property<string>("CardFooterItemContent")
                         .HasColumnType("text");
@@ -86,24 +36,52 @@ namespace CompanyProjectCardsService.Migrations
                     b.Property<bool>("CardFooterItemIsLink")
                         .HasColumnType("boolean");
 
-                    b.Property<string>("CardFooterItemLinkAddress")
+                    b.Property<string>("CardFooterItemLinkAction")
                         .HasColumnType("text");
+
+                    b.Property<string>("CardFooterItemLinkController")
+                        .HasColumnType("text");
+
+                    b.Property<int>("MainCardId")
+                        .HasColumnType("integer");
 
                     b.HasKey("CardFooterItemId");
 
-                    b.HasIndex("CardFooterId");
+                    b.HasIndex("MainCardId");
 
                     b.ToTable("CardFooterItem");
+
+                    b.HasData(
+                        new
+                        {
+                            CardFooterItemId = 1,
+                            CardFooterItemIsLink = false,
+                            MainCardId = 1
+                        });
                 });
 
-            modelBuilder.Entity("CompanyProjectCardsService.Model.CardHeader", b =>
+            modelBuilder.Entity("CompanyProjectCardsService.Model.MainCard", b =>
                 {
-                    b.Property<Guid>("CardHeaderId")
+                    b.Property<int>("MainCardId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("integer");
 
-                    b.Property<Guid>("CardHeaderForeignKey")
-                        .HasColumnType("uuid");
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("MainCardId"));
+
+                    b.Property<string[]>("CardContent")
+                        .HasColumnType("text[]");
+
+                    b.Property<bool>("CardHasFooter")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("CardHasHeader")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("CardHasImage")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("CardHeaderContent")
+                        .HasColumnType("text");
 
                     b.Property<string>("CardHeaderIcon")
                         .HasColumnType("text");
@@ -111,57 +89,61 @@ namespace CompanyProjectCardsService.Migrations
                     b.Property<bool>("CardHeaderIsLink")
                         .HasColumnType("boolean");
 
-                    b.Property<string>("CardHeaderLinkAddress")
+                    b.Property<string>("CardHeaderLinkAction")
                         .HasColumnType("text");
 
-                    b.Property<string>("CardHeaderTitle")
+                    b.Property<string>("CardHeaderLinkController")
                         .HasColumnType("text");
 
-                    b.HasKey("CardHeaderId");
+                    b.Property<string>("CardImage")
+                        .HasColumnType("text");
 
-                    b.HasIndex("CardHeaderForeignKey")
-                        .IsUnique();
+                    b.Property<bool>("CardIsLink")
+                        .HasColumnType("boolean");
 
-                    b.ToTable("CardHeader");
-                });
+                    b.Property<string>("CardLinkAction")
+                        .HasColumnType("text");
 
-            modelBuilder.Entity("CompanyProjectCardsService.Model.CardFooter", b =>
-                {
-                    b.HasOne("CompanyProjectCardsService.Model.Card", "Card")
-                        .WithOne("CardFooter")
-                        .HasForeignKey("CompanyProjectCardsService.Model.CardFooter", "CardFooterForeignKey")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<string>("CardLinkController")
+                        .HasColumnType("text");
 
-                    b.Navigation("Card");
+                    b.Property<string>("PageNameForCard")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("MainCardId");
+
+                    b.ToTable("MainCards");
+
+                    b.HasData(
+                        new
+                        {
+                            MainCardId = 1,
+                            CardContent = new[] { "Image_ComputersRepair.png" },
+                            CardHasFooter = false,
+                            CardHasHeader = true,
+                            CardHasImage = false,
+                            CardHeaderContent = "Ремонт компьютеров",
+                            CardHeaderIsLink = false,
+                            CardIsLink = true,
+                            CardLinkAction = "ComputersRepair",
+                            CardLinkController = "Home",
+                            PageNameForCard = "Index"
+                        });
                 });
 
             modelBuilder.Entity("CompanyProjectCardsService.Model.CardFooterItem", b =>
                 {
-                    b.HasOne("CompanyProjectCardsService.Model.CardFooter", null)
+                    b.HasOne("CompanyProjectCardsService.Model.MainCard", "MainCard")
                         .WithMany("CardFooterItems")
-                        .HasForeignKey("CardFooterId");
-                });
-
-            modelBuilder.Entity("CompanyProjectCardsService.Model.CardHeader", b =>
-                {
-                    b.HasOne("CompanyProjectCardsService.Model.Card", "Card")
-                        .WithOne("CardHeader")
-                        .HasForeignKey("CompanyProjectCardsService.Model.CardHeader", "CardHeaderForeignKey")
+                        .HasForeignKey("MainCardId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Card");
+                    b.Navigation("MainCard");
                 });
 
-            modelBuilder.Entity("CompanyProjectCardsService.Model.Card", b =>
-                {
-                    b.Navigation("CardFooter");
-
-                    b.Navigation("CardHeader");
-                });
-
-            modelBuilder.Entity("CompanyProjectCardsService.Model.CardFooter", b =>
+            modelBuilder.Entity("CompanyProjectCardsService.Model.MainCard", b =>
                 {
                     b.Navigation("CardFooterItems");
                 });

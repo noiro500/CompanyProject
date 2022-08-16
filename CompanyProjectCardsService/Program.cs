@@ -2,6 +2,8 @@ using CompanyProjectCardsService.Infrastructure;
 using CompanyProjectCardsService.Infrastructure.InitialDbContent;
 using Microsoft.EntityFrameworkCore;
 using EntityFrameworkCore.UnitOfWork.Extensions;
+using CompanyProjectCardsService.Model;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,12 +15,12 @@ builder.Services.AddScoped<IInitialDbContent, InitialDbContent>();
 builder.Services.AddScoped<DbContext, CompanyProjectCardDbContext>();
 builder.Services.AddUnitOfWork();
 builder.Services.AddUnitOfWork<CompanyProjectCardDbContext>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 //app.UseAuthorization();
+
 app.UseStaticFiles();
-
 app.MapControllers();
-
 app.Run();
