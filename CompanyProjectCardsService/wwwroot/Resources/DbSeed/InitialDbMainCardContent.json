@@ -1,6 +1,5 @@
 [
   {
-    "MainCardId": 1,
     "PageNameForCard": "Index",
     "CardIsLink": true,
     "CardLinkController": "Home",
@@ -9,12 +8,154 @@
     "CardHeaderIsLink": false,
     "CardHeaderLinkController": null,
     "CardHeaderLinkAction": null,
-    "CardHeaderContent": "Ремонт компьютеров",
+    "CardHeaderContent": [
+      "Ремонт компьютеров"
+    ],
     "CardHeaderIcon": null,
     "CardHasImage": false,
     "CardImage": null,
     "CardContent": [
       "Image_ComputersRepair.png"
+    ],
+    "CardHasFooter": false
+  },
+  {
+    "PageNameForCard": "Index",
+    "CardIsLink": true,
+    "CardLinkController": "Home",
+    "CardLinkAction": "LaptopsRepair",
+    "CardHasHeader": true,
+    "CardHeaderIsLink": false,
+    "CardHeaderLinkController": null,
+    "CardHeaderLinkAction": null,
+    "CardHeaderContent": [
+      "Ремонт ноутбуков"
+    ],
+    "CardHeaderIcon": null,
+    "CardHasImage": false,
+    "CardImage": null,
+    "CardContent": [
+      "Image_LaptopsRepair.png"
+    ],
+    "CardHasFooter": false
+  },
+  {
+    "PageNameForCard": "Index",
+    "CardIsLink": true,
+    "CardLinkController": "Home",
+    "CardLinkAction": "HelpDesk",
+    "CardHasHeader": true,
+    "CardHeaderIsLink": false,
+    "CardHeaderLinkController": null,
+    "CardHeaderLinkAction": null,
+    "CardHeaderContent": [
+      "Компьютерная помощь"
+    ],
+    "CardHeaderIcon": null,
+    "CardHasImage": false,
+    "CardImage": null,
+    "CardContent": [
+      "Image_HelpDesk.png"
+    ],
+    "CardHasFooter": false
+  },
+  {
+    "PageNameForCard": "Index",
+    "CardIsLink": true,
+    "CardLinkController": "Home",
+    "CardLinkAction": "InternetNetworks",
+    "CardHasHeader": true,
+    "CardHeaderIsLink": false,
+    "CardHeaderLinkController": null,
+    "CardHeaderLinkAction": null,
+    "CardHeaderContent": [
+      "Интернет и сети"
+    ],
+    "CardHeaderIcon": null,
+    "CardHasImage": false,
+    "CardImage": null,
+    "CardContent": [
+      "Image_InternetNetworks.png"
+    ],
+    "CardHasFooter": false
+  },
+  {
+    "PageNameForCard": "Index",
+    "CardIsLink": true,
+    "CardLinkController": "Home",
+    "CardLinkAction": "DataRecovery",
+    "CardHasHeader": true,
+    "CardHeaderIsLink": false,
+    "CardHeaderLinkController": null,
+    "CardHeaderLinkAction": null,
+    "CardHeaderContent": [
+      "Восстановление данных"
+    ],
+    "CardHeaderIcon": null,
+    "CardHasImage": false,
+    "CardImage": null,
+    "CardContent": [
+      "Image_DataRecovery.png"
+    ],
+    "CardHasFooter": false
+  },
+  {
+    "PageNameForCard": "Index",
+    "CardIsLink": true,
+    "CardLinkController": "Home",
+    "CardLinkAction": "B2b",
+    "CardHasHeader": true,
+    "CardHeaderIsLink": false,
+    "CardHeaderLinkController": null,
+    "CardHeaderLinkAction": null,
+    "CardHeaderContent": [
+      "ИТ-услуги для бизнеса"
+    ],
+    "CardHeaderIcon": null,
+    "CardHasImage": false,
+    "CardImage": null,
+    "CardContent": [
+      "Image_B2b.png"
+    ],
+    "CardHasFooter": false
+  },
+  {
+    "PageNameForCard": "Index",
+    "CardIsLink": true,
+    "CardLinkController": "Home",
+    "CardLinkAction": "LaptopUpgrade",
+    "CardHasHeader": true,
+    "CardHeaderIsLink": false,
+    "CardHeaderLinkController": null,
+    "CardHeaderLinkAction": null,
+    "CardHeaderContent": [
+      "Модернизация ноутбука"
+    ],
+    "CardHeaderIcon": null,
+    "CardHasImage": false,
+    "CardImage": null,
+    "CardContent": [
+      "Image_LaptopUpgrade.png"
+    ],
+    "CardHasFooter": false
+  },
+  {
+    "PageNameForCard": "Index",
+    "CardIsLink": true,
+    "CardLinkController": "Home",
+    "CardLinkAction": "PcAssembly",
+    "CardHasHeader": true,
+    "CardHeaderIsLink": false,
+    "CardHeaderLinkController": null,
+    "CardHeaderLinkAction": null,
+    "CardHeaderContent": [
+      "Сборка компьютера"
+    ],
+    "CardHeaderIcon": null,
+    "CardHasImage": false,
+    "CardImage": null,
+    "CardContent": [
+      "Image_PcAssembly.png"
     ],
     "CardHasFooter": false
   }
