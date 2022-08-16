@@ -17,7 +17,8 @@ public class CompanyProjectCardDbContext : DbContext
     //public DbSet<CardFooterItem> CardFooterItems { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<MainCard>().HasData(
+        
+       modelBuilder.Entity<MainCard>().HasData(
             _content.InitialDbMainCardsContent()
         );
         modelBuilder.Entity<CardFooterItem>().HasData(
