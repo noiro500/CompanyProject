@@ -24,7 +24,7 @@ namespace CompanyProjectCardsService.Migrations
                     CardHeaderIsLink = table.Column<bool>(type: "boolean", nullable: false),
                     CardHeaderLinkController = table.Column<string>(type: "text", nullable: true),
                     CardHeaderLinkAction = table.Column<string>(type: "text", nullable: true),
-                    CardHeaderContent = table.Column<string>(type: "text", nullable: true),
+                    CardHeaderContent = table.Column<string[]>(type: "text[]", nullable: true),
                     CardHeaderIcon = table.Column<string>(type: "text", nullable: true),
                     CardHasImage = table.Column<bool>(type: "boolean", nullable: false),
                     CardImage = table.Column<string>(type: "text", nullable: true),
@@ -62,7 +62,17 @@ namespace CompanyProjectCardsService.Migrations
             migrationBuilder.InsertData(
                 table: "MainCards",
                 columns: new[] { "MainCardId", "CardContent", "CardHasFooter", "CardHasHeader", "CardHasImage", "CardHeaderContent", "CardHeaderIcon", "CardHeaderIsLink", "CardHeaderLinkAction", "CardHeaderLinkController", "CardImage", "CardIsLink", "CardLinkAction", "CardLinkController", "PageNameForCard" },
-                values: new object[] { 1, new[] { "Image_ComputersRepair.png" }, false, true, false, "Ремонт компьютеров", null, false, null, null, null, true, "ComputersRepair", "Home", "Index" });
+                values: new object[,]
+                {
+                    { 1, new[] { "Image_ComputersRepair.png" }, false, true, false, new[] { "Ремонт компьютеров" }, null, false, null, null, null, true, "ComputersRepair", "Home", "Index" },
+                    { 2, new[] { "Image_LaptopsRepair.png" }, false, true, false, new[] { "Ремонт ноутбуков" }, null, false, null, null, null, true, "LaptopsRepair", "Home", "Index" },
+                    { 3, new[] { "Image_HelpDesk.png" }, false, true, false, new[] { "Компьютерная помощь" }, null, false, null, null, null, true, "HelpDesk", "Home", "Index" },
+                    { 4, new[] { "Image_InternetNetworks.png" }, false, true, false, new[] { "Интернет и сети" }, null, false, null, null, null, true, "InternetNetworks", "Home", "Index" },
+                    { 5, new[] { "Image_DataRecovery.png" }, false, true, false, new[] { "Восстановление данных" }, null, false, null, null, null, true, "DataRecovery", "Home", "Index" },
+                    { 6, new[] { "Image_B2b.png" }, false, true, false, new[] { "ИТ-услуги для бизнеса" }, null, false, null, null, null, true, "B2b", "Home", "Index" },
+                    { 7, new[] { "Image_LaptopUpgrade.png" }, false, true, false, new[] { "Модернизация ноутбука" }, null, false, null, null, null, true, "LaptopUpgrade", "Home", "Index" },
+                    { 8, new[] { "Image_PcAssembly.png" }, false, true, false, new[] { "Сборка компьютера" }, null, false, null, null, null, true, "PcAssembly", "Home", "Index" }
+                });
 
             migrationBuilder.InsertData(
                 table: "CardFooterItem",

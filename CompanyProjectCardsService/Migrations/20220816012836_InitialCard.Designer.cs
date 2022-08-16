@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CompanyProjectCardsService.Migrations
 {
     [DbContext(typeof(CompanyProjectCardDbContext))]
-    [Migration("20220816010407_InitialCard")]
+    [Migration("20220816012836_InitialCard")]
     partial class InitialCard
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -82,8 +82,8 @@ namespace CompanyProjectCardsService.Migrations
                     b.Property<bool>("CardHasImage")
                         .HasColumnType("boolean");
 
-                    b.Property<string>("CardHeaderContent")
-                        .HasColumnType("text");
+                    b.Property<string[]>("CardHeaderContent")
+                        .HasColumnType("text[]");
 
                     b.Property<string>("CardHeaderIcon")
                         .HasColumnType("text");
@@ -125,10 +125,108 @@ namespace CompanyProjectCardsService.Migrations
                             CardHasFooter = false,
                             CardHasHeader = true,
                             CardHasImage = false,
-                            CardHeaderContent = "Ремонт компьютеров",
+                            CardHeaderContent = new[] { "Ремонт компьютеров" },
                             CardHeaderIsLink = false,
                             CardIsLink = true,
                             CardLinkAction = "ComputersRepair",
+                            CardLinkController = "Home",
+                            PageNameForCard = "Index"
+                        },
+                        new
+                        {
+                            MainCardId = 2,
+                            CardContent = new[] { "Image_LaptopsRepair.png" },
+                            CardHasFooter = false,
+                            CardHasHeader = true,
+                            CardHasImage = false,
+                            CardHeaderContent = new[] { "Ремонт ноутбуков" },
+                            CardHeaderIsLink = false,
+                            CardIsLink = true,
+                            CardLinkAction = "LaptopsRepair",
+                            CardLinkController = "Home",
+                            PageNameForCard = "Index"
+                        },
+                        new
+                        {
+                            MainCardId = 3,
+                            CardContent = new[] { "Image_HelpDesk.png" },
+                            CardHasFooter = false,
+                            CardHasHeader = true,
+                            CardHasImage = false,
+                            CardHeaderContent = new[] { "Компьютерная помощь" },
+                            CardHeaderIsLink = false,
+                            CardIsLink = true,
+                            CardLinkAction = "HelpDesk",
+                            CardLinkController = "Home",
+                            PageNameForCard = "Index"
+                        },
+                        new
+                        {
+                            MainCardId = 4,
+                            CardContent = new[] { "Image_InternetNetworks.png" },
+                            CardHasFooter = false,
+                            CardHasHeader = true,
+                            CardHasImage = false,
+                            CardHeaderContent = new[] { "Интернет и сети" },
+                            CardHeaderIsLink = false,
+                            CardIsLink = true,
+                            CardLinkAction = "InternetNetworks",
+                            CardLinkController = "Home",
+                            PageNameForCard = "Index"
+                        },
+                        new
+                        {
+                            MainCardId = 5,
+                            CardContent = new[] { "Image_DataRecovery.png" },
+                            CardHasFooter = false,
+                            CardHasHeader = true,
+                            CardHasImage = false,
+                            CardHeaderContent = new[] { "Восстановление данных" },
+                            CardHeaderIsLink = false,
+                            CardIsLink = true,
+                            CardLinkAction = "DataRecovery",
+                            CardLinkController = "Home",
+                            PageNameForCard = "Index"
+                        },
+                        new
+                        {
+                            MainCardId = 6,
+                            CardContent = new[] { "Image_B2b.png" },
+                            CardHasFooter = false,
+                            CardHasHeader = true,
+                            CardHasImage = false,
+                            CardHeaderContent = new[] { "ИТ-услуги для бизнеса" },
+                            CardHeaderIsLink = false,
+                            CardIsLink = true,
+                            CardLinkAction = "B2b",
+                            CardLinkController = "Home",
+                            PageNameForCard = "Index"
+                        },
+                        new
+                        {
+                            MainCardId = 7,
+                            CardContent = new[] { "Image_LaptopUpgrade.png" },
+                            CardHasFooter = false,
+                            CardHasHeader = true,
+                            CardHasImage = false,
+                            CardHeaderContent = new[] { "Модернизация ноутбука" },
+                            CardHeaderIsLink = false,
+                            CardIsLink = true,
+                            CardLinkAction = "LaptopUpgrade",
+                            CardLinkController = "Home",
+                            PageNameForCard = "Index"
+                        },
+                        new
+                        {
+                            MainCardId = 8,
+                            CardContent = new[] { "Image_PcAssembly.png" },
+                            CardHasFooter = false,
+                            CardHasHeader = true,
+                            CardHasImage = false,
+                            CardHeaderContent = new[] { "Сборка компьютера" },
+                            CardHeaderIsLink = false,
+                            CardIsLink = true,
+                            CardLinkAction = "PcAssembly",
                             CardLinkController = "Home",
                             PageNameForCard = "Index"
                         });

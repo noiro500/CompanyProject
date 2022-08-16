@@ -29,7 +29,7 @@ public class MainCard
     public bool CardHeaderIsLink { get; set; }
     public string? CardHeaderLinkController { get; set; }
     public string? CardHeaderLinkAction { get; set; }
-    public string? CardHeaderContent { get; set; }
+    public string[]? CardHeaderContent { get; set; }
     public string? CardHeaderIcon { get; set; }
     public bool CardHasImage { get; set; }
     public string? CardImage { get; set; }
