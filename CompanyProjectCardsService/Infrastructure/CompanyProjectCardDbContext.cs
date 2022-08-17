@@ -24,9 +24,9 @@ public class CompanyProjectCardDbContext : DbContext
         modelBuilder.Entity<CardFooterItem>().HasData(
             _content.InitialDbCardFooterItemContent()
         );
-
-        modelBuilder.Entity<CardFooterItem>()
-            .HasOne(p => p.MainCard)
-            .WithMany(c => c.CardFooterItems);
+        
+        modelBuilder.Entity<MainCard>()
+            .HasMany(c => c.CardFooterItems)
+            .WithOne();
     }
 }

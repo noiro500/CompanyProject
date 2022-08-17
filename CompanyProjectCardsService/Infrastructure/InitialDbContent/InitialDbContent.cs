@@ -17,7 +17,7 @@ public class InitialDbContent : IInitialDbContent
             "InitialDbMainCardContent.json");
         var resultData = JsonSerializer.Deserialize<List<MainCard>>(File.ReadAllText(filePath));
         int i = 0;
-        resultData.ForEach(p => p.MainCardId =++i);
+        resultData.ForEach(p => p.MainCardId =Guid.NewGuid());
         return resultData;
     }
 
@@ -27,7 +27,7 @@ public class InitialDbContent : IInitialDbContent
             "InitialDbCardFooterItemContent.json");
         var resultData = JsonSerializer.Deserialize<List<CardFooterItem>>(File.ReadAllText(filePath));
         int i = 0;
-        resultData.ForEach(p => p.CardFooterItemId = ++i);
+        resultData.ForEach(p => p.CardFooterItemId = Guid.NewGuid());
         return resultData;
     }
 }

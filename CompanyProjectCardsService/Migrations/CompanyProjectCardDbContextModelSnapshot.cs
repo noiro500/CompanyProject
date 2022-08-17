@@ -24,11 +24,9 @@ namespace CompanyProjectCardsService.Migrations
 
             modelBuilder.Entity("CompanyProjectCardsService.Model.CardFooterItem", b =>
                 {
-                    b.Property<int>("CardFooterItemId")
+                    b.Property<Guid>("CardFooterItemId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("CardFooterItemId"));
+                        .HasColumnType("uuid");
 
                     b.Property<string>("CardFooterItemContent")
                         .HasColumnType("text");
@@ -42,8 +40,8 @@ namespace CompanyProjectCardsService.Migrations
                     b.Property<string>("CardFooterItemLinkController")
                         .HasColumnType("text");
 
-                    b.Property<int>("MainCardId")
-                        .HasColumnType("integer");
+                    b.Property<Guid?>("MainCardId")
+                        .HasColumnType("uuid");
 
                     b.HasKey("CardFooterItemId");
 
@@ -54,19 +52,16 @@ namespace CompanyProjectCardsService.Migrations
                     b.HasData(
                         new
                         {
-                            CardFooterItemId = 1,
-                            CardFooterItemIsLink = false,
-                            MainCardId = 1
+                            CardFooterItemId = new Guid("eb550533-7e69-4850-9528-030a2ad3f209"),
+                            CardFooterItemIsLink = false
                         });
                 });
 
             modelBuilder.Entity("CompanyProjectCardsService.Model.MainCard", b =>
                 {
-                    b.Property<int>("MainCardId")
+                    b.Property<Guid>("MainCardId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("MainCardId"));
+                        .HasColumnType("uuid");
 
                     b.Property<string[]>("CardContent")
                         .HasColumnType("text[]");
@@ -118,7 +113,7 @@ namespace CompanyProjectCardsService.Migrations
                     b.HasData(
                         new
                         {
-                            MainCardId = 1,
+                            MainCardId = new Guid("ec1c1d43-45d6-4c0b-99cf-bb410ed8b3be"),
                             CardContent = new[] { "Image_ComputersRepair.png" },
                             CardHasFooter = false,
                             CardHasHeader = true,
@@ -132,7 +127,7 @@ namespace CompanyProjectCardsService.Migrations
                         },
                         new
                         {
-                            MainCardId = 2,
+                            MainCardId = new Guid("ff51059b-dd49-438f-89e0-50329ff1e9ab"),
                             CardContent = new[] { "Image_LaptopsRepair.png" },
                             CardHasFooter = false,
                             CardHasHeader = true,
@@ -146,7 +141,7 @@ namespace CompanyProjectCardsService.Migrations
                         },
                         new
                         {
-                            MainCardId = 3,
+                            MainCardId = new Guid("b35fc5ec-5873-4937-9b8c-0aee5bbf1549"),
                             CardContent = new[] { "Image_HelpDesk.png" },
                             CardHasFooter = false,
                             CardHasHeader = true,
@@ -160,7 +155,7 @@ namespace CompanyProjectCardsService.Migrations
                         },
                         new
                         {
-                            MainCardId = 4,
+                            MainCardId = new Guid("da218596-e949-47ae-9eec-5adeca9642b0"),
                             CardContent = new[] { "Image_InternetNetworks.png" },
                             CardHasFooter = false,
                             CardHasHeader = true,
@@ -174,7 +169,7 @@ namespace CompanyProjectCardsService.Migrations
                         },
                         new
                         {
-                            MainCardId = 5,
+                            MainCardId = new Guid("3afb5150-3bb6-4196-8f28-235ca9d27f0f"),
                             CardContent = new[] { "Image_DataRecovery.png" },
                             CardHasFooter = false,
                             CardHasHeader = true,
@@ -188,7 +183,7 @@ namespace CompanyProjectCardsService.Migrations
                         },
                         new
                         {
-                            MainCardId = 6,
+                            MainCardId = new Guid("ac0f78c6-7ab0-4489-9da4-a9ecf93b2828"),
                             CardContent = new[] { "Image_B2b.png" },
                             CardHasFooter = false,
                             CardHasHeader = true,
@@ -202,7 +197,7 @@ namespace CompanyProjectCardsService.Migrations
                         },
                         new
                         {
-                            MainCardId = 7,
+                            MainCardId = new Guid("4d10ea4e-3bbc-4b60-8946-ab26e0afdd0f"),
                             CardContent = new[] { "Image_LaptopUpgrade.png" },
                             CardHasFooter = false,
                             CardHasHeader = true,
@@ -216,7 +211,7 @@ namespace CompanyProjectCardsService.Migrations
                         },
                         new
                         {
-                            MainCardId = 8,
+                            MainCardId = new Guid("9511c1d1-9ae9-419b-8435-01cc816ac4a6"),
                             CardContent = new[] { "Image_PcAssembly.png" },
                             CardHasFooter = false,
                             CardHasHeader = true,
@@ -232,13 +227,9 @@ namespace CompanyProjectCardsService.Migrations
 
             modelBuilder.Entity("CompanyProjectCardsService.Model.CardFooterItem", b =>
                 {
-                    b.HasOne("CompanyProjectCardsService.Model.MainCard", "MainCard")
+                    b.HasOne("CompanyProjectCardsService.Model.MainCard", null)
                         .WithMany("CardFooterItems")
-                        .HasForeignKey("MainCardId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("MainCard");
+                        .HasForeignKey("MainCardId");
                 });
 
             modelBuilder.Entity("CompanyProjectCardsService.Model.MainCard", b =>
