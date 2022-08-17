@@ -1,26 +1,22 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
-
-namespace CompanyProjectCardsService.Model;
+﻿namespace CompanyProjectCardsService.Model;
 
 
 public class CardFooterItem
 {
-    public int CardFooterItemId { get; set; }
+    public Guid CardFooterItemId { get; set; }
     public bool CardFooterItemIsLink { get; set; }
     public string? CardFooterItemLinkController { get; set; }
     public string? CardFooterItemLinkAction { get; set; }
     public string? CardFooterItemContent { get; set; }
 
-    public int MainCardId { get; set; } = 1;
-    public MainCard MainCard { get; set; }
+    //public Guid MainCardId { get; set; }
+    //public MainCard MainCard { get; set; }
 
 }
 
 public class MainCard
 {
-    public int MainCardId { get; set; }
+    public Guid MainCardId { get; set; }
     public string PageNameForCard { get; set; } = null!;
     public bool CardIsLink { get; set; }
     public string? CardLinkController { get; set; }
