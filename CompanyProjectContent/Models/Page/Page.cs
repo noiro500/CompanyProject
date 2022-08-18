@@ -10,8 +10,6 @@ namespace CompanyProjectContentService.Models.Page
         public string? ScreenName { get; set; }
         public string? Icon { get; set; }
         public bool ToNavbar { get; set; } = false;
-        //public bool ToCard { get; set; } = false;
-        //public string AspController { get; set; }
         public List<Paragraph.Paragraph> Paragraphs { get; set; }
 
 

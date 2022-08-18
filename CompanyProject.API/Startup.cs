@@ -41,6 +41,7 @@ namespace CompanyProject.API
                 {
                     httpClient.BaseAddress = new Uri("http://localhost:5000/");
                 });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

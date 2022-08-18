@@ -15,7 +15,6 @@ builder.Services.AddScoped<IInitialDbContent, InitialDbContent>();
 builder.Services.AddScoped<DbContext, CompanyProjectCardDbContext>();
 builder.Services.AddUnitOfWork();
 builder.Services.AddUnitOfWork<CompanyProjectCardDbContext>();
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
