@@ -52,7 +52,7 @@ namespace CompanyProjectCardsService.Migrations
                     b.HasData(
                         new
                         {
-                            CardFooterItemId = new Guid("eb550533-7e69-4850-9528-030a2ad3f209"),
+                            CardFooterItemId = new Guid("aa78bffb-0326-4d35-b238-99404a20c4a8"),
                             CardFooterItemIsLink = false
                         });
                 });
@@ -108,12 +108,14 @@ namespace CompanyProjectCardsService.Migrations
 
                     b.HasKey("MainCardId");
 
+                    b.HasIndex("PageNameForCard");
+
                     b.ToTable("MainCards");
 
                     b.HasData(
                         new
                         {
-                            MainCardId = new Guid("ec1c1d43-45d6-4c0b-99cf-bb410ed8b3be"),
+                            MainCardId = new Guid("d527d592-ba09-4265-8eba-1a87346d200d"),
                             CardContent = new[] { "Image_ComputersRepair.png" },
                             CardHasFooter = false,
                             CardHasHeader = true,
@@ -127,7 +129,7 @@ namespace CompanyProjectCardsService.Migrations
                         },
                         new
                         {
-                            MainCardId = new Guid("ff51059b-dd49-438f-89e0-50329ff1e9ab"),
+                            MainCardId = new Guid("1d4a6dab-3743-459d-97e2-5018a01b5e11"),
                             CardContent = new[] { "Image_LaptopsRepair.png" },
                             CardHasFooter = false,
                             CardHasHeader = true,
@@ -141,7 +143,7 @@ namespace CompanyProjectCardsService.Migrations
                         },
                         new
                         {
-                            MainCardId = new Guid("b35fc5ec-5873-4937-9b8c-0aee5bbf1549"),
+                            MainCardId = new Guid("d81ce3ba-b404-43c5-a848-963ef8fdcd3f"),
                             CardContent = new[] { "Image_HelpDesk.png" },
                             CardHasFooter = false,
                             CardHasHeader = true,
@@ -155,7 +157,7 @@ namespace CompanyProjectCardsService.Migrations
                         },
                         new
                         {
-                            MainCardId = new Guid("da218596-e949-47ae-9eec-5adeca9642b0"),
+                            MainCardId = new Guid("e8aa9a89-0472-4668-b182-9a3af235512a"),
                             CardContent = new[] { "Image_InternetNetworks.png" },
                             CardHasFooter = false,
                             CardHasHeader = true,
@@ -169,7 +171,7 @@ namespace CompanyProjectCardsService.Migrations
                         },
                         new
                         {
-                            MainCardId = new Guid("3afb5150-3bb6-4196-8f28-235ca9d27f0f"),
+                            MainCardId = new Guid("8baa4bdb-3534-4a09-b647-5baaeb935bc2"),
                             CardContent = new[] { "Image_DataRecovery.png" },
                             CardHasFooter = false,
                             CardHasHeader = true,
@@ -183,7 +185,7 @@ namespace CompanyProjectCardsService.Migrations
                         },
                         new
                         {
-                            MainCardId = new Guid("ac0f78c6-7ab0-4489-9da4-a9ecf93b2828"),
+                            MainCardId = new Guid("a7b1e1e2-d028-4858-bff5-4e77dcaf2141"),
                             CardContent = new[] { "Image_B2b.png" },
                             CardHasFooter = false,
                             CardHasHeader = true,
@@ -197,7 +199,7 @@ namespace CompanyProjectCardsService.Migrations
                         },
                         new
                         {
-                            MainCardId = new Guid("4d10ea4e-3bbc-4b60-8946-ab26e0afdd0f"),
+                            MainCardId = new Guid("31022cbe-59ba-46a4-a492-d143369416ed"),
                             CardContent = new[] { "Image_LaptopUpgrade.png" },
                             CardHasFooter = false,
                             CardHasHeader = true,
@@ -211,7 +213,7 @@ namespace CompanyProjectCardsService.Migrations
                         },
                         new
                         {
-                            MainCardId = new Guid("9511c1d1-9ae9-419b-8435-01cc816ac4a6"),
+                            MainCardId = new Guid("47b3ce27-e5c0-4563-9219-5433684bcfb4"),
                             CardContent = new[] { "Image_PcAssembly.png" },
                             CardHasFooter = false,
                             CardHasHeader = true,

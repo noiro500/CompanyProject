@@ -18,6 +18,22 @@
       "FileCacheOptions": {
         "TtlSeconds": 10
       }
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/v1/Card/{pageNameForCard}",
+      "UpstreamHttpMethod": ["Get"],
+      "DownstreamPathTemplate": "/api/v1/Card/{pageNameForCard}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5011
+        }
+      ],
+      "FileCacheOptions": {
+        "TtlSeconds": 10
+
+      }
     }
   ]
 }

@@ -28,5 +28,6 @@ public class CompanyProjectCardDbContext : DbContext
         modelBuilder.Entity<MainCard>()
             .HasMany(c => c.CardFooterItems)
             .WithOne();
+        modelBuilder.Entity<MainCard>().HasIndex(p => p.PageNameForCard);
     }
 }

@@ -58,27 +58,32 @@ namespace CompanyProjectCardsService.Migrations
             migrationBuilder.InsertData(
                 table: "CardFooterItem",
                 columns: new[] { "CardFooterItemId", "CardFooterItemContent", "CardFooterItemIsLink", "CardFooterItemLinkAction", "CardFooterItemLinkController", "MainCardId" },
-                values: new object[] { new Guid("eb550533-7e69-4850-9528-030a2ad3f209"), null, false, null, null, null });
+                values: new object[] { new Guid("aa78bffb-0326-4d35-b238-99404a20c4a8"), null, false, null, null, null });
 
             migrationBuilder.InsertData(
                 table: "MainCards",
                 columns: new[] { "MainCardId", "CardContent", "CardHasFooter", "CardHasHeader", "CardHasImage", "CardHeaderContent", "CardHeaderIcon", "CardHeaderIsLink", "CardHeaderLinkAction", "CardHeaderLinkController", "CardImage", "CardIsLink", "CardLinkAction", "CardLinkController", "PageNameForCard" },
                 values: new object[,]
                 {
-                    { new Guid("3afb5150-3bb6-4196-8f28-235ca9d27f0f"), new[] { "Image_DataRecovery.png" }, false, true, false, new[] { "Восстановление данных" }, null, false, null, null, null, true, "DataRecovery", "Home", "Index" },
-                    { new Guid("4d10ea4e-3bbc-4b60-8946-ab26e0afdd0f"), new[] { "Image_LaptopUpgrade.png" }, false, true, false, new[] { "Модернизация ноутбука" }, null, false, null, null, null, true, "LaptopUpgrade", "Home", "Index" },
-                    { new Guid("9511c1d1-9ae9-419b-8435-01cc816ac4a6"), new[] { "Image_PcAssembly.png" }, false, true, false, new[] { "Сборка компьютера" }, null, false, null, null, null, true, "PcAssembly", "Home", "Index" },
-                    { new Guid("ac0f78c6-7ab0-4489-9da4-a9ecf93b2828"), new[] { "Image_B2b.png" }, false, true, false, new[] { "ИТ-услуги для бизнеса" }, null, false, null, null, null, true, "B2b", "Home", "Index" },
-                    { new Guid("b35fc5ec-5873-4937-9b8c-0aee5bbf1549"), new[] { "Image_HelpDesk.png" }, false, true, false, new[] { "Компьютерная помощь" }, null, false, null, null, null, true, "HelpDesk", "Home", "Index" },
-                    { new Guid("da218596-e949-47ae-9eec-5adeca9642b0"), new[] { "Image_InternetNetworks.png" }, false, true, false, new[] { "Интернет и сети" }, null, false, null, null, null, true, "InternetNetworks", "Home", "Index" },
-                    { new Guid("ec1c1d43-45d6-4c0b-99cf-bb410ed8b3be"), new[] { "Image_ComputersRepair.png" }, false, true, false, new[] { "Ремонт компьютеров" }, null, false, null, null, null, true, "ComputersRepair", "Home", "Index" },
-                    { new Guid("ff51059b-dd49-438f-89e0-50329ff1e9ab"), new[] { "Image_LaptopsRepair.png" }, false, true, false, new[] { "Ремонт ноутбуков" }, null, false, null, null, null, true, "LaptopsRepair", "Home", "Index" }
+                    { new Guid("1d4a6dab-3743-459d-97e2-5018a01b5e11"), new[] { "Image_LaptopsRepair.png" }, false, true, false, new[] { "Ремонт ноутбуков" }, null, false, null, null, null, true, "LaptopsRepair", "Home", "Index" },
+                    { new Guid("31022cbe-59ba-46a4-a492-d143369416ed"), new[] { "Image_LaptopUpgrade.png" }, false, true, false, new[] { "Модернизация ноутбука" }, null, false, null, null, null, true, "LaptopUpgrade", "Home", "Index" },
+                    { new Guid("47b3ce27-e5c0-4563-9219-5433684bcfb4"), new[] { "Image_PcAssembly.png" }, false, true, false, new[] { "Сборка компьютера" }, null, false, null, null, null, true, "PcAssembly", "Home", "Index" },
+                    { new Guid("8baa4bdb-3534-4a09-b647-5baaeb935bc2"), new[] { "Image_DataRecovery.png" }, false, true, false, new[] { "Восстановление данных" }, null, false, null, null, null, true, "DataRecovery", "Home", "Index" },
+                    { new Guid("a7b1e1e2-d028-4858-bff5-4e77dcaf2141"), new[] { "Image_B2b.png" }, false, true, false, new[] { "ИТ-услуги для бизнеса" }, null, false, null, null, null, true, "B2b", "Home", "Index" },
+                    { new Guid("d527d592-ba09-4265-8eba-1a87346d200d"), new[] { "Image_ComputersRepair.png" }, false, true, false, new[] { "Ремонт компьютеров" }, null, false, null, null, null, true, "ComputersRepair", "Home", "Index" },
+                    { new Guid("d81ce3ba-b404-43c5-a848-963ef8fdcd3f"), new[] { "Image_HelpDesk.png" }, false, true, false, new[] { "Компьютерная помощь" }, null, false, null, null, null, true, "HelpDesk", "Home", "Index" },
+                    { new Guid("e8aa9a89-0472-4668-b182-9a3af235512a"), new[] { "Image_InternetNetworks.png" }, false, true, false, new[] { "Интернет и сети" }, null, false, null, null, null, true, "InternetNetworks", "Home", "Index" }
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_CardFooterItem_MainCardId",
                 table: "CardFooterItem",
                 column: "MainCardId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_MainCards_PageNameForCard",
+                table: "MainCards",
+                column: "PageNameForCard");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

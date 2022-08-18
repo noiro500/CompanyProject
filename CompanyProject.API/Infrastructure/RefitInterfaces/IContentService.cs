@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using CompanyProject.API.Infrastructure.Dto;
 using CompanyProject.API.Infrastructure.HelpClasses;
 using Refit;
@@ -12,4 +13,8 @@ public interface IContentService
 
     [Get("/gateway/v1/Content/{pageName}")]
     Task<PageDto> GetPageContentAsync(string pageName);
+
+    [Get("/gateway/v1/Card/{pageNameForCard}")]
+    Task< IList<MainCard>> GetCards(string pageNameForCard);
+
 }
