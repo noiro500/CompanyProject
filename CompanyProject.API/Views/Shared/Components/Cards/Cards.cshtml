@@ -1,22 +1,42 @@
-﻿@model IList<CardViewModel>
+﻿@using CompanyProject.API.Infrastructure.Dto
+@model IList<MainCardDto>
 <div class="columns is-multiline">
     @foreach (var card in @Model)
     {
         <div class="column is-one-quarter ">
-            <a asp-controller="@card.AspController" asp-action="@card.AspAction">
-                <div class="card">
-                    <header class="card-header ">
-                        <span class="card-header-title is-centered">@card.ScreenName</span>
-                    </header>
-                    <div class="card-content is-hidden-touch">
-                        <div class="media">
-                            <figure class="image displayed">
-                                <img src="~/Resources/CardImage/@card.Image" alt="@card.ScreenName" asp-append-version="true" />
-                            </figure>
-                        </div>
+            @if (card.CardIsLink)
+            {
+                string cardTitle = default;
+                <a asp-controller="@card.CardLinkController" asp-action="@card.CardLinkAction">
+                    <div class="card">
+                        @if (card.CardHasHeader)
+                        {
+                            <header class="card-header ">
+                                @foreach (var cardHeadContent in card.CardHeaderContent)
+                                {
+                                    <span class="card-header-title is-centered">@cardHeadContent.ToUpper()</span>
+                                }
+                            </header>
+                            cardTitle = card.CardHeaderContent[0];
+                        }
+                        @foreach (var cardContent in card.CardContent)
+                        {
+                            <div class="card-content is-hidden-touch">
+                                <div class="content">
+                                    @if (cardContent.IndexOf(".png", StringComparison.CurrentCulture) != -1)
+                                    {
+                                        <div class="media">
+                                            <figure class="image displayed">
+                                                <img src="~/Resources/CardImage/@cardContent" alt="@cardTitle" asp-append-version="true" />
+                                            </figure>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        }
                     </div>
-                </div>
-            </a>
+                </a>
+            }
         </div>
     }
 </div>

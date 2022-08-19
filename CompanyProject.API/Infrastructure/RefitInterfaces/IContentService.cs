@@ -15,6 +15,6 @@ public interface IContentService
     Task<PageDto> GetPageContentAsync(string pageName);
 
     [Get("/gateway/v1/Card/{pageNameForCard}")]
-    Task< IList<MainCard>> GetCards(string pageNameForCard);
+    Task< IList<MainCardDto>> GetCards(string pageNameForCard);
 
 }

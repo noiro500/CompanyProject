@@ -21,7 +21,7 @@ namespace CompanyProjectCardsService.Controller
             var repository = _unitOfWork.Repository<MainCard>();
             var query = repository.MultipleResultQuery().AndFilter(card => card.PageNameForCard == pageNameForCard)
                 .Include(s => s.Include(c => c.CardFooterItems));
-            var result = repository.Search(query).ToList();
+            var result = repository.Search(query);
             return Ok(result);
         }
     }

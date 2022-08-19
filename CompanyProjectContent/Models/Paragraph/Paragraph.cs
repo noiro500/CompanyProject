@@ -1,4 +1,6 @@
-﻿namespace CompanyProjectContentService.Models.Paragraph
+﻿using System.Text.Json.Serialization;
+
+namespace CompanyProjectContentService.Models.Paragraph
 {
     public class Paragraph
     {
@@ -11,6 +13,7 @@
         public bool IsMobileVisible { get; set; } = false;
         public string[] Content { get; set; }
         public int PageId { get; set; }
+        [JsonIgnore]
         public Page.Page Page { get; set; }
 
 

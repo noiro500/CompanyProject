@@ -15,7 +15,7 @@
     "CardHasImage": false,
     "CardImage": null,
     "CardContent": [
-      "Image_ComputersRepair.png"
+      "ComputersRepair.png"
     ],
     "CardHasFooter": false
   },
@@ -35,7 +35,7 @@
     "CardHasImage": false,
     "CardImage": null,
     "CardContent": [
-      "Image_LaptopsRepair.png"
+      "LaptopsRepair.png"
     ],
     "CardHasFooter": false
   },
@@ -55,7 +55,7 @@
     "CardHasImage": false,
     "CardImage": null,
     "CardContent": [
-      "Image_HelpDesk.png"
+      "HelpDesk.png"
     ],
     "CardHasFooter": false
   },
@@ -75,7 +75,7 @@
     "CardHasImage": false,
     "CardImage": null,
     "CardContent": [
-      "Image_InternetNetworks.png"
+      "InternetNetworks.png"
     ],
     "CardHasFooter": false
   },
@@ -95,7 +95,7 @@
     "CardHasImage": false,
     "CardImage": null,
     "CardContent": [
-      "Image_DataRecovery.png"
+      "DataRecovery.png"
     ],
     "CardHasFooter": false
   },
@@ -115,7 +115,7 @@
     "CardHasImage": false,
     "CardImage": null,
     "CardContent": [
-      "Image_B2b.png"
+      "B2b.png"
     ],
     "CardHasFooter": false
   },
@@ -135,7 +135,7 @@
     "CardHasImage": false,
     "CardImage": null,
     "CardContent": [
-      "Image_LaptopUpgrade.png"
+      "LaptopUpgrade.png"
     ],
     "CardHasFooter": false
   },
@@ -155,7 +155,7 @@
     "CardHasImage": false,
     "CardImage": null,
     "CardContent": [
-      "Image_PcAssembly.png"
+      "PcAssembly.png"
     ],
     "CardHasFooter": false
   }
