@@ -8,10 +8,7 @@ public class CardFooterItem
     public string? CardFooterItemLinkController { get; set; }
     public string? CardFooterItemLinkAction { get; set; }
     public string? CardFooterItemContent { get; set; }
-
-    //public Guid MainCardId { get; set; }
-    //public MainCard MainCard { get; set; }
-
+    
 }
 
 public class MainCard

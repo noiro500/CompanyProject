@@ -27,16 +27,14 @@ namespace CompanyProject.API.Controllers
         {
             try
             {
+                ViewBag.pageNameForCard = RouteData.Values["action"].ToString();
                 var resultAsync = await _contentService.GetPageContentAsync(RouteData.Values["action"].ToString());
-                
-                //Отправить во ViewComponent
-                var Cards = await _contentService.GetCards(RouteData.Values["action"].ToString());
                 return View(resultAsync);
             }
             catch (Exception e)
             {
                 return Content("Ой!!! Что-то пошло не так, но мы работаем над этим и скоро исправим.");
-                }
+            }
 
         }
 
