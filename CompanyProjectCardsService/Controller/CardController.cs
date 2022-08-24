@@ -14,8 +14,8 @@ namespace CompanyProjectCardsService.Controller
         public CardController(IUnitOfWork unitOfWork) => _unitOfWork = unitOfWork ?? throw new AggregateException(nameof(unitOfWork));
 
         [HttpGet("{pageNameForCard:alpha}")]
-        [ProducesResponseType(200, Type = typeof(MainCard))]
-        [ProducesResponseType(400)]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MainCard))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult GetCards(string pageNameForCard)
         {
             var repository = _unitOfWork.Repository<MainCard>();
