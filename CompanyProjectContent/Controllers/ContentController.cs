@@ -14,8 +14,8 @@ public class ContentController : ControllerBase
     public ContentController(IUnitOfWork unitOfWork) =>_unitOfWork=unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
     // GET
     [HttpGet("{pageName:alpha}")]
-    [ProducesResponseType(200, Type = typeof(Page))]
-    [ProducesResponseType(400)]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Page))]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult> GetPageContentAsync(string pageName)
     {
         var repository =_unitOfWork.Repository<Page>();
