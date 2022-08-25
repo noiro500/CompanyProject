@@ -15,8 +15,6 @@ namespace CompanyProject.API.Infrastructure.ViewComponents
 {
     public class Cards: ViewComponent
     {
-        //private readonly IRepository<Page> _context;
-        //private readonly IUnitOfWork _unitOfWork;
         private readonly IContentService _contentService;
 
         public Cards(IContentService contentService)

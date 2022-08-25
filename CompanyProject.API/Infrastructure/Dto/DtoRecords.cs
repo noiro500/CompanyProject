@@ -26,3 +26,11 @@ public record MainCardDto
     List<string>? CardContent,
     bool CardHasFooter,
     List<CardFooterItemDto>? CardFooterItems);
+
+public record PriceListDto(Guid PriceListId,
+    string ServiceName,
+    string PageName,
+    string IdServiceName,
+    string Service,
+    string[]? NeedWorks,
+    string? ServicePrice);
