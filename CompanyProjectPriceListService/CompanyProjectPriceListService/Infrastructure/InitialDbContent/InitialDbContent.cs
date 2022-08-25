@@ -1,4 +1,5 @@
-﻿using CompanyProjectPriceListService.Model;
+﻿using System.Globalization;
+using CompanyProjectPriceListService.Model;
 using Microsoft.Extensions.FileProviders;
 using System.Text.Json;
 
@@ -16,9 +17,13 @@ public class InitialDbContent : IInitialDbContent
     public IList<PriceList> InitialDbPriceListContent()
     {
         IFileProvider getCurrentDirectory = new PhysicalFileProvider(Directory.GetCurrentDirectory());
-        var jsonData = JsonSerializer.Deserialize<List<PriceList>>(File.ReadAllText(getCurrentDirectory.GetFileInfo("/wwwroot/Resources/DbSeed/InitialDBPriceLists.json").PhysicalPath));
+        var jsonDesData = JsonSerializer.Deserialize<List<PriceList>>(File.ReadAllText(getCurrentDirectory.GetFileInfo("/wwwroot/Resources/DbSeed/InitialDBPriceLists.json").PhysicalPath));
         int i = 0;
-        jsonData.ForEach(p => p.PriceListId = Guid.NewGuid());
-        return jsonData;
+        jsonDesData.ForEach(p =>
+        {
+            p.PriceListId = Guid.NewGuid();
+            p.PageName = p.PageName.ToLower(CultureInfo.CurrentCulture);
+        });
+        return jsonDesData;
     }
 }

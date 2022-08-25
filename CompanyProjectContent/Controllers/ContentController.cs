@@ -13,17 +13,17 @@ public class ContentController : ControllerBase
 
     public ContentController(IUnitOfWork unitOfWork) =>_unitOfWork=unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
     // GET
-    [HttpGet("{pageName:alpha}")]
+    [HttpGet("{pageName:regex(^\\w+$)}")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Page))]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult> GetPageContentAsync(string pageName)
+    public async Task<IActionResult> GetPageContentAsync(string pageName)
     {
         var repository =_unitOfWork.Repository<Page>();
         var query = repository.SingleResultQuery().AndFilter(page => page.Name == pageName)
             .Include(source => source.Include(p => p.Paragraphs));
         var result =await repository.FirstOrDefaultAsync(query);
         if (result is null)
-            return NoContent();
+            return NotFound();
         return Ok(result);
     }
 }

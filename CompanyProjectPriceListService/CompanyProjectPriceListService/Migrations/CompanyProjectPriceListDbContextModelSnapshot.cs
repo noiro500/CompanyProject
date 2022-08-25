@@ -57,610 +57,610 @@ namespace CompanyProjectPriceListService.Migrations
                     b.HasData(
                         new
                         {
-                            PriceListId = new Guid("5be1369e-ccfd-42f3-b494-4b930342b348"),
+                            PriceListId = new Guid("ce418395-32e8-4519-bb9e-5691e86d3569"),
                             IdServiceName = "computers-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Замена материнской платы компьютера", "Замена блока питания компьютера", "Работы по замене шлейфов или питающих кабелей", "Ремонт блока питания (проводится в сервисном центре)", "Восстановление работоспособности (замена) кнопки включения", "Прочие необходимые работы" },
-                            PageName = "ComputersRepair",
+                            PageName = "computersrepair",
                             Service = "Компьютер не включается",
                             ServiceName = "Ремонт компьютеров",
                             ServicePrice = "4000"
                         },
                         new
                         {
-                            PriceListId = new Guid("30ef3f42-2dd3-4f66-b1a1-a5e18f7cb273"),
+                            PriceListId = new Guid("41770724-3f30-4ad4-ae28-d2627a72fe3e"),
                             IdServiceName = "computers-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Замена материнской платы компьютера", "Замена блока питания компьютера", "Работы по замене шлейфов или питающих кабелей", "Ремонт блока питания (проводится в сервисном центре)", "Восстановление работоспособности (замена) кнопки включения", "Прочие необходимые работы" },
-                            PageName = "ComputersRepair",
+                            PageName = "computersrepair",
                             Service = "Устранение \"красного экрана\" на компьютере",
                             ServiceName = "Ремонт компьютеров",
                             ServicePrice = "4000"
                         },
                         new
                         {
-                            PriceListId = new Guid("7f2981b8-b55a-42ad-a670-56fa1aca8a55"),
+                            PriceListId = new Guid("90fcef9b-402e-4965-a0ae-5de5964928fa"),
                             IdServiceName = "computers-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Установка Windows XP - Windows 11", "Поиск и установка драйверов устройств", "Восстановление корректной работы, обеспечение совместимости драйвера с текущей версией операционной системы", "Удаление временных, мусорных системных файлов", "Чистка системного реестра Windows", "Устранение последствий действия вирусов, восстановление работы операционной системы", "Выявление и устранение неполадок программного обеспечения", "Поиск и исправление ошибок системного реестра Windows", "Настройка таймингов оперативной памяти в BIOS", "Устранение перегрева компьютера, профилактические работы, чистка от пыли, замена термопасты и термопрокладок", "Основная антивирусная профилактика (удаление СМС-вымогателя, трояна, баннера, других вирусов)", "Прочие необходимые работы" },
-                            PageName = "ComputersRepair",
+                            PageName = "computersrepair",
                             Service = "Устранение \"синего экрана\" на компьютере",
                             ServiceName = "Ремонт компьютеров",
                             ServicePrice = "3000"
                         },
                         new
                         {
-                            PriceListId = new Guid("a78b4b23-61c0-4590-a926-95be189916a2"),
+                            PriceListId = new Guid("634ba727-a148-4cde-8a8f-cb8a69920c79"),
                             IdServiceName = "computers-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Восстановление корректной работы, обеспечение совместимости драйвера с текущей версией операционной системы", "Настройка автозагрузки Windows", "Удаление временных, мусорных системных файлов", "Чистка системного реестра Windows", "Выявление и устранение неполадок программного обеспечения", "Поиск и исправление ошибок системного реестра Windows", "Настройка таймингов оперативной памяти в BIOS", "Основная антивирусная профилактика (удаление СМС-вымогателя, трояна, баннера, других вирусов)", "Прочие необходимые работы" },
-                            PageName = "ComputersRepair",
+                            PageName = "computersrepair",
                             Service = "Устарнение ошибок при работе компьютера",
                             ServiceName = "Ремонт компьютеров",
                             ServicePrice = "5000"
                         },
                         new
                         {
-                            PriceListId = new Guid("3519f203-7d93-4b0f-a348-830d7f50d509"),
+                            PriceListId = new Guid("3e2af4d8-ee7a-42ed-a7ed-00709df09e6a"),
                             IdServiceName = "computers-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Установка Windows XP - Windows 10", "Настройка автозагрузки Windows", "Удаление временных, мусорных системных файлов", "Чистка системного реестра Windows", "Поиск и исправление ошибок системного реестра Windows", "Устранение перегрева компьютера, профилактические работы, чистка от пыли, замена термопасты и термопрокладок", "Основная антивирусная профилактика (удаление СМС-вымогателя, трояна, баннера, других вирусов)", "Глубокая антивирусная профилактика (устранение последствий действия вирусов, восстановление работы операционной системы)", "Прочие необходимые работы" },
-                            PageName = "ComputersRepair",
+                            PageName = "computersrepair",
                             Service = "Устранение зависания компьютера",
                             ServiceName = "Ремонт компьютеров",
                             ServicePrice = "4000"
                         },
                         new
                         {
-                            PriceListId = new Guid("6ebffd05-8bd7-46d7-9736-82a003cf7278"),
+                            PriceListId = new Guid("9249b960-863b-4b04-bb08-5074645695d3"),
                             IdServiceName = "computers-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Выявление и устранение неполадок программного обеспечения", "Замена оперативной памяти компьютера", "Устранение перегрева компьютера, профилактические работы, чистка от пыли, замена термопасты и термопрокладок", "Прочие необходимые работы" },
-                            PageName = "ComputersRepair",
+                            PageName = "computersrepair",
                             Service = "Устранение самопроизвольной перезагрузки компьютера",
                             ServiceName = "Ремонт компьютеров",
                             ServicePrice = "4000"
                         },
                         new
                         {
-                            PriceListId = new Guid("fe9fd491-c2be-4894-9556-c378f6710486"),
+                            PriceListId = new Guid("78f3d337-e3e8-490f-b8a9-009310709c46"),
                             IdServiceName = "computers-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Замена вентилятора (кулера) компьютера", "Замена системы охлаждения компьютера", "Устранение перегрева компьютера, профилактические работы, чистка от пыли, замена термопасты и термопрокладок", "Прочие необходимые работы" },
-                            PageName = "ComputersRepair",
+                            PageName = "computersrepair",
                             Service = "Устарнение повышенного шума компьютера",
                             ServiceName = "Ремонт компьютеров",
                             ServicePrice = "3000"
                         },
                         new
                         {
-                            PriceListId = new Guid("362d6a15-05ed-4164-94dd-aef7147a2c99"),
+                            PriceListId = new Guid("9f844bde-5f90-4623-bf86-b634b8476733"),
                             IdServiceName = "computers-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Замена вентилятора (кулера) компьютера", "Замена системы охлаждения компьютера", "Устранение перегрева компьютера, профилактические работы, чистка от пыли, замена термопасты и термопрокладок", "Прочие необходимые работы" },
-                            PageName = "ComputersRepair",
+                            PageName = "computersrepair",
                             Service = "Устранение перегрева компьютера",
                             ServiceName = "Ремонт компьютеров",
                             ServicePrice = "3000"
                         },
                         new
                         {
-                            PriceListId = new Guid("7a75876c-e2e8-4bb4-b62c-1e41e6020ee2"),
+                            PriceListId = new Guid("3fb95baf-f2f3-4b7b-9397-981f8ea2e04d"),
                             IdServiceName = "computers-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Установка Windows XP - Windows 10", "Основная антивирусная профилактика (удаление СМС-вымогателя, трояна, баннера, других вирусов)", "Замена материнской платы компьютера", "Замена блока питания компьютера", "Замена жесткого диска компьютера", "Замена вентилятора (кулера) компьютера", "Замена системы охлаждения компьютера", "Работы по замене шлейфов или питающих кабелей", "Прочие необходимые работы" },
-                            PageName = "ComputersRepair",
+                            PageName = "computersrepair",
                             Service = "Прочие проблемы с компьютером",
                             ServiceName = "Ремонт компьютеров",
                             ServicePrice = "4000"
                         },
                         new
                         {
-                            PriceListId = new Guid("9ab15977-6020-47b6-bc37-1783275ad078"),
+                            PriceListId = new Guid("b470edb9-8e2d-46bc-a9dd-33a873df0601"),
                             IdServiceName = "computer-assistance-pc",
                             NeedWorks = new[] { "Диагностика оборудования", "Установка Windows XP - Windows 10", "Поиск и установка драйвера устройства", "Индивидуальные настройки операционной системы", "Разбивка жесткого диска на разделы", "Прочие необходимые работы" },
-                            PageName = "ComputersRepair",
+                            PageName = "computersrepair",
                             Service = "Установка Windows (включая установку драйверов на оборудование)",
                             ServiceName = "Компьютерная помощь (компьютер)",
                             ServicePrice = "3000"
                         },
                         new
                         {
-                            PriceListId = new Guid("dc95b505-b43a-46e9-9a75-2a53abbba4e2"),
+                            PriceListId = new Guid("b6940ca6-a9e3-4dc3-aa36-fe7283a3d280"),
                             IdServiceName = "computer-assistance-pc",
                             NeedWorks = new[] { "Диагностика оборудования", "Основная антивирусная профилактика (удаление СМС-вымогателя, трояна, баннера, других вирусов)", "Глубокая антивирусная профилактика (Устранение последствий действия вирусов, восстановление работы операционной системы)", "Установка Windows XP - Windows 10", "Прочие необходимые работы" },
-                            PageName = "ComputersRepair",
+                            PageName = "computersrepair",
                             Service = "Удаление вирусов",
                             ServiceName = "Компьютерная помощь (компьютер)",
                             ServicePrice = "2000"
                         },
                         new
                         {
-                            PriceListId = new Guid("a2d020f7-6b7e-44d2-89f8-2564f1be6def"),
+                            PriceListId = new Guid("045751db-3874-4cd4-8cba-234cae317b6f"),
                             IdServiceName = "computer-assistance-pc",
                             NeedWorks = new[] { "Диагностика оборудования", "Установка программ" },
-                            PageName = "ComputersRepair",
+                            PageName = "computersrepair",
                             Service = "Установка программ (один экземпляр)",
                             ServiceName = "Компьютерная помощь (компьютер)",
                             ServicePrice = "400"
                         },
                         new
                         {
-                            PriceListId = new Guid("6c761a07-d494-47d9-becf-6d14d7e2e3c3"),
+                            PriceListId = new Guid("3a5ea583-a88f-4f36-b8d7-9ca465c13aed"),
                             IdServiceName = "computer-assistance-pc",
                             NeedWorks = new[] { "Диагностика оборудования", "Подбор и установка любого антивируса", "Подбор и установка фаервола", "Индивидуальная тонкая настройка антивируса, фаервола или брандмауэра", "Прочие необходимые работы" },
-                            PageName = "ComputersRepair",
+                            PageName = "computersrepair",
                             Service = "Установка и настройка антивируса",
                             ServiceName = "Компьютерная помощь (компьютер)",
                             ServicePrice = "1400"
                         },
                         new
                         {
-                            PriceListId = new Guid("1eaf4860-71dd-4fcc-94de-e8effe676242"),
+                            PriceListId = new Guid("f292122b-d63e-4079-afee-c33f333a9b8e"),
                             IdServiceName = "computer-assistance-pc",
                             NeedWorks = new[] { "Диагностика оборудования", "Поиск и установка драйвера устройства", "Восстановление корректной работы, обеспечение совместимости драйвера с текущей версией операционной системы" },
-                            PageName = "ComputersRepair",
+                            PageName = "computersrepair",
                             Service = "Установка драйверов (один экземпляр)",
                             ServiceName = "Компьютерная помощь (компьютер)",
                             ServicePrice = "600"
                         },
                         new
                         {
-                            PriceListId = new Guid("26dcc5c0-8588-4610-ae83-303372e0a73b"),
+                            PriceListId = new Guid("bc64e5d2-2766-4b59-bcf9-f4086c4dd7bd"),
                             IdServiceName = "computer-assistance-pc",
                             NeedWorks = new[] { "Диагностика оборудования", "Восстановление корректной работы, обеспечение совместимости драйвера с текущей версией операционной системы", "Настройка автозагрузки Windows", "Индивидуальные настройки операционной системы", "Удаление временных, мусорных системных файлов", "Чистка системного реестра Windows", "Индивидуальная тонкая настройка антивируса, фаервола или брандмауэра", "Выявление и устранение неполадок программного обеспечения", "Прочие необходимые работы" },
-                            PageName = "ComputersRepair",
+                            PageName = "computersrepair",
                             Service = "Настройка компьютера",
                             ServiceName = "Компьютерная помощь (компьютер)",
                             ServicePrice = "2000"
                         },
                         new
                         {
-                            PriceListId = new Guid("9f158b87-e404-4a74-b446-5adcdb9e7901"),
+                            PriceListId = new Guid("a22f0c26-02b0-4c0f-8e48-efaf81a1df34"),
                             IdServiceName = "pc-assembly",
                             NeedWorks = new[] { "Сборка компьютера на заказ" },
-                            PageName = "ComputersRepair",
+                            PageName = "computersrepair",
                             Service = "Сборка компьютера на заказ",
                             ServiceName = "Сборка компьютера",
                             ServicePrice = "10% от стоимости компьютера + 500"
                         },
                         new
                         {
-                            PriceListId = new Guid("db59b798-4fb8-4740-833e-72f94bfece16"),
+                            PriceListId = new Guid("a01ca895-6d13-4774-abd0-15ea92dd79f0"),
                             IdServiceName = "pc-assembly",
                             NeedWorks = new[] { "Диагностика оборудования", "Модернизация компьютера на заказ" },
-                            PageName = "ComputersRepair",
+                            PageName = "computersrepair",
                             Service = "Модернизация компьютера на заказ",
                             ServiceName = "Сборка компьютера",
                             ServicePrice = "10% от стоимости новых комплектующих + 500"
                         },
                         new
                         {
-                            PriceListId = new Guid("b8b8a2b5-ef75-4176-ba69-a57559bcc58d"),
+                            PriceListId = new Guid("86465dc4-0b2c-40c0-9eb1-c87060789bfc"),
                             IdServiceName = "pc-service",
                             NeedWorks = new[] { "Частичная разборка системного блока", "Чистка системы охлаждения процессора от пыли", "Чистка системы охлаждения видеокарты от пыли", "Чистка системы охлаждения материнмкой платы от пыли", "Замена пермопасты на процессоре", "Замена пермопасты на чипе видеокарты" },
-                            PageName = "ComputersRepair",
+                            PageName = "computersrepair",
                             Service = "Чистка компьютера от пыли с заменой термопасты",
                             ServiceName = "Обслуживание компьютера",
                             ServicePrice = "3000"
                         },
                         new
                         {
-                            PriceListId = new Guid("b93b0817-986a-4160-8396-0ef79618cbf3"),
+                            PriceListId = new Guid("ba782f9e-4170-4bfa-b81b-05aa88fe3ff4"),
                             IdServiceName = "pc-service",
                             NeedWorks = new[] { "Чистка системы охлаждения процессора от пыли", "Чистка системы охлаждения видеокарты от пыли", "Чистка системы охлаждения материнмкой платы от пыли" },
-                            PageName = "ComputersRepair",
+                            PageName = "computersrepair",
                             Service = "Чистка компьютера от пыли без замены термопасты",
                             ServiceName = "Обслуживание компьютера",
                             ServicePrice = "2000"
                         },
                         new
                         {
-                            PriceListId = new Guid("c03fa110-4892-4eef-9e38-80649795131b"),
+                            PriceListId = new Guid("a394221a-426c-4f8a-a6a5-24943ef2d7c6"),
                             IdServiceName = "laptop-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Замена материнской платы ноутбука", "Замена жесткого диска ноутбука", "Замена оперативной памяти ноутбука", "Замена видеокарты ноутбука", "Работы по замене шлейфа или питающих кабелей ноутбука", "Ремонт цепи питания ноутбука", "Ремонт материнской платы ноутбука", "Устранение перегрева ноутбука, профилактические работы, чистка от пыли, замена термопасты и термопрокладок", "Прочие необходимые работы" },
-                            PageName = "LaptopsRepair",
+                            PageName = "laptopsrepair",
                             Service = "Не включается ноутбук",
                             ServiceName = "Ремонт ноутбуков",
                             ServicePrice = "5000"
                         },
                         new
                         {
-                            PriceListId = new Guid("8019781d-50d8-4c54-9989-340fd5b3ffe3"),
+                            PriceListId = new Guid("1e2f4a84-c382-4752-9a84-5ce5834e8343"),
                             IdServiceName = "laptop-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Замена оперативной памяти ноутбука", "Замена видеокарты ноутбука", "Замена жесткого диска ноутбука", "Замена материнской платы ноутбука", "Ремонт системы охлаждения ноутбука", "Восстановление работоспособности жесткого диска ноутбука, повторная разметка секторов (Remap)", "Устранение перегрева ноутбука, профилактические работы, чистка от пыли, замена термопасты и термопрокладок", "Прочие необходимые работы" },
-                            PageName = "LaptopsRepair",
+                            PageName = "laptopsrepair",
                             Service = "Устранение \"красного экрана\" на ноутбуке",
                             ServiceName = "Ремонт ноутбуков",
                             ServicePrice = "5000"
                         },
                         new
                         {
-                            PriceListId = new Guid("66b30977-2e72-441e-a39d-66b039862d24"),
+                            PriceListId = new Guid("6a332757-7b7e-4b0d-ac6c-e2f2b07d7366"),
                             IdServiceName = "laptop-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Замена материнской платы ноутбука", "Замена блока питания ноутбука", "Работы по замене шлейфов или питающих кабелей", "Ремонт блока питания (проводится в сервисном центре)", "Замена отдельных комплектующих ноутбука", "Прочие необходимые работы" },
-                            PageName = "LaptopsRepair",
+                            PageName = "laptopsrepair",
                             Service = "Устранение \"синего экрана\" на ноутбуке",
                             ServiceName = "Ремонт ноутбуков",
                             ServicePrice = "5000"
                         },
                         new
                         {
-                            PriceListId = new Guid("02072a71-02be-4b71-8102-2840c993b404"),
+                            PriceListId = new Guid("9327fc8f-0988-4f4d-bf1e-25a7ea638f68"),
                             IdServiceName = "laptop-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Восстановление корректной работы, обеспечение совместимости драйвера с текущей версией операционной системы", "Настройка автозагрузки Windows", "Удаление временных, мусорных системных файлов", "Чистка системного реестра Windows", "Основная антивирусная профилактика (удаление СМС-вымогателя, трояна, баннера, других вирусов) ", "Выявление и устранение неполадок программного обеспечения", "Поиск и исправление ошибок системного реестра Windows", "Восстановление работоспособности жесткого диска ноутбука, повторная разметка секторов (Remap)", "Прочие необходимые работы" },
-                            PageName = "LaptopsRepair",
+                            PageName = "laptopsrepair",
                             Service = "Устарнение ошибок при работе ноутбука",
                             ServiceName = "Ремонт ноутбуков",
                             ServicePrice = "6000"
                         },
                         new
                         {
-                            PriceListId = new Guid("9727600e-30e3-411e-827d-e02ddae1edc6"),
+                            PriceListId = new Guid("eb71acab-8416-4173-b0fc-e25e059283d8"),
                             IdServiceName = "laptop-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Установка Windows XP - Windows 10", "Восстановление корректной работы, обеспечение совместимости драйвера с текущей версией операционной системы", "Удаление временных, мусорных системных файлов", "Чистка системного реестра Windows", "Глубокая антивирусная профилактика (устранение последствий действия вирусов, восстановление работы операционной системы)", "Выявление и устранение неполадок программного обеспечения", "Поиск и исправление ошибок системного реестра Windows", "Ремонт системы охлаждения ноутбука", "Устранение перегрева ноутбука, профилактические работы, чистка от пыли, замена термопасты и термопрокладок", "Прочие необходимые работы" },
-                            PageName = "LaptopsRepair",
+                            PageName = "laptopsrepair",
                             Service = "Устранение зависания ноутбука",
                             ServiceName = "Ремонт ноутбуков",
                             ServicePrice = "5000"
                         },
                         new
                         {
-                            PriceListId = new Guid("e51a815c-f51d-4e1a-af42-78512de81e04"),
+                            PriceListId = new Guid("dfe08b7d-83c7-4674-8161-3f86173e545b"),
                             IdServiceName = "laptop-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Восстановление корректной работы, обеспечение совместимости драйвера с текущей версией операционной системы", "Чистка системного реестра Windows", "Выявление и устранение неполадок программного обеспечения", "Поиск и исправление ошибок системного реестра Windows", "Ремонт системы охлаждения ноутбука", "Устранение перегрева ноутбука, профилактические работы, чистка от пыли, замена термопасты и термопрокладок", "Замена оперативной памяти ноутбука", "Ремонт цепи питания ноутбука", "Прочие необходимые работы" },
-                            PageName = "LaptopsRepair",
+                            PageName = "laptopsrepair",
                             Service = "Устранение самопроизвольной перезагрузки ноутбука",
                             ServiceName = "Ремонт ноутбуков",
                             ServicePrice = "5000"
                         },
                         new
                         {
-                            PriceListId = new Guid("4c70f54f-f09b-4b90-a697-03779e5c69cb"),
+                            PriceListId = new Guid("3bcea40f-7670-48af-9b1e-2263234e583a"),
                             IdServiceName = "laptop-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Замена вентилятора (кулера) ноутбука", "Ремонт системы охлаждения ноутбука", "Устранение перегрева ноутбука, профилактические работы, чистка от пыли, замена термопасты и термопрокладок", "Прочие необходимые работы" },
-                            PageName = "LaptopsRepair",
+                            PageName = "laptopsrepair",
                             Service = "Устарнение повышенного шума ноутбука",
                             ServiceName = "Ремонт ноутбуков",
                             ServicePrice = "4000"
                         },
                         new
                         {
-                            PriceListId = new Guid("3d58ad51-dee5-49aa-99d8-3bcf2b5e3736"),
+                            PriceListId = new Guid("69707e5a-2677-4677-be59-fac5e8ef3a74"),
                             IdServiceName = "laptop-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Замена вентилятора (кулера) ноутбука", "Ремонт системы охлаждения ноутбука", "Устранение перегрева ноутбука, профилактические работы, чистка от пыли, замена термопасты и термопрокладок", "Прочие необходимые работы" },
-                            PageName = "LaptopsRepair",
+                            PageName = "laptopsrepair",
                             Service = "Устранение перегрева ноутбука",
                             ServiceName = "Ремонт ноутбуков",
                             ServicePrice = "4000"
                         },
                         new
                         {
-                            PriceListId = new Guid("4da64841-e4ac-4d84-8f5d-e619212f95b6"),
+                            PriceListId = new Guid("3ab044b0-cf2e-4cb7-9413-1d7dffa62b55"),
                             IdServiceName = "laptop-repair",
                             NeedWorks = new[] { "Диагностика оборудования", "Прочие необходимые работы" },
-                            PageName = "LaptopsRepair",
+                            PageName = "laptopsrepair",
                             Service = "Прочие проблемы с ноутбуком",
                             ServiceName = "Ремонт ноутбуков",
                             ServicePrice = "5000"
                         },
                         new
                         {
-                            PriceListId = new Guid("ac248403-9d3a-4198-a9eb-47437c2faf8a"),
+                            PriceListId = new Guid("b2921ea5-363b-407e-aa03-367b95f3240f"),
                             IdServiceName = "computer-assistance-laptop",
                             NeedWorks = new[] { "Диагностика оборудования", "Установка Windows XP - Windows 10", "Поиск и установка драйвера устройства", "Индивидуальные настройки операционной системы", "Разбивка жесткого диска на разделы", "Прочие необходимые работы" },
-                            PageName = "LaptopsRepair",
+                            PageName = "laptopsrepair",
                             Service = "Установка Windows (включая установку драйверов на оборудование)",
                             ServiceName = "Компьютерная помощь (ноутбук)",
                             ServicePrice = "4000"
                         },
                         new
                         {
-                            PriceListId = new Guid("1ac3c2c7-2960-467c-8762-db7ccc42b034"),
+                            PriceListId = new Guid("532a6754-2a35-4b2e-9fa6-7e3736064b6c"),
                             IdServiceName = "computer-assistance-laptop",
                             NeedWorks = new[] { "Диагностика оборудования", "Основная антивирусная профилактика (удаление СМС-вымогателя, трояна, баннера, других вирусов)", "Глубокая антивирусная профилактика (Устранение последствий действия вирусов, восстановление работы операционной системы)", "Установка Windows XP - Windows 10", "Прочие необходимые работы" },
-                            PageName = "LaptopsRepair",
+                            PageName = "laptopsrepair",
                             Service = "Удаление вирусов",
                             ServiceName = "Компьютерная помощь (ноутбук)",
                             ServicePrice = "3000"
                         },
                         new
                         {
-                            PriceListId = new Guid("e6eed92e-1aec-40be-99cb-6453e038cca3"),
+                            PriceListId = new Guid("f4114cf9-4a93-409e-ac62-5ed6b0b466e5"),
                             IdServiceName = "computer-assistance-laptop",
                             NeedWorks = new[] { "Диагностика оборудования", "Установка программ" },
-                            PageName = "LaptopsRepair",
+                            PageName = "laptopsrepair",
                             Service = "Установка программ (один экземпляр)",
                             ServiceName = "Компьютерная помощь (ноутбук)",
                             ServicePrice = "800"
                         },
                         new
                         {
-                            PriceListId = new Guid("3ffecd42-202b-4610-801e-ba4c90463d22"),
+                            PriceListId = new Guid("12dd4468-d0ac-4f01-8413-165e89d5b10f"),
                             IdServiceName = "computer-assistance-laptop",
                             NeedWorks = new[] { "Диагностика оборудования", "Подбор и установка любого антивируса", "Подбор и установка фаервола", "Индивидуальная тонкая настройка антивируса, фаервола или брандмауэра", "Прочие необходимые работы" },
-                            PageName = "LaptopsRepair",
+                            PageName = "laptopsrepair",
                             Service = "Установка и настройка антивируса",
                             ServiceName = "Компьютерная помощь (ноутбук)",
                             ServicePrice = "2000"
                         },
                         new
                         {
-                            PriceListId = new Guid("edbd2b97-2f00-49d0-bc97-8d73332e4a6d"),
+                            PriceListId = new Guid("8724e00b-f2d2-460a-a751-772d4ca06839"),
                             IdServiceName = "computer-assistance-laptop",
                             NeedWorks = new[] { "Диагностика оборудования", "Поиск и установка драйвера устройства", "Восстановление корректной работы, обеспечение совместимости драйвера с текущей версией операционной системы" },
-                            PageName = "LaptopsRepair",
+                            PageName = "laptopsrepair",
                             Service = "Установка драйверов (один экземпляр)",
                             ServiceName = "Компьютерная помощь (ноутбук)",
                             ServicePrice = "1200"
                         },
                         new
                         {
-                            PriceListId = new Guid("cbb30756-1eeb-40dc-ba84-1ee518eed923"),
+                            PriceListId = new Guid("611401b6-af1f-4425-ae87-e024909e9342"),
                             IdServiceName = "computer-assistance-laptop",
                             NeedWorks = new[] { "Диагностика оборудования", "Восстановление корректной работы, обеспечение совместимости драйвера с текущей версией операционной системы", "Настройка автозагрузки Windows", "Индивидуальные настройки операционной системы", "Удаление временных, мусорных системных файлов", "Чистка системного реестра Windows", "Индивидуальная тонкая настройка антивируса, межсетевго экрана (фаервола или брандмауэра)", "Выявление и устранение неполадок программного обеспечения", "Прочие необходимые работы" },
-                            PageName = "LaptopsRepair",
+                            PageName = "laptopsrepair",
                             Service = "Настройка ноутбука",
                             ServiceName = "Компьютерная помощь (ноутбук)",
                             ServicePrice = "3000"
                         },
                         new
                         {
-                            PriceListId = new Guid("ab744dbd-4b04-4452-9f75-4bfc8610e43a"),
+                            PriceListId = new Guid("5179df72-f7cc-4551-a361-3f8f6e5e63ed"),
                             IdServiceName = "laptop-upgrade",
                             NeedWorks = new[] { "Диагностика аппаратной части ноутбука", "Подбор и замена модулей оперативной памяти ноутбука", "Подбор и установка нового жесткого диска или SSD" },
-                            PageName = "LaptopsRepair",
+                            PageName = "laptopsrepair",
                             Service = "Расширение памяти ноутбука",
                             ServiceName = "Модернизация ноутбука",
                             ServicePrice = "3000"
                         },
                         new
                         {
-                            PriceListId = new Guid("7aed5a77-d1a4-40ac-8473-f2164ea78f05"),
+                            PriceListId = new Guid("f7aeeade-3918-424d-9e28-bf8c2342a19c"),
                             IdServiceName = "laptop-upgrade",
                             NeedWorks = new[] { "Диагностика аппаратной части ноутбука", "Подбор и замена модулей оперативной памяти ноутбука", "Подбор и установка скоростного жесткого диска или SSD", "Подбор и установка новой видеокарты или процессора", "Прочие необходимые работы" },
-                            PageName = "LaptopsRepair",
+                            PageName = "laptopsrepair",
                             Service = "Увеличение скорости работы ноутбука",
                             ServiceName = "Модернизация ноутбука",
                             ServicePrice = "4000"
                         },
                         new
                         {
-                            PriceListId = new Guid("437354db-11ac-4507-8634-664fea125b22"),
+                            PriceListId = new Guid("89006139-f52a-459c-868c-bbad6d941e8e"),
                             IdServiceName = "laptop-service",
                             NeedWorks = new[] { "Частичная разборка ноутбука", "Чистка системы охлаждения процессора от пыли", "Чистка системы охлаждения видеокарты от пыли", "Чистка системы охлаждения материнмкой платы от пыли", "Замена пермопасты на процессоре", "Замена пермопасты на чипе видеокарты" },
-                            PageName = "LaptopsRepair",
+                            PageName = "laptopsrepair",
                             Service = "Чистка ноутбука от пыли с заменой термопасты",
                             ServiceName = "Обслуживание ноутбука",
                             ServicePrice = "4000"
                         },
                         new
                         {
-                            PriceListId = new Guid("6f239129-abde-4ac0-86d1-e417fd915a59"),
+                            PriceListId = new Guid("b4a8905c-c4bb-47d7-a644-aaec5f20c1d7"),
                             IdServiceName = "router-config",
                             NeedWorks = new[] { "Диагностика оборудования", "Установка и базовая настройка роутера", "Индивидуальная настройка роутера (настройка \"проброса\" портов, удаленного доступа, выбор оптимального канала вещания WiFi)", "Сброс настроек, повторная настройка роутера", "Замена прошивки роутера", "Прочие необходимые работы" },
-                            PageName = "InternetNetworks",
+                            PageName = "internetnetworks",
                             Service = "Установка роутера",
                             ServiceName = "Настройка роутера",
                             ServicePrice = "3000"
                         },
                         new
                         {
-                            PriceListId = new Guid("de53cb63-9192-489e-affb-64110cbef6ff"),
+                            PriceListId = new Guid("4ea8e4a2-4f58-4acd-b4ae-43b8daf0d464"),
                             IdServiceName = "router-config",
                             NeedWorks = new[] { "Диагностика оборудования", "Установка и базовая настройка Wi-Fi роутера", "Индивидуальная настройка Wi-Fi роутера (настройка \"проброса\" портов, удаленного доступа, выбор оптимального канала вещания WiFi)", "Работы по улучшению сигнала Wi-Fi сети", "Настройка безопасности Wi-Fi сети", "Сброс настроек, повторная настройка Wi-Fi роутера", "Замена прошивки Wi-Fi роутера", "Прочие необходимые работы" },
-                            PageName = "InternetNetworks",
+                            PageName = "internetnetworks",
                             Service = "Настройка Wi-Fi сети",
                             ServiceName = "Настройка роутера",
                             ServicePrice = "3000"
                         },
                         new
                         {
-                            PriceListId = new Guid("ad0cee0e-5ef1-47c3-b222-f048cad9ff7e"),
+                            PriceListId = new Guid("a3c0b07f-bae0-490c-8834-410d8710dd59"),
                             IdServiceName = "router-config",
                             NeedWorks = new[] { "Диагностика оборудования", "Работы по улучшению сигнала Wi-Fi сети", "Сброс настроек, повторная настройка роутера", "Замена прошивки роутера", "Ремонт роутера", "Прочие необходимые работы" },
-                            PageName = "InternetNetworks",
+                            PageName = "internetnetworks",
                             Service = "Устранение неполадок роутера",
                             ServiceName = "Настройка роутера",
                             ServicePrice = "3000"
                         },
                         new
                         {
-                            PriceListId = new Guid("82776ae9-715e-4bcc-b743-a2543a13eab5"),
+                            PriceListId = new Guid("0b221841-8c8c-4955-aa2b-b5f822818bec"),
                             IdServiceName = "internet-config",
                             NeedWorks = new[] { "Диагностика оборудования", "Установка и базовая настройка роутера", "Настройка сетевой платы", "Настройка сети Интернет по Wi-Fi сети", "Обжим кабеля коннектором RJ-45", "Прочие необходимые работы" },
-                            PageName = "InternetNetworks",
+                            PageName = "internetnetworks",
                             Service = "Настройка доступа к сети Интернет",
                             ServiceName = "Интернет",
                             ServicePrice = "2000"
                         },
                         new
                         {
-                            PriceListId = new Guid("53118410-1df3-4f6b-8d06-a1b02c099fb2"),
+                            PriceListId = new Guid("38ff790e-704c-41ad-a64d-e08bf34fc4e8"),
                             IdServiceName = "internet-config",
                             NeedWorks = new[] { "Диагностика оборудования", "Установка сетевого оборудования", "Прокладка сетевого кабеля", "Обжим кабеля коннектором RJ-45", "Прочие необходимые работы" },
-                            PageName = "InternetNetworks",
+                            PageName = "internetnetworks",
                             Service = "Прокладка сетевого кабеля",
                             ServiceName = "Интернет",
                             ServicePrice = "За метр 700"
                         },
                         new
                         {
-                            PriceListId = new Guid("ff44e018-814e-4dc8-8c35-65ee31ca923d"),
+                            PriceListId = new Guid("8a0b95e8-04b6-43d4-8706-daf329437ca7"),
                             IdServiceName = "internet-config",
                             NeedWorks = new[] { "Диагностика оборудования", "Антивирусная профилактика", "Настройка сетевой платы для обеспечения доступа к сети Интернет", "Поиск и устранение неисправностей сетевого оборудования", "Прочие необходимые работы" },
-                            PageName = "InternetNetworks",
+                            PageName = "internetnetworks",
                             Service = "Устранение неполадок сети Инернет",
                             ServiceName = "Интернет",
                             ServicePrice = "3000"
                         },
                         new
                         {
-                            PriceListId = new Guid("9a969020-9f70-4514-9629-7631584811a8"),
+                            PriceListId = new Guid("e6142041-c1e2-4205-8680-b3244e76cfe9"),
                             IdServiceName = "lan-config",
                             NeedWorks = new[] { "Диагностика оборудования", "Настройка работы роутера в локальной сети", "Настройка сетевой платы", "Прочие необходимые работы" },
-                            PageName = "InternetNetworks",
+                            PageName = "internetnetworks",
                             Service = "Настройка локальной сети",
                             ServiceName = "Локальная сеть",
                             ServicePrice = "2000"
                         },
                         new
                         {
-                            PriceListId = new Guid("3f9b1e33-2204-418e-8386-db2c14f3c46a"),
+                            PriceListId = new Guid("a6f899e9-0366-4ad7-b114-5c9b94196208"),
                             IdServiceName = "lan-config",
                             NeedWorks = new[] { "Диагностика оборудования", "Антивирусная профилактика", "Настройка сетевой платы", "Настройка сетевого оборудования", "Поиск и устранение неисправностей сетевого оборудования", "Прочие необходимые работы" },
-                            PageName = "InternetNetworks",
+                            PageName = "internetnetworks",
                             Service = "Устранение неполадок локальной сети",
                             ServiceName = "Локальная сеть",
                             ServicePrice = "3000"
                         },
                         new
                         {
-                            PriceListId = new Guid("d1b6493a-75c9-4d36-9e35-76333da6b71a"),
+                            PriceListId = new Guid("f33f88d2-df9e-442d-9348-1f1ba28d52c4"),
                             IdServiceName = "lan-config",
                             NeedWorks = new[] { "Диагностика оборудования", "Установка сетевого оборудования", "Прокладка сетевого кабеля", "Обжим кабеля коннектором RJ-45", "Прочие необходимые работы" },
-                            PageName = "InternetNetworks",
+                            PageName = "internetnetworks",
                             Service = "Прокладка сетевого кабеля",
                             ServiceName = "Локальная сеть",
                             ServicePrice = "За метр 700"
                         },
                         new
                         {
-                            PriceListId = new Guid("b6c414dc-ca45-4ffe-80fc-edc4aa3b2b71"),
+                            PriceListId = new Guid("4aaa4747-65d8-41ef-81a6-695bea0f6a52"),
                             IdServiceName = "data-recovery",
                             NeedWorks = new[] { "Восстановление данных (случайно удаленные фотографии, документы. Случаи, когда повреждена таблица файловой системы)" },
-                            PageName = "DataRecovery",
+                            PageName = "datarecovery",
                             Service = "Восстановление данных с жесткого диска",
                             ServiceName = "Восстановление данных",
                             ServicePrice = "12000"
                         },
                         new
                         {
-                            PriceListId = new Guid("c35c1b4d-03af-4459-8c3a-a630c47102a4"),
+                            PriceListId = new Guid("5732bf6e-e24a-45f0-ab5e-ce67974ceb2e"),
                             IdServiceName = "data-recovery",
                             NeedWorks = new[] { "Восстановление данных (случайно удаленные фотографии, документы; cлучаи, когда повреждена таблица файловой системы)" },
-                            PageName = "DataRecovery",
+                            PageName = "datarecovery",
                             Service = "Восстановление информации с флеш-накопителя",
                             ServiceName = "Восстановление данных",
                             ServicePrice = "12000"
                         },
                         new
                         {
-                            PriceListId = new Guid("187c80ee-0757-4691-9d4c-88f412a1a99a"),
+                            PriceListId = new Guid("f5387eaf-5cd5-4283-8b3d-de695871fc3b"),
                             IdServiceName = "data-recovery",
                             NeedWorks = new[] { "Восстановление данных (случайно удаленные фотографии, документы; cлучаи, когда повреждена таблица файловой системы)" },
-                            PageName = "DataRecovery",
+                            PageName = "datarecovery",
                             Service = "Восстановление данных с SD-карты",
                             ServiceName = "Восстановление данных",
                             ServicePrice = "12000"
                         },
                         new
                         {
-                            PriceListId = new Guid("142e9697-0611-472b-ae36-f50cfda48ad1"),
+                            PriceListId = new Guid("143030be-d58d-4387-8460-f0b598f0f80a"),
                             IdServiceName = "data-recovery",
                             NeedWorks = new[] { "Восстановление данных (случайно удаленные фотографии, документы; cлучаи, когда повреждена таблица файловой системы)" },
-                            PageName = "DataRecovery",
+                            PageName = "datarecovery",
                             Service = "Восстановление данных с SSD-диска",
                             ServiceName = "Восстановление данных",
                             ServicePrice = "12000"
                         },
                         new
                         {
-                            PriceListId = new Guid("a545741c-123e-4a88-8a25-5a0084c4b07e"),
+                            PriceListId = new Guid("53c6fafd-2817-49cd-9b03-6c75404d4229"),
                             IdServiceName = "b2b",
                             NeedWorks = new[] { "1 (один) плановый выезд специалиста в месяц", "Полная техническая профилактика всего парка компьютеров", "Полная антивирусная профилактика всего парка компьютеров", "Устранение текущих неполадок (возможно, силами стороннего подрядчика)", "Консультации сотрудников по работе с компьютерами" },
-                            PageName = "B2b",
+                            PageName = "b2b",
                             Service = "Абонентское обслуживание компьютеров",
                             ServiceName = "ИТ-услуги для бизнеса",
                             ServicePrice = "в месяц за один компьютер - 2000"
                         },
                         new
                         {
-                            PriceListId = new Guid("02dd5a94-8993-4f86-85f0-88a4433a9bd7"),
+                            PriceListId = new Guid("82e57026-481c-4d19-ada0-9d5fe166aef4"),
                             IdServiceName = "b2b",
                             NeedWorks = new[] { "1 (один) плановый выезд специалиста в месяц", "Полная техническая профилактика всего парка оргтехники", "Устранение текущих неполадок (возможно, силами стороннего подрядчика)", "Консультации сотрудников по работе с оргтехникой" },
-                            PageName = "B2b",
+                            PageName = "b2b",
                             Service = "Абонентское обслуживание оргтехники",
                             ServiceName = "ИТ-услуги для бизнеса",
                             ServicePrice = "в месяц за единицу оборудования - 2000"
                         },
                         new
                         {
-                            PriceListId = new Guid("74c31114-797a-4a78-b8bf-d299c886a1ba"),
+                            PriceListId = new Guid("8bd9f8ea-c43a-4188-9b5c-0453a78653bf"),
                             IdServiceName = "b2b",
                             NeedWorks = new[] { "Необходимые работы определяются заказчиком" },
-                            PageName = "B2b",
+                            PageName = "b2b",
                             Service = "Внеплановый выезд специалиста",
                             ServiceName = "ИТ-услуги для бизнеса",
                             ServicePrice = "за внеплановый выезд - 3000"
                         },
                         new
                         {
-                            PriceListId = new Guid("812658bb-a145-4a37-8272-56dca4d47b02"),
+                            PriceListId = new Guid("a11a2d58-b6c0-4854-a229-f46e47d166c4"),
                             IdServiceName = "printer-config",
                             NeedWorks = new[] { "Диагностика оборудования", "Поиск и установка драйвера устройства", "Подключение и базовая настройка принтера", "Настройка работы принтера по Wi-Fi сети", "Индивидуальная настройка принтера", "Прочие необходимые работы" },
-                            PageName = "OfficeEquipment",
+                            PageName = "officeequipment",
                             Service = "Настройка принтера",
                             ServiceName = "Принтеры",
                             ServicePrice = "3000"
                         },
                         new
                         {
-                            PriceListId = new Guid("5a9fc48c-26ff-446a-8c89-10c322762102"),
+                            PriceListId = new Guid("ca9c4665-ec77-499d-b0ef-29431742cb1e"),
                             IdServiceName = "printer-config",
                             NeedWorks = new[] { "Диагностика оборудования", "Чистка и профилактика принтера", "Полная чистка и смазка с частичной разборкой принтера", "Прочие необходимые работы" },
-                            PageName = "OfficeEquipment",
+                            PageName = "officeequipment",
                             Service = "Очистка принтера",
                             ServiceName = "Принтеры",
                             ServicePrice = "4000"
                         },
                         new
                         {
-                            PriceListId = new Guid("6d55642f-800b-44f7-932d-3b2da255fbec"),
+                            PriceListId = new Guid("c48be938-7488-441c-837f-66d5a570c1d1"),
                             IdServiceName = "printer-config",
                             NeedWorks = new[] { "Диагностика оборудования", "Восстановление работоспособности печатающей головки струйного принтера", "Ремонт электроники принтера", "Замена фотоцилиндра, магнитного вала или ракеля лазерного принтера", "Прочие необходимые работы" },
-                            PageName = "OfficeEquipment",
+                            PageName = "officeequipment",
                             Service = "Ремонт принтера",
                             ServiceName = "Принтеры",
                             ServicePrice = "10000"
                         },
                         new
                         {
-                            PriceListId = new Guid("ea570c49-3832-4188-9401-044788c52fdd"),
+                            PriceListId = new Guid("39875922-a592-450b-902e-ab331b5d6ee7"),
                             IdServiceName = "mfd-config",
                             NeedWorks = new[] { "Поиск и установка драйвера устройства", "Подключение и базовая настройка МФУ", "Калибровка сканирующей части МФУ", "Настройка работы МФУ по Wi-Fi сети", "Настройка работы МФУ по локальной сети", "Индивидуальная настройка МФУ", "Прочие необходимые работы" },
-                            PageName = "OfficeEquipment",
+                            PageName = "officeequipment",
                             Service = "Настройка МФУ",
                             ServiceName = "Многофункциональное устройство (МФУ)",
                             ServicePrice = "4000"
                         },
                         new
                         {
-                            PriceListId = new Guid("5e9a2641-ab55-46f9-9808-8d23f0a1c4f9"),
+                            PriceListId = new Guid("f02b793d-edab-41da-91ed-c74c14641272"),
                             IdServiceName = "mfd-config",
                             NeedWorks = new[] { "Диагностика оборудования", "Чистка и профилактика МФУ", "Полная чистка и смазка с частичной разборкой МФУ", "Калибровка сканирующей части МФУ", "Прочие необходимые работы" },
-                            PageName = "OfficeEquipment",
+                            PageName = "officeequipment",
                             Service = "Очистка МФУ",
                             ServiceName = "Многофункциональное устройство (МФУ)",
                             ServicePrice = "5000"
                         },
                         new
                         {
-                            PriceListId = new Guid("62f80580-b2b2-4421-9c1b-b5f5788dc59e"),
+                            PriceListId = new Guid("91f32eb7-fdf8-4b45-b1c7-8534e91b038a"),
                             IdServiceName = "mfd-config",
                             NeedWorks = new[] { "Диагностика оборудования", "Восстановление работоспособности печатающей головки струйного МФУ", "Ремонт электроники МФУ", "Замена фотоцилиндра, магнитного вала или ракеля лазерного МФУ", "Ремонт сканирующей части МФУ", "Прочие необходимые работы" },
-                            PageName = "OfficeEquipment",
+                            PageName = "officeequipment",
                             Service = "Ремонт МФУ",
                             ServiceName = "Многофункциональное устройство (МФУ)",
                             ServicePrice = "11000"
                         },
                         new
                         {
-                            PriceListId = new Guid("8bbd8982-ce82-49f9-ac80-7f33aa9496a9"),
+                            PriceListId = new Guid("c5d0b9e4-efbf-4049-addd-8cd147b55b82"),
                             IdServiceName = "scanner-config",
                             NeedWorks = new[] { "Диагностика оборудования", "Поиск и установка драйвера устройства", "Подключение и базовая настройка сканера", "Калибровка сканера", "Настройка работы сканера по Wi-Fi сети", "Настройка работы сканера по локальной сети", "Индивидуальная настройка сканера", "Прочие необходимые работы" },
-                            PageName = "OfficeEquipment",
+                            PageName = "officeequipment",
                             Service = "Настройка сканера",
                             ServiceName = "Сканирующие устройства (сканеры)",
                             ServicePrice = "3000"
                         },
                         new
                         {
-                            PriceListId = new Guid("1af837bb-0c1f-40ae-8c46-10e0c81678fa"),
+                            PriceListId = new Guid("482d2e11-9467-4a9d-8657-ca4396e67849"),
                             IdServiceName = "scanner-config",
                             NeedWorks = new[] { "Диагностика оборудования", "Ремонт инвертора лампы подсветки", "Замена лампы подсветки", "Ремонт других электронных узлов сканера", "Ремонт механики сканирующей головки", "Прочие необходимые работы" },
-                            PageName = "OfficeEquipment",
+                            PageName = "officeequipment",
                             Service = "Ремонт сканера",
                             ServiceName = "Сканирующие устройства (сканеры)",
                             ServicePrice = "10000"
