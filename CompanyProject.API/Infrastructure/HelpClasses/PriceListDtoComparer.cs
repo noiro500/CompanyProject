@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
+using CompanyProject.API.Infrastructure.Dto;
 using CompanyProject.Domain.PriceList;
 
 namespace CompanyProject.API.Infrastructure.HelpClasses
 {
     //Класс необходим для удаления повторяющихся элементов в последовательности объектов
     //с помощью Distinct()
-    public class PriceListComparer:IEqualityComparer<PriceList>
+    public class PriceListDtoComparer:IEqualityComparer<PriceListDto>
     {
-        public bool Equals(PriceList x, PriceList y)
+        public bool Equals(PriceListDto x, PriceListDto y)
         {
             if (ReferenceEquals(x, y)) return true;
             if (ReferenceEquals(x, null)) return false;
@@ -16,7 +17,7 @@ namespace CompanyProject.API.Infrastructure.HelpClasses
             return x.IdServiceName == y.IdServiceName;
         }
 
-        public int GetHashCode(PriceList obj)
+        public int GetHashCode(PriceListDto obj)
         {
             return (obj.IdServiceName != null ? obj.IdServiceName.GetHashCode() : 0);
         }

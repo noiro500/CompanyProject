@@ -1,9 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
+using CompanyProject.API.Infrastructure.Dto;
+using CompanyProject.API.Infrastructure.RefitInterfaces;
 using CompanyProject.Domain;
 using CompanyProject.Domain.Interfaces;
 using CompanyProject.Domain.PriceList;
+using CompanyProject.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
@@ -12,21 +17,38 @@ namespace CompanyProject.API.Infrastructure.ViewComponents
 {
     public class PriceListTable : ViewComponent
     {
-        //private readonly IPriceListRepository repository;
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IContentService _contentService;
 
-        public PriceListTable(IUnitOfWork unitOfWork)
+        public PriceListTable(IContentService contentService)
         {
-            _unitOfWork = unitOfWork;
+            _contentService = contentService;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync(int pageNumber = 0, bool isFull = false)
+        public async Task<IViewComponentResult> InvokeAsync(string pageName = "", bool isFull = false)
         {
+            IList<PriceListDto> result = default;
             if (!isFull)
-                return View("PriceListTable", await _unitOfWork.PriceLists.GetPriceListByPageAsync(pageNumber));
+                result = (await _contentService.GetPriceListByPageAsync(pageName));
             else
-                return View("PriceListTable", await _unitOfWork.PriceLists.GetFullPriceListAsync());
-                
+                result = (await _contentService.GetFullPriceListAsync());
+            return View("PriceListTable", GetPriceListResultDic(ref result));
+        }
+
+        private IDictionary<string, List<PriceListDto>> GetPriceListResultDic(ref IList<PriceListDto> priceListResultFromService)
+        {
+            Dictionary<string, List<PriceListDto>> resultDictionary = new ();
+            List<string> serviceName = new ();
+            foreach (var priceList in priceListResultFromService)
+            {
+                serviceName.Add(priceList.ServiceName);
+            }
+
+            var uniqueServiceName = serviceName.Distinct().ToList();
+            foreach (var usn in uniqueServiceName)
+            {
+                resultDictionary.Add(usn, priceListResultFromService.Where(n => n.ServiceName == usn).ToList());
+            }
+            return resultDictionary;
         }
     }
 }

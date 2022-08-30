@@ -1,7 +1,10 @@
 ﻿using CompanyProjectPriceListService.Model;
+using EntityFrameworkCore.QueryBuilder.Interfaces;
 using EntityFrameworkCore.UnitOfWork.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using NuGet.Packaging;
 
 namespace CompanyProjectPriceListService.Controllers
 {
@@ -17,20 +20,27 @@ namespace CompanyProjectPriceListService.Controllers
         public async Task<IActionResult> GetPriceListByPageAsync(string pageName)
         {
             var repository = _unitOfWork.Repository<PriceList>();
-            var query = repository.MultipleResultQuery().AndFilter(p => p.PageName == pageName.ToLower()).
-                    Select(sel => new
-                    {
-                        sel.ServiceName,
-                        sel.PageName,
-                        sel.IdServiceName,
-                        sel.Service,
-                        sel.NeedWorks,
-                        sel.ServicePrice
-                    });
-            var result = await repository.SearchAsync(query);
-            if (result is null)
+            //IQuery<PriceList>? query;
+            List<PriceList>? resultList = new ();
+            if (pageName == "helpdesk")
+            {
+                var queryComputersrepair = repository.MultipleResultQuery().AndFilter(p =>
+                     p.PageName == "computersrepair".ToLower());
+                var queryLaptopsrepair = repository.MultipleResultQuery().AndFilter(p =>
+                    p.PageName == "laptopsrepair".ToLower());
+                resultList.AddRange(await repository.SearchAsync(queryComputersrepair));
+                resultList.AddRange(await repository.SearchAsync(queryLaptopsrepair));
+
+            }
+            else
+            {
+               var query = repository.MultipleResultQuery().AndFilter(p => p.PageName == pageName.ToLower());
+               resultList.AddRange(await repository.SearchAsync(query));
+            }
+            //var result = await repository.SearchAsync(query);
+            if (resultList.Count==0)
                 return NotFound();
-            return Ok(result);
+            return Ok(resultList);
         }
 
         [HttpGet()]
@@ -39,16 +49,7 @@ namespace CompanyProjectPriceListService.Controllers
         public async Task<IActionResult> GetFullPriceListAsync()
         {
             var repository = _unitOfWork.Repository<PriceList>();
-            var query = repository.MultipleResultQuery().
-                Select(sel => new
-                {
-                    sel.ServiceName,
-                    sel.PageName,
-                    sel.IdServiceName,
-                    sel.Service,
-                    sel.NeedWorks,
-                    sel.ServicePrice
-                });
+            var query = repository.MultipleResultQuery().OrderBy(x => x.PageName);
             var result = await repository.SearchAsync(query);
             if (result is null)
                 return NotFound();

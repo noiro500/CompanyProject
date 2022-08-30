@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using CompanyProject.API.Infrastructure.HelpClasses;
 using CompanyProject.API.Infrastructure.Log;
+using CompanyProject.API.Infrastructure.RefitInterfaces;
 using CompanyProject.Domain;
 using CompanyProject.Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -14,11 +15,13 @@ namespace CompanyProject.API.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly ILogger _logger;
+        private readonly IContentService _contentService;
 
-        public MenuFirstLineController(IUnitOfWork unitOfWork)
+        public MenuFirstLineController(IUnitOfWork unitOfWork, IContentService contentService)
         {
             _logger = Log.CreateLogger<HomeController>();
             _unitOfWork = unitOfWork;
+            _contentService = contentService;
         }
         [Route("/comments")]
         public IActionResult Comments()
@@ -29,7 +32,7 @@ namespace CompanyProject.API.Controllers
         [Route("/fullpricelist")]
         public async Task<IActionResult> FullPriceList()
         {
-            var result =(await _unitOfWork.PriceLists.GetAllEntity().OrderBy(p=>p.PriceListId).ToListAsync()).Distinct(new PriceListComparer()).ToList();
+            var result =  (await _contentService.GetFullPriceListAsync()).OrderBy(p=>p.ServiceName).Distinct(new PriceListDtoComparer()).ToList();
             return View(result);
         }
 

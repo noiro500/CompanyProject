@@ -1,5 +1,4 @@
-﻿@using Microsoft.AspNetCore.Html
-@model CompanyProject.Domain.Page.Page
+﻿@model CompanyProject.API.Infrastructure.Dto.PageDto
 
 @{
     ViewData["Title"] = "Восстановление данных";
@@ -12,7 +11,7 @@
             <span>Раздел находится в процессе наполнения. По всем вопросам, пожалуйста, <a href="#short-message">позвоните или напишите</a> нам.</span>
         </div>
     </div>
-    <vc:price-list-table page-number="6" is-full="false" />
+    <vc:price-list-table page-name=@ViewBag.pageNameForPriceList is-full="false" />
     <partial name="ContentViews/PartialView/_PriceListCommemts" 
              model='new HtmlString("* В случае если по каким-либо причинам невозможно произвести восстановление данных, то с заказчика услуги <b>взымается стоимость понесенных затрат (диагностики) в размере 1000 (одной тысячи) рублей.</b>")'/>
 </div>
