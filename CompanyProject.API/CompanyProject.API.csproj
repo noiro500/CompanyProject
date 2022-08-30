@@ -34,6 +34,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Home\LaptopUpgrade.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Home\PcAssembly.cshtml" />
     <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
   </ItemGroup>
 
@@ -334,6 +336,14 @@
     <ApplicationDefinition Include="wwwroot\lib\jquery\core.js" />
     <ApplicationDefinition Include="wwwroot\lib\jquery\jquery.js" />
     <None Include="wwwroot\styles\scss\bulma-with-edit.scss" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Home\LaptopUpgrade.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Home\PcAssembly.cshtml" />
   </ItemGroup>
 
 </Project>

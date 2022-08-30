@@ -1,17 +1,16 @@
 ﻿@model CompanyProject.API.Infrastructure.Dto.PageDto
 
 @{
-    ViewData["Title"] = "Ремонт компьютеров";
+    ViewData["Title"] = "Сборка компьютера";
 }
-
 <div class="container">
     <br />
     <div class="columns is-touch-pegging">
-        <div class="column ">
+        <div class="column">
             <h4 class="subtitle is-3">Уважаемые клиенты</h4>
             <span>Раздел находится в процессе наполнения. По всем вопросам, пожалуйста, <a href="#short-message">позвоните или напишите</a> нам.</span>
         </div>
     </div>
     <vc:price-list-table page-name=@ViewBag.pageNameForPriceList is-full="false" />
-    <partial name="ContentViews/PartialView/_PriceListCommemts" model="null"/>
+    <partial name="ContentViews/PartialView/_PriceListCommemts" model="null" />
 </div>

@@ -58,9 +58,9 @@ namespace CompanyProject.Repository
                 }
             );
 
-            modelBuilder.Entity<Paragraph>().HasData(
-                _context.GetInitialDbContent()
-            );
+            //modelBuilder.Entity<Paragraph>().HasData(
+            //    _context.GetInitialDbContent()
+            //);
 
             modelBuilder.Entity<PriceList>().HasData(
                 _context.GetInitialDbPriceLists()

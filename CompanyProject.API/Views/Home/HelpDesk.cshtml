@@ -1,4 +1,4 @@
-﻿@model CompanyProject.Domain.Page.Page
+﻿@model CompanyProject.API.Infrastructure.Dto.PageDto
 
 @{
     ViewData["Title"] = "Компьютерная помощь";
@@ -11,6 +11,6 @@
             <span>Раздел находится в процессе наполнения. По всем вопросам, пожалуйста, <a href="#short-message">позвоните или напишите</a> нам.</span>
         </div>
     </div>
-    <vc:price-list-table page-number="4" is-full="false" />
+    <vc:price-list-table page-name=@ViewBag.pageNameForPriceList is-full="false" />
     <partial name="ContentViews/PartialView/_PriceListCommemts" model="null"/>
 </div>

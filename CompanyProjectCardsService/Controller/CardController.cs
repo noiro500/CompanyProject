@@ -13,7 +13,7 @@ namespace CompanyProjectCardsService.Controller
 
         public CardController(IUnitOfWork unitOfWork) => _unitOfWork = unitOfWork ?? throw new AggregateException(nameof(unitOfWork));
 
-        [HttpGet("{pageName:regex(^\\w+$)}")]
+        [HttpGet("{pageNameForCard:regex(^\\w+$)}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MainCard))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetCards(string pageNameForCard)

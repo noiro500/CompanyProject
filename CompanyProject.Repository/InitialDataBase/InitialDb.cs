@@ -15,15 +15,15 @@ namespace CompanyProject.Repository.InitialDataBase
 {
     public class InitialDb : IInitialDb
     {
-        public IList<Paragraph> GetInitialDbContent()
-        {
-            IFileProvider getCurrentDirectory = new PhysicalFileProvider(Directory.GetCurrentDirectory());
-            var jsonDesData = JsonSerializer.Deserialize<List<Paragraph>>(File.ReadAllText(getCurrentDirectory.GetFileInfo("/wwwroot/Resources/DbSeed/InitialDBContentNew.json").PhysicalPath));
-            int i = 0;
-            jsonDesData.ForEach(p => p.ParagraphId = ++i);
-            return jsonDesData;
+        //public IList<Paragraph> GetInitialDbContent()
+        //{
+        //    IFileProvider getCurrentDirectory = new PhysicalFileProvider(Directory.GetCurrentDirectory());
+        //    var jsonDesData = JsonSerializer.Deserialize<List<Paragraph>>(File.ReadAllText(getCurrentDirectory.GetFileInfo("/wwwroot/Resources/DbSeed/InitialDBContentNew.json").PhysicalPath));
+        //    int i = 0;
+        //    jsonDesData.ForEach(p => p.ParagraphId = ++i);
+        //    return jsonDesData;
 
-        }
+        //}
 
         public IList<PriceList> GetInitialDbPriceLists()
         {

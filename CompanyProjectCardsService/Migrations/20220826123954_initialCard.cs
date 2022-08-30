@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CompanyProjectCardsService.Migrations
 {
-    public partial class InitialCard : Migration
+    public partial class initialCard : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -58,21 +58,21 @@ namespace CompanyProjectCardsService.Migrations
             migrationBuilder.InsertData(
                 table: "CardFooterItem",
                 columns: new[] { "CardFooterItemId", "CardFooterItemContent", "CardFooterItemIsLink", "CardFooterItemLinkAction", "CardFooterItemLinkController", "MainCardId" },
-                values: new object[] { new Guid("b562c9b0-6a99-4a82-b796-a8bd7fbeb2d9"), null, false, null, null, null });
+                values: new object[] { new Guid("d1686e4d-6ae2-4d5d-84cf-067a363ffa65"), null, false, null, null, null });
 
             migrationBuilder.InsertData(
                 table: "MainCards",
                 columns: new[] { "MainCardId", "CardContent", "CardHasFooter", "CardHasHeader", "CardHasImage", "CardHeaderContent", "CardHeaderIcon", "CardHeaderIsLink", "CardHeaderLinkAction", "CardHeaderLinkController", "CardImage", "CardIsLink", "CardLinkAction", "CardLinkController", "PageNameForCard" },
                 values: new object[,]
                 {
-                    { new Guid("254c77f0-d88e-4b95-bf48-e5f2b654a50b"), new[] { "PcAssembly.png" }, false, true, false, new[] { "Сборка компьютера" }, null, false, null, null, null, true, "PcAssembly", "Home", "Index" },
-                    { new Guid("4032986d-f4b7-4237-880a-694836aa56d1"), new[] { "B2b.png" }, false, true, false, new[] { "ИТ-услуги для бизнеса" }, null, false, null, null, null, true, "B2b", "Home", "Index" },
-                    { new Guid("54a49128-67ce-4a96-ab1d-130eba60d103"), new[] { "LaptopsRepair.png" }, false, true, false, new[] { "Ремонт ноутбуков" }, null, false, null, null, null, true, "LaptopsRepair", "Home", "Index" },
-                    { new Guid("5fd1ac9a-1804-46ea-852e-43add5b296b0"), new[] { "InternetNetworks.png" }, false, true, false, new[] { "Интернет и сети" }, null, false, null, null, null, true, "InternetNetworks", "Home", "Index" },
-                    { new Guid("9165b85d-a41f-483d-81d5-99c2933419aa"), new[] { "LaptopUpgrade.png" }, false, true, false, new[] { "Модернизация ноутбука" }, null, false, null, null, null, true, "LaptopUpgrade", "Home", "Index" },
-                    { new Guid("bd37250c-2559-4658-8d0f-907dd5f5c62e"), new[] { "DataRecovery.png" }, false, true, false, new[] { "Восстановление данных" }, null, false, null, null, null, true, "DataRecovery", "Home", "Index" },
-                    { new Guid("d4e3f3e2-737a-40c2-8d90-70bd4e1db161"), new[] { "ComputersRepair.png" }, false, true, false, new[] { "Ремонт компьютеров" }, null, false, null, null, null, true, "ComputersRepair", "Home", "Index" },
-                    { new Guid("da56262f-7e59-4ab5-a5b7-a5d30f491c7d"), new[] { "HelpDesk.png" }, false, true, false, new[] { "Компьютерная помощь" }, null, false, null, null, null, true, "HelpDesk", "Home", "Index" }
+                    { new Guid("01f679e5-07af-464e-b761-5a480344ad4e"), new[] { "InternetNetworks.png" }, false, true, false, new[] { "Интернет и сети" }, null, false, null, null, null, true, "InternetNetworks", "Home", "index" },
+                    { new Guid("11fb093c-7ffd-45ed-b55e-a0fa1fe6b73e"), new[] { "DataRecovery.png" }, false, true, false, new[] { "Восстановление данных" }, null, false, null, null, null, true, "DataRecovery", "Home", "index" },
+                    { new Guid("206f086c-562e-482b-b7b3-f223d0efe18d"), new[] { "PcAssembly.png" }, false, true, false, new[] { "Сборка компьютера" }, null, false, null, null, null, true, "PcAssembly", "Home", "index" },
+                    { new Guid("50116b54-4127-435d-9577-8eb4675434f6"), new[] { "B2b.png" }, false, true, false, new[] { "ИТ-услуги для бизнеса" }, null, false, null, null, null, true, "B2b", "Home", "index" },
+                    { new Guid("660663db-c6de-4161-93c7-00c6ffeb29a6"), new[] { "ComputersRepair.png" }, false, true, false, new[] { "Ремонт компьютеров" }, null, false, null, null, null, true, "ComputersRepair", "Home", "index" },
+                    { new Guid("7e304405-ccca-4477-a572-cbb95771e6e7"), new[] { "HelpDesk.png" }, false, true, false, new[] { "Компьютерная помощь" }, null, false, null, null, null, true, "HelpDesk", "Home", "index" },
+                    { new Guid("94010429-5c8e-4ff2-b1a3-f2d0b8e59bf0"), new[] { "LaptopsRepair.png" }, false, true, false, new[] { "Ремонт ноутбуков" }, null, false, null, null, null, true, "LaptopsRepair", "Home", "index" },
+                    { new Guid("9756643a-e4c5-40ad-aca4-5a04feee0e1f"), new[] { "LaptopUpgrade.png" }, false, true, false, new[] { "Модернизация ноутбука" }, null, false, null, null, null, true, "LaptopUpgrade", "Home", "index" }
                 });
 
             migrationBuilder.CreateIndex(
