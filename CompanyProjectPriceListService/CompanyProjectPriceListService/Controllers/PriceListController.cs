@@ -14,13 +14,13 @@ namespace CompanyProjectPriceListService.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
         public PriceListController(IUnitOfWork unitOfWork) => _unitOfWork = unitOfWork ?? throw new AggregateException(nameof(unitOfWork));
+        
         [HttpGet("{pageName:regex(^\\w+$)}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PriceList))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetPriceListByPageAsync(string pageName)
         {
             var repository = _unitOfWork.Repository<PriceList>();
-            //IQuery<PriceList>? query;
             List<PriceList>? resultList = new ();
             if (pageName == "helpdesk")
             {
@@ -37,13 +37,12 @@ namespace CompanyProjectPriceListService.Controllers
                var query = repository.MultipleResultQuery().AndFilter(p => p.PageName == pageName.ToLower());
                resultList.AddRange(await repository.SearchAsync(query));
             }
-            //var result = await repository.SearchAsync(query);
             if (resultList.Count==0)
                 return NotFound();
             return Ok(resultList);
         }
 
-        [HttpGet()]
+        [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PriceList))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetFullPriceListAsync()

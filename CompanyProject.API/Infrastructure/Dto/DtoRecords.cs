@@ -3,10 +3,33 @@ using System.Collections.Generic;
 
 namespace CompanyProject.API.Infrastructure.Dto;
 
-public record ParagraphDto(int ParagraphId, bool IsGlobalTitle, bool IsSubtitle, bool HasPicture, string? PicturePath, bool IsList, bool IsMobileVisible, List<string> Content);
-public record PageDto(int PageId, string Name, string? ScreenName, string? Icon, bool ToNavbar, List<ParagraphDto> Paragraphs);
+public record ParagraphDto(
+    int ParagraphId, 
+    bool IsGlobalTitle, 
+    bool IsSubtitle, 
+    bool HasPicture, 
+    string? PicturePath, 
+    bool IsList, 
+    bool IsMobileVisible, 
+    List<string> Content
+    );
 
-public record CardFooterItemDto(Guid CardFooterItemId, bool CardFooterItemIsLink, string? CardFooterItemLinkController, string? CardFooterItemLinkAction, string? CardFooterItemContent);
+public record PageDto(
+    int PageId, 
+    string Name, 
+    string? ScreenName, 
+    string? Icon,
+    bool ToNavbar, 
+    List<ParagraphDto> Paragraphs
+    );
+
+public record CardFooterItemDto(
+    Guid CardFooterItemId, 
+    bool CardFooterItemIsLink, 
+    string? CardFooterItemLinkController, 
+    string? CardFooterItemLinkAction, 
+    string? CardFooterItemContent
+    );
 
 public record MainCardDto(
     Guid MainCardId,
@@ -24,7 +47,8 @@ public record MainCardDto(
     string? CardImage,
     List<string>? CardContent,
     bool CardHasFooter,
-    List<CardFooterItemDto>? CardFooterItems);
+    List<CardFooterItemDto>? CardFooterItems
+    );
 
 public record PriceListDto(
     Guid PriceListId,
@@ -34,4 +58,16 @@ public record PriceListDto(
     string Service,
     string[]? NeedWorks,
     string? ServicePrice
+    );
+
+public record TopMenuEntityDto(
+    Guid TopMenuEntityId,
+    bool FirstLine,
+    string AspAction,
+    string AspController,
+    string Icon,
+    string IconColor,
+    bool NavBar,
+    bool NeedStar,
+    string ScreenName
     );

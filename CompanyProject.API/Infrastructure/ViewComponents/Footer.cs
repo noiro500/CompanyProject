@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
+using CompanyProject.API.Infrastructure.RefitInterfaces;
 using CompanyProject.Domain;
 using CompanyProject.Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -9,17 +10,17 @@ namespace CompanyProject.API.Infrastructure.ViewComponents
 {
     public class Footer : ViewComponent
     {
-        //private IRepository<Page> repository;
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IContentService _contentService;
 
-        public Footer(IUnitOfWork unitOfWork)
+        public Footer(IContentService contentService)
         {
-            _unitOfWork = unitOfWork;
+            _contentService = contentService;
         }
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            return View("Footer", await _unitOfWork.Pages.GetAllEntity().ToListAsync());
+            var footerListContent = await _contentService.GetFooterContentAsync();
+            return View("Footer", footerListContent);
         }
 
     }
