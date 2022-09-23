@@ -30,7 +30,8 @@ namespace CompanyProjectContentService.Migrations
                 name: "TopMenuEntities",
                 columns: table => new
                 {
-                    TopMenuEntityId = table.Column<Guid>(type: "uuid", nullable: false),
+                    TopMenuEntityId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     FirstLine = table.Column<bool>(type: "boolean", nullable: false),
                     AspAction = table.Column<string>(type: "text", nullable: false),
                     AspController = table.Column<string>(type: "text", nullable: false),
@@ -93,19 +94,19 @@ namespace CompanyProjectContentService.Migrations
                 columns: new[] { "TopMenuEntityId", "AspAction", "AspController", "FirstLine", "Icon", "IconColor", "NavBar", "NeedStar", "ScreenName" },
                 values: new object[,]
                 {
-                    { new Guid("1fa80a66-7dfa-424a-bdd5-5723b2e1e062"), "FullPriceList", "MenuFirstLine", true, "fas fa-ruble-sign", "gray", false, false, "Цены" },
-                    { new Guid("2abdd9c1-9103-45e5-9b88-c7a13d9cfefe"), "DataRecovery", "Home", false, "fas fa-database", "black", false, false, "Восстановление данных" },
-                    { new Guid("3dae453f-30c7-4cce-8324-9a977f4dd335"), "OfficeEquipment", "Home", false, "fas fa-print", "black", true, false, "Oргтехника" },
-                    { new Guid("44c744b5-6358-4077-8401-d74ff4c6ee13"), "B2b", "Home", false, "fas fa-industry", "black", true, false, "ИТ-услуги для бизнеса" },
-                    { new Guid("499b2a3c-ab84-4411-b689-9a52f799410a"), "PcAssembly", "Home", false, "fas fa-tv", "black", false, false, "Сборка компьютера" },
-                    { new Guid("5b8ac044-b28f-4931-90d3-63637e2c89a8"), "LaptopUpgrade", "Home", false, "fas fa-laptop", "black", false, false, "LaptopUpgrade" },
-                    { new Guid("61f30d4b-556c-40e7-89c4-3954726e84dd"), "InternetNetworks", "Home", false, "fas fa-network-wired", "black", true, false, "Интернет и сети" },
-                    { new Guid("88d06219-997d-4f20-9930-629626c9ce8d"), "HelpDesk", "Home", false, "fas fa-ambulance", "black", true, false, "Компьютерная помощь" },
-                    { new Guid("c45e0efd-7d7c-45a2-88ed-6660eac6701c"), "ComputersRepair", "Home", false, "fas fa-wrench", "black", true, false, "Ремонт компьютеров" },
-                    { new Guid("cdab1277-d33c-47cd-b10e-f7cc106c147b"), "Contacts", "MenuFirstLine", true, "fas fa-map-marker-alt", "gray", false, false, "Контакты" },
-                    { new Guid("d8b1ed10-0253-4096-b5d2-3fd7c1b06838"), "LaptopsRepair", "Home", false, "fas fa-laptop-medical", "black", true, false, "Ремонт ноутбуков" },
-                    { new Guid("e8a047eb-ff30-4f51-8da3-23a7d12a998f"), "About", "MenuFirstLine", true, "fas fa-info", "gray", false, false, "О Компании" },
-                    { new Guid("f1f5dc6d-1a43-4539-93e6-225e91ea5510"), "Comments", "MenuFirstLine", true, "fas fa-star", "orange", false, true, "Отзывы" }
+                    { 1, "Comments", "MenuFirstLine", true, "fas fa-star", "orange", false, true, "Отзывы" },
+                    { 2, "FullPriceList", "MenuFirstLine", true, "fas fa-ruble-sign", "gray", false, false, "Цены" },
+                    { 3, "About", "MenuFirstLine", true, "fas fa-info", "gray", false, false, "О Компании" },
+                    { 4, "Contacts", "MenuFirstLine", true, "fas fa-map-marker-alt", "gray", false, false, "Контакты" },
+                    { 5, "ComputersRepair", "Home", false, "fas fa-wrench", "black", true, false, "Ремонт компьютеров" },
+                    { 6, "LaptopsRepair", "Home", false, "fas fa-laptop-medical", "black", true, false, "Ремонт ноутбуков" },
+                    { 7, "HelpDesk", "Home", false, "fas fa-ambulance", "black", true, false, "Компьютерная помощь" },
+                    { 8, "InternetNetworks", "Home", false, "fas fa-network-wired", "black", true, false, "Интернет и сети" },
+                    { 9, "DataRecovery", "Home", false, "fas fa-database", "black", false, false, "Восстановление данных" },
+                    { 10, "B2b", "Home", false, "fas fa-industry", "black", true, false, "ИТ-услуги для бизнеса" },
+                    { 11, "LaptopUpgrade", "Home", false, "fas fa-laptop", "black", false, false, "LaptopUpgrade" },
+                    { 12, "PcAssembly", "Home", false, "fas fa-tv", "black", false, false, "Сборка компьютера" },
+                    { 13, "OfficeEquipment", "Home", false, "fas fa-print", "black", true, false, "Oргтехника" }
                 });
 
             migrationBuilder.InsertData(

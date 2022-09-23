@@ -372,9 +372,11 @@ namespace CompanyProjectContentService.Migrations
 
             modelBuilder.Entity("CompanyProjectContentService.Models.TopMenu.TopMenuEntity", b =>
                 {
-                    b.Property<Guid>("TopMenuEntityId")
+                    b.Property<int>("TopMenuEntityId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("TopMenuEntityId"));
 
                     b.Property<string>("AspAction")
                         .IsRequired()
@@ -412,7 +414,7 @@ namespace CompanyProjectContentService.Migrations
                     b.HasData(
                         new
                         {
-                            TopMenuEntityId = new Guid("f1f5dc6d-1a43-4539-93e6-225e91ea5510"),
+                            TopMenuEntityId = 1,
                             AspAction = "Comments",
                             AspController = "MenuFirstLine",
                             FirstLine = true,
@@ -424,7 +426,7 @@ namespace CompanyProjectContentService.Migrations
                         },
                         new
                         {
-                            TopMenuEntityId = new Guid("1fa80a66-7dfa-424a-bdd5-5723b2e1e062"),
+                            TopMenuEntityId = 2,
                             AspAction = "FullPriceList",
                             AspController = "MenuFirstLine",
                             FirstLine = true,
@@ -436,7 +438,7 @@ namespace CompanyProjectContentService.Migrations
                         },
                         new
                         {
-                            TopMenuEntityId = new Guid("e8a047eb-ff30-4f51-8da3-23a7d12a998f"),
+                            TopMenuEntityId = 3,
                             AspAction = "About",
                             AspController = "MenuFirstLine",
                             FirstLine = true,
@@ -448,7 +450,7 @@ namespace CompanyProjectContentService.Migrations
                         },
                         new
                         {
-                            TopMenuEntityId = new Guid("cdab1277-d33c-47cd-b10e-f7cc106c147b"),
+                            TopMenuEntityId = 4,
                             AspAction = "Contacts",
                             AspController = "MenuFirstLine",
                             FirstLine = true,
@@ -460,7 +462,7 @@ namespace CompanyProjectContentService.Migrations
                         },
                         new
                         {
-                            TopMenuEntityId = new Guid("c45e0efd-7d7c-45a2-88ed-6660eac6701c"),
+                            TopMenuEntityId = 5,
                             AspAction = "ComputersRepair",
                             AspController = "Home",
                             FirstLine = false,
@@ -472,7 +474,7 @@ namespace CompanyProjectContentService.Migrations
                         },
                         new
                         {
-                            TopMenuEntityId = new Guid("d8b1ed10-0253-4096-b5d2-3fd7c1b06838"),
+                            TopMenuEntityId = 6,
                             AspAction = "LaptopsRepair",
                             AspController = "Home",
                             FirstLine = false,
@@ -484,7 +486,7 @@ namespace CompanyProjectContentService.Migrations
                         },
                         new
                         {
-                            TopMenuEntityId = new Guid("88d06219-997d-4f20-9930-629626c9ce8d"),
+                            TopMenuEntityId = 7,
                             AspAction = "HelpDesk",
                             AspController = "Home",
                             FirstLine = false,
@@ -496,7 +498,7 @@ namespace CompanyProjectContentService.Migrations
                         },
                         new
                         {
-                            TopMenuEntityId = new Guid("61f30d4b-556c-40e7-89c4-3954726e84dd"),
+                            TopMenuEntityId = 8,
                             AspAction = "InternetNetworks",
                             AspController = "Home",
                             FirstLine = false,
@@ -508,7 +510,7 @@ namespace CompanyProjectContentService.Migrations
                         },
                         new
                         {
-                            TopMenuEntityId = new Guid("2abdd9c1-9103-45e5-9b88-c7a13d9cfefe"),
+                            TopMenuEntityId = 9,
                             AspAction = "DataRecovery",
                             AspController = "Home",
                             FirstLine = false,
@@ -520,7 +522,7 @@ namespace CompanyProjectContentService.Migrations
                         },
                         new
                         {
-                            TopMenuEntityId = new Guid("44c744b5-6358-4077-8401-d74ff4c6ee13"),
+                            TopMenuEntityId = 10,
                             AspAction = "B2b",
                             AspController = "Home",
                             FirstLine = false,
@@ -532,7 +534,7 @@ namespace CompanyProjectContentService.Migrations
                         },
                         new
                         {
-                            TopMenuEntityId = new Guid("5b8ac044-b28f-4931-90d3-63637e2c89a8"),
+                            TopMenuEntityId = 11,
                             AspAction = "LaptopUpgrade",
                             AspController = "Home",
                             FirstLine = false,
@@ -544,7 +546,7 @@ namespace CompanyProjectContentService.Migrations
                         },
                         new
                         {
-                            TopMenuEntityId = new Guid("499b2a3c-ab84-4411-b689-9a52f799410a"),
+                            TopMenuEntityId = 12,
                             AspAction = "PcAssembly",
                             AspController = "Home",
                             FirstLine = false,
@@ -556,7 +558,7 @@ namespace CompanyProjectContentService.Migrations
                         },
                         new
                         {
-                            TopMenuEntityId = new Guid("3dae453f-30c7-4cce-8324-9a977f4dd335"),
+                            TopMenuEntityId = 13,
                             AspAction = "OfficeEquipment",
                             AspController = "Home",
                             FirstLine = false,

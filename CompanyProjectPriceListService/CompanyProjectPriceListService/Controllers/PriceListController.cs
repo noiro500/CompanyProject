@@ -8,7 +8,7 @@ using NuGet.Packaging;
 
 namespace CompanyProjectPriceListService.Controllers
 {
-    [Route("api/v1/[controller]")]
+    [Route("api/v1/[controller]/[action]")]
     [ApiController]
     public class PriceListController : ControllerBase
     {
@@ -48,7 +48,7 @@ namespace CompanyProjectPriceListService.Controllers
         public async Task<IActionResult> GetFullPriceListAsync()
         {
             var repository = _unitOfWork.Repository<PriceList>();
-            var query = repository.MultipleResultQuery().OrderBy(x => x.PageName);
+            var query = repository.MultipleResultQuery().OrderBy(x => x.PriceListId);
             var result = await repository.SearchAsync(query);
             if (result is null)
                 return NotFound();

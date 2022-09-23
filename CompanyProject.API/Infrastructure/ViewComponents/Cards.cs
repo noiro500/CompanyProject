@@ -24,7 +24,7 @@ namespace CompanyProject.API.Infrastructure.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync(string pageNameForCard)
         {
-            var cardList = await _contentService.GetCards(pageNameForCard);
+            var cardList = await _contentService.GetCardsAsync(pageNameForCard);
             return View("Cards", cardList);
         }
     }

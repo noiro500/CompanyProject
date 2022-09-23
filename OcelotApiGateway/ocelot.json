@@ -49,9 +49,9 @@
       }
     },
     {
-      "UpstreamPathTemplate": "/gateway/v1/Card/{pageNameForCard}",
+      "UpstreamPathTemplate": "/gateway/v1/Card/GetCards/{pageNameForCard}",
       "UpstreamHttpMethod": [ "Get" ],
-      "DownstreamPathTemplate": "/api/v1/Card/{pageNameForCard}",
+      "DownstreamPathTemplate": "/api/v1/Card/GetCards/{pageNameForCard}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -65,9 +65,9 @@
       }
     },
     {
-      "UpstreamPathTemplate": "/gateway/v1/PriceList/{pageName}",
+      "UpstreamPathTemplate": "/gateway/v1/PriceList/GetPriceListByPage/{pageName}",
       "UpstreamHttpMethod": [ "Get" ],
-      "DownstreamPathTemplate": "/api/v1/PriceList/{pageName}",
+      "DownstreamPathTemplate": "/api/v1/PriceList/GetPriceListByPage/{pageName}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -81,9 +81,9 @@
       }
     },
     {
-      "UpstreamPathTemplate": "/gateway/v1/PriceList/",
+      "UpstreamPathTemplate": "/gateway/v1/PriceList/GetFullPriceList",
       "UpstreamHttpMethod": [ "Get" ],
-      "DownstreamPathTemplate": "/api/v1/PriceList/",
+      "DownstreamPathTemplate": "/api/v1/PriceList/GetFullPriceList",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {

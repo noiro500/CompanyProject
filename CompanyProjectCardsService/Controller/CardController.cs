@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CompanyProjectCardsService.Controller
 {
-    [Route("api/v1/[controller]")]
+    [Route("api/v1/[controller]/[action]")]
     [ApiController]
     public class CardController : ControllerBase
     {
@@ -16,7 +16,7 @@ namespace CompanyProjectCardsService.Controller
         [HttpGet("{pageNameForCard:regex(^\\w+$)}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MainCard))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetCards(string pageNameForCard)
+        public async Task<IActionResult> GetCardsAsync(string pageNameForCard)
         {
             var repository = _unitOfWork.Repository<MainCard>();
             var query = repository.MultipleResultQuery().AndFilter(card => card.PageNameForCard == pageNameForCard)

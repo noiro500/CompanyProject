@@ -17,9 +17,10 @@ public class InitialDbContent : IInitialDbContent
         string filePath = Path.Combine(_webHostEnvironment.WebRootPath, "Resources", "DbSeed",
             "InitialDbMainCardContent.json");
         var resultData = JsonSerializer.Deserialize<List<MainCard>>(File.ReadAllText(filePath));
+        int i = 0;
         resultData.ForEach(p =>
         {
-            p.MainCardId = Guid.NewGuid();
+            p.MainCardId = ++i;
             p.PageNameForCard = p.PageNameForCard.ToLower(CultureInfo.CurrentCulture);
         });
         return resultData;
@@ -30,7 +31,8 @@ public class InitialDbContent : IInitialDbContent
         string filePath = Path.Combine(_webHostEnvironment.WebRootPath, "Resources", "DbSeed",
             "InitialDbCardFooterItemContent.json");
         var resultData = JsonSerializer.Deserialize<List<CardFooterItem>>(File.ReadAllText(filePath));
-        resultData.ForEach(p => p.CardFooterItemId = Guid.NewGuid());
+        int i = 0;
+        resultData.ForEach(p => p.CardFooterItemId = ++i);
         return resultData;
     }
 }
