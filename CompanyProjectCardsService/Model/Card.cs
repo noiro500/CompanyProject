@@ -3,7 +3,7 @@
 
 public class CardFooterItem
 {
-    public Guid CardFooterItemId { get; set; }
+    public int CardFooterItemId { get; set; }
     public bool CardFooterItemIsLink { get; set; }
     public string? CardFooterItemLinkController { get; set; }
     public string? CardFooterItemLinkAction { get; set; }
@@ -13,7 +13,7 @@ public class CardFooterItem
 
 public class MainCard
 {
-    public Guid MainCardId { get; set; }
+    public int MainCardId { get; set; }
     public string PageNameForCard { get; set; } = null!;
     public bool CardIsLink { get; set; }
     public string? CardLinkController { get; set; }

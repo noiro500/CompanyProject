@@ -24,9 +24,11 @@ namespace CompanyProjectCardsService.Migrations
 
             modelBuilder.Entity("CompanyProjectCardsService.Model.CardFooterItem", b =>
                 {
-                    b.Property<Guid>("CardFooterItemId")
+                    b.Property<int>("CardFooterItemId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("CardFooterItemId"));
 
                     b.Property<string>("CardFooterItemContent")
                         .HasColumnType("text");
@@ -40,8 +42,8 @@ namespace CompanyProjectCardsService.Migrations
                     b.Property<string>("CardFooterItemLinkController")
                         .HasColumnType("text");
 
-                    b.Property<Guid?>("MainCardId")
-                        .HasColumnType("uuid");
+                    b.Property<int?>("MainCardId")
+                        .HasColumnType("integer");
 
                     b.HasKey("CardFooterItemId");
 
@@ -52,16 +54,18 @@ namespace CompanyProjectCardsService.Migrations
                     b.HasData(
                         new
                         {
-                            CardFooterItemId = new Guid("d1686e4d-6ae2-4d5d-84cf-067a363ffa65"),
+                            CardFooterItemId = 1,
                             CardFooterItemIsLink = false
                         });
                 });
 
             modelBuilder.Entity("CompanyProjectCardsService.Model.MainCard", b =>
                 {
-                    b.Property<Guid>("MainCardId")
+                    b.Property<int>("MainCardId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("MainCardId"));
 
                     b.Property<string[]>("CardContent")
                         .HasColumnType("text[]");
@@ -115,7 +119,7 @@ namespace CompanyProjectCardsService.Migrations
                     b.HasData(
                         new
                         {
-                            MainCardId = new Guid("660663db-c6de-4161-93c7-00c6ffeb29a6"),
+                            MainCardId = 1,
                             CardContent = new[] { "ComputersRepair.png" },
                             CardHasFooter = false,
                             CardHasHeader = true,
@@ -129,7 +133,7 @@ namespace CompanyProjectCardsService.Migrations
                         },
                         new
                         {
-                            MainCardId = new Guid("94010429-5c8e-4ff2-b1a3-f2d0b8e59bf0"),
+                            MainCardId = 2,
                             CardContent = new[] { "LaptopsRepair.png" },
                             CardHasFooter = false,
                             CardHasHeader = true,
@@ -143,7 +147,7 @@ namespace CompanyProjectCardsService.Migrations
                         },
                         new
                         {
-                            MainCardId = new Guid("7e304405-ccca-4477-a572-cbb95771e6e7"),
+                            MainCardId = 3,
                             CardContent = new[] { "HelpDesk.png" },
                             CardHasFooter = false,
                             CardHasHeader = true,
@@ -157,7 +161,7 @@ namespace CompanyProjectCardsService.Migrations
                         },
                         new
                         {
-                            MainCardId = new Guid("01f679e5-07af-464e-b761-5a480344ad4e"),
+                            MainCardId = 4,
                             CardContent = new[] { "InternetNetworks.png" },
                             CardHasFooter = false,
                             CardHasHeader = true,
@@ -171,7 +175,7 @@ namespace CompanyProjectCardsService.Migrations
                         },
                         new
                         {
-                            MainCardId = new Guid("11fb093c-7ffd-45ed-b55e-a0fa1fe6b73e"),
+                            MainCardId = 5,
                             CardContent = new[] { "DataRecovery.png" },
                             CardHasFooter = false,
                             CardHasHeader = true,
@@ -185,7 +189,7 @@ namespace CompanyProjectCardsService.Migrations
                         },
                         new
                         {
-                            MainCardId = new Guid("50116b54-4127-435d-9577-8eb4675434f6"),
+                            MainCardId = 6,
                             CardContent = new[] { "B2b.png" },
                             CardHasFooter = false,
                             CardHasHeader = true,
@@ -199,7 +203,7 @@ namespace CompanyProjectCardsService.Migrations
                         },
                         new
                         {
-                            MainCardId = new Guid("9756643a-e4c5-40ad-aca4-5a04feee0e1f"),
+                            MainCardId = 7,
                             CardContent = new[] { "LaptopUpgrade.png" },
                             CardHasFooter = false,
                             CardHasHeader = true,
@@ -213,7 +217,7 @@ namespace CompanyProjectCardsService.Migrations
                         },
                         new
                         {
-                            MainCardId = new Guid("206f086c-562e-482b-b7b3-f223d0efe18d"),
+                            MainCardId = 8,
                             CardContent = new[] { "PcAssembly.png" },
                             CardHasFooter = false,
                             CardHasHeader = true,

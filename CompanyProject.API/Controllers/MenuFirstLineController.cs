@@ -36,7 +36,7 @@ namespace CompanyProject.API.Controllers
         [Route("/fullpricelist")]
         public async Task<IActionResult> FullPriceList()
         {
-            var result =  (await _contentService.GetFullPriceListAsync()).OrderBy(p=>p.ServiceName).Distinct(new PriceListDtoComparer()).ToList();
+            var result =  (await _contentService.GetFullPriceListAsync()).OrderBy(p=>p.PriceListId).Distinct(new PriceListDtoComparer()).ToList();
             return View(result);
         }
 

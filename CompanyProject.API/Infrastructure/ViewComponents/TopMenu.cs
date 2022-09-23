@@ -26,9 +26,11 @@ namespace CompanyProject.API.Infrastructure.ViewComponents
             var topMenuEntities = await _contentService.GetTopMenuEntitiesAsync();
             var topMenuFirstLine = topMenuEntities.Where(m => m.FirstLine==true).ToList();
             var topMenuNavBar = topMenuEntities.Where(m => m.NavBar == true).ToList();
-            var topMenuDictionary = new Dictionary<string, List<TopMenuEntityDto>>();
-            topMenuDictionary["firstLine"] = topMenuFirstLine;
-            topMenuDictionary["topMenuNavBar"] = topMenuNavBar;
+            var topMenuDictionary = new Dictionary<string, List<TopMenuEntityDto>>
+            {
+                ["firstLine"] = topMenuFirstLine,
+                ["topMenuNavBar"] = topMenuNavBar
+            };
             return View("TopMenu", topMenuDictionary);
             
         }

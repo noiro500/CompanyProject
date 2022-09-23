@@ -2,7 +2,7 @@
 {
     public class TopMenuEntity
     {
-        public Guid TopMenuEntityId { get; set; }
+        public int TopMenuEntityId { get; set; }
         public bool FirstLine { get; set; }
         public string AspAction { get; set; } = null!;
         public string AspController { get; set; }=null!;

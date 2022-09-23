@@ -24,7 +24,7 @@ public record PageDto(
     );
 
 public record CardFooterItemDto(
-    Guid CardFooterItemId, 
+    int CardFooterItemId, 
     bool CardFooterItemIsLink, 
     string? CardFooterItemLinkController, 
     string? CardFooterItemLinkAction, 
@@ -32,7 +32,7 @@ public record CardFooterItemDto(
     );
 
 public record MainCardDto(
-    Guid MainCardId,
+    int MainCardId,
     string PageNameForCard,
     bool CardIsLink,
     string? CardLinkController,
@@ -51,7 +51,7 @@ public record MainCardDto(
     );
 
 public record PriceListDto(
-    Guid PriceListId,
+    int PriceListId,
     string ServiceName,
     string PageName,
     string IdServiceName,
@@ -61,7 +61,7 @@ public record PriceListDto(
     );
 
 public record TopMenuEntityDto(
-    Guid TopMenuEntityId,
+    int TopMenuEntityId,
     bool FirstLine,
     string AspAction,
     string AspController,
