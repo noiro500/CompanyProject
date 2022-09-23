@@ -8,10 +8,8 @@ namespace CompanyProject.API.Infrastructure.RefitInterfaces;
 
 public interface IContentService
 {
-    //[Get("/api/v1/Content/{pageName}")]
-    //Task<PageDto> GetPageContentAsync(string pageName);
-
-    [Get("/gateway/v1/Content/{pageName}")]
+    //[Get("/gateway/v1/Content/{pageName}")]
+    [Get("/gateway/v1/Content/GetPageContent/{pageName}")]
     Task<PageDto> GetPageContentAsync(string pageName);
 
     [Get("/gateway/v1/Card/{pageNameForCard}")]
@@ -23,5 +21,11 @@ public interface IContentService
     [Get("/gateway/v1/PriceList")]
     Task<IList<PriceListDto>> GetFullPriceListAsync();
 
+    //[Get("/gateway/v1/Content")]
+    [Get("/gateway/v1/Content/GetTopMenuEntities")]
+    Task<IList<TopMenuEntityDto>> GetTopMenuEntitiesAsync();
 
+    //[Get("/gateway/v1/Content")]
+    [Get("/gateway/v1/Content/GetFooterContent")]
+    Task<IList<PageDto>> GetFooterContentAsync();
 }

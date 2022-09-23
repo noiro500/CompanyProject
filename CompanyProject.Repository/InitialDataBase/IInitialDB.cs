@@ -9,7 +9,7 @@ namespace CompanyProject.Repository.InitialDataBase
     public interface IInitialDb
     {
         //IList<Paragraph> GetInitialDbContent();
-        IList<PriceList> GetInitialDbPriceLists();
+        //IList<PriceList> GetInitialDbPriceLists();
         IList<AddressFromDb> GetInitialDbRealAddresses();
     }
 }

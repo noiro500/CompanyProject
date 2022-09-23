@@ -15,9 +15,14 @@ builder.Services.AddScoped<IInitialDbContent, InitialDbContent>();
 builder.Services.AddScoped<DbContext, CompanyProjectContentDbContext>();
 builder.Services.AddUnitOfWork();
 builder.Services.AddUnitOfWork<CompanyProjectContentDbContext>();
+builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 //app.UseAuthorization();
 app.UseStaticFiles();
 

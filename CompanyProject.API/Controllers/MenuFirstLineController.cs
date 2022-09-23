@@ -29,6 +29,10 @@ namespace CompanyProject.API.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Возвращает fullpricelist из микросервиса CompanyProjectPriceListService
+        /// </summary>
+        /// <returns>Спикок PriceListDto</returns>
         [Route("/fullpricelist")]
         public async Task<IActionResult> FullPriceList()
         {

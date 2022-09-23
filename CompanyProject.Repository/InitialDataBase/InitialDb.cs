@@ -25,14 +25,14 @@ namespace CompanyProject.Repository.InitialDataBase
 
         //}
 
-        public IList<PriceList> GetInitialDbPriceLists()
-        {
-            IFileProvider getCurrentDirectory = new PhysicalFileProvider(Directory.GetCurrentDirectory());
-            var jsonDesData = JsonSerializer.Deserialize<List<PriceList>>(File.ReadAllText(getCurrentDirectory.GetFileInfo("/wwwroot/Resources/DbSeed/InitialDBPriceLists.json").PhysicalPath));
-            int i = 0;
-            jsonDesData.ForEach(p => p.PriceListId = ++i);
-            return jsonDesData;
-        }
+        //public IList<PriceList> GetInitialDbPriceLists()
+        //{
+        //    IFileProvider getCurrentDirectory = new PhysicalFileProvider(Directory.GetCurrentDirectory());
+        //    var jsonDesData = JsonSerializer.Deserialize<List<PriceList>>(File.ReadAllText(getCurrentDirectory.GetFileInfo("/wwwroot/Resources/DbSeed/InitialDBPriceLists.json").PhysicalPath));
+        //    int i = 0;
+        //    jsonDesData.ForEach(p => p.PriceListId = ++i);
+        //    return jsonDesData;
+        //}
 
         public IList<AddressFromDb> GetInitialDbRealAddresses()
         {
