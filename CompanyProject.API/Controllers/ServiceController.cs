@@ -39,7 +39,7 @@ namespace CompanyProject.API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddMessageToDbAsyncTask(Message mes)
         {
-            if (mes.Description is not null)
+            if (!ModelState.IsValid)
                 return Json(JsonSerializer.Serialize(new {parameter = "description"}));
             if (!mes.IsAdoptedPrivacyPolicy)
             {
@@ -105,7 +105,7 @@ namespace CompanyProject.API.Controllers
                 else
                     return StatusCode(405);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 _unitOfWork.Dispose();
                 return StatusCode(405);

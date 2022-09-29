@@ -58,13 +58,13 @@ namespace CompanyProject.Repository
                 }
             );
 
-            modelBuilder.Entity<Paragraph>().HasData(
-                _context.GetInitialDbContent()
-            );
+            //modelBuilder.Entity<Paragraph>().HasData(
+            //    _context.GetInitialDbContent()
+            //);
 
-            modelBuilder.Entity<PriceList>().HasData(
-                _context.GetInitialDbPriceLists()
-                );
+            //modelBuilder.Entity<PriceList>().HasData(
+            //    _context.GetInitialDbPriceLists()
+            //    );
             modelBuilder.Entity<AddressFromDb>().HasData(
                 _context.GetInitialDbRealAddresses()
             );

@@ -1,11 +1,11 @@
-﻿@model CompanyProject.Domain.Page.Page
+﻿@model CompanyProject.API.Infrastructure.Dto.PageDto
 
 @{
     ViewData["Title"] = "Главная";
 }
 <div class="container">
     <br />
-    <vc:cards />
+    <vc:cards page-name-for-card="@ViewBag.pageNameForCard" />
     <div class="is-touch-pegging">
     <partial name="ContentViews/PartialView/_ContentLayoutPartial" model="@Model.Paragraphs.OrderBy(p=>p.ParagraphId)" />
     </div>

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CompanyProject.API.Infrastructure.RefitInterfaces;
 using CompanyProject.ViewModels;
 using CompanyProject.Domain;
 using CompanyProject.Domain.Interfaces;
@@ -14,19 +15,16 @@ namespace CompanyProject.API.Infrastructure.ViewComponents
 {
     public class Cards: ViewComponent
     {
-        //private readonly IRepository<Page> _context;
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IContentService _contentService;
 
-        public Cards(IUnitOfWork unitOfWork)
+        public Cards(IContentService contentService)
         {
-            _unitOfWork = unitOfWork;
+            _contentService= contentService;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync()
+        public async Task<IViewComponentResult> InvokeAsync(string pageNameForCard)
         {
-            var cardList = await (_unitOfWork.Pages.GetPagesForCards("ToCard"))
-                    .Select(c => new CardViewModel(c.ScreenName.ToUpper(), c.AspController , c.Name, c.Name + ".png"))
-                .ToListAsync();
+            var cardList = await _contentService.GetCardsAsync(pageNameForCard);
             return View("Cards", cardList);
         }
     }

@@ -14,8 +14,9 @@
         <link href="~/styles/css/bulma-with-edit.min.css" rel="stylesheet" asp-append-version="true" />
         <link href="~/styles/css/jquery.toast.min.css" rel="stylesheet" asp-append-version="true" />
     </environment>
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
+          rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Jura:400,700|Open+Sans:400,700&subset=cyrillic,cyrillic-ext" rel="stylesheet" asp-append-version="true" />
     <link href="~/styles/css/datepicker.min.css" rel="stylesheet" asp-append-version="true" />
     @await RenderSectionAsync("Styles", required: false)
 </head>
@@ -29,7 +30,7 @@
                     <vc:blockquote-section name="NeedHelp" />
                     <vc:blockquote-section name="SendMessage" />
                 </div>
-                <div class="column is-half" >
+                <div class="column is-half">
                     <vc:message-form />
                 </div>
             </div>
