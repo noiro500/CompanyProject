@@ -35,4 +35,18 @@ public class InitialDbContent : IInitialDbContent
         resultData.ForEach(p => p.CardFooterItemId = ++i);
         return resultData;
     }
+
+    public IList<T> InitialContent<T>(string jsonFile) where T : new()
+    {
+        var myType = typeof(T);
+        var tProp = myType.GetProperties();
+        var w = tProp.FirstOrDefault(x => x.Name.Contains(myType.Name + "Id"))
+                ?? throw new ArgumentNullException("tProp.FirstOrDefault (x => x.Name.Contains(myType.Name+\"Id\"))");
+        string filePath = Path.Combine(_webHostEnvironment.WebRootPath, "Resources", "DbSeed",
+            jsonFile);
+        var resultData = JsonSerializer.Deserialize<List<T>>(File.ReadAllText(filePath));
+        int i = 0;
+        resultData!.ForEach(p => w.SetValue(p, ++i));
+        return resultData;
+    }
 }

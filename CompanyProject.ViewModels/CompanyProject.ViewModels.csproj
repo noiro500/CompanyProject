@@ -6,6 +6,7 @@
     <EnableNETAnalyzers>false</EnableNETAnalyzers>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <Nullable>annotations</Nullable>
+    <Configurations>Debug;Release;WebApi</Configurations>
   </PropertyGroup>
 
   <ItemGroup>

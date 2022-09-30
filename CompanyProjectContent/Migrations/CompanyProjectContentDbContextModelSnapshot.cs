@@ -22,7 +22,7 @@ namespace CompanyProjectContentService.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("CompanyProjectContentService.Models.Page.Page", b =>
+            modelBuilder.Entity("CompanyProjectContentService.Models.Page", b =>
                 {
                     b.Property<int>("PageId")
                         .ValueGeneratedOnAdd()
@@ -128,7 +128,7 @@ namespace CompanyProjectContentService.Migrations
                         });
                 });
 
-            modelBuilder.Entity("CompanyProjectContentService.Models.Paragraph.Paragraph", b =>
+            modelBuilder.Entity("CompanyProjectContentService.Models.Paragraph", b =>
                 {
                     b.Property<int>("ParagraphId")
                         .ValueGeneratedOnAdd()
@@ -370,7 +370,7 @@ namespace CompanyProjectContentService.Migrations
                         });
                 });
 
-            modelBuilder.Entity("CompanyProjectContentService.Models.TopMenu.TopMenuEntity", b =>
+            modelBuilder.Entity("CompanyProjectContentService.Models.TopMenuEntity", b =>
                 {
                     b.Property<int>("TopMenuEntityId")
                         .ValueGeneratedOnAdd()
@@ -570,9 +570,9 @@ namespace CompanyProjectContentService.Migrations
                         });
                 });
 
-            modelBuilder.Entity("CompanyProjectContentService.Models.Paragraph.Paragraph", b =>
+            modelBuilder.Entity("CompanyProjectContentService.Models.Paragraph", b =>
                 {
-                    b.HasOne("CompanyProjectContentService.Models.Page.Page", "Page")
+                    b.HasOne("CompanyProjectContentService.Models.Page", "Page")
                         .WithMany("Paragraphs")
                         .HasForeignKey("PageId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -581,7 +581,7 @@ namespace CompanyProjectContentService.Migrations
                     b.Navigation("Page");
                 });
 
-            modelBuilder.Entity("CompanyProjectContentService.Models.Page.Page", b =>
+            modelBuilder.Entity("CompanyProjectContentService.Models.Page", b =>
                 {
                     b.Navigation("Paragraphs");
                 });

@@ -1,5 +1,4 @@
-﻿using CompanyProjectContentService.Models.Page;
-using CompanyProjectContentService.Models.TopMenu;
+﻿using CompanyProjectContentService.Models;
 using EntityFrameworkCore.UnitOfWork.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

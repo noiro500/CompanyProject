@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace CompanyProjectContentService.Models.Paragraph
+namespace CompanyProjectContentService.Models
 {
     public class Paragraph
     {
@@ -14,7 +14,7 @@ namespace CompanyProjectContentService.Models.Paragraph
         public string[] Content { get; set; }
         public int PageId { get; set; }
         [JsonIgnore]
-        public Page.Page Page { get; set; }
+        public Page Page { get; set; }
 
 
 

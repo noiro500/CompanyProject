@@ -1,6 +1,5 @@
 [
   {
-    "PageId": 1,
     "Name": "Index",
     "ScreenName": null,
     "Icon": null,
@@ -8,7 +7,6 @@
     "ToCard": false
   },
   {
-    "PageId": 2,
     "Name": "ComputersRepair",
     "ScreenName": "Ремонт компьютеров",
     "Icon": "fas fa-wrench",
@@ -16,7 +14,6 @@
     "ToCard": true
   },
   {
-    "PageId": 3,
     "Name": "LaptopsRepair",
     "ScreenName": "Ремонт ноутбуков",
     "Icon": "fas fa-laptop-medical",
@@ -24,7 +21,6 @@
     "ToCard": true
   },
   {
-    "PageId": 4,
     "Name": "HelpDesk",
     "ScreenName": "Компьютерная помощь",
     "Icon": "fas fa-ambulance",
@@ -32,7 +28,6 @@
     "ToCard": true
   },
   {
-    "PageId": 5,
     "Name": "InternetNetworks",
     "ScreenName": "Интернет и сети",
     "Icon": "fas fa-network-wired",
@@ -40,7 +35,6 @@
     "ToCard": true
   },
   {
-    "PageId": 6,
     "Name": "DataRecovery",
     "ScreenName": "Восстановление данных",
     "Icon": "fas fa-database",
@@ -48,7 +42,6 @@
     "ToCard": true
   },
   {
-    "PageId": 7,
     "Name": "B2b",
     "ScreenName": "ИТ-услуги для бизнеса",
     "Icon": "fas fa-industry",
@@ -56,7 +49,6 @@
     "ToCard": true
   },
   {
-    "PageId": 8,
     "Name": "LaptopUpgrade",
     "ScreenName": "Модернизация ноутбука",
     "Icon": "fas fa-laptop",
@@ -64,7 +56,6 @@
     "ToCard": true
   },
   {
-    "PageId": 9,
     "Name": "PcAssembly",
     "ScreenName": "Сборка компьютера",
     "Icon": "fas fa-tv",
@@ -72,7 +63,6 @@
     "ToCard": true
   },
   {
-    "PageId": 10,
     "Name": "OfficeEquipment",
     "ScreenName": "Oргтехника",
     "Icon": "fas fa-print",
