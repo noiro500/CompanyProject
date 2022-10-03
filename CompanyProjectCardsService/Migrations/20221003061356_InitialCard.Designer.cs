@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CompanyProjectCardsService.Migrations
 {
     [DbContext(typeof(CompanyProjectCardDbContext))]
-    [Migration("20220923012344_InitialCard")]
+    [Migration("20221003061356_InitialCard")]
     partial class InitialCard
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

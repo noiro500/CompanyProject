@@ -19,10 +19,10 @@ public class CompanyProjectCardDbContext : DbContext
     {
         
        modelBuilder.Entity<MainCard>().HasData(
-            _content.InitialDbMainCardsContent()
+            _content.InitialContent<MainCard>("InitialDbMainCardContent.json")
         );
         modelBuilder.Entity<CardFooterItem>().HasData(
-            _content.InitialDbCardFooterItemContent()
+            _content.InitialContent<CardFooterItem>("InitialDbCardFooterItemContent.json")
         );
         
         modelBuilder.Entity<MainCard>()
