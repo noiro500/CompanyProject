@@ -1,5 +1,4 @@
-﻿using CompanyProjectContentService.Models.Page;
-using CompanyProjectContentService.Models.TopMenu;
+﻿using CompanyProjectContentService.Models;
 using EntityFrameworkCore.UnitOfWork.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,7 +12,7 @@ public class ContentController : ControllerBase
     private readonly IUnitOfWork _unitOfWork;
 
     public ContentController(IUnitOfWork unitOfWork) =>_unitOfWork=unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
-    
+
     [HttpGet("{pageName:regex(^\\w+$)}")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Page))]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -49,6 +48,19 @@ public class ContentController : ControllerBase
         var repository = _unitOfWork.Repository<Page>();
         var query = repository.MultipleResultQuery();
         var result = await repository.SearchAsync(query);
+        if (result is null)
+            return NotFound();
+        return Ok(result);
+    }
+
+    [HttpGet("{isUsing:bool}")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CompanyContact))]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> GetCompanyContactAsync(bool isUsing)
+    {
+        var repository = _unitOfWork.Repository<CompanyContact>();
+        var query = repository.SingleResultQuery().AndFilter(company => company.CompanyIsUsing ==isUsing);
+        var result = await repository.FirstOrDefaultAsync(query);
         if (result is null)
             return NotFound();
         return Ok(result);

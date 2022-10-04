@@ -1,7 +1,5 @@
 ﻿using CompanyProjectContentService.Infrastructure.InitialDbContent;
-using CompanyProjectContentService.Models.Page;
-using CompanyProjectContentService.Models.Paragraph;
-using CompanyProjectContentService.Models.TopMenu;
+using CompanyProjectContentService.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace CompanyProjectContentService.Infrastructure;
@@ -19,15 +17,18 @@ public class CompanyProjectContentDbContext : DbContext
     public DbSet<Page> Pages { get; set; }
     public DbSet<Paragraph> Paragraphs { get; set; }
     public DbSet<TopMenuEntity> TopMenuEntities { get; set; }
+    public DbSet<CompanyContact> CompanyContacts { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Page>().HasData(
-            _content.InitialDbPageContent());
+            _content.InitialContent<Page>("InitialDbPageContent.json"));
         modelBuilder.Entity<Paragraph>().HasData(
-            _content.InitialDbParagraphContent());
+            _content.InitialContent<Paragraph>("InitialDbParagraphContent.json"));
         modelBuilder.Entity<TopMenuEntity>().HasData(
-            _content.InitialDbTopMenuEntities());
+            _content.InitialContent<TopMenuEntity>("InitialDbTopMenuLineEntities.json"));
+        modelBuilder.Entity<CompanyContact>().HasData(
+            _content.InitialContent<CompanyContact>("InitialDbCompanyContact.json"));
 
         modelBuilder.Entity<Paragraph>()
             .HasOne(p => p.Page)

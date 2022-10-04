@@ -1,5 +1,4 @@
-﻿@model CompanyProject.Domain.CompanyContact.CompanyContact
-@{
+﻿@{
     ViewData["Title"] = "Контакты";
 }
 
@@ -30,7 +29,7 @@
         <div class="columns is-touch-pegging">
             <div class="column is-full">
                 <p class="is-text-justify">
-                    <b>"@Model.SimpleCompanyName"</b> - сервисный центр по ремонту и обслуживанию компьютерной техники на всей территории Кавказских Минеральных Вод.
+                    <b>"@companyInfo.Company_Info.SimpleCompanyName"</b> - сервисный центр по ремонту и обслуживанию компьютерной техники на всей территории Кавказских Минеральных Вод.
                     Обратитесь к нашим специалистам и получите профессиональную компьютерную помощь. Бесплатные консультации!
                 </p> <br />
                 <p>Вы можете обратиться к нам по телефону, написать в WhatsApp, Telegram или по электронной почте. Будем рады помочь Вам и ответить на все Ваши вопросы!</p>
@@ -42,15 +41,15 @@
                 <ul>
                     <li>
                         <span><i class="fas fa-arrow-alt-circle-right" style="color: #d81b60"></i></span>&nbsp; Телефон: <br />
-                        <strong style="padding-left: 1.5625em">@Model.PhoneNumber</strong>
+                        <strong style="padding-left: 1.5625em">@companyInfo.Company_Info.CompanyPhoneNumber</strong>
                     </li>
                     <li>
                         <span><i class="fas fa-arrow-alt-circle-right" style="color: #d81b60"></i></span>&nbsp; WhatsApp: <br />
-                        <strong style="padding-left: 1.5625em">@Model.WhatsApp</strong>
+                        <strong style="padding-left: 1.5625em">@companyInfo.Company_Info.CompanyMessagerNumber</strong>
                     </li>
                     <li>
                         <span><i class="fas fa-arrow-alt-circle-right" style="color: #d81b60"></i></span>&nbsp; Адрес главного сервисного центра: <br />
-                        <strong style="padding-left: 1.5625em">@Model.Address</strong>
+                        <strong style="padding-left: 1.5625em">@companyInfo.Company_Info.CompanyAddress</strong>
                     </li>
                 </ul>
             </div>

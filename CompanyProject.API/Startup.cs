@@ -15,6 +15,7 @@ using AspNetCore.ReCaptcha;
 using CompanyProject.API.Infrastructure.RefitInterfaces;
 using Microsoft.Extensions.FileProviders;
 using Refit;
+using CompanyProject.API.Infrastructure.HelpClasses;
 
 namespace CompanyProject.API
 {
@@ -35,7 +36,8 @@ namespace CompanyProject.API
             services.AddCors();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddReCaptcha(Configuration.GetSection("ReCaptcha"));
-            
+            services.AddScoped<ICompanyInfo, CompanyInfo>();
+
             //services.AddHttpClient();
             services.AddRefitClient<IContentService>()
                 .ConfigureHttpClient(httpClient =>
