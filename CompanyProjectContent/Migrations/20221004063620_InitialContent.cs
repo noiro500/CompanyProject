@@ -11,6 +11,25 @@ namespace CompanyProjectContentService.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "CompanyContacts",
+                columns: table => new
+                {
+                    CompanyContactId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    CompanyName = table.Column<string>(type: "text", nullable: false),
+                    SimpleCompanyName = table.Column<string>(type: "text", nullable: true),
+                    CompanyAddress = table.Column<string>(type: "text", nullable: false),
+                    CompanyPhoneNumber = table.Column<string>(type: "text", nullable: false),
+                    CompanyMessagerNumber = table.Column<string>(type: "text", nullable: true),
+                    CompanyWorkTime = table.Column<string>(type: "text", nullable: false),
+                    CompanyIsUsing = table.Column<bool>(type: "boolean", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CompanyContacts", x => x.CompanyContactId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Pages",
                 columns: table => new
                 {
@@ -71,6 +90,11 @@ namespace CompanyProjectContentService.Migrations
                         principalColumn: "PageId",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "CompanyContacts",
+                columns: new[] { "CompanyContactId", "CompanyAddress", "CompanyIsUsing", "CompanyMessagerNumber", "CompanyName", "CompanyPhoneNumber", "CompanyWorkTime", "SimpleCompanyName" },
+                values: new object[] { 1, "РФ, Ставропольский край, Минераловодский городской округ, Населенный пункт, ул. Улица, дом 7а, офис 2", true, "+7-(900)-000-00-00", "<span class=\"has-text-black\">Нова<span> <span class=\"color-title\">Компьютерс</span>", "+7-(900)-000-00-00", "9:00 - 19:00, выходные: восересенье, понедельник", "Нова Компьютерс" });
 
             migrationBuilder.InsertData(
                 table: "Pages",
@@ -142,6 +166,9 @@ namespace CompanyProjectContentService.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "CompanyContacts");
+
             migrationBuilder.DropTable(
                 name: "Paragraphs");
 

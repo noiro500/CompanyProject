@@ -22,6 +22,57 @@ namespace CompanyProjectContentService.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("CompanyProjectContentService.Models.CompanyContact", b =>
+                {
+                    b.Property<int>("CompanyContactId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("CompanyContactId"));
+
+                    b.Property<string>("CompanyAddress")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<bool>("CompanyIsUsing")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("CompanyMessagerNumber")
+                        .HasColumnType("text");
+
+                    b.Property<string>("CompanyName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("CompanyPhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("CompanyWorkTime")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("SimpleCompanyName")
+                        .HasColumnType("text");
+
+                    b.HasKey("CompanyContactId");
+
+                    b.ToTable("CompanyContacts");
+
+                    b.HasData(
+                        new
+                        {
+                            CompanyContactId = 1,
+                            CompanyAddress = "РФ, Ставропольский край, Минераловодский городской округ, Населенный пункт, ул. Улица, дом 7а, офис 2",
+                            CompanyIsUsing = true,
+                            CompanyMessagerNumber = "+7-(900)-000-00-00",
+                            CompanyName = "<span class=\"has-text-black\">Нова<span> <span class=\"color-title\">Компьютерс</span>",
+                            CompanyPhoneNumber = "+7-(900)-000-00-00",
+                            CompanyWorkTime = "9:00 - 19:00, выходные: восересенье, понедельник",
+                            SimpleCompanyName = "Нова Компьютерс"
+                        });
+                });
+
             modelBuilder.Entity("CompanyProjectContentService.Models.Page", b =>
                 {
                     b.Property<int>("PageId")

@@ -71,3 +71,14 @@ public record TopMenuEntityDto(
     bool NeedStar,
     string ScreenName
     );
+
+public record CompanyContactDto(
+ int CompanyContactId,
+ string CompanyName,
+ string? SimpleCompanyName,
+ string CompanyAddress,
+ string CompanyPhoneNumber,
+ string? CompanyMessagerNumber,
+ string CompanyWorkTime,
+ bool CompanyIsUsing
+ );

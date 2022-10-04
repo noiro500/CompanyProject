@@ -1,4 +1,5 @@
-﻿@model Dictionary<string, List<CompanyProject.API.Infrastructure.Dto.TopMenuEntityDto>>
+﻿
+@model Dictionary<string, List<CompanyProject.API.Infrastructure.Dto.TopMenuEntityDto>>
 
 <div class="container is-hidden-mobile">
     <div class="columns">
@@ -33,9 +34,8 @@
     <partial name="ContentViews/PartialView/_TopMenuForMobile" />
     <div class="columns is-hidden-touch">
         <div class="column font-title">
-            @*<img class="image" src="~/Resources/Images/Logo/CompanyLogo.png" alt="Нова Компьютерс"  width="10%" asp-append-version="true">*@
             <a asp-controller="Home" asp-action="Index">
-                <vc:company-info info="CompanyName" />
+                @(new HtmlString (companyInfo.Company_Info.CompanyName))
             </a>
         </div>
         <div class="column">
@@ -51,9 +51,11 @@
         </div>
         <div class="column" style="margin-left:0.75rem;">
             <i class="fas fa-phone-volume" style="font-size: 24px; color: black"></i>
-            <span class="font-tel">&nbsp;<vc:company-info info="PhoneNumber" /></span> <br />
+            <span class="font-tel">&nbsp;@(new HtmlString (companyInfo.Company_Info.CompanyPhoneNumber))</span> <br />
+
             <i class="fas fa-comment-alt" style="font-size: 18px; color: black"></i>
-            <span>&nbsp;&nbsp;&nbsp;WhatsApp: <vc:company-info info="WhatsApp" /></span>
+            <span>&nbsp;&nbsp;&nbsp;WhatsApp: @(new HtmlString (companyInfo.Company_Info.CompanyMessagerNumber))</span>
+
         </div>
         <div class="column" style="margin-top: -20px;margin-left:0.75rem;">
             <span class="font-title">Нужна помощь?</span>

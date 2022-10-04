@@ -1,11 +1,11 @@
 ﻿<div class="columns is-hidden-desktop is-touch-pegging">
     <div class="column has-text-centered">
         <i class="fas fa-phone-volume" style="font-size: 24px; color: black"></i>
-        <span class="font-tel">&nbsp;<vc:company-info info="PhoneNumber" /></span> <br />
+        <span class="font-tel">&nbsp;@(new HtmlString(companyInfo.Company_Info.CompanyPhoneNumber))</span> <br />
         <i class="fas fa-comment-alt" style="font-size: 18px; color: black"></i>
-        <span>&nbsp;&nbsp;&nbsp;WhatsApp: <vc:company-info info="WhatsApp" /></span> <br />
+        <span>&nbsp;&nbsp;&nbsp;WhatsApp: @(new HtmlString(companyInfo.Company_Info.CompanyMessagerNumber))</span> <br />
         <a class="font-title" style="margin-top: 0;" asp-controller="Home" asp-action="Index">
-            <vc:company-info info="CompanyName" />
+            @(new HtmlString(companyInfo.Company_Info.CompanyName))
         </a> <br />
         <span class="font-title is-hidden-desktop" style="font-size: 20px">Компьютеная помощь на КМВ</span> <br />
         <a asp-controller="Service" asp-action="MakeOrder" class="button is-primary" style="padding-right: 40px;">

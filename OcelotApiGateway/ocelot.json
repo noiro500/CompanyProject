@@ -95,6 +95,22 @@
         "TtlSeconds": 10
 
       }
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/v1/Content/GetCompanyContact/{isUsing}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/v1/Content/GetCompanyContact/{isUsing}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5010
+        }
+      ],
+      "FileCacheOptions": {
+        "TtlSeconds": 10
+
+      }
     }
   ]
 }

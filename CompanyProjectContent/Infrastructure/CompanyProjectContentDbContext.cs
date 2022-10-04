@@ -17,6 +17,7 @@ public class CompanyProjectContentDbContext : DbContext
     public DbSet<Page> Pages { get; set; }
     public DbSet<Paragraph> Paragraphs { get; set; }
     public DbSet<TopMenuEntity> TopMenuEntities { get; set; }
+    public DbSet<CompanyContact> CompanyContacts { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -26,6 +27,8 @@ public class CompanyProjectContentDbContext : DbContext
             _content.InitialContent<Paragraph>("InitialDbParagraphContent.json"));
         modelBuilder.Entity<TopMenuEntity>().HasData(
             _content.InitialContent<TopMenuEntity>("InitialDbTopMenuLineEntities.json"));
+        modelBuilder.Entity<CompanyContact>().HasData(
+            _content.InitialContent<CompanyContact>("InitialDbCompanyContact.json"));
 
         modelBuilder.Entity<Paragraph>()
             .HasOne(p => p.Page)

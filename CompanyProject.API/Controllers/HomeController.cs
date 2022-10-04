@@ -1,26 +1,16 @@
-﻿using System;
-using CompanyProject.API.Infrastructure.Log;
-using CompanyProject.ViewModels;
+﻿using CompanyProject.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System.Diagnostics;
-using System.Linq;
-using System.Net.Http;
 using System.Threading.Tasks;
 using CompanyProject.API.Infrastructure.RefitInterfaces;
-using CompanyProject.Domain.Interfaces;
 
 namespace CompanyProject.API.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IUnitOfWork _unitOfWork;
-        //private readonly ILogger _logger;
-        //private readonly IHttpClientFactory _httpClientFactory;
         private readonly IContentService _contentService;
-        public HomeController(IUnitOfWork unitOfWork, IContentService contentService)
+        public HomeController(IContentService contentService)
         {
-            _unitOfWork = unitOfWork;
             _contentService = contentService;
         }
 
@@ -28,6 +18,7 @@ namespace CompanyProject.API.Controllers
         {
             ViewBag.pageNameForCard = RouteData.Values["action"].ToString().ToLower();
             var resultAsync = await _contentService.GetPageContentAsync(RouteData.Values["action"].ToString());
+            var aaa=await _contentService.GetCompanyContactAsync(true);
             return View(resultAsync);
         }
 

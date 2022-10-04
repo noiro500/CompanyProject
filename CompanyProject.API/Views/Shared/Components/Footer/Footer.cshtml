@@ -4,9 +4,9 @@
         <div class="columns is-multiline is-vcentered">
             <div class="column is-one-third font-title has-text-centered " style="font-size: 1.2em;">
                 <a asp-controller="Home" asp-action="Index">
-                    <vc:company-info info="CompanyName" /><br />
+                    @(new HtmlString(companyInfo.Company_Info.CompanyName))<br />
                 </a>
-                <span class="has-text-white"><vc:company-info info="WhatsApp"/></span>
+                <span class="has-text-white">@(new HtmlString(companyInfo.Company_Info.CompanyMessagerNumber))</span>
 
             </div>
             <div class="column is-one-third has-text-centered has-text-white" style="font-size: 11px; line-height: 12px;">

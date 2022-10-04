@@ -10,7 +10,6 @@ public interface IContentService
 {
     [Get("/gateway/v1/Content/GetPageContent/{pageName}")]
     Task<PageDto> GetPageContentAsync(string pageName);
-
     
     [Get("/gateway/v1/Card/GetCards/{pageNameForCard}")]
     Task<IList<MainCardDto>> GetCardsAsync(string pageNameForCard);
@@ -26,4 +25,7 @@ public interface IContentService
 
     [Get("/gateway/v1/Content/GetFooterContent")]
     Task<IList<PageDto>> GetFooterContentAsync();
+
+    [Get("/gateway/v1/Content/GetCompanyContact/{isUsing}")]
+    Task<CompanyContactDto> GetCompanyContactAsync(bool isUsing);
 }
