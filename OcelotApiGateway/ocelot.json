@@ -5,9 +5,9 @@
   "Routes": [
     {
       "UpstreamPathTemplate": "/gateway/v1/Content/GetPageContent/{pageName}",
-      "UpstreamHttpMethod": [ "Get" ],
+            "UpstreamHttpMethod": [ "Get" ],
       "DownstreamPathTemplate": "/api/v1/Content/GetPageContent/{pageName}",
-      "DownstreamScheme": "http",
+            "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
@@ -17,7 +17,8 @@
       "FileCacheOptions": {
         "TtlSeconds": 10
       }
-    },
+    }
+    ,
     {
       "UpstreamPathTemplate": "/gateway/v1/Content/GetTopMenuEntities",
       "UpstreamHttpMethod": [ "Get" ],
@@ -46,6 +47,22 @@
       ],
       "FileCacheOptions": {
         "TtlSeconds": 10
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/v1/Content/GetCompanyContact/{isUsing}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/v1/Content/GetCompanyContact/{isUsing}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5010
+        }
+      ],
+      "FileCacheOptions": {
+        "TtlSeconds": 10
+
       }
     },
     {
@@ -95,22 +112,7 @@
         "TtlSeconds": 10
 
       }
-    },
-    {
-      "UpstreamPathTemplate": "/gateway/v1/Content/GetCompanyContact/{isUsing}",
-      "UpstreamHttpMethod": [ "Get" ],
-      "DownstreamPathTemplate": "/api/v1/Content/GetCompanyContact/{isUsing}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 5010
-        }
-      ],
-      "FileCacheOptions": {
-        "TtlSeconds": 10
-
-      }
     }
+    
   ]
 }
