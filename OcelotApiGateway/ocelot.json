@@ -1,7 +1,7 @@
 {
-  "GlobalConfiguration": {
-    "BaseUrl": "https://localhost:5000"
-  },
+  //"GlobalConfiguration": {
+  //  "BaseUrl": "https://localhost:5000"
+  //},
   "Routes": [
     {
       "UpstreamPathTemplate": "/gateway/v1/Content/GetPageContent/{pageName}",
@@ -82,32 +82,36 @@
       }
     },
     {
-      "UpstreamPathTemplate": "/gateway/v1/PriceList/GetPriceListByPage/{pageName}",
-      "UpstreamHttpMethod": [ "Get" ],
       "DownstreamPathTemplate": "/api/v1/PriceList/GetPriceListByPage/{pageName}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 5012
+          //"Host": "localhost",
+          //"Port": 5012
+          "Host": "companyprojectpricelistservice",
+          "Port": 80
         }
       ],
+      "UpstreamPathTemplate": "/gateway/v1/PriceList/GetPriceListByPage/{pageName}",
+      "UpstreamHttpMethod": [ "Get" ],
       "FileCacheOptions": {
         "TtlSeconds": 10
 
       }
     },
     {
-      "UpstreamPathTemplate": "/gateway/v1/PriceList/GetFullPriceList",
-      "UpstreamHttpMethod": [ "Get" ],
       "DownstreamPathTemplate": "/api/v1/PriceList/GetFullPriceList",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 5012
+          //"Host": "localhost",
+          //"Port": 5012
+          "Host": "companyprojectpricelistservice",
+          "Port": 80
         }
       ],
+      "UpstreamPathTemplate": "/gateway/v1/PriceList/GetFullPriceList",
+      "UpstreamHttpMethod": [ "Get" ],
       "FileCacheOptions": {
         "TtlSeconds": 10
 
