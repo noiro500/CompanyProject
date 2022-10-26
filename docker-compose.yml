@@ -3,13 +3,13 @@ version: '3.4'
 services:
   companyprojectpricelistservice:
     image: ${DOCKER_REGISTRY-}companyprojectpricelistservice
-    expose:
-      - "80"
+    #expose:
+    #  - "80"
     ports:
-      #- 4000:5012
-      - "5012:80"
-    environment:
-      - ASPNETCORE_URLS=http://0.0.0.0:80
+    - "80"
+    #  - "5012:80"
+    #environment:
+    #  - ASPNETCORE_URLS=http://0.0.0.0:80
     build:
       context: .
       dockerfile: CompanyProjectPriceListService/CompanyProjectPriceListService/Dockerfile
