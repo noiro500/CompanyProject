@@ -5,25 +5,29 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
-      - "80"
+      - "2000:80"
 
   companyprojectcardsservice:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
-      - "80"
+      - "2001:80"
 
 
   companyprojectcontentservice:
+    container_name: companyprojectcontentservice
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
-      - "80"
+      - "5012:80"
 
 
   ocelotapigateway:
+    container_name: ocelotapigateway
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+    #depends_on:
+    #  - companyprojectcontentservice
     ports:
-      - "80"
+      - "8010:80"
 
