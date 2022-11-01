@@ -5,13 +5,13 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
-      - "2000:80"
+      - "5012:80"
 
   companyprojectcardsservice:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
-      - "2001:80"
+      - "5011:80"
 
 
   companyprojectcontentservice:
@@ -19,7 +19,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
-      - "5012:80"
+      - "5010:80"
 
 
   ocelotapigateway:

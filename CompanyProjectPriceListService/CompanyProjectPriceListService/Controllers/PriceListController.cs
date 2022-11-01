@@ -8,49 +8,47 @@ using NuGet.Packaging;
 
 namespace CompanyProjectPriceListService.Controllers
 {
-    [Route("api/v1/[controller]/[action]")]
+    //[Route("api/v1/[controller]/[action]")]
+    
     [ApiController]
+    [Route("api/v1/[controller]")]
     public class PriceListController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
         public PriceListController(IUnitOfWork unitOfWork) => _unitOfWork = unitOfWork ?? throw new AggregateException(nameof(unitOfWork));
-        
-        [HttpGet("{pageName:regex(^\\w+$)}")]
+
+        [HttpGet("{pageName?}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PriceList))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetPriceListByPageAsync(string pageName)
+        public async Task<IActionResult> Get(string pageName="full")
         {
             var repository = _unitOfWork.Repository<PriceList>();
-            List<PriceList>? resultList = new ();
-            if (pageName == "helpdesk")
+            List<PriceList>? result = new();
+            if (pageName == "full")
             {
-                var queryComputersrepair = repository.MultipleResultQuery().AndFilter(p =>
-                     p.PageName == "computersrepair".ToLower());
-                var queryLaptopsrepair = repository.MultipleResultQuery().AndFilter(p =>
-                    p.PageName == "laptopsrepair".ToLower());
-                resultList.AddRange(await repository.SearchAsync(queryComputersrepair));
-                resultList.AddRange(await repository.SearchAsync(queryLaptopsrepair));
-
+                var query = repository.MultipleResultQuery().OrderBy(x => x.PriceListId);
+                result = await repository.SearchAsync(query) as List<PriceList>;
+                
             }
             else
             {
-               var query = repository.MultipleResultQuery().AndFilter(p => p.PageName == pageName.ToLower());
-               resultList.AddRange(await repository.SearchAsync(query));
-            }
-            if (resultList.Count==0)
-                return NotFound();
-            return Ok(resultList);
-        }
+                if (pageName == "helpdesk")
+                {
+                    var queryComputersrepair = repository.MultipleResultQuery().AndFilter(p =>
+                        p.PageName == "computersrepair".ToLower());
+                    var queryLaptopsrepair = repository.MultipleResultQuery().AndFilter(p =>
+                        p.PageName == "laptopsrepair".ToLower());
+                    result.AddRange(await repository.SearchAsync(queryComputersrepair));
+                    result.AddRange(await repository.SearchAsync(queryLaptopsrepair));
 
-        [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PriceList))]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetFullPriceListAsync()
-        {
-            var repository = _unitOfWork.Repository<PriceList>();
-            var query = repository.MultipleResultQuery().OrderBy(x => x.PriceListId);
-            var result = await repository.SearchAsync(query);
-            if (result is null)
+                }
+                else
+                {
+                    var query = repository.MultipleResultQuery().AndFilter(p => p.PageName == pageName.ToLower());
+                    result.AddRange(await repository.SearchAsync(query));
+                }
+            }
+            if (result.Count==0)
                 return NotFound();
             return Ok(result);
         }
