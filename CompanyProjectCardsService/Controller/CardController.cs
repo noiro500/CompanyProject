@@ -16,7 +16,7 @@ namespace CompanyProjectCardsService.Controller
         [HttpGet("{pageNameForCard:regex(^\\w+$)}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MainCard))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetCardsAsync(string pageNameForCard)
+        public async Task<IActionResult> Get(string pageNameForCard)
         {
             var repository = _unitOfWork.Repository<MainCard>();
             var query = repository.MultipleResultQuery().AndFilter(card => card.PageNameForCard == pageNameForCard)

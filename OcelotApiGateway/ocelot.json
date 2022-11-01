@@ -66,14 +66,14 @@
       }
     },
     {
-      "UpstreamPathTemplate": "/gateway/v1/Card/GetCards/{pageNameForCard}",
+      "UpstreamPathTemplate": "/gateway/v1/Card/Get/{pageNameForCard}",
       "UpstreamHttpMethod": [ "Get" ],
-      "DownstreamPathTemplate": "/api/v1/Card/GetCards/{pageNameForCard}",
+      "DownstreamPathTemplate": "/api/v1/Card/Get/{pageNameForCard}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 5011
+          "Host": "companyprojectcardsservice",
+          "Port": 80
         }
       ],
       "FileCacheOptions": {
@@ -82,7 +82,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/api/v1/PriceList/GetPriceListByPage/{pageName}",
+      "DownstreamPathTemplate": "/api/v1/PriceList/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -92,31 +92,32 @@
           "Port": 80
         }
       ],
-      "UpstreamPathTemplate": "/gateway/v1/PriceList/GetPriceListByPage/{pageName}",
-      "UpstreamHttpMethod": [ "Get" ],
-      "FileCacheOptions": {
-        "TtlSeconds": 10
-
-      }
-    },
-    {
-      "DownstreamPathTemplate": "/api/v1/PriceList/GetFullPriceList",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          //"Host": "localhost",
-          //"Port": 5012
-          "Host": "companyprojectpricelistservice",
-          "Port": 80
-        }
-      ],
-      "UpstreamPathTemplate": "/gateway/v1/PriceList/GetFullPriceList",
+      "UpstreamPathTemplate": "/gateway/v1/PriceList/{everything}",
       "UpstreamHttpMethod": [ "Get" ],
       "FileCacheOptions": {
         "TtlSeconds": 10
 
       }
     }
+    //,
+    //{
+    //  "DownstreamPathTemplate": "/api/v1/PriceList/Get",
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      //"Host": "localhost",
+    //      //"Port": 5012
+    //      "Host": "companyprojectpricelistservice",
+    //      "Port": 80
+    //    }
+    //  ],
+    //  "UpstreamPathTemplate": "/gateway/v1/PriceList/Get",
+    //  "UpstreamHttpMethod": [ "Get" ],
+    //  "FileCacheOptions": {
+    //    "TtlSeconds": 10
+
+    //  }
+    //}
     
   ]
 }

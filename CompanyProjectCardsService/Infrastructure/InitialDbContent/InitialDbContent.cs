@@ -27,7 +27,7 @@ public class InitialDbContent : IInitialDbContent
         var pageNameForCardProp= tProp.FirstOrDefault(x => x.Name.Contains("PageNameForCard"));
         if (pageNameForCardProp is not null)
         {
-            resultData!.ForEach(p => pageNameForCardProp.SetValue(p, pageNameForCardProp.GetValue(p).ToString().ToLower(CultureInfo.CurrentCulture)));
+            resultData!.ForEach(p => pageNameForCardProp.SetValue(p, pageNameForCardProp.GetValue(p)!.ToString()!.ToLower(CultureInfo.CurrentCulture)));
         }
         return resultData;
     }
