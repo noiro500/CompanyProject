@@ -8,17 +8,16 @@ namespace CompanyProject.API.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IContentService _contentService;
-        public HomeController(IContentService contentService)
+        private readonly IContentServiceContent _contentServiceContent;
+        public HomeController(IContentServiceContent contentService)
         {
-            _contentService = contentService;
+            _contentServiceContent = contentService;
         }
 
         public async Task<IActionResult> Index()
         {
             ViewBag.pageNameForCard = RouteData.Values["action"].ToString().ToLower();
-            var resultAsync = await _contentService.GetPageContentAsync(RouteData.Values["action"].ToString());
-            var aaa=await _contentService.GetCompanyContactAsync(true);
+            var resultAsync = await _contentServiceContent.GetPageContentAsync(RouteData.Values["action"].ToString());
             return View(resultAsync);
         }
 
@@ -27,7 +26,7 @@ namespace CompanyProject.API.Controllers
         {
             ViewBag.pageNameForCard = RouteData.Values["action"].ToString().ToLower();
             ViewBag.pageNameForPriceList = ViewBag.pageNameForCard;
-            var resultAsync = await _contentService.GetPageContentAsync(RouteData.Values["action"].ToString());
+            var resultAsync = await _contentServiceContent.GetPageContentAsync(RouteData.Values["action"].ToString());
             return View(resultAsync);
         }
 
@@ -36,7 +35,7 @@ namespace CompanyProject.API.Controllers
         {
             ViewBag.pageNameForCard = RouteData.Values["action"].ToString().ToLower();
             ViewBag.pageNameForPriceList = ViewBag.pageNameForCard;
-            var resultAsync = await _contentService.GetPageContentAsync(RouteData.Values["action"].ToString());
+            var resultAsync = await _contentServiceContent.GetPageContentAsync(RouteData.Values["action"].ToString());
             return View(resultAsync);
         }
 
@@ -45,7 +44,7 @@ namespace CompanyProject.API.Controllers
         {
             ViewBag.pageNameForCard = RouteData.Values["action"].ToString().ToLower();
             ViewBag.pageNameForPriceList = ViewBag.pageNameForCard;
-            var resultAsync = await _contentService.GetPageContentAsync(RouteData.Values["action"].ToString());
+            var resultAsync = await _contentServiceContent.GetPageContentAsync(RouteData.Values["action"].ToString());
             return View(resultAsync);
         }
 
@@ -54,7 +53,7 @@ namespace CompanyProject.API.Controllers
         {
             ViewBag.pageNameForCard = RouteData.Values["action"].ToString().ToLower();
             ViewBag.pageNameForPriceList = ViewBag.pageNameForCard;
-            var resultAsync = await _contentService.GetPageContentAsync(RouteData.Values["action"].ToString());
+            var resultAsync = await _contentServiceContent.GetPageContentAsync(RouteData.Values["action"].ToString());
             return View(resultAsync);
         }
 
@@ -63,7 +62,7 @@ namespace CompanyProject.API.Controllers
         {
             ViewBag.pageNameForCard = RouteData.Values["action"].ToString().ToLower();
             ViewBag.pageNameForPriceList = ViewBag.pageNameForCard;
-            var resultAsync = await _contentService.GetPageContentAsync(RouteData.Values["action"].ToString());
+            var resultAsync = await _contentServiceContent.GetPageContentAsync(RouteData.Values["action"].ToString());
             return View(resultAsync);
         }
 
@@ -72,7 +71,7 @@ namespace CompanyProject.API.Controllers
         {
             ViewBag.pageNameForCard = RouteData.Values["action"].ToString().ToLower();
             ViewBag.pageNameForPriceList = ViewBag.pageNameForCard;
-            var resultAsync = await _contentService.GetPageContentAsync(RouteData.Values["action"].ToString());
+            var resultAsync = await _contentServiceContent.GetPageContentAsync(RouteData.Values["action"].ToString());
             return View(resultAsync);
         }
 
@@ -83,7 +82,7 @@ namespace CompanyProject.API.Controllers
             //    .FirstOrDefault(t => t.PageId == 3));
             ViewBag.pageNameForCard = RouteData.Values["action"].ToString().ToLower();
             ViewBag.pageNameForPriceList = "LaptopsRepair".ToLower();
-            var resultAsync = await _contentService.GetPageContentAsync(RouteData.Values["action"].ToString());
+            var resultAsync = await _contentServiceContent.GetPageContentAsync(RouteData.Values["action"].ToString());
             return View(resultAsync);
         }
 
@@ -92,7 +91,7 @@ namespace CompanyProject.API.Controllers
         {
             ViewBag.pageNameForCard = RouteData.Values["action"].ToString().ToLower();
             ViewBag.pageNameForPriceList = "ComputersRepair".ToLower();
-            var resultAsync = await _contentService.GetPageContentAsync(RouteData.Values["action"].ToString());
+            var resultAsync = await _contentServiceContent.GetPageContentAsync(RouteData.Values["action"].ToString());
             return View(resultAsync);
         }
 
@@ -101,7 +100,7 @@ namespace CompanyProject.API.Controllers
         {
             ViewBag.pageNameForCard = RouteData.Values["action"].ToString().ToLower();
             ViewBag.pageNameForPriceList = ViewBag.pageNameForCard;
-            var resultAsync = await _contentService.GetPageContentAsync(RouteData.Values["action"].ToString());
+            var resultAsync = await _contentServiceContent.GetPageContentAsync(RouteData.Values["action"].ToString());
             return View(resultAsync);
         }
 

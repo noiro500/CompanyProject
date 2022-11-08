@@ -17,7 +17,7 @@ namespace CompanyProjectPriceListService.Controllers
         private readonly IUnitOfWork _unitOfWork;
         public PriceListController(IUnitOfWork unitOfWork) => _unitOfWork = unitOfWork ?? throw new AggregateException(nameof(unitOfWork));
 
-        [HttpGet("{pageName?}")]
+        [HttpGet("{pageName:regex(^\\w+$)}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PriceList))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Get(string pageName="full")

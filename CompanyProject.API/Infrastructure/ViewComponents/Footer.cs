@@ -10,16 +10,16 @@ namespace CompanyProject.API.Infrastructure.ViewComponents
 {
     public class Footer : ViewComponent
     {
-        private readonly IContentService _contentService;
+        private readonly IContentServiceContent _contentServiceContent;
 
-        public Footer(IContentService contentService)
+        public Footer(IContentServiceContent contentService)
         {
-            _contentService = contentService;
+            _contentServiceContent = contentService;
         }
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var footerListContent = await _contentService.GetFooterContentAsync();
+            var footerListContent = await _contentServiceContent.GetFooterContentAsync();
             return View("Footer", footerListContent);
         }
 

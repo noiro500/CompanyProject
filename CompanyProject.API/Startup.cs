@@ -32,19 +32,13 @@ namespace CompanyProject.API
         {
             services.AddControllersWithViews();
             services.AddFluentValidationAutoValidation();
-            services.AddRepository(Configuration["ConnectionStrings:ConnectionStringToPostgreSQLAzure"]);
+            services.AddRepository(Configuration["ConnectionStrings:ConnectionStringToPostgreSQL"]);
             services.AddCors();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddReCaptcha(Configuration.GetSection("ReCaptcha"));
             services.AddScoped<ICompanyInfo, CompanyInfo>();
 
-            //services.AddHttpClient();
-            services.AddRefitClient<IContentService>()
-                .ConfigureHttpClient(httpClient =>
-                {
-                    httpClient.BaseAddress = new Uri("http://localhost:5000/");
-                });
-
+            services.AddRefitCollection(Configuration["UriApiGateway:URI"]);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

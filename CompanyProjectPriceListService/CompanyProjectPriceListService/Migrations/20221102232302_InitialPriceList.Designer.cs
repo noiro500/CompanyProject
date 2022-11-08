@@ -12,14 +12,14 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CompanyProjectPriceListService.Migrations
 {
     [DbContext(typeof(CompanyProjectPriceListDbContext))]
-    [Migration("20220923012757_InitialPriceList")]
+    [Migration("20221102232302_InitialPriceList")]
     partial class InitialPriceList
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.8")
+                .HasAnnotation("ProductVersion", "6.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);

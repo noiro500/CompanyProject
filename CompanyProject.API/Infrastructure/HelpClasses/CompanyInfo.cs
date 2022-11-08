@@ -10,11 +10,11 @@ public interface ICompanyInfo
 }
 public class CompanyInfo : ICompanyInfo
 {
-    private readonly IContentService _contentService;
-    public CompanyInfo(IContentService contentService)
+    private readonly IContentServiceContent _contentServiceContent;
+    public CompanyInfo(IContentServiceContent contentService)
     {
-        _contentService = contentService;
-        Company_Info = _contentService.GetCompanyContactAsync(true).Result;
+        _contentServiceContent = contentService;
+        Company_Info = _contentServiceContent.GetCompanyContactAsync(true).Result;
     }
 
     public CompanyContactDto Company_Info { get; set; }

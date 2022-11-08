@@ -10,8 +10,8 @@
             "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 5010
+          "Host": "companyprojectcontentservice",
+          "Port": 80
         }
       ],
       "FileCacheOptions": {
@@ -26,8 +26,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 5010
+          "Host": "companyprojectcontentservice",
+          "Port": 80
         }
       ],
       "FileCacheOptions": {
@@ -41,8 +41,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 5010
+          "Host": "companyprojectcontentservice",
+          "Port": 80
         }
       ],
       "FileCacheOptions": {
@@ -56,8 +56,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 5010
+          "Host": "companyprojectcontentservice",
+          "Port": 80
         }
       ],
       "FileCacheOptions": {
@@ -66,9 +66,9 @@
       }
     },
     {
-      "UpstreamPathTemplate": "/gateway/v1/Card/Get/{pageNameForCard}",
+      "UpstreamPathTemplate": "/gateway/v1/Card/{pageNameForCard}",
       "UpstreamHttpMethod": [ "Get" ],
-      "DownstreamPathTemplate": "/api/v1/Card/Get/{pageNameForCard}",
+      "DownstreamPathTemplate": "/api/v1/Card/{pageNameForCard}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
