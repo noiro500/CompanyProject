@@ -36,7 +36,7 @@ namespace CompanyProject.API
             services.AddCors();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddReCaptcha(Configuration.GetSection("ReCaptcha"));
-            
+            services.AddScoped<CompanyInfo>();
             services.AddRefitCollection(Configuration["UriApiGateway:URI"]);
         }
 
