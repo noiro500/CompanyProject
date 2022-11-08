@@ -13,15 +13,15 @@ namespace CompanyProject.API.Controllers
 {
     public class MenuFirstLineController : Controller
     {
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly ILogger _logger;
-        private readonly IContentService _contentService;
+        //private readonly IUnitOfWork _unitOfWork;
+        private readonly IContentServicePriceList _contentServicePriceList;
+        private readonly IContentServiceContent _contentServiceContent;
 
-        public MenuFirstLineController(IUnitOfWork unitOfWork, IContentService contentService)
+        public MenuFirstLineController(/*IUnitOfWork unitOfWork,*/ IContentServicePriceList contentServiceProList, IContentServiceContent contentServiceContent)
         {
-            _logger = Log.CreateLogger<HomeController>();
-            _unitOfWork = unitOfWork;
-            _contentService = contentService;
+            //_unitOfWork = unitOfWork;
+            _contentServicePriceList = contentServiceProList;
+            _contentServiceContent = contentServiceContent;
         }
         [Route("/comments")]
         public IActionResult Comments()
@@ -36,21 +36,23 @@ namespace CompanyProject.API.Controllers
         [Route("/fullpricelist")]
         public async Task<IActionResult> FullPriceList()
         {
-            var result =  (await _contentService.GetFullPriceListAsync()).OrderBy(p=>p.PriceListId).Distinct(new PriceListDtoComparer()).ToList();
+            var result =  (await _contentServicePriceList.Get("full")).OrderBy(p=>p.PriceListId).Distinct(new PriceListDtoComparer()).ToList();
             return View(result);
         }
 
         [Route("/about")]
         public async Task<IActionResult> About()
         {
-            var companyInfo = await _unitOfWork.CompanyContacts.GetToUseCompanyAsync("ToUse");
+            //var companyInfo = await _unitOfWork.CompanyContacts.GetToUseCompanyAsync("ToUse");
+            var companyInfo = await _contentServiceContent.GetCompanyContactAsync(true);
             return View("About", companyInfo);
         }
 
         [Route("/contacts")]
         public async Task<IActionResult> Contacts()
         {
-            var companyInfo = await _unitOfWork.CompanyContacts.GetToUseCompanyAsync("ToUse");
+            //var companyInfo = await _unitOfWork.CompanyContacts.GetToUseCompanyAsync("ToUse");
+            var companyInfo = await _contentServiceContent.GetCompanyContactAsync(true);
             return View("Contacts", companyInfo);
         }
     }

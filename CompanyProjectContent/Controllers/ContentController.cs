@@ -14,7 +14,7 @@ public class ContentController : ControllerBase
     public ContentController(IUnitOfWork unitOfWork) =>_unitOfWork=unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
 
     [HttpGet("{pageName:regex(^\\w+$)}")]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Page))]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetPageContentAsync(string pageName)
     {
@@ -28,7 +28,7 @@ public class ContentController : ControllerBase
     }
 
     [HttpGet]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TopMenuEntity))]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetTopMenuEntitiesAsync()
     {
@@ -41,7 +41,7 @@ public class ContentController : ControllerBase
     }
 
     [HttpGet]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IList<Page>))]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetFooterContentAsync()
     {
@@ -54,7 +54,7 @@ public class ContentController : ControllerBase
     }
 
     [HttpGet("{isUsing:bool}")]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CompanyContact))]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetCompanyContactAsync(bool isUsing)
     {

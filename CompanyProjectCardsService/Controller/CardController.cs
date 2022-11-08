@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CompanyProjectCardsService.Controller
 {
-    [Route("api/v1/[controller]/[action]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class CardController : ControllerBase
     {
@@ -19,7 +19,7 @@ namespace CompanyProjectCardsService.Controller
         public async Task<IActionResult> Get(string pageNameForCard)
         {
             var repository = _unitOfWork.Repository<MainCard>();
-            var query = repository.MultipleResultQuery().AndFilter(card => card.PageNameForCard == pageNameForCard)
+            var query = repository.MultipleResultQuery().AndFilter(card => card.PageNameForCard == pageNameForCard.ToLower())
                 .Include(s => s.Include(c => c.CardFooterItems));
             var result =await repository.SearchAsync(query);
             return Ok(result);

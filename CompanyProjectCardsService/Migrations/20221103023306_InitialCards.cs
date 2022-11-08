@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace CompanyProjectCardsService.Migrations
 {
-    public partial class InitialCard : Migration
+    public partial class InitialCards : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

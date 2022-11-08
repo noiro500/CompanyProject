@@ -17,27 +17,23 @@ namespace CompanyProject.API.Infrastructure.ViewComponents
 {
     public class PriceListTable : ViewComponent
     {
-        private readonly IContentService _contentService;
+        private readonly IContentServicePriceList _contentServicePriceList;
 
-        public PriceListTable(IContentService contentService)
+        public PriceListTable(IContentServicePriceList contentService)
         {
-            _contentService = contentService;
+            _contentServicePriceList = contentService;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync(string pageName = "", bool isFull = false)
+        public async Task<IViewComponentResult> InvokeAsync(string pageName = "full"/*, bool isFull = false*/)
         {
-            IList<PriceListDto> result = default;
-            if (!isFull)
-                result = (await _contentService.GetPriceListByPageAsync(pageName));
-            else
-                result = (await _contentService.GetFullPriceListAsync());
+            var result = (await _contentServicePriceList.Get(pageName));
             return View("PriceListTable", GetPriceListResultDic(ref result));
         }
 
         private IDictionary<string, List<PriceListDto>> GetPriceListResultDic(ref IList<PriceListDto> priceListResultFromService)
         {
-            Dictionary<string, List<PriceListDto>> resultDictionary = new ();
-            List<string> serviceName = new ();
+            Dictionary<string, List<PriceListDto>> resultDictionary = new();
+            List<string> serviceName = new();
             foreach (var priceList in priceListResultFromService)
             {
                 serviceName.Add(priceList.ServiceName);

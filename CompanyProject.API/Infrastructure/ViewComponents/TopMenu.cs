@@ -13,17 +13,17 @@ namespace CompanyProject.API.Infrastructure.ViewComponents
 {
     public class TopMenu : ViewComponent
     {
-        private readonly IContentService _contentService;
+        private readonly IContentServiceContent _contentServiceContent;
 
-        public TopMenu(IContentService contentService)
+        public TopMenu(IContentServiceContent contentService)
         {
-            _contentService = contentService;
+            _contentServiceContent = contentService;
         }
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
             
-            var topMenuEntities = await _contentService.GetTopMenuEntitiesAsync();
+            var topMenuEntities = await _contentServiceContent.GetTopMenuEntitiesAsync();
             var topMenuFirstLine = topMenuEntities.Where(m => m.FirstLine==true).ToList();
             var topMenuNavBar = topMenuEntities.Where(m => m.NavBar == true).ToList();
             var topMenuDictionary = new Dictionary<string, List<TopMenuEntityDto>>
