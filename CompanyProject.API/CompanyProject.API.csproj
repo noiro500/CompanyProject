@@ -2,12 +2,7 @@
 
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <TypeScriptTarget>ES2020</TypeScriptTarget>
-    <Configurations>Debug;Release;WebApi</Configurations>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WebApi|AnyCPU'" Label="Configuration">
-    <TypeScriptTarget>ES2020</TypeScriptTarget>
-    <Configurations>Debug;Release;WebApi</Configurations>
+    <Configurations>Debug;Release</Configurations>
   </PropertyGroup>
 
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -26,10 +21,6 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <Optimize>False</Optimize>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WebApi|AnyCPU'">
     <Optimize>False</Optimize>
   </PropertyGroup>
 

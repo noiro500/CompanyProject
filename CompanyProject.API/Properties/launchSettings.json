@@ -18,12 +18,6 @@
         "ASPNETCORE_URLS": "http://localhost:5001"
       },
       "distributionName": ""
-    },
-    "Docker": {
-      "commandName": "Docker",
-      "launchBrowser": true,
-      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/",
-      "publishAllPorts": true
     }
   }
 }
