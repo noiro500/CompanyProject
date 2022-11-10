@@ -1,33 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace CompanyProject.API.Infrastructure.Dto;
 
 public record ParagraphDto(
-    int ParagraphId, 
-    bool IsGlobalTitle, 
-    bool IsSubtitle, 
-    bool HasPicture, 
-    string? PicturePath, 
-    bool IsList, 
-    bool IsMobileVisible, 
+    int ParagraphId,
+    bool IsGlobalTitle,
+    bool IsSubtitle,
+    bool HasPicture,
+    string? PicturePath,
+    bool IsList,
+    bool IsMobileVisible,
     List<string> Content
     );
 
 public record PageDto(
-    int PageId, 
-    string Name, 
-    string? ScreenName, 
+    int PageId,
+    string Name,
+    string? ScreenName,
     string? Icon,
-    bool ToNavbar, 
+    bool ToNavbar,
     List<ParagraphDto> Paragraphs
     );
 
 public record CardFooterItemDto(
-    int CardFooterItemId, 
-    bool CardFooterItemIsLink, 
-    string? CardFooterItemLinkController, 
-    string? CardFooterItemLinkAction, 
+    int CardFooterItemId,
+    bool CardFooterItemIsLink,
+    string? CardFooterItemLinkController,
+    string? CardFooterItemLinkAction,
     string? CardFooterItemContent
     );
 
@@ -82,3 +83,13 @@ public record CompanyContactDto(
  string CompanyWorkTime,
  bool CompanyIsUsing
  );
+public record MessageDto(
+ Guid MessageId,
+ string PeopleName,
+ string WhatsAppTelegramNumber,
+ ulong MessageNumber,
+ string? Email,
+ string SubjectMessage,
+ string Content,
+ bool IsAnswered,
+ bool IsAdoptedPrivacyPolicy);
