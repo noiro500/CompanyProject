@@ -1,4 +1,5 @@
 ﻿@charset "UTF-8";
+@import url("../../lib/bulma/bulma/bulma.sass");
 .font-title {
   font-style: normal;
   font-variant-caps: normal;
@@ -470,9 +471,9 @@ textarea {
 
 code,
 pre {
-  -moz-osx-font-smoothing: auto;
-  -webkit-font-smoothing: auto;
-  font-family: monospace;
+    -moz-osx-font-smoothing: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: monospace;
 }
 
 body {
