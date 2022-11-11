@@ -23,7 +23,6 @@ namespace CompanyProject.API
         {
             services.AddControllersWithViews();
             services.AddFluentValidationAutoValidation();
-            services.AddFluentValidationClientsideAdapters();
             services.AddScoped<IValidator<MessageDto>, MessageDto.MessageValidator>();
             //services.AddRepository(Configuration["ConnectionStrings:ConnectionStringToPostgreSQL"]);
             services.AddCors();
