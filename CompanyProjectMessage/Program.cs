@@ -1,9 +1,18 @@
+using CompanyProjectMessage.Infrastructure;
+using EntityFrameworkCore.UnitOfWork.Extensions;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddDbContext<CompanyProjectMessageDbContext>(options =>
+    options.UseNpgsql(builder.Configuration["ConnectionStrings:ConnectionStringToPostgreSQL"], sqlOptions =>
+        sqlOptions.MigrationsAssembly(typeof(CompanyProjectMessageDbContext).Assembly.GetName().Name)));
+builder.Services.AddScoped<DbContext, CompanyProjectMessageDbContext>();
+builder.Services.AddUnitOfWork();
+builder.Services.AddUnitOfWork<CompanyProjectMessageDbContext>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

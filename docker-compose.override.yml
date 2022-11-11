@@ -21,6 +21,11 @@ services:
     ports:
       - "5010:80"
 
+  companyprojectmessage:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "5013:80"
 
   ocelotapigateway:
     container_name: ocelotapigateway
