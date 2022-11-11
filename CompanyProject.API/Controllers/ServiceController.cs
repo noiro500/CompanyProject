@@ -18,6 +18,7 @@ using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Unicode;
 using System.Threading.Tasks;
+using CompanyProject.API.Infrastructure.Dto;
 using CompanyProject.Domain.Interfaces;
 
 namespace CompanyProject.API.Controllers
@@ -37,7 +38,7 @@ namespace CompanyProject.API.Controllers
 
         //Ajax send form
         [HttpPost]
-        public async Task<IActionResult> AddMessageToDbAsyncTask(Message mes)
+        public async Task<IActionResult> AddMessageToDbAsyncTask(MessageDto mes)
         {
             if (!ModelState.IsValid)
                 return Json(JsonSerializer.Serialize(new {parameter = "description"}));
@@ -47,10 +48,10 @@ namespace CompanyProject.API.Controllers
             }
             else
             {
-                var messageNumber = await _unitOfWork.Messages.GetAllEntity().MaxAsync(m => m.MessageNumber);
-                mes.MessageNumber = ++messageNumber ?? 1;
-                await _unitOfWork.Messages.AddEntityAsync(mes);
-                await _unitOfWork.CompleteAsync();
+                //var messageNumber = await _unitOfWork.Messages.GetAllEntity().MaxAsync(m => m.MessageNumber);
+                //mes.MessageNumber = (ulong) (++messageNumber ?? 1);
+                //await _unitOfWork.Messages.AddEntityAsync(mes);
+                //await _unitOfWork.CompleteAsync();
                 return Json(JsonSerializer.Serialize(new { parameter = "true" }));
             }
         }
