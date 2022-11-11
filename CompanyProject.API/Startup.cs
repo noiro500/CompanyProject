@@ -1,21 +1,12 @@
 using CompanyProject.API.Infrastructure.Log;
-using CompanyProject.Repository;
-using FluentValidation.AspNetCore;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.IO;
-using System.Reflection;
 using AspNetCore.ReCaptcha;
+using CompanyProject.API.Infrastructure.Dto;
 using CompanyProject.API.Infrastructure.RefitInterfaces;
-using Microsoft.Extensions.FileProviders;
-using Refit;
 using CompanyProject.API.Infrastructure.HelpClasses;
+using CompanyProject.Repository;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 
 namespace CompanyProject.API
 {
@@ -32,7 +23,9 @@ namespace CompanyProject.API
         {
             services.AddControllersWithViews();
             services.AddFluentValidationAutoValidation();
-            services.AddRepository(Configuration["ConnectionStrings:ConnectionStringToPostgreSQL"]);
+            services.AddFluentValidationClientsideAdapters();
+            services.AddScoped<IValidator<MessageDto>, MessageDto.MessageValidator>();
+            //services.AddRepository(Configuration["ConnectionStrings:ConnectionStringToPostgreSQL"]);
             services.AddCors();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddReCaptcha(Configuration.GetSection("ReCaptcha"));
