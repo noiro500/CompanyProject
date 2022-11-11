@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 
-namespace CompanyProjectMessage.Model
+namespace CompanyProject.API.Infrastructure.Dto
 {
-    public class Message
+    public class MessageDto
     {
         public Guid MessageId { get; set; }
         [Display(Name = "Ваше имя: *")]
@@ -14,11 +14,11 @@ namespace CompanyProjectMessage.Model
         [Display(Name = "E-mail:")]
         public string? Email { get; set; }
         [Display(Name = "Тема сообщения: *")]
-        public string SubjectMessage { get; set; }=null!;
+        public string SubjectMessage { get; set; } = null!;
         [Display(Name = "Сообщение: *")]
         [DataType(DataType.MultilineText)]
-        public string Content { get; set; }=null!;
-        public bool IsAnswered { get; set; }=false;
+        public string Content { get; set; } = null!;
+        public bool IsAnswered { get; set; } = false;
         public bool IsAdoptedPrivacyPolicy { get; set; }
     }
 }

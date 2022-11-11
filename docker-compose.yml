@@ -28,3 +28,10 @@ services:
       dockerfile: OcelotApiGateway/Dockerfile
 
 
+
+  companyprojectmessage:
+    image: ${DOCKER_REGISTRY-}companyprojectmessage
+    build:
+      context: .
+      dockerfile: CompanyProjectMessage/Dockerfile
+

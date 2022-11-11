@@ -37,7 +37,7 @@ namespace CompanyProject.API
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddReCaptcha(Configuration.GetSection("ReCaptcha"));
             services.AddScoped<CompanyInfo>();
-            services.AddRefitCollection(Configuration["UriApiGateway:URI"]);
+            services.AddRefitCollection(Configuration["UriApiGateway:URI"]!);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

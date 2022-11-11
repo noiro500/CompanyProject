@@ -83,13 +83,3 @@ public record CompanyContactDto(
  string CompanyWorkTime,
  bool CompanyIsUsing
  );
-public record MessageDto(
- Guid MessageId,
- string PeopleName,
- string WhatsAppTelegramNumber,
- ulong MessageNumber,
- string? Email,
- string SubjectMessage,
- string Content,
- bool IsAnswered,
- bool IsAdoptedPrivacyPolicy);
