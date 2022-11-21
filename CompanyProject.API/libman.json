@@ -3,8 +3,27 @@
   "defaultProvider": "cdnjs",
   "libraries": [
     {
-      "library": "jquery@3.4.1",
+      "library": "jquery@3.6.1",
       "destination": "wwwroot/lib/jquery/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "jquery-validate@1.19.5",
+      "destination": "wwwroot/lib/jquery-validate/",
+      "files": [
+        "localization/messages_ru.min.js",
+        "localization/messages_ru.js",
+        "additional-methods.js",
+        "additional-methods.min.js",
+        "jquery-validation-sri.json",
+        "jquery.validate.js",
+        "jquery.validate.min.js"
+      ]
+    },
+    {
+      "provider": "cdnjs",
+      "library": "jquery-validation-unobtrusive@4.0.0",
+      "destination": "wwwroot/lib/jquery-validation-unobtrusive/"
     }
   ]
 }

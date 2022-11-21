@@ -47,7 +47,9 @@ namespace CompanyProject.API.Controllers
             if (!result.IsValid)
             {
                 result.AddToModelState(this.ModelState);
-                return View("Components/MessageForm/MessageForm", mes);
+                //return Json(JsonSerializer.Serialize(new { parameter = "false" }));
+                
+                return Json(result);
             }
             //if (!ModelState.IsValid)
             //    return Json(JsonSerializer.Serialize(new {parameter = "description"}));

@@ -21,6 +21,7 @@ namespace CompanyProject.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddFluentValidationClientsideAdapters();
             services.AddScoped<IValidator<MessageDto>, MessageDtoValidator>();
             services.AddCors();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

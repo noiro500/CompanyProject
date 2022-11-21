@@ -127,7 +127,19 @@
         $("#make-order input[name='IsAdoptedPrivacyPolicy']")[0].checked = true;
     }
     $("#checking-data").on("click", CheckMakeOrderForm);
-      
+
+    //$("#short-message").submit(function(e) {
+    //    e.preventDefault();
+    //    var form = $(this);
+    //    var url = '@Url.Action("AddMessageToDbAsyncTask", "Service")';
+    //    data = form.serialize();
+    //    $.ajax({
+    //        type: "POST",
+    //        url: url,
+    //        data: data,
+    //        success: 
+    //    });
+    //});
 
 });
 
@@ -200,6 +212,8 @@ function FailureSendForm(data) {
         //loaderBg: '#9EC600'
     });
 }
+
+
 
 function CheckMakeOrderForm(event) {
     if (!CheckFormField())
