@@ -1,16 +1,16 @@
 ﻿using System.Threading.Tasks;
 using CompanyProject.API.Infrastructure.Dto;
-using CompanyProject.Domain.Message;
+//using CompanyProject.Domain.Message;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CompanyProject.API.Infrastructure.ViewComponents
 {
     public class MessageForm : ViewComponent
     {
-        public Task<IViewComponentResult> InvokeAsync()
+        public IViewComponentResult Invoke()
         {
             MessageDto mes = new MessageDto();
-            return Task.FromResult<IViewComponentResult>(View("MessageForm", mes));
+            return View("MessageForm", mes);
         }
     }
 }

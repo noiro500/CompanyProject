@@ -4,7 +4,6 @@ using AspNetCore.ReCaptcha;
 using CompanyProject.API.Infrastructure.Dto;
 using CompanyProject.API.Infrastructure.RefitInterfaces;
 using CompanyProject.API.Infrastructure.HelpClasses;
-using CompanyProject.Repository;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 
@@ -22,9 +21,7 @@ namespace CompanyProject.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddFluentValidationAutoValidation();
-            services.AddScoped<IValidator<MessageDto>, MessageDto.MessageValidator>();
-            //services.AddRepository(Configuration["ConnectionStrings:ConnectionStringToPostgreSQL"]);
+            services.AddScoped<IValidator<MessageDto>, MessageDtoValidator>();
             services.AddCors();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddReCaptcha(Configuration.GetSection("ReCaptcha"));

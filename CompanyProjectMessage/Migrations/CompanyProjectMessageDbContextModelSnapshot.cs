@@ -44,7 +44,7 @@ namespace CompanyProjectMessage.Migrations
                     b.Property<decimal>("MessageNumber")
                         .HasColumnType("numeric(20,0)");
 
-                    b.Property<string>("PeopleName")
+                    b.Property<string>("PersonName")
                         .IsRequired()
                         .HasColumnType("text");
 

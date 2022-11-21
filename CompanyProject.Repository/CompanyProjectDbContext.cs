@@ -4,7 +4,7 @@ using CompanyProject.Domain.CompanyContact;
 using CompanyProject.Domain.Customer;
 using CompanyProject.Domain.Employee;
 using CompanyProject.Domain.Feedback;
-using CompanyProject.Domain.Message;
+//using CompanyProject.Domain.Message;
 using CompanyProject.Domain.Order;
 using CompanyProject.Domain.Page;
 using CompanyProject.Domain.Paragraph;
@@ -33,7 +33,7 @@ namespace CompanyProject.Repository
         public DbSet<Customer> Customers { get; set; }
         public DbSet<CompanyContact> CompanyContacts { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
-        public DbSet<Message> Messages { get; set; }
+        //public DbSet<Message> Messages { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<PriceList> PriceLists { get; set; }
         public DbSet<AddressFromDb> AddressFromDbs { get; set; }
@@ -93,9 +93,9 @@ namespace CompanyProject.Repository
             modelBuilder.Entity<Feedback>().HasIndex(i => new { i.FeedbackId, i.FeedbackText, i.Rating });
             modelBuilder.Entity<Feedback>().Property(r => r.Rating).HasMaxLength(1);
             modelBuilder.Entity<Feedback>().Property(f => f.FeedbackText).HasMaxLength(280);
-            modelBuilder.Entity<Message>().Property(p => p.Content).HasMaxLength(2000);
-            modelBuilder.Entity<Message>().Property(p => p.PeopleName).HasMaxLength(30);
-            modelBuilder.Entity<Message>().Property(p => p.SubjectMessage).HasMaxLength(50);
+            //modelBuilder.Entity<Message>().Property(p => p.Content).HasMaxLength(2000);
+            //modelBuilder.Entity<Message>().Property(p => p.PeopleName).HasMaxLength(30);
+            //modelBuilder.Entity<Message>().Property(p => p.SubjectMessage).HasMaxLength(50);
 
             modelBuilder.Entity<Order>().Navigation(e => e.AddressData).IsRequired();
 

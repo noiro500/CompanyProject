@@ -4,7 +4,7 @@ using CompanyProject.Domain.CompanyContact;
 using CompanyProject.Domain.Customer;
 using CompanyProject.Domain.Employee;
 using CompanyProject.Domain.Feedback;
-using CompanyProject.Domain.Message;
+//using CompanyProject.Domain.Message;
 using CompanyProject.Domain.Order;
 using CompanyProject.Domain.Page;
 using CompanyProject.Domain.Paragraph;
@@ -29,7 +29,7 @@ namespace CompanyProject.Repository
             Customers = new CustomersRepository(_context);
             Employees = new EmployeesRepository(_context);
             Feedbacks = new FeedbacksRepository(_context);
-            Messages = new MessagesRepository(_context);
+            //Messages = new MessagesRepository(_context);
             Orders = new OrdersRepository(_context);
             //Pages = new PagesRepository_IsNotUsed(_context);
             //Paragraphs = new ParagraphsRepository_IsNotUsed(_context);
@@ -45,7 +45,7 @@ namespace CompanyProject.Repository
 
         public IFeedbacksRepository Feedbacks { get; }
 
-        public IMessagesRepository Messages { get; }
+        //public IMessagesRepository Messages { get; }
 
         public IOrdersRepository Orders { get; }
 
