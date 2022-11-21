@@ -40,7 +40,6 @@
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Views\Home\LaptopUpgrade.cshtml" />
     <_ContentIncludedByDefault Remove="Views\Home\PcAssembly.cshtml" />
-    <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
   </ItemGroup>
 
   <ItemGroup>
@@ -118,10 +117,19 @@
     <Content Update="wwwroot\lib\jquery-validate\additional-methods.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Update="wwwroot\lib\jquery-validate\jquery-validation-sri.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Update="wwwroot\lib\jquery-validate\jquery.validate.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\lib\jquery-validate\jquery.validate.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\jquery-validate\localization\messages_ru.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\jquery-validate\localization\messages_ru.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js">
@@ -336,8 +344,6 @@
     <None Include="wwwroot\lib\bulma\sass\utilities\initial-variables.sass" />
     <None Include="wwwroot\lib\bulma\sass\utilities\mixins.sass" />
     <None Include="wwwroot\lib\bulma\sass\utilities\_all.sass" />
-    <None Include="wwwroot\lib\jquery-validate\localization\messages_ru.js" />
-    <None Include="wwwroot\lib\jquery-validate\localization\messages_ru.min.js" />
     <ApplicationDefinition Include="wwwroot\lib\jquery\core.js" />
     <ApplicationDefinition Include="wwwroot\lib\jquery\jquery.js" />
     <None Include="wwwroot\styles\scss\bulma-with-edit.scss" />
@@ -349,6 +355,11 @@
 
   <ItemGroup>
     <UpToDateCheckInput Remove="Views\Home\PcAssembly.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\lib\jquery-validate\" />
+    <Folder Include="wwwroot\lib\jquery-validation-unobtrusive\" />
   </ItemGroup>
 
 </Project>
