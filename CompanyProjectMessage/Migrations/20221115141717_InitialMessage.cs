@@ -16,7 +16,7 @@ namespace CompanyProjectMessage.Migrations
                 columns: table => new
                 {
                     MessageId = table.Column<Guid>(type: "uuid", nullable: false),
-                    PeopleName = table.Column<string>(type: "text", nullable: false),
+                    PersonName = table.Column<string>(type: "text", nullable: false),
                     WhatsAppTelegramNumber = table.Column<string>(type: "text", nullable: false),
                     MessageNumber = table.Column<decimal>(type: "numeric(20,0)", nullable: false),
                     Email = table.Column<string>(type: "text", nullable: true),

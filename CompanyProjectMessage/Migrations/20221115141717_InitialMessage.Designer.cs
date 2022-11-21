@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CompanyProjectMessage.Migrations
 {
     [DbContext(typeof(CompanyProjectMessageDbContext))]
-    [Migration("20221110111833_InitialMessage")]
+    [Migration("20221115141717_InitialMessage")]
     partial class InitialMessage
     {
         /// <inheritdoc />
@@ -47,7 +47,7 @@ namespace CompanyProjectMessage.Migrations
                     b.Property<decimal>("MessageNumber")
                         .HasColumnType("numeric(20,0)");
 
-                    b.Property<string>("PeopleName")
+                    b.Property<string>("PersonName")
                         .IsRequired()
                         .HasColumnType("text");
 

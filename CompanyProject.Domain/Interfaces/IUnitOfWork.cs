@@ -5,7 +5,6 @@ using CompanyProject.Domain.CompanyContact;
 using CompanyProject.Domain.Customer;
 using CompanyProject.Domain.Employee;
 using CompanyProject.Domain.Feedback;
-using CompanyProject.Domain.Message;
 using CompanyProject.Domain.Order;
 using CompanyProject.Domain.Page;
 using CompanyProject.Domain.Paragraph;
@@ -19,7 +18,7 @@ namespace CompanyProject.Domain.Interfaces
         ICustomersRepository Customers { get; }
         IEmployeesRepository Employees { get; }
         IFeedbacksRepository Feedbacks { get; }
-        IMessagesRepository Messages { get; }
+        //IMessagesRepository Messages { get; }
         IOrdersRepository Orders { get; }
         IPagesRepository Pages { get; }
         IParagraphsRepository Paragraphs { get; }
