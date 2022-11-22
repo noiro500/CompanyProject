@@ -41,18 +41,13 @@ namespace CompanyProject.API.Controllers
 
         //Ajax send form
         [HttpPost]
+        //[FormValidator]
         public async Task<IActionResult> AddMessageToDbAsyncTask(MessageDto mes)
         {
-            var result = await _validator.ValidateAsync(mes);
-            if (!result.IsValid)
+            if (!ModelState.IsValid)
             {
-                result.AddToModelState(this.ModelState);
-                //return Json(JsonSerializer.Serialize(new { parameter = "false" }));
-                
-                return Json(result);
+                return Json(JsonSerializer.Serialize(new { parameter = "false" }));
             }
-            //if (!ModelState.IsValid)
-            //    return Json(JsonSerializer.Serialize(new {parameter = "description"}));
             if (!mes.IsAdoptedPrivacyPolicy)
             {
                 return Json(JsonSerializer.Serialize(new { parameter = "false" }));

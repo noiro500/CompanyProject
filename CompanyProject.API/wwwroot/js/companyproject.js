@@ -128,19 +128,6 @@
     }
     $("#checking-data").on("click", CheckMakeOrderForm);
 
-    //$("#short-message").submit(function(e) {
-    //    e.preventDefault();
-    //    var form = $(this);
-    //    var url = '@Url.Action("AddMessageToDbAsyncTask", "Service")';
-    //    data = form.serialize();
-    //    $.ajax({
-    //        type: "POST",
-    //        url: url,
-    //        data: data,
-    //        success: 
-    //    });
-    //});
-
 });
 
 function CheckFormField() {
@@ -171,15 +158,16 @@ function SuccessSendForm(data) {
     if (respons.parameter==="false") {
         $.toast({
             text: "Сообщение не отправлено. Необходимо принять \"Политику конфиденциальности\".", // Text that is to be shown in the toast
-            heading: 'Ошибка',
-            icon: 'error',
+            heading: 'Внимание',
+            icon: 'warning',
             showHideTransition: 'fade',
             allowToastClose: true,
             hideAfter: 3000,
             stack: false,
             position: 'bottom-right',
             textAlign: 'left',
-            loader: false
+            loader: false,
+            bgColor: '#ff7733'
         });
     } else {
         $.toast({
