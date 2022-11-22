@@ -111,6 +111,12 @@
     <Content Update="wwwroot\js\jquery.toast.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Update="wwwroot\lib\jquery-ajax-unobtrusive\jquery.unobtrusive-ajax.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\jquery-ajax-unobtrusive\jquery.unobtrusive-ajax.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Update="wwwroot\lib\jquery-validate\additional-methods.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
