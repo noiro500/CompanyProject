@@ -25,6 +25,11 @@ namespace CompanyProject.API.Infrastructure.RefitInterfaces
                 {
                     httpClient.BaseAddress = new Uri(uri);
                 });
+            services.AddRefitClient<IContentServiceMessage>()
+                .ConfigureHttpClient(httpClient =>
+                {
+                    httpClient.BaseAddress = new Uri("http://localhost:5013/");
+                });
             return services;
         }
     }
