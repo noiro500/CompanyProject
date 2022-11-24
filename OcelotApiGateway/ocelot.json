@@ -99,25 +99,23 @@
 
       }
     }
-    //,
-    //{
-    //  "DownstreamPathTemplate": "/api/v1/PriceList/Get",
-    //  "DownstreamScheme": "http",
-    //  "DownstreamHostAndPorts": [
-    //    {
-    //      //"Host": "localhost",
-    //      //"Port": 5012
-    //      "Host": "companyprojectpricelistservice",
-    //      "Port": 80
-    //    }
-    //  ],
-    //  "UpstreamPathTemplate": "/gateway/v1/PriceList/Get",
-    //  "UpstreamHttpMethod": [ "Get" ],
-    //  "FileCacheOptions": {
-    //    "TtlSeconds": 10
+    ,
+    {
+      "DownstreamPathTemplate": "/api/v1/Message",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "companyprojectmessage",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/v1/Message",
+      "UpstreamHttpMethod": [ "Post" ],
+      "FileCacheOptions": {
+        "TtlSeconds": 10
 
-    //  }
-    //}
+      }
+    }
     
   ]
 }
