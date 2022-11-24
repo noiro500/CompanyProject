@@ -155,7 +155,7 @@ function SuccessSendForm(data) {
     //    $('button[name="submit-form"]').attr('disabled', true);
     //    return;
     //}
-    if (respons.parameter==="false") {
+    if (respons.parameter==="warning") {
         $.toast({
             text: "Сообщение не отправлено. Необходимо принять \"Политику конфиденциальности\".", // Text that is to be shown in the toast
             heading: 'Внимание',
@@ -169,7 +169,7 @@ function SuccessSendForm(data) {
             loader: false,
             bgColor: '#ff7733'
         });
-    } else {
+    } else if (respons.parameter === "ok") {
         $.toast({
             text: "Сообщение успешно отправлено.",
             heading: 'Успех',
@@ -183,9 +183,11 @@ function SuccessSendForm(data) {
             loader: false
         });
         $('button[name="submit-form"]').attr('disabled', true);
+    } else if (respons.parameter === "error") {
+        FailureSendForm();
     }
 }
-function FailureSendForm(data) {
+function FailureSendForm(/*data*/) {
     $.toast({
         text: "Внутренняя ошибка. Сообщение не отправлено.",
         heading: 'Ошибка',

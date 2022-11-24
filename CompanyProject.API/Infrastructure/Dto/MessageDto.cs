@@ -32,7 +32,7 @@ namespace CompanyProject.API.Infrastructure.Dto
         {
             RuleFor(x => x.PersonName)
                 .NotEmpty().WithMessage("Не указано имя")
-                .Matches(@"^[а-яА-Я0-9._%+""'\s-]*$").WithMessage("Некорректные символы. Допускаются только русские символы!")
+                .Matches(@"^[а-яА-Я._%+""'\s-]*$").WithMessage("Некорректные символы. Допускаются только русские символы!")
                 .MaximumLength(30).WithMessage("Максимальная длина имени - 30 символов");
             RuleFor(x => x.WhatsAppTelegramNumber).NotEmpty().WithMessage("Не указан номер WhatsApp/Telegram");
             RuleFor(x => x.Email)

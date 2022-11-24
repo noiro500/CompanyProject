@@ -1,27 +1,16 @@
 ﻿using AutoMapper;
 using CompanyProject.API.Infrastructure.Log;
-using CompanyProject.Domain;
-using CompanyProject.Domain.Customer;
-using CompanyProject.Domain.Order;
 using CompanyProject.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Globalization;
-using System.Linq;
 using System.Reflection;
+using System.Security.Cryptography;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Unicode;
-using System.Threading.Tasks;
 using CompanyProject.API.Infrastructure.Dto;
-using CompanyProject.API.Infrastructure.Extensions;
-using CompanyProject.Domain.Interfaces;
-using FluentValidation;
-
+using CompanyProject.API.Infrastructure.RefitInterfaces;
+using System.Text;
 namespace CompanyProject.API.Controllers
 {
     public class ServiceController : Controller
@@ -29,14 +18,17 @@ namespace CompanyProject.API.Controllers
         private readonly ILogger _logger;
         //private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        private readonly IValidator<MessageDto> _validator;
+        //private readonly IValidator<MessageDto> _validator;
+        private readonly IContentServiceMessage _contentServiceMessage;
 
-        public ServiceController(/*IUnitOfWork unitOfWork,*/ IMapper mapper, IValidator<MessageDto> validator)
+
+        public ServiceController(/*IUnitOfWork unitOfWork,*/ IMapper mapper, IContentServiceMessage contentServiceMessage /*IValidator<MessageDto> validator*/)
         {
             _logger = Log.CreateLogger<HomeController>();
             //_unitOfWork = unitOfWork;
             _mapper = mapper;
-            _validator = validator;
+            //_validator = validator;
+            _contentServiceMessage= contentServiceMessage;
         }
 
         //Ajax send form
@@ -46,19 +38,22 @@ namespace CompanyProject.API.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return Json(JsonSerializer.Serialize(new { parameter = "false" }));
+                return Json(JsonSerializer.Serialize(new { parameter = "error" }));
             }
             if (!mes.IsAdoptedPrivacyPolicy)
             {
-                return Json(JsonSerializer.Serialize(new { parameter = "false" }));
+                return Json(JsonSerializer.Serialize(new { parameter = "warning" }));
             }
             else
             {
-                //var messageNumber = await _unitOfWork.Messages.GetAllEntity().MaxAsync(m => m.MessageNumber);
-                //mes.MessageNumber = (ulong) (++messageNumber ?? 1);
-                //await _unitOfWork.Messages.AddEntityAsync(mes);
-                //await _unitOfWork.CompleteAsync();
-                return Json(JsonSerializer.Serialize(new { parameter = "true" }));
+                var sha512 = SHA512.Create();
+                var resultShaHash=sha512.ComputeHash(Encoding.Unicode.GetBytes(JsonSerializer.Serialize(mes)));
+                var shaToText=Encoding.Unicode.GetString(resultShaHash);
+                var dic = new Dictionary<string, string>() { {shaToText, JsonSerializer.Serialize(mes) } };
+                var response =await _contentServiceMessage.Post(dic);
+                if (!response.IsSuccessStatusCode)
+                    return Json(JsonSerializer.Serialize(new { parameter = "error" }));
+                return Json(JsonSerializer.Serialize(new { parameter = "ok" }));
             }
         }
 
