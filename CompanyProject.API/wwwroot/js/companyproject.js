@@ -100,7 +100,7 @@
                     var selectedDistrict = $('#AddressData_District option:selected').val();
                     $.ajax({
                         type: "POST",
-                        url: companyProject.Urls.GetPartOfAddress ,
+                        url: /*companyProject.Urls.GetPartOfAddress*/ addressDataService,
                         data: { parameters: ["PopulatedArea", selectedDistrict]},
                         success: function (result) {
                             $('#AddressData_PopulatedArea').html(result);
@@ -108,7 +108,7 @@
                                 var selectPopulatedArea = $('#AddressData_PopulatedArea option:selected').val();
                                 $.ajax({
                                     type: 'POST',
-                                    url: companyProject.Urls.GetPartOfAddress,
+                                    url: /*companyProject.Urls.GetPartOfAddress*/ addressDataService,
                                     data: { parameters: ["Street", selectPopulatedArea] },
                                     success: function (result) {
                                         $('#AddressData_Street').html(result);
