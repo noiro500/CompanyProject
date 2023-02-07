@@ -87,12 +87,12 @@
             }
         }
     });
-
+    let addressDataService = "http://localhost:5014/api/v1/Address/GetPartOfAddress";
     //Подгрузка списка округов/районов, населенных пунктов, улиц 
     $('#AddressData_Territory').change(function () {
         $.ajax({
             type: 'POST',
-            url: companyProject.Urls.GetPartOfAddress,
+            url: /*companyProject.Urls.GetPartOfAddress*/addressDataService,
             data: { parameters: ["District"]},
             success: function(result) {
                 $('#AddressData_District').html(result);
