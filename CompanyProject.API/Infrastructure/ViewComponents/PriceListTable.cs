@@ -33,14 +33,8 @@ namespace CompanyProject.API.Infrastructure.ViewComponents
         private IDictionary<string, List<PriceListDto>> GetPriceListResultDic(ref IList<PriceListDto> priceListResultFromService)
         {
             Dictionary<string, List<PriceListDto>> resultDictionary = new();
-            List<string> serviceName = new();
-            foreach (var priceList in priceListResultFromService)
-            {
-                serviceName.Add(priceList.ServiceName);
-            }
-
-            var uniqueServiceName = serviceName.Distinct().ToList();
-            foreach (var usn in uniqueServiceName)
+            var serviceName = priceListResultFromService.Select(x => x.ServiceName).Distinct().ToList();
+            foreach (var usn in serviceName)
             {
                 resultDictionary.Add(usn, priceListResultFromService.Where(n => n.ServiceName == usn).ToList());
             }

@@ -7,12 +7,12 @@ namespace CompanyProjectPriceListService.Infrastructure.InitialDbContent;
 
 public class InitialDbContent : IInitialDbContent
 {
-    private readonly IWebHostEnvironment _webHostEnvironment;
+    //private readonly IWebHostEnvironment _webHostEnvironment;
 
-    public InitialDbContent(IWebHostEnvironment webHostEnvironment)
-    {
-        _webHostEnvironment=webHostEnvironment;
-    }
+    //public InitialDbContent(IWebHostEnvironment webHostEnvironment)
+    //{
+    //    _webHostEnvironment=webHostEnvironment;
+    //}
 
     public IList<PriceList> InitialDbPriceListContent()
     {

@@ -83,3 +83,5 @@ public record CompanyContactDto(
  string CompanyWorkTime,
  bool CompanyIsUsing
  );
+
+public record struct TypeOfFailureDto(string Service, string ServiceName);
