@@ -9,16 +9,16 @@
             <div class="column is-full">
                 @foreach (var cnt in p.Content)
                 {
-                    <h2 class="title is-2">@(new HtmlString(@cnt))</h2>
+                    <h2 class="title is-2">@(new HtmlString(cnt))</h2>
                 }
             </div>
         </div>
     }
-    else if (p.Content[0] =="_NeedHelpAndPicturePartial")
+    else if (p.Content[0] == "_NeedHelpAndPicturePartial")
     {
         <div class="columns is-vcentered">
             <div class="column is-half">
-                <vc:blockquote-section name="NeedHelp" />
+                <vc:blockquote-section name="NeedHelp"/>
             </div>
             <div class="column is-half is-hidden-touch">
                 <div class="image displayed" style="max-width: 60%;">
@@ -26,7 +26,6 @@
                 </div>
             </div>
         </div>
-
     }
     else if (p.IsSubtitle)
     {
@@ -34,7 +33,7 @@
             <div class="column is-full">
                 @foreach (var cnt in p.Content)
                 {
-                    <h3 class="subtitle is-3 is-black">@(new HtmlString(@cnt))</h3>
+                    <h3 class="subtitle is-3 is-black">@(new HtmlString(cnt))</h3>
                 }
             </div>
         </div>
@@ -51,7 +50,7 @@
                             <ul>
                                 @foreach (var cnt in p.Content)
                                 {
-                                    <li>@(new HtmlString(@cnt))</li>
+                                    <li>@(new HtmlString(cnt))</li>
                                 }
                             </ul>
                         </div>
@@ -60,13 +59,13 @@
                     {
                         @foreach (var cnt in p.Content)
                         {
-                            <span>@(new HtmlString(@cnt))</span>
+                            <span>@(new HtmlString(cnt))</span>
                         }
                     }
                 </div>
                 <div class="column  is-hidden-touch" style="padding-top: 0px;">
                     <div class="image displayed" style="max-width: 30%;">
-                        <img src="@p.PicturePath" asp-append-version="true" />
+                        <img src="@p.PicturePath" asp-append-version="true"/>
                     </div>
                 </div>
             }
@@ -79,7 +78,7 @@
                             <ul>
                                 @foreach (var cnt in p.Content)
                                 {
-                                    <li>@(new HtmlString(@cnt))</li>
+                                    <li>@(new HtmlString(cnt))</li>
                                 }
                             </ul>
                         </div>
@@ -88,7 +87,7 @@
                     {
                         @foreach (var cnt in p.Content)
                         {
-                            <span>@(new HtmlString(@cnt))</span>
+                            <span>@(new HtmlString(cnt))</span>
                         }
                     }
                 </div>
@@ -96,5 +95,3 @@
         </div>
     }
 }
-
-

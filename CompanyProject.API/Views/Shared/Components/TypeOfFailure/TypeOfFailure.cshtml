@@ -1,7 +1,7 @@
 ﻿@model IList<CompanyProject.API.Infrastructure.Dto.TypeOfFailureDto>
 
-    <option disabled selected value="">Причина вызова мастера (если причины нет в списке, выберите 'Прочее')</option>
+<option disabled selected value="">Причина вызова мастера (если причины нет в списке, выберите 'Прочее')</option>
 @foreach (var item in Model)
 {
-<option value="@item.ServiceName - @item.Service">@item.ServiceName - @item.Service</option>
+    <option value="@item.ServiceName - @item.Service">@item.ServiceName - @item.Service</option>
 }

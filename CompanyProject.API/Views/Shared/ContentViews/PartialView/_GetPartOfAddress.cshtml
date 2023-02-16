@@ -1,11 +1,9 @@
-﻿@using CompanyProject.Domain.AddressFromDb
-@model IEnumerable<CompanyProject.Domain.AddressFromDb.AddressFromDb>
+﻿@model IEnumerable<CompanyProject.Domain.AddressFromDb.AddressFromDb>
 
 <select name="@ViewBag.PartOfAddress">
     @if (ViewBag.PartOfAddress == "District")
     {
         <option disabled selected value="">Выберите район/округ/городской округ</option>
-        
     }
     @if (ViewBag.PartOfAddress == "PopulatedArea")
     {
@@ -19,6 +17,5 @@
     {
         <option value="@item.Offname">@item.Offname</option>
     }
-   
-</select>
 
+</select>

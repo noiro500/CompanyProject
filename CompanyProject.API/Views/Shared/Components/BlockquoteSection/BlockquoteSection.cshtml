@@ -7,13 +7,13 @@
             <div class="container">
                 <div class="columns">
                     <div class="column is-full is-size-5 has-text-centered">
-                        <b>Нужна помощь?</b><br />
+                        <b>Нужна помощь?</b><br/>
                         <span>Обращайтесь!</span>
-                        <br />
-                        <i class="fas fa-phone-volume" style="font-size: 24px; color: black"></i>
-                        <span class="font-tel">&nbsp;@(new HtmlString(companyInfo.Company_Info.CompanyPhoneNumber))</span> <br />
-                        <i class="fas fa-comment-alt" style="font-size: 18px; color: black"></i>
-                        <span class="is-size-6">&nbsp;&nbsp;&nbsp;WhatsApp: @(new HtmlString(companyInfo.Company_Info.CompanyMessagerNumber))</span><br />
+                        <br/>
+                        <i class="fas fa-phone-volume" style="color: black; font-size: 24px;"></i>
+                        <span class="font-tel">&nbsp;@(new HtmlString(companyInfo.Company_Info.CompanyPhoneNumber))</span> <br/>
+                        <i class="fas fa-comment-alt" style="color: black; font-size: 18px;"></i>
+                        <span class="is-size-6">&nbsp;&nbsp;&nbsp;WhatsApp: @(new HtmlString(companyInfo.Company_Info.CompanyMessagerNumber))</span><br/>
                         <a asp-controller="Service" asp-action="MakeOrder" class="button is-primary">
                             <i class="fas fa-wrench" style="font-size: 18px"></i>&nbsp;&nbsp;
                             <b>ВЫЗВАТЬ МАСТЕРА</b>
@@ -28,21 +28,21 @@
 
 @if (Model == "SendMessage")
 {
-        <div class="content">
+    <div class="content">
         <blockquote id="SendMessage" class="blockquote-style" style="border-left-color: #d81b60;">
             <div class="container">
                 <div class="columns">
                     <div class="column is-full is-size-5 has-text-centered">
-                        <i class="fas fa-info" style="font-size: 24px; color: orangered"></i>
-                        <b>&nbsp;&nbsp;Проконсультируйтесь по вашей проблеме</b><br />
-                        <i class="fas fa-user-clock" style="font-size: 18px; color: orangered"></i>
-                        <span>&nbsp;&nbsp;@(new HtmlString(companyInfo.Company_Info.CompanyWorkTime))</span> <br />
-                        <i class="fas fa-phone-volume" style="font-size: 24px; color: orangered"></i>
-                        <span class="font-tel">&nbsp;@(new HtmlString(companyInfo.Company_Info.CompanyPhoneNumber))</span> <br />
-                        <i class="fas fa-comment-alt" style="font-size: 18px; color: orangered"></i>
-                        <span class="is-size-6">&nbsp;&nbsp;&nbsp;WhatsApp: @(new HtmlString(companyInfo.Company_Info.CompanyMessagerNumber))</span><br />
-                        <span>или</span><br />
-                        <a href="#short-message" data-target="formFromBq" class="modal-trigger term black-text">отправте нам сообщение</a><br />
+                        <i class="fas fa-info" style="color: orangered; font-size: 24px;"></i>
+                        <b>&nbsp;&nbsp;Проконсультируйтесь по вашей проблеме</b><br/>
+                        <i class="fas fa-user-clock" style="color: orangered; font-size: 18px;"></i>
+                        <span>&nbsp;&nbsp;@(new HtmlString(companyInfo.Company_Info.CompanyWorkTime))</span> <br/>
+                        <i class="fas fa-phone-volume" style="color: orangered; font-size: 24px;"></i>
+                        <span class="font-tel">&nbsp;@(new HtmlString(companyInfo.Company_Info.CompanyPhoneNumber))</span> <br/>
+                        <i class="fas fa-comment-alt" style="color: orangered; font-size: 18px;"></i>
+                        <span class="is-size-6">&nbsp;&nbsp;&nbsp;WhatsApp: @(new HtmlString(companyInfo.Company_Info.CompanyMessagerNumber))</span><br/>
+                        <span>или</span><br/>
+                        <a href="#short-message" data-target="formFromBq" class="modal-trigger term black-text">отправте нам сообщение</a><br/>
                     </div>
                 </div>
             </div>

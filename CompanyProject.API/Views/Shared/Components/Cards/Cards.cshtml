@@ -1,7 +1,6 @@
-﻿@using CompanyProject.API.Infrastructure.Dto
-@model IList<MainCardDto>
+﻿@model IList<CompanyProject.API.Infrastructure.Dto.MainCardDto>
 <div class="columns is-multiline">
-    @foreach (var card in @Model)
+    @foreach (var card in Model)
     {
         <div class="column is-one-quarter ">
             @if (card.CardIsLink)
@@ -27,7 +26,7 @@
                                     {
                                         <div class="media">
                                             <figure class="image displayed">
-                                                <img src="~/Resources/CardImage/@cardContent" alt="@cardTitle" asp-append-version="true" />
+                                                <img src="~/Resources/CardImage/@cardContent" alt="@cardTitle" asp-append-version="true"/>
                                             </figure>
                                         </div>
                                     }

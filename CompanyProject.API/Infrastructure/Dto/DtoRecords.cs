@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-
-namespace CompanyProject.API.Infrastructure.Dto;
+﻿namespace CompanyProject.API.Infrastructure.Dto;
 
 public record ParagraphDto(
     int ParagraphId,
@@ -13,7 +9,7 @@ public record ParagraphDto(
     bool IsList,
     bool IsMobileVisible,
     List<string> Content
-    );
+);
 
 public record PageDto(
     int PageId,
@@ -22,7 +18,7 @@ public record PageDto(
     string? Icon,
     bool ToNavbar,
     List<ParagraphDto> Paragraphs
-    );
+);
 
 public record CardFooterItemDto(
     int CardFooterItemId,
@@ -30,7 +26,7 @@ public record CardFooterItemDto(
     string? CardFooterItemLinkController,
     string? CardFooterItemLinkAction,
     string? CardFooterItemContent
-    );
+);
 
 public record MainCardDto(
     int MainCardId,
@@ -49,7 +45,7 @@ public record MainCardDto(
     List<string>? CardContent,
     bool CardHasFooter,
     List<CardFooterItemDto>? CardFooterItems
-    );
+);
 
 public record PriceListDto(
     int PriceListId,
@@ -59,7 +55,7 @@ public record PriceListDto(
     string Service,
     string[]? NeedWorks,
     string? ServicePrice
-    );
+);
 
 public record TopMenuEntityDto(
     int TopMenuEntityId,
@@ -71,17 +67,17 @@ public record TopMenuEntityDto(
     bool NavBar,
     bool NeedStar,
     string ScreenName
-    );
+);
 
 public record CompanyContactDto(
- int CompanyContactId,
- string CompanyName,
- string? SimpleCompanyName,
- string CompanyAddress,
- string CompanyPhoneNumber,
- string? CompanyMessagerNumber,
- string CompanyWorkTime,
- bool CompanyIsUsing
- );
+    int CompanyContactId,
+    string CompanyName,
+    string? SimpleCompanyName,
+    string CompanyAddress,
+    string CompanyPhoneNumber,
+    string? CompanyMessagerNumber,
+    string CompanyWorkTime,
+    bool CompanyIsUsing
+);
 
 public record struct TypeOfFailureDto(string Service, string ServiceName);

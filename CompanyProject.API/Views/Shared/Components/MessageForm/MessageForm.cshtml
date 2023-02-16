@@ -1,12 +1,12 @@
 ﻿@model CompanyProject.API.Infrastructure.Dto.MessageDto
 
-<form id="short-message" class="short-message is-touch-pegging" novalidate asp-controller="Service" asp-action="AddMessageToDbAsyncTask" 
+<form id="short-message" class="short-message is-touch-pegging" novalidate asp-controller="Service" asp-action="AddMessageToDbAsyncTask"
       data-ajax="true"
       data-ajax-method="POST"
       data-ajax-mode="replace"
       data-ajax-success="SuccessSendForm"
       data-ajax-failure="FailureSendForm">
-<div class="validation" asp-validation-summary="ModelOnly"></div>
+    <div class="validation" asp-validation-summary="ModelOnly"></div>
     <div class="field">
         <div class="columns">
             <div class="column is-half">
@@ -31,7 +31,7 @@
             <div class="column is-half ">
                 <label class="label" asp-for="Email"></label>
                 <div class="control has-icons-left">
-                    <input class="input" id="e-mail" name="Email" asp-for="Email" type="email" placeholder="Ваш адрес электронной почты" />
+                    <input class="input" id="e-mail" name="Email" asp-for="Email" type="email" placeholder="Ваш адрес электронной почты"/>
                     <span class="icon is-small is-left">
                         <i class="fas fa-envelope"></i>
                     </span>
@@ -41,7 +41,7 @@
             <div class="column is-half ">
                 <label class="label" asp-for="WhatsAppTelegramNumber"></label>
                 <div class="control has-icons-left">
-                    <input class="input phone-number" id="massager-number" name="WhatsAppTelegramNumber" asp-for="WhatsAppTelegramNumber" type="tel" placeholder="Ваш номер WhatsApp/Telegram" />
+                    <input class="input phone-number" id="massager-number" name="WhatsAppTelegramNumber" asp-for="WhatsAppTelegramNumber" type="tel" placeholder="Ваш номер WhatsApp/Telegram"/>
                     <span class="icon is-small is-left">
                         <i class="fas fa-phone-volume"></i>
                     </span>
@@ -56,16 +56,18 @@
                 <label class="label" asp-for="Content"></label>
                 <div class="control">
                     <textarea class="textarea" id="message-content" name="Content" asp-for="Content" data-length="280" rows="4" maxlength="280" minlenght="20"  placeholder="Ваше сообщение (максимум 280 символов)" style="resize: none"></textarea>
-                    <div><span asp-validation-for="Content" class="has-text-danger"></span></div>
+                    <div>
+                        <span asp-validation-for="Content" class="has-text-danger"></span>
+                    </div>
                     <label class="checkbox">
-                        <input  id="privacy-policy" asp-for="IsAdoptedPrivacyPolicy" class="has-text-danger"/>
+                        <input id="privacy-policy" asp-for="IsAdoptedPrivacyPolicy" class="has-text-danger"/>
                         Я принимаю <a href="~/Resources/Files/privacy.pdf">Политику конфиденциальности</a>
                     </label>
                 </div>
             </div>
         </div>
     </div>
-    <recaptcha />
+    <recaptcha/>
     <div class="columns">
         <div class="column is-full">
             <div class=" field is-grouped">
@@ -73,7 +75,7 @@
                     <button name="submit-form" class="button is-primary">Отправить</button>
                 </div>
                 <div class="control">
-                    <button name="reset-button"  class="button is-primary is-light" type="reset">Очистить</button>
+                    <button name="reset-button" class="button is-primary is-light" type="reset">Очистить</button>
                 </div>
             </div>
         </div>

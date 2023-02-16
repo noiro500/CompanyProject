@@ -5,34 +5,42 @@
 
 }
 <div class="container">
-    <br />
+    <br/>
     <h2 class="title is-3 is-touch-pegging">Цены на компьютерные услуги</h2>
     <div class="columns">
         <div class="column is-half">
             <table class="table is-bordered">
                 <thead style="background-color: #ff6a00">
-                    <tr>
-                        <th colspan="2" class="is-size-5 has-text-white has-text-centered">Что Вас интересует?</th>
-                    </tr>
+                <tr>
+                    <th colspan="2" class="is-size-5 has-text-white has-text-centered">Что Вас интересует?</th>
+                </tr>
                 </thead>
                 <tbody>
-                    @for (int i = 0, j = Model.Count >> 1; j < Model.Count; i++, j++)
-                    {
-                        <tr>
-                            <td class="is-size-6"><a asp-fragment="@Model[i].IdServiceName"><u>@Model[i].ServiceName</u></a></td>
-                            <td class="is-size-6"><a asp-fragment="@Model[j].IdServiceName"><u>@Model[j].ServiceName</u></a></td>
-                        </tr>
-                    }
+                @for (int i = 0, j = Model.Count >>  1; j < Model.Count; i++, j++)
+                {
+                    <tr>
+                        <td class="is-size-6">
+                            <a asp-fragment="@Model[i].IdServiceName">
+                                <u>@Model[i].ServiceName</u>
+                            </a>
+                        </td>
+                        <td class="is-size-6">
+                            <a asp-fragment="@Model[j].IdServiceName">
+                                <u>@Model[j].ServiceName</u>
+                            </a>
+                        </td>
+                    </tr>
+                }
                 </tbody>
             </table>
         </div>
         <div class="column is-half is-hidden-touch">
             <div class="image displayed" style="max-width: 55%;">
-                <img src="~/Resources/Images/calculator.png" asp-append-version="true" />
+                <img src="~/Resources/Images/calculator.png" asp-append-version="true"/>
             </div>
         </div>
     </div>
-    <br />
-    <vc:price-list-table page-number=0 is-full="true" />
+    <br/>
+    <vc:price-list-table page-number="0" is-full="true"/>
     <partial name="ContentViews/PartialView/_PriceListCommemts" model='new HtmlString("* В случае если по каким-либо причинам невозможно произвести восстановление данных, то с заказчика услуги <b>взымается стоимость понесенных затрат (диагностики) в размере 1000 (одной тысячи) рублей.</b> ")'/>
 </div>

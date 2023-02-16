@@ -1,16 +1,14 @@
-﻿using System.Threading.Tasks;
-using CompanyProject.API.Infrastructure.Dto;
-//using CompanyProject.Domain.Message;
+﻿using CompanyProject.API.Infrastructure.Dto;
 using Microsoft.AspNetCore.Mvc;
+//using CompanyProject.Domain.Message;
 
-namespace CompanyProject.API.Infrastructure.ViewComponents
+namespace CompanyProject.API.Infrastructure.ViewComponents;
+
+public class MessageForm : ViewComponent
 {
-    public class MessageForm : ViewComponent
+    public IViewComponentResult Invoke()
     {
-        public IViewComponentResult Invoke()
-        {
-            MessageDto mes = new MessageDto();
-            return View("MessageForm", mes);
-        }
+        var mes = new MessageDto();
+        return View("MessageForm", mes);
     }
 }
