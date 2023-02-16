@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
     </environment>
     <environment exclude="Development">
-        <link href="~/styles/css/bulma-carousel.min.css" rel="stylesheet" />
+        <link href="~/styles/css/bulma-carousel.min.css" rel="stylesheet"/>
     </environment>
 }
 
@@ -16,8 +16,10 @@
     <div class="container">
         <div class="columns is-touch-pegging">
             <div class="column is-half">
-                <br />
-                <h2 class="subtitle is-2" style="color: #d81b60"><b>О компании</b></h2>
+                <br/>
+                <h2 class="subtitle is-2" style="color: #d81b60">
+                    <b>О компании</b>
+                </h2>
                 <p style="text-align: justify">
                     Квалифицированный специалист компании «@Model.SimpleCompanyName» избавит Вас от сомнений,
                     отремонтирует и настроит технику быстро и качественно, ответит на все интересующие
@@ -26,57 +28,61 @@
             </div>
             <div class="column is-half is-hidden-touch">
                 <div class="image displayed" style="max-width: 70%">
-                    <br />
-                    <img src="~/Resources/Images/service-center-photo.png" alt="О компании" asp-append-version="true" />
+                    <br/>
+                    <img src="~/Resources/Images/service-center-photo.png" alt="О компании" asp-append-version="true"/>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<br />
-<br />
+<br/>
+<br/>
 <article>
     <div class="container">
         <div class="columns is-touch-pegging">
             <div class="column is-full">
-                <h3 class="subtitle is-3"><b>Немного о нас</b></h3>
+                <h3 class="subtitle is-3">
+                    <b>Немного о нас</b>
+                </h3>
                 <p class="is-text-justify">
-                        «@Model.SimpleCompanyName» занимается профессиональным обслуживанием компьютеров и другой вычислительной техники на территории Кавказских Минеральных Вод.
+                    «@Model.SimpleCompanyName» занимается профессиональным обслуживанием компьютеров и другой вычислительной техники на территории Кавказских Минеральных Вод.
                     Мы работаем как с частными лицами, так и с корпоративными клиентами. Штат сотрудников фирмы состоит только из мастеров своего дела:
-                        менеджеры находят общий язык и взаимопонимание со всеми людьми, руководители организации «@Model.SimpleCompanyName» обладают должными
+                    менеджеры находят общий язык и взаимопонимание со всеми людьми, руководители организации «@Model.SimpleCompanyName» обладают должными
                     управленческими качествами, мастера по ремонту компетентны во всех областях, связанными с компьютерной техникой.
-                </p><br />
+                </p><br/>
                 <p class="is-text-justify">
                     Наша компания предоставит Вам по-настоящему качественные услуги по ремонту и настройке компьютера!
-                    </p><br />
+                </p><br/>
                 <p class="is-text-justify">
-                        Квалифицированный специалист компании «@Model.SimpleCompanyName» избавит Вас от сомнений, произведет ремонт и настройку оборудования качественно,
+                    Квалифицированный специалист компании «@Model.SimpleCompanyName» избавит Вас от сомнений, произведет ремонт и настройку оборудования качественно,
                     быстро, ответит на все интересующие Вас вопросы.
                 </p>
             </div>
         </div>
         <div class="columns is-touch-pegging">
             <div class="column is-full">
-                <h3 class="subtitle is-3"><b>Оборудование</b></h3>
+                <h3 class="subtitle is-3">
+                    <b>Оборудование</b>
+                </h3>
                 <p class="is-text-justify">
                     В нашем распоряжении есть все необходимое оборудование для профессионального и самого сложного ремонта практически любой техники:
-                    </p>
+                </p>
                 <partial name="ContentViews/PartialView/_CarouselAbout"/>
             </div>
         </div>
-        <hr />
+        <hr/>
         <div class="columns ">
             <div class="column is-full has-text-centered">
                 <p class="font-title">
-                        @(new HtmlString(@Model.CompanyName))
+                    @(new HtmlString(Model.CompanyName))
                 </p>
                 <p class="font-title" style="font-size: 20px">Решить проблему – значит избежать ее повторения</p>
             </div>
         </div>
-        <hr />
+        <hr/>
     </div>
 </article>
-<br />
+<br/>
 
 @section Scripts {
     <environment include="Development">
@@ -86,10 +92,11 @@
         <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
     </environment>
     <script>
-        bulmaCarousel.attach('#slider', {
-            slidesToScroll: 1,
-            slidesToShow: 3,
-            infinite: true
-        });
+        bulmaCarousel.attach('#slider',
+            {
+                slidesToScroll: 1,
+                slidesToShow: 3,
+                infinite: true
+            });
     </script>
 }

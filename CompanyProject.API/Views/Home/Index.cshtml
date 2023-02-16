@@ -4,10 +4,9 @@
     ViewData["Title"] = "Главная";
 }
 <div class="container">
-    <br />
-    <vc:cards page-name-for-card="@ViewBag.pageNameForCard" />
+    <br/>
+    <vc:cards page-name-for-card="@ViewBag.pageNameForCard"/>
     <div class="is-touch-pegging">
-    <partial name="ContentViews/PartialView/_ContentLayoutPartial" model="@Model.Paragraphs.OrderBy(p=>p.ParagraphId)" />
+        <partial name="ContentViews/PartialView/_ContentLayoutPartial" model="@Model.Paragraphs.OrderBy(p => p.ParagraphId)"/>
     </div>
 </div>
-

@@ -1,27 +1,20 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using CompanyProject.API.Infrastructure.RefitInterfaces;
-using CompanyProject.Domain;
-using CompanyProject.Domain.Interfaces;
+﻿using CompanyProject.API.Infrastructure.RefitInterfaces;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
-namespace CompanyProject.API.Infrastructure.ViewComponents
+namespace CompanyProject.API.Infrastructure.ViewComponents;
+
+public class Footer : ViewComponent
 {
-    public class Footer : ViewComponent
+    private readonly IContentServiceContent _contentServiceContent;
+
+    public Footer(IContentServiceContent contentService)
     {
-        private readonly IContentServiceContent _contentServiceContent;
+        _contentServiceContent = contentService;
+    }
 
-        public Footer(IContentServiceContent contentService)
-        {
-            _contentServiceContent = contentService;
-        }
-
-        public async Task<IViewComponentResult> InvokeAsync()
-        {
-            var footerListContent = await _contentServiceContent.GetFooterContentAsync();
-            return View("Footer", footerListContent);
-        }
-
+    public async Task<IViewComponentResult> InvokeAsync()
+    {
+        var footerListContent = await _contentServiceContent.GetFooterContentAsync();
+        return View("Footer", footerListContent);
     }
 }

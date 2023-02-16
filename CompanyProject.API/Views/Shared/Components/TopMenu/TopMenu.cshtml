@@ -1,15 +1,13 @@
-﻿
-@model Dictionary<string, List<CompanyProject.API.Infrastructure.Dto.TopMenuEntityDto>>
+﻿@model Dictionary<string, List<CompanyProject.API.Infrastructure.Dto.TopMenuEntityDto>>
 
 <div class="container is-hidden-mobile">
     <div class="columns">
         @foreach (var t in Model["firstLine"])
         {
-
             @if (t.NeedStar)
             {
                 <div class="column has-text-centered is-hidden-mobile">
-                    @for (int i = 0; i < 5; i++)
+                    @for (var i = 0; i < 5; i++)
                     {
                         <i class="@t.Icon" style="color: @t.IconColor"></i>
                     }
@@ -28,44 +26,44 @@
         }
     </div>
 </div>
-<hr class="is-hidden-mobile" style="margin-top: 10px;" />
+<hr class="is-hidden-mobile" style="margin-top: 10px;"/>
 
 <div class="container" style="background: white">
-    <partial name="ContentViews/PartialView/_TopMenuForMobile" />
+    <partial name="ContentViews/PartialView/_TopMenuForMobile"/>
     <div class="columns is-hidden-touch">
         <div class="column font-title">
             <a asp-controller="Home" asp-action="Index">
-                @(new HtmlString (companyInfo.Company_Info.CompanyName))
+                @(new HtmlString(companyInfo.Company_Info.CompanyName))
             </a>
         </div>
         <div class="column">
             <a asp-fragment="short-message">
-                <i class="fas fa-phone-square-alt" style="font-size: 18px; color: black"></i>
+                <i class="fas fa-phone-square-alt" style="color: black; font-size: 18px;"></i>
                 <span class="has-text-black">&nbsp;&nbsp;&nbsp;<span class="term">Заказать обратный звонок</span></span>
             </a>
-            <br />
+            <br/>
             <a asp-fragment="short-message">
-                <i class="fas fa-mail-bulk" style="font-size: 18px; color: black"></i>
+                <i class="fas fa-mail-bulk" style="color: black; font-size: 18px;"></i>
                 <span class="has-text-black">&nbsp;&nbsp;<span class="term">Отправить сообщение с вопросом</span></span>
             </a>
         </div>
-        <div class="column" style="margin-left:0.75rem;">
-            <i class="fas fa-phone-volume" style="font-size: 24px; color: black"></i>
-            <span class="font-tel">&nbsp;@(new HtmlString (companyInfo.Company_Info.CompanyPhoneNumber))</span> <br />
+        <div class="column" style="margin-left: 0.75rem;">
+            <i class="fas fa-phone-volume" style="color: black; font-size: 24px;"></i>
+            <span class="font-tel">&nbsp;@(new HtmlString(companyInfo.Company_Info.CompanyPhoneNumber))</span> <br/>
 
-            <i class="fas fa-comment-alt" style="font-size: 18px; color: black"></i>
-            <span>&nbsp;&nbsp;&nbsp;WhatsApp: @(new HtmlString (companyInfo.Company_Info.CompanyMessagerNumber))</span>
+            <i class="fas fa-comment-alt" style="color: black; font-size: 18px;"></i>
+            <span>&nbsp;&nbsp;&nbsp;WhatsApp: @(new HtmlString(companyInfo.Company_Info.CompanyMessagerNumber))</span>
 
         </div>
-        <div class="column" style="margin-top: -20px;margin-left:0.75rem;">
+        <div class="column" style="margin-left: 0.75rem; margin-top: -20px;">
             <span class="font-title">Нужна помощь?</span>
-            <br />
+            <br/>
             <a asp-controller="Service" asp-action="MakeOrder" class="button is-primary" style="padding-right: 40px;">
                 <i class="fas fa-wrench" style="font-size: 18px">&nbsp;</i>
                 <b>&nbsp;&nbsp;&nbsp;ВЫЗВАТЬ МАСТЕРА</b>
             </a>
         </div>
-             @*<div class="column">
+        @*<div class="column">
             <a href="#" class="button is-warning">
             <strong>Зарегистрироваться</strong>
             </a> <br />
@@ -75,7 +73,7 @@
             </div>*@
     </div>
 </div>
-<br />
+<br/>
 
 <nav class="navbar is-link " role="navigation">
     <div class="container">
@@ -94,7 +92,7 @@
         </div>
         <div id="navbarMenu" class="navbar-menu ">
             <div id="basicNavBarMenu" class="navbar-start">
-                @foreach (var m in Model["topMenuNavBar"].Where(m => @m.NavBar))
+                @foreach (var m in Model["topMenuNavBar"].Where(m => m.NavBar))
                 {
                     <a class="navbar-item font-title" style="font-size: 1.1em" asp-controller="@m.AspController" asp-action="@m.AspAction">
                         <i class="@m.Icon">&nbsp;</i>

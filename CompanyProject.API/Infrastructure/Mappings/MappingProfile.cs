@@ -3,16 +3,15 @@ using CompanyProject.Domain.Customer;
 using CompanyProject.Domain.Order;
 using CompanyProject.ViewModels;
 
-namespace CompanyProject.API.Infrastructure.Mappings
+namespace CompanyProject.API.Infrastructure.Mappings;
+
+public class MappingProfile : Profile
 {
-    public class MappingProfile:Profile
+    public MappingProfile()
     {
-        public MappingProfile()
-        {
-            CreateMap<OrderViewModel, Customer>();
-            CreateMap<OrderViewModel, Order>()
-                .ForMember(dest=>dest.AddressData,
-                    opt=>opt.MapFrom(src=>src.AddressData));
-        }
+        CreateMap<OrderViewModel, Customer>();
+        CreateMap<OrderViewModel, Order>()
+            .ForMember(dest => dest.AddressData,
+                opt => opt.MapFrom(src => src.AddressData));
     }
 }
