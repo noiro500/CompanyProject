@@ -7,16 +7,19 @@ public record MessageDto
 {
     public Guid MessageId { get; set; }
 
-    [Display(Name = "Ваше имя: *")] public string? PersonName { get; set; }
+    [Display(Name = "Ваше имя: *")] 
+    public string? PersonName { get; set; }
 
     [Display(Name = "Номер WhatsApp/Telegram: *")]
     public string? WhatsAppTelegramNumber { get; set; }
 
     public ulong MessageNumber { get; set; }
 
-    [Display(Name = "E-mail:")] public string? Email { get; set; }
+    [Display(Name = "E-mail:")] 
+    public string? Email { get; set; }
 
-    [Display(Name = "Тема сообщения: *")] public string? SubjectMessage { get; set; }
+    [Display(Name = "Тема сообщения: *")] 
+    public string? SubjectMessage { get; set; }
 
     [Display(Name = "Сообщение: *")]
     [DataType(DataType.MultilineText)]
