@@ -23,6 +23,8 @@ public class Startup
         services.AddControllersWithViews();
         services.AddFluentValidationClientsideAdapters();
         services.AddScoped<IValidator<MessageDto>, MessageDtoValidator>();
+        services.AddScoped<IValidator<OrderViewModelDto>, OrderViewModelDto.OrderViewModelDtoValidator>();
+        services.AddScoped<IValidator<AddressDto>, AddressDto.AddressDtoValidator>();
         services.AddCors();
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         services.AddReCaptcha(Configuration.GetSection("ReCaptcha"));

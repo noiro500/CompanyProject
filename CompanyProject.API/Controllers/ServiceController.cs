@@ -115,7 +115,8 @@ public class ServiceController : Controller
 
     public IActionResult MakeOrder()
     {
-        return View();
+        var orderViewModelDto = new OrderViewModelDto();
+        return View(orderViewModelDto);
     }
 
     [HttpPost]
