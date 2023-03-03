@@ -2,11 +2,12 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using CompanyProjectAddressService.Model;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.EntityFrameworkCore;
 
 namespace CompanyProjectAddressService.Controllers
 {
-    [Route("api/v1/[controller]/[action]")]
+   [Route("api/v1/[controller]/[action]")]
     public class AddressController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -30,6 +31,7 @@ namespace CompanyProjectAddressService.Controllers
                 var result = await repository.SearchAsync(query);
                 if (result is null)
                     return NotFound();
+                HttpContext.Response.Headers.Add("Access-Control-Allow-Origin", "*");
                 return Ok(result);
             }
 

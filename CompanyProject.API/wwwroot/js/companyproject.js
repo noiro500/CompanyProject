@@ -59,41 +59,42 @@
         start.setHours(10);
         startHours = 10;
     }
-    $("#VisitTime").datepicker({
-        position: "top center",
-        timepicker: true,
-        startDate: start,
-        minDate: start,
-        minHours: startHours,
-        maxHours: 19,
-        onSelect: function(fd, d, picker) {
-            // Ничего не делаем если выделение было снято
-            if (!d) return;
-            const day = d.getDay();
-            // Обновляем состояние календаря только если была изменена дата
-            if (prevDay != undefined && prevDay == day) return;
-            prevDay = day;
-            // Если выбранный день суббота или воскресенье, то устанавливаем
-            // часы для выходных, в противном случае восстанавливаем начальные значения
-            if (day === 6 || day === 0) {
-                picker.update({
-                    minHours: 10,
-                    maxHours: 15
-                });
-            } else {
-                picker.update({
-                    minHours: 9,
-                    maxHours: 18
-                });
-            }
-        }
-    });
+    //$("#VisitTime").datepicker({
+    //    position: "top center",
+    //    timepicker: true,
+    //    startDate: start,
+    //    minDate: start,
+    //    minHours: startHours,
+    //    maxHours: 19,
+    //    onSelect: function(fd, d, picker) {
+    //        // Ничего не делаем если выделение было снято
+    //        if (!d) return;
+    //        const day = d.getDay();
+    //        // Обновляем состояние календаря только если была изменена дата
+    //        if (prevDay != undefined && prevDay == day) return;
+    //        prevDay = day;
+    //        // Если выбранный день суббота или воскресенье, то устанавливаем
+    //        // часы для выходных, в противном случае восстанавливаем начальные значения
+    //        if (day === 6 || day === 0) {
+    //            picker.update({
+    //                minHours: 10,
+    //                maxHours: 15
+    //            });
+    //        } else {
+    //            picker.update({
+    //                minHours: 9,
+    //                maxHours: 18
+    //            });
+    //        }
+    //    }
+    //});
     const addressDataService = "http://localhost:5014/api/v1/Address/GetPartOfAddress";
     //Подгрузка списка округов/районов, населенных пунктов, улиц 
     $("#AddressData_Territory").change(function() {
         $.ajax({
             type: "POST",
             url: /*companyProject.Urls.GetPartOfAddress*/addressDataService,
+            //headers: {'Access-Control-Allow-Origin': '*'},
             data: { parameters: ["District"] },
             success: function(result) {
                 $("#AddressData_District").html(result);
