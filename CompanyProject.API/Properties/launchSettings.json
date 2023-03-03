@@ -9,16 +9,6 @@
       "hotReloadEnabled": true,
       "applicationUrl": "http://localhost:5001"
     },
-    "WSL": {
-      "commandName": "WSL2",
-      "launchBrowser": true,
-      "launchUrl": "http://localhost:5001",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development",
-        "ASPNETCORE_URLS": "http://localhost:5001"
-      },
-      "distributionName": ""
-    },
     "Docker": {
       "commandName": "Docker",
       "launchBrowser": true,

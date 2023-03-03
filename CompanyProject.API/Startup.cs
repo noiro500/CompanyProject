@@ -20,12 +20,12 @@ public class Startup
 
     public void ConfigureServices(IServiceCollection services)
     {
+        services.AddCors();
         services.AddControllersWithViews();
         services.AddFluentValidationClientsideAdapters();
         services.AddScoped<IValidator<MessageDto>, MessageDtoValidator>();
         services.AddScoped<IValidator<OrderViewModelDto>, OrderViewModelDto.OrderViewModelDtoValidator>();
         services.AddScoped<IValidator<AddressDto>, AddressDto.AddressDtoValidator>();
-        services.AddCors();
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         services.AddReCaptcha(Configuration.GetSection("ReCaptcha"));
         services.AddScoped<CompanyInfo>();
@@ -50,8 +50,9 @@ public class Startup
         app.UseStatusCodePages();
         app.UseRouting();
         app.UseAuthorization();
-        app.UseCors(builder => builder.WithOrigins("https://www.nova-computers.ru", "https://nova-computers.ru",
-            "http://www.nova-computers.ru", "http://nova-computers.ru"));
+        //app.UseCors(builder => builder.WithOrigins("https://www.nova-computers.ru", "https://nova-computers.ru",
+        //    "http://www.nova-computers.ru", "http://nova-computers.ru", "http://localhost:5014"));
+        app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()/*AllowAnyMethod().WithHeaders("Access-Control-Allow-Origin")*/);
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapControllerRoute(
