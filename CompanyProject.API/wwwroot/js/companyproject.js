@@ -96,8 +96,9 @@
             url: /*companyProject.Urls.GetPartOfAddress*/addressDataService,
             //headers: {'Access-Control-Allow-Origin': '*'},
             data: { parameters: ["District"] },
-            success: function(result) {
-                $("#AddressData_District").html(result);
+            success: function (result) {
+                let a=resultж
+                    $("#AddressData_District").html(result);
                 $("#AddressData_District").change(function() {
                     const selectedDistrict = $("#AddressData_District option:selected").val();
                     $.ajax({
