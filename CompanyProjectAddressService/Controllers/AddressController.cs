@@ -19,7 +19,7 @@ namespace CompanyProjectAddressService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetPartOfAddress(IList<string> parameters)
         {
-            if(!parameters.Any())
+            if (!parameters.Any())
                 return NotFound();
             if (parameters[0] == "District")
             {

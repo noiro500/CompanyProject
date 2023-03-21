@@ -40,7 +40,8 @@ public class ServiceController : Controller
     //[FormValidator]
     public async Task<IActionResult> AddMessageToDbAsyncTask(MessageDto mes)
     {
-        if (!ModelState.IsValid) return Json(JsonSerializer.Serialize(new {parameter = "error"}));
+        if (!ModelState.IsValid) 
+            return Json(JsonSerializer.Serialize(new {parameter = "error"}));
         if (!mes.IsAdoptedPrivacyPolicy)
         {
             return Json(JsonSerializer.Serialize(new {parameter = "warning"}));
