@@ -6,7 +6,7 @@ using CompanyProjectAddressService.Model;
 
 namespace CompanyProjectAddressService.Controllers
 {
-   [Route("api/v1/[controller]/[action]")]
+    [Route("api/v1/[controller]/[action]")]
     public class AddressController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -25,27 +25,26 @@ namespace CompanyProjectAddressService.Controllers
         {
             if (!parameters.Any())
                 return NotFound();
+            IList<string>? result = new List<string>();
+            var repository = _unitOfWork.Repository<AddressInDb>();
             if (parameters[0] == "District")
             {
-                var repository = _unitOfWork.Repository<AddressInDb>();
                 var query = repository.MultipleResultQuery()
                     .AndFilter(p => p.IsUsedInDistrict == true)
                     .OrderBy(p => p.Offname)
                     .Select(m => m.Offname);
-                var result = await repository.SearchAsync(query);
-                if (result is null)
-                    return NotFound();
-                HttpContext.Response.Headers.Add("Access-Control-Allow-Origin", "*");
-                //return Ok(result);
-                var cr= new ContentResult
-                {
-                    Content = _partOfAddress.HtmlPart(parameters[0], result),
-                    ContentType = "text/html",
-                    StatusCode = 200
-                };
-                return cr;
+                result = await repository.SearchAsync(query);
             }
-            return NotFound();
+            if (result is null)
+                return NotFound();
+            HttpContext.Response.Headers.Add("Access-Control-Allow-Origin", "*");
+            var cr = new ContentResult
+            {
+                Content = _partOfAddress.HtmlPart(parameters[0], result),
+                ContentType = "text/html",
+                StatusCode = 200
+            };
+            return cr;
         }
-            }
+    }
 }
