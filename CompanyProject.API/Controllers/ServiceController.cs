@@ -9,7 +9,6 @@ using AutoMapper;
 using CompanyProject.API.Infrastructure.Dto;
 using CompanyProject.API.Infrastructure.Log;
 using CompanyProject.API.Infrastructure.RefitInterfaces;
-using CompanyProject.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CompanyProject.API.Controllers;
@@ -120,38 +119,38 @@ public class ServiceController : Controller
         return View(orderViewModelDto);
     }
 
-    [HttpPost]
-    public IActionResult MakeOrderConfirm(OrderViewModel order)
-    {
-        if (ModelState.IsValid)
-        {
-            if (order != null)
-            {
-                var orderProperties = order.GetType().GetProperties();
-                var dictionaryAttributes = new Dictionary<string, string>();
-                foreach (var propertyInfo in orderProperties)
-                {
-                    if (propertyInfo.GetValue(order) == null) propertyInfo.SetValue(order, "Отсутствует");
+    //[HttpPost]
+    //public IActionResult MakeOrderConfirm(OrderViewModel order)
+    //{
+    //    if (ModelState.IsValid)
+    //    {
+    //        if (order != null)
+    //        {
+    //            var orderProperties = order.GetType().GetProperties();
+    //            var dictionaryAttributes = new Dictionary<string, string>();
+    //            foreach (var propertyInfo in orderProperties)
+    //            {
+    //                if (propertyInfo.GetValue(order) == null) propertyInfo.SetValue(order, "Отсутствует");
 
-                    if (propertyInfo.GetCustomAttribute<DisplayAttribute>() != null)
-                        dictionaryAttributes.Add(propertyInfo.GetCustomAttribute<DisplayAttribute>().Name,
-                            propertyInfo.GetValue(order).ToString());
-                }
+    //                if (propertyInfo.GetCustomAttribute<DisplayAttribute>() != null)
+    //                    dictionaryAttributes.Add(propertyInfo.GetCustomAttribute<DisplayAttribute>().Name,
+    //                        propertyInfo.GetValue(order).ToString());
+    //            }
 
-                var options = new JsonSerializerOptions
-                {
-                    Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
-                    WriteIndented = true
-                };
-                TempData["orderViewModel"] = JsonSerializer.Serialize(order, options);
-                return PartialView("ContentViews/PartialView/_MakeOrderConfirm", dictionaryAttributes);
-            }
+    //            var options = new JsonSerializerOptions
+    //            {
+    //                Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
+    //                WriteIndented = true
+    //            };
+    //            TempData["orderViewModel"] = JsonSerializer.Serialize(order, options);
+    //            return PartialView("ContentViews/PartialView/_MakeOrderConfirm", dictionaryAttributes);
+    //        }
 
-            return NotFound();
-        }
+    //        return NotFound();
+    //    }
 
-        return View("Error");
-    }
+    //    return View("Error");
+    //}
 
 
     //[HttpPost]

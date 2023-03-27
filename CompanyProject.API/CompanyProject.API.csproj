@@ -55,11 +55,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CompanyProject.Repository\CompanyProject.Repository.csproj" />
-    <ProjectReference Include="..\CompanyProject.ViewModels\CompanyProject.ViewModels.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="AspNetCore.ReCaptcha" Version="1.6.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.2.2" />

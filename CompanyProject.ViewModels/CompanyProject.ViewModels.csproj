@@ -10,8 +10,4 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\CompanyProject.Domain\CompanyProject.Domain.csproj" />
-  </ItemGroup>
-
 </Project>

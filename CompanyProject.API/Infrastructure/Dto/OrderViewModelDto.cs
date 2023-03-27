@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using CompanyProject.Domain.Address;
 using FluentValidation;
 
 namespace CompanyProject.API.Infrastructure.Dto

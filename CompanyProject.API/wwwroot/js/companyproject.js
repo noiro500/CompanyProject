@@ -93,17 +93,17 @@
     $("#AddressData_Territory").change(function() {
         $.ajax({
             type: "POST",
-            url: /*companyProject.Urls.GetPartOfAddress*/addressDataService,
-            //headers: {'Access-Control-Allow-Origin': '*'},
+            url: addressDataService,
+            dataType:"html",
             data: { parameters: ["District"] },
             success: function (result) {
-                let a=resultж
-                    $("#AddressData_District").html(result);
+                $("#AddressData_District").html(result);
                 $("#AddressData_District").change(function() {
                     const selectedDistrict = $("#AddressData_District option:selected").val();
                     $.ajax({
                         type: "POST",
-                        url: /*companyProject.Urls.GetPartOfAddress*/ addressDataService,
+                        url: addressDataService,
+                        dataType: "html",
                         data: { parameters: ["PopulatedArea", selectedDistrict] },
                         success: function(result) {
                             $("#AddressData_PopulatedArea").html(result);
@@ -111,7 +111,8 @@
                                 const selectPopulatedArea = $("#AddressData_PopulatedArea option:selected").val();
                                 $.ajax({
                                     type: "POST",
-                                    url: /*companyProject.Urls.GetPartOfAddress*/ addressDataService,
+                                    url: addressDataService,
+                                    dataType: "html",
                                     data: { parameters: ["Street", selectPopulatedArea] },
                                     success: function(result) {
                                         $("#AddressData_Street").html(result);
