@@ -1,7 +1,6 @@
-﻿using CompanyProjectAddressService.Infrastructure.GetPartOfAddress;
+﻿using CompanyProjectAddressService.Infrastructure.PartOfAddress;
 using EntityFrameworkCore.UnitOfWork.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using CompanyProjectAddressService.Model;
 
 
 namespace CompanyProjectAddressService.Controllers
@@ -25,26 +24,16 @@ namespace CompanyProjectAddressService.Controllers
         {
             if (!parameters.Any())
                 return NotFound();
-            IList<string>? result = new List<string>();
-            var repository = _unitOfWork.Repository<AddressInDb>();
-            if (parameters[0] == "District")
-            {
-                var query = repository.MultipleResultQuery()
-                    .AndFilter(p => p.IsUsedInDistrict == true)
-                    .OrderBy(p => p.Offname)
-                    .Select(m => m.Offname);
-                result = await repository.SearchAsync(query);
-            }
+            var result = await _partOfAddress.GetPartOfAddress(parameters);
             if (result is null)
                 return NotFound();
             HttpContext.Response.Headers.Add("Access-Control-Allow-Origin", "*");
-            var cr = new ContentResult
+            return new ContentResult
             {
                 Content = _partOfAddress.HtmlPart(parameters[0], result),
                 ContentType = "text/html",
                 StatusCode = 200
             };
-            return cr;
         }
     }
 }

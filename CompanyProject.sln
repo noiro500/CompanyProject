@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompanyProjectMessage", "Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompanyProjectAddressService", "CompanyProjectAddressService\CompanyProjectAddressService.csproj", "{5C1A4E82-0D0E-4740-93BA-D543E3920FB3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservices", "Microservices", "{A3C7F1D1-8378-46C1-B9C0-E30427C10BEC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,6 +62,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5C1A4E82-0D0E-4740-93BA-D543E3920FB3} = {A3C7F1D1-8378-46C1-B9C0-E30427C10BEC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {24BE430D-CD50-43C2-8A41-92AAACB1E4D4}
