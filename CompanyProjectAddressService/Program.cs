@@ -1,6 +1,6 @@
 using CompanyProjectAddressService.Infrastructure;
-using CompanyProjectAddressService.Infrastructure.GetPartOfAddress;
 using CompanyProjectAddressService.Infrastructure.InitialDbContent;
+using CompanyProjectAddressService.Infrastructure.PartOfAddress;
 using EntityFrameworkCore.UnitOfWork.Extensions;
 using Microsoft.EntityFrameworkCore;
 

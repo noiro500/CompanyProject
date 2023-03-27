@@ -78,8 +78,6 @@ public class HomeController : Controller
     [Route("laptop-upgrade")]
     public async Task<IActionResult> LaptopUpgrade()
     {
-        //return View("LaptopsRepair", (await _unitOfWork.Pages.GetWithInclude(p => p.Paragraphs))
-        //    .FirstOrDefault(t => t.PageId == 3));
         ViewBag.pageNameForCard = RouteData.Values["action"].ToString().ToLower();
         ViewBag.pageNameForPriceList = "LaptopsRepair".ToLower();
         var resultAsync = await _contentServiceContent.GetPageContentAsync(RouteData.Values["action"].ToString());
