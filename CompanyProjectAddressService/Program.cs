@@ -1,4 +1,5 @@
 using CompanyProjectAddressService.Infrastructure;
+using CompanyProjectAddressService.Infrastructure.GetPartOfAddress;
 using CompanyProjectAddressService.Infrastructure.InitialDbContent;
 using EntityFrameworkCore.UnitOfWork.Extensions;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +18,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<DbContext, CompanyProjectAddressDbContext>();
 builder.Services.AddScoped<IInitialDbContent, InitialDbContent>();
+builder.Services.AddScoped<IPartOfAddress, PartOfAddress>();
 builder.Services.AddUnitOfWork();
 builder.Services.AddUnitOfWork<CompanyProjectAddressDbContext>();
 var app = builder.Build();

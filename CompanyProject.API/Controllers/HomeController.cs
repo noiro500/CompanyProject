@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
+using CompanyProject.API.Infrastructure.Dto.CompanyProject.ViewModels;
 using CompanyProject.API.Infrastructure.RefitInterfaces;
-using CompanyProject.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CompanyProject.API.Controllers;
@@ -107,6 +107,6 @@ public class HomeController : Controller
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
-        return View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier});
+        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 }

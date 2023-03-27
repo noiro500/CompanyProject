@@ -27,7 +27,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CompanyProject.Domain\CompanyProject.Domain.csproj" />
     <ProjectReference Include="..\CompanyProject.ViewModels\CompanyProject.ViewModels.csproj" />
   </ItemGroup>
 
