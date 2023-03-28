@@ -88,7 +88,8 @@
     //        }
     //    }
     //});
-    const addressDataService = "http://localhost:5014/api/v1/Address/GetPartOfAddress";
+    /*const addressDataService = "http://localhost:5014/api/v1/Address/GetPartOfAddress";*/
+    const addressDataService = "http://localhost:8010/gateway/v1/Address/GetPartOfAddress";
     //Подгрузка списка округов/районов, населенных пунктов, улиц 
     $("#AddressData_Territory").change(function() {
         $.ajax({

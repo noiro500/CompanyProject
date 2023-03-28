@@ -1,13 +1,10 @@
 {
-  //"GlobalConfiguration": {
-  //  "BaseUrl": "https://localhost:5000"
-  //},
   "Routes": [
     {
       "UpstreamPathTemplate": "/gateway/v1/Content/GetPageContent/{pageName}",
-            "UpstreamHttpMethod": [ "Get" ],
+      "UpstreamHttpMethod": [ "Get" ],
       "DownstreamPathTemplate": "/api/v1/Content/GetPageContent/{pageName}",
-            "DownstreamScheme": "http",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "companyprojectcontentservice",
@@ -17,12 +14,26 @@
       "FileCacheOptions": {
         "TtlSeconds": 10
       }
-    }
-    ,
+    },
     {
       "UpstreamPathTemplate": "/gateway/v1/Content/GetTopMenuEntities",
       "UpstreamHttpMethod": [ "Get" ],
       "DownstreamPathTemplate": "/api/v1/Content/GetTopMenuEntities",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "companyprojectcontentservice",
+          "Port": 80
+        }
+      ],
+      "FileCacheOptions": {
+        "TtlSeconds": 10
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/v1/Address/GetPartOfAddress",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamPathTemplate": "/api/v1/Address/GetPartOfAddress",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -98,8 +109,7 @@
         "TtlSeconds": 10
 
       }
-    }
-    ,
+    },
     {
       "DownstreamPathTemplate": "/api/v1/Message",
       "DownstreamScheme": "http",
@@ -116,6 +126,6 @@
 
       }
     }
-    
+
   ]
 }
