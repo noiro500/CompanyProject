@@ -31,21 +31,6 @@
       }
     },
     {
-      "UpstreamPathTemplate": "/gateway/v1/Address/GetPartOfAddress",
-      "UpstreamHttpMethod": [ "Post" ],
-      "DownstreamPathTemplate": "/api/v1/Address/GetPartOfAddress",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "companyprojectcontentservice",
-          "Port": 80
-        }
-      ],
-      "FileCacheOptions": {
-        "TtlSeconds": 10
-      }
-    },
-    {
       "UpstreamPathTemplate": "/gateway/v1/Content/GetFooterContent",
       "UpstreamHttpMethod": [ "Get" ],
       "DownstreamPathTemplate": "/api/v1/Content/GetFooterContent",
@@ -110,6 +95,22 @@
 
       }
     },
+    {
+      "UpstreamPathTemplate": "/gateway/v1/Address/GetPartOfAddress",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamPathTemplate": "/api/v1/Address/GetPartOfAddress",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "companyprojectaddressservice",
+          "Port": 80
+        }
+      ],
+      "FileCacheOptions": {
+        "TtlSeconds": 10
+      }
+    },
+
     {
       "DownstreamPathTemplate": "/api/v1/Message",
       "DownstreamScheme": "http",
