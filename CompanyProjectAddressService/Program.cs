@@ -1,4 +1,4 @@
-using CompanyProjectAddressService.Infrastructure;
+using CompanyProjectAddressService.Infrastructure.DbContext;
 using CompanyProjectAddressService.Infrastructure.InitialDbContent;
 using CompanyProjectAddressService.Infrastructure.PartOfAddress;
 using EntityFrameworkCore.UnitOfWork.Extensions;

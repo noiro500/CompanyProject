@@ -15,28 +15,21 @@ namespace CompanyProject.API.Controllers;
 
 public class ServiceController : Controller
 {
-    //private readonly IValidator<MessageDto> _validator;
     private readonly IContentServiceMessage _contentServiceMessage;
 
     private readonly ILogger _logger;
 
-    //private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
 
 
-    public ServiceController( /*IUnitOfWork unitOfWork,*/ IMapper mapper,
-        IContentServiceMessage contentServiceMessage /*IValidator<MessageDto> validator*/)
+    public ServiceController(  IMapper mapper,
+        IContentServiceMessage contentServiceMessage )
     {
         _logger = Log.CreateLogger<HomeController>();
-        //_unitOfWork = unitOfWork;
         _mapper = mapper;
-        //_validator = validator;
         _contentServiceMessage = contentServiceMessage;
     }
 
-    //Ajax send form
-    [HttpPost]
-    //[FormValidator]
     public async Task<IActionResult> AddMessageToDbAsyncTask(MessageDto mes)
     {
         if (!ModelState.IsValid) 
@@ -119,61 +112,34 @@ public class ServiceController : Controller
         return View(orderViewModelDto);
     }
 
-    //[HttpPost]
-    //public IActionResult MakeOrderConfirm(OrderViewModel order)
-    //{
-    //    if (ModelState.IsValid)
-    //    {
-    //        if (order != null)
-    //        {
-    //            var orderProperties = order.GetType().GetProperties();
-    //            var dictionaryAttributes = new Dictionary<string, string>();
-    //            foreach (var propertyInfo in orderProperties)
-    //            {
-    //                if (propertyInfo.GetValue(order) == null) propertyInfo.SetValue(order, "Отсутствует");
+ public IActionResult MakeOrderConfirm(OrderViewModelDto order)
+    {
+        if (ModelState.IsValid)
+        {
+            if (order != null)
+            {
+                var orderProperties = order.GetType().GetProperties();
+                var dictionaryAttributes = new Dictionary<string, string>();
+                foreach (var propertyInfo in orderProperties)
+                {
+                    if (propertyInfo.GetValue(order) == null) propertyInfo.SetValue(order, "Отсутствует");
 
-    //                if (propertyInfo.GetCustomAttribute<DisplayAttribute>() != null)
-    //                    dictionaryAttributes.Add(propertyInfo.GetCustomAttribute<DisplayAttribute>().Name,
-    //                        propertyInfo.GetValue(order).ToString());
-    //            }
+                    if (propertyInfo.GetCustomAttribute<DisplayAttribute>() != null)
+                        dictionaryAttributes.Add(propertyInfo.GetCustomAttribute<DisplayAttribute>().Name,
+                            propertyInfo.GetValue(order).ToString());
+                }
 
-    //            var options = new JsonSerializerOptions
-    //            {
-    //                Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
-    //                WriteIndented = true
-    //            };
-    //            TempData["orderViewModel"] = JsonSerializer.Serialize(order, options);
-    //            return PartialView("ContentViews/PartialView/_MakeOrderConfirm", dictionaryAttributes);
-    //        }
+                var options = new JsonSerializerOptions
+                {
+                    Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
+                    WriteIndented = true
+                };
+                return PartialView("ContentViews/PartialView/_MakeOrderConfirm", dictionaryAttributes);
+            }
 
-    //        return NotFound();
-    //    }
+            return NotFound();
+        }
 
-    //    return View("Error");
-    //}
-
-
-    //[HttpPost]
-    //public async Task<IActionResult> GetPartOfAddress(IList<string> parameters)
-    //{
-    //    ViewBag.PartOfAddress = parameters[0];
-    //    if (parameters[0] == "District")
-    //    {
-    //        var districtsList = (await _unitOfWork.AddressFromDbs.GetUsedDistrictsAsync());
-    //        return PartialView("ContentViews/PartialView/_GetPartOfAddress", districtsList);
-    //    }
-
-    //    else if (parameters[0] == "PopulatedArea")
-    //    {
-    //        var populatedAreaList = (await _unitOfWork.AddressFromDbs.GetWorkPopulatedAreaAsync(parameters[1])).AsEnumerable();
-    //        return PartialView("ContentViews/PartialView/_GetPartOfAddress", populatedAreaList);
-    //    }
-    //    else if (parameters[0] == "Street")
-    //    {
-    //        var strretList = (await _unitOfWork.AddressFromDbs.GetWorkStreetAsync(parameters[1])).AsEnumerable();
-    //        return PartialView("ContentViews/PartialView/_GetPartOfAddress", strretList);
-    //    }
-    //    else
-    //        return BadRequest();
-    //}
+        return View("Error");
+    }
 }
