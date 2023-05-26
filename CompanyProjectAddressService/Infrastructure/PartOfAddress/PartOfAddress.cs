@@ -13,7 +13,7 @@ namespace CompanyProjectAddressService.Infrastructure.PartOfAddress
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<IList<string>> GetPartOfAddress(IList<string> parameters)
+        public async Task<IList<string>> GetAddressPart(IList<string> parameters)
         {
             if (!parameters.Any())
                 return null;

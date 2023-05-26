@@ -8,12 +8,12 @@ namespace CompanyProjectAddressService.Controllers
     [Route("api/v1/[controller]/[action]")]
     public class AddressController : ControllerBase
     {
-        private readonly IUnitOfWork _unitOfWork;
+        //private readonly IUnitOfWork _unitOfWork;
         private readonly IPartOfAddress _partOfAddress;
 
-        public AddressController(IUnitOfWork unitOfWork, IPartOfAddress partOfAddress)
+        public AddressController(/*IUnitOfWork unitOfWork,*/ IPartOfAddress partOfAddress)
         {
-            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+            //_unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _partOfAddress = partOfAddress;
         }
 
@@ -24,7 +24,7 @@ namespace CompanyProjectAddressService.Controllers
         {
             if (!parameters.Any())
                 return NotFound();
-            var result = await _partOfAddress.GetPartOfAddress(parameters);
+            var result = await _partOfAddress.GetAddressPart(parameters);
             if (result is null)
                 return NotFound();
             HttpContext.Response.Headers.Add("Access-Control-Allow-Origin", "*");

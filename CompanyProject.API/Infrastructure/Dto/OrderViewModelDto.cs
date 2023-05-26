@@ -14,7 +14,7 @@ namespace CompanyProject.API.Infrastructure.Dto
         public string? MessageNumber { get; set; }
         [Display(Name = "E-mail:")]
         public string? Email { get; set; }
-        public AddressDto AddressData { get; set; }
+        public AddressDto? AddressData { get; set; }
         [Display(Name = "Причина вызова мастера (если причины нет в списке, выберите 'Прочее'): *")]
         public string? TypeOfFailure { get; set; }
         [DataType(DataType.MultilineText)]
