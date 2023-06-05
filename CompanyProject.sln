@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompanyProjectCardsService"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompanyProjectPriceListService", "CompanyProjectPriceListService\CompanyProjectPriceListService\CompanyProjectPriceListService.csproj", "{E2A918AA-11A1-43E1-BDD9-A09B4653BE80}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{AB3A351D-B50E-4E1B-85FA-470CDA71C6DA}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompanyProjectAddressService", "CompanyProjectAddressService\CompanyProjectAddressService.csproj", "{5C1A4E82-0D0E-4740-93BA-D543E3920FB3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservices", "Microservices", "{A3C7F1D1-8378-46C1-B9C0-E30427C10BEC}"
@@ -24,6 +22,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OcelotApiGateway", "OcelotApiGateway\OcelotApiGateway.csproj", "{33D8E5C6-0A87-4D90-A163-EE7F0BEA850D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompanyProjectMessageService", "CompanyProjectMessageService\CompanyProjectMessageService.csproj", "{29A52125-D626-4DEC-A841-1257256BC56D}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{700B93D5-713A-4742-9BF6-BFC076D29C19}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,10 +47,6 @@ Global
 		{E2A918AA-11A1-43E1-BDD9-A09B4653BE80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2A918AA-11A1-43E1-BDD9-A09B4653BE80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E2A918AA-11A1-43E1-BDD9-A09B4653BE80}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AB3A351D-B50E-4E1B-85FA-470CDA71C6DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AB3A351D-B50E-4E1B-85FA-470CDA71C6DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AB3A351D-B50E-4E1B-85FA-470CDA71C6DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AB3A351D-B50E-4E1B-85FA-470CDA71C6DA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5C1A4E82-0D0E-4740-93BA-D543E3920FB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5C1A4E82-0D0E-4740-93BA-D543E3920FB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C1A4E82-0D0E-4740-93BA-D543E3920FB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -67,6 +63,10 @@ Global
 		{29A52125-D626-4DEC-A841-1257256BC56D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29A52125-D626-4DEC-A841-1257256BC56D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29A52125-D626-4DEC-A841-1257256BC56D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{700B93D5-713A-4742-9BF6-BFC076D29C19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{700B93D5-713A-4742-9BF6-BFC076D29C19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{700B93D5-713A-4742-9BF6-BFC076D29C19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{700B93D5-713A-4742-9BF6-BFC076D29C19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

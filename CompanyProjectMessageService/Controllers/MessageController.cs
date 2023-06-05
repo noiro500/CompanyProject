@@ -1,7 +1,7 @@
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
-using CompanyProjectMessage.Model;
+using CompanyProjectMessageService.Model;
 using EntityFrameworkCore.Repository.Interfaces;
 using EntityFrameworkCore.UnitOfWork.Interfaces;
 using Microsoft.AspNetCore.Mvc;

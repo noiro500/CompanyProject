@@ -27,7 +27,7 @@ services:
       context: .
       dockerfile: OcelotApiGateway/Dockerfile
 
-  companyprojectmessage:
+  companyprojectmessageservice:
     image: ${DOCKER_REGISTRY-}companyprojectmessageservice
     build:
       context: .
@@ -39,4 +39,6 @@ services:
     build:
       context: .
       dockerfile: CompanyProjectAddressService/Dockerfile
+
+
 

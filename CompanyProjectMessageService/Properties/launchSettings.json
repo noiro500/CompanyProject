@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "CompanyProjectMessage": {
+    "CompanyProjectMessageService": {
       "commandName": "Project",
       "launchBrowser": false,
       "launchUrl": "swagger",
