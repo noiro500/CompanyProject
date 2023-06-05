@@ -114,7 +114,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "companyprojectmessage",
+          "Host": "companyprojectmessageservice",
           "Port": 80
         }
       ],

@@ -6,16 +6,16 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["CompanyProjectMessage/CompanyProjectMessage.csproj", "CompanyProjectMessage/"]
+COPY ["CompanyProjectMessageService/CompanyProjectMessageService.csproj", "CompanyProjectMessageService/"]
 RUN dotnet restore "CompanyProjectMessage/CompanyProjectMessage.csproj"
 COPY . .
-WORKDIR "/src/CompanyProjectMessage"
+WORKDIR "/src/CompanyProjectMessageService"
 RUN dotnet build "CompanyProjectMessage.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "CompanyProjectMessage.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "CompanyProjectMessageService.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "CompanyProjectMessage.dll"]
+ENTRYPOINT ["dotnet", "CompanyProjectMessageService.dll"]

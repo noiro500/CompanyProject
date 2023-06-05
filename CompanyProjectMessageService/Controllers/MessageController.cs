@@ -1,12 +1,12 @@
 using System.Security.Cryptography;
+using System.Text;
 using System.Text.Json;
 using CompanyProjectMessage.Model;
+using EntityFrameworkCore.Repository.Interfaces;
 using EntityFrameworkCore.UnitOfWork.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using System.Text;
-using EntityFrameworkCore.Repository.Interfaces;
 
-namespace CompanyProjectMessage.Controllers
+namespace CompanyProjectMessageService.Controllers
 {
     [ApiController]
     [Route("api/v1/[controller]")]

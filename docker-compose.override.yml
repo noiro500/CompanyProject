@@ -20,7 +20,7 @@ services:
     ports:
       - "5010:80"
 
-  companyprojectmessage:
+  companyprojectmessageservice:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
