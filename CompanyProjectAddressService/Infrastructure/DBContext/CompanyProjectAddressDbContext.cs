@@ -2,14 +2,14 @@
 using CompanyProjectAddressService.Model;
 using Microsoft.EntityFrameworkCore;
 
-namespace CompanyProjectAddressService.Infrastructure
+namespace CompanyProjectAddressService.Infrastructure.DbContext
 {
-    public class CompanyProjectAddressDbContext: DbContext
+    public class CompanyProjectAddressDbContext : Microsoft.EntityFrameworkCore.DbContext
     {
         private readonly IInitialDbContent _content;
         public CompanyProjectAddressDbContext(DbContextOptions<CompanyProjectAddressDbContext> options, IInitialDbContent ctn) : base(options)
         {
-            _content=ctn;
+            _content = ctn;
         }
         public DbSet<AddressInDb> AddressInDataBase { get; set; }
 

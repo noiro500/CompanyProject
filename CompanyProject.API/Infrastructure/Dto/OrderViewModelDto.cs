@@ -11,17 +11,15 @@ namespace CompanyProject.API.Infrastructure.Dto
         public string? PhoneNumber { get; set; }
         [DataType(DataType.Text)]
         [Display(Name = "Номер Telegram/WhatsApp:")]
-        public string? MNumber { get; set; }
+        public string? MessageNumber { get; set; }
         [Display(Name = "E-mail:")]
         public string? Email { get; set; }
-        public AddressDto AddressData { get; set; }
+        public AddressDto? AddressData { get; set; }
         [Display(Name = "Причина вызова мастера (если причины нет в списке, выберите 'Прочее'): *")]
         public string? TypeOfFailure { get; set; }
         [DataType(DataType.MultilineText)]
-        [Display(Name = "Краткое описание причины вызова (на русском языке):")]
+        [Display(Name = "Краткое описание причины вызова мастера:")]
         public string? Description { get; set; }
-        //[Display(Name = "Предпочтительное время прихода мастера: *")]
-        //public string VisitTime { get; set; }
         [DataType(DataType.MultilineText)]
         [Display(Name = "Прочая необходимая информация (номер подъезда, код домофона и т.д.):")]
         public string? SpecialInstruction { get; set; }
@@ -38,9 +36,7 @@ namespace CompanyProject.API.Infrastructure.Dto
                 RuleFor(x => x.Email).EmailAddress().WithMessage("Некорректный адрес электронной почты");
                 RuleFor(x => x.TypeOfFailure).NotEmpty().WithMessage("Не выбрана причина вызова мастера").NotNull().WithMessage("Не выбрана причина вызова мастера");
                 RuleFor(x => x.Description).Empty().MaximumLength(2000).WithMessage("Длина сообщения не более 2000 символов");
-                //.Matches(@"^[а-яА-Я(-)""'\s-]*$").WithMessage("Некорректные символы. Допускаются только русские символы!");
                 RuleFor(x => x.SpecialInstruction)
-                    ////.Matches(@"^[а-яА-Я(-)""'\s-]*$").WithMessage("Некорректные символы. Допускаются только русские буквы!")
                     .MaximumLength(2000).WithMessage("Длина сообщения не более 2000 символов");
                 RuleFor(x => x.AddressData).SetValidator(new AddressDto.AddressDtoValidator());
 

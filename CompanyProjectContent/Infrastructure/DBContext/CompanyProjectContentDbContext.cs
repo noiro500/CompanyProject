@@ -2,7 +2,7 @@
 using CompanyProjectContentService.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace CompanyProjectContentService.Infrastructure;
+namespace CompanyProjectContentService.Infrastructure.DBContext;
 
 public class CompanyProjectContentDbContext : DbContext
 {

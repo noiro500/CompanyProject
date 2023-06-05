@@ -1,7 +1,8 @@
-using CompanyProjectContentService.Infrastructure;
+using CompanyProjectContentService.Infrastructure.DBContext;
 using CompanyProjectContentService.Infrastructure.InitialDbContent;
 using EntityFrameworkCore.UnitOfWork.Extensions;
-using Microsoft.EntityFrameworkCore;;
+using Microsoft.EntityFrameworkCore;
+;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.

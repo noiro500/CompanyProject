@@ -1,4 +1,4 @@
-using CompanyProjectPriceListService.Infrastructure;
+using CompanyProjectPriceListService.Infrastructure.DBContext;
 using CompanyProjectPriceListService.Infrastructure.InitialDbContent;
 using EntityFrameworkCore.UnitOfWork.Extensions;
 using Microsoft.EntityFrameworkCore;

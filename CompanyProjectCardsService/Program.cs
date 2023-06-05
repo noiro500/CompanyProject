@@ -1,7 +1,7 @@
-using CompanyProjectCardsService.Infrastructure;
 using CompanyProjectCardsService.Infrastructure.InitialDbContent;
 using Microsoft.EntityFrameworkCore;
 using EntityFrameworkCore.UnitOfWork.Extensions;
+using CompanyProjectCardsService.Infrastructure.DBContext;
 
 var builder = WebApplication.CreateBuilder(args);
 

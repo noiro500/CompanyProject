@@ -2,15 +2,15 @@
 using CompanyProjectPriceListService.Model;
 using Microsoft.EntityFrameworkCore;
 
-namespace CompanyProjectPriceListService.Infrastructure;
+namespace CompanyProjectPriceListService.Infrastructure.DBContext;
 
-public class CompanyProjectPriceListDbContext:DbContext
+public class CompanyProjectPriceListDbContext : DbContext
 {
     private readonly IInitialDbContent _content;
     public CompanyProjectPriceListDbContext(DbContextOptions<CompanyProjectPriceListDbContext> options,
-        IInitialDbContent ctn) :base(options)
+        IInitialDbContent ctn) : base(options)
     {
-        _content=ctn;
+        _content = ctn;
     }
     public DbSet<PriceList> PriceLists { get; set; }
 

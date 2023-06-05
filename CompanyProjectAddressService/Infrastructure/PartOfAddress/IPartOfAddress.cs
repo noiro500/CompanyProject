@@ -3,7 +3,7 @@
     public interface IPartOfAddress
     {
         string HtmlPart(string partOfAddress, IList<string> offnameList);
-        public Task<IList<string>> GetPartOfAddress(IList<string> parameters);
+        public Task<IList<string>> GetAddressPart(IList<string> parameters);
 
     }
 }

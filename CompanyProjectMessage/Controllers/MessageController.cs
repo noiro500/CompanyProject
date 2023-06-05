@@ -20,7 +20,8 @@ namespace CompanyProjectMessage.Controllers
         public async Task<IActionResult> Post([FromBody] Dictionary<string, string> data)
         {
             var repository = _unitOfWork.Repository<Message>();
-            
+            var t = data.Keys;
+            var a= data.Values;
             foreach (var mes in data)
             {
                 
