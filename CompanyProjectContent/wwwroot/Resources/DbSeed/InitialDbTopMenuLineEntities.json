@@ -1,0 +1,133 @@
+[
+  {
+    "FirstLine": true,
+    "AspAction": "Comments",
+    "AspController": "MenuFirstLine",
+    "Icon": "fas fa-star",
+    "IconColor": "orange",
+    "NavBar": false,
+    "NeedStar": true,
+    "ScreenName": "Отзывы"
+  },
+  {
+    "FirstLine": true,
+    "AspAction": "FullPriceList",
+    "AspController": "MenuFirstLine",
+    "Icon": "fas fa-ruble-sign",
+    "IconColor": "gray",
+    "NavBar": false,
+    "NeedStar": false,
+    "ScreenName": "Цены"
+  },
+  {
+    "FirstLine": true,
+    "AspAction": "About",
+    "AspController": "MenuFirstLine",
+    "Icon": "fas fa-info",
+    "IconColor": "gray",
+    "NavBar": false,
+    "NeedStar": false,
+    "ScreenName": "О Компании"
+  },
+  {
+    "FirstLine": true,
+    "AspAction": "Contacts",
+    "AspController": "MenuFirstLine",
+    "Icon": "fas fa-map-marker-alt",
+    "IconColor": "gray",
+    "NavBar": false,
+    "NeedStar": false,
+    "ScreenName": "Контакты"
+  },
+  {
+    "FirstLine": false,
+    "AspAction": "ComputersRepair",
+    "AspController": "Home",
+    "Icon": "fas fa-wrench",
+    "IconColor": "black",
+    "NavBar": true,
+    "NeedStar": false,
+    "ScreenName": "Ремонт компьютеров"
+  },
+  {
+    "FirstLine": false,
+    "AspAction": "LaptopsRepair",
+    "AspController": "Home",
+    "Icon": "fas fa-laptop-medical",
+    "IconColor": "black",
+    "NavBar": true,
+    "NeedStar": false,
+    "ScreenName": "Ремонт ноутбуков"
+  },
+  {
+    "FirstLine": false,
+    "AspAction": "HelpDesk",
+    "AspController": "Home",
+    "Icon": "fas fa-ambulance",
+    "IconColor": "black",
+    "NavBar": true,
+    "NeedStar": false,
+    "ScreenName": "Компьютерная помощь"
+  },
+  {
+    "FirstLine": false,
+    "AspAction": "InternetNetworks",
+    "AspController": "Home",
+    "Icon": "fas fa-network-wired",
+    "IconColor": "black",
+    "NavBar": true,
+    "NeedStar": false,
+    "ScreenName": "Интернет и сети"
+  },
+  {
+    "FirstLine": false,
+    "AspAction": "DataRecovery",
+    "AspController": "Home",
+    "Icon": "fas fa-database",
+    "IconColor": "black",
+    "NavBar": false,
+    "NeedStar": false,
+    "ScreenName": "Восстановление данных"
+  },
+  {
+    "FirstLine": false,
+    "AspAction": "B2b",
+    "AspController": "Home",
+    "Icon": "fas fa-industry",
+    "IconColor": "black",
+    "NavBar": true,
+    "NeedStar": false,
+    "ScreenName": "ИТ-услуги для бизнеса"
+  },
+  {
+    "FirstLine": false,
+    "AspAction": "LaptopUpgrade",
+    "AspController": "Home",
+    "Icon": "fas fa-laptop",
+    "IconColor": "black",
+    "NavBar": false,
+    "NeedStar": false,
+    "ScreenName": "LaptopUpgrade"
+  },
+  {
+    "FirstLine": false,
+    "AspAction": "PcAssembly",
+    "AspController": "Home",
+    "Icon": "fas fa-tv",
+    "IconColor": "black",
+    "NavBar": false,
+    "NeedStar": false,
+    "ScreenName": "Сборка компьютера"
+  },
+  {
+    "FirstLine": false,
+    "AspAction": "OfficeEquipment",
+    "AspController": "Home",
+    "Icon": "fas fa-print",
+    "IconColor": "black",
+    "NavBar": true,
+    "NeedStar": false,
+    "ScreenName": "Oргтехника"
+  }
+
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "Name": "Index",
+    "ScreenName": null,
+    "Icon": null,
+    "ToNavbar": false,
+    "ToCard": false
+  },
+  {
+    "Name": "ComputersRepair",
+    "ScreenName": "Ремонт компьютеров",
+    "Icon": "fas fa-wrench",
+    "ToNavbar": true,
+    "ToCard": true
+  },
+  {
+    "Name": "LaptopsRepair",
+    "ScreenName": "Ремонт ноутбуков",
+    "Icon": "fas fa-laptop-medical",
+    "ToNavbar": true,
+    "ToCard": true
+  },
+  {
+    "Name": "HelpDesk",
+    "ScreenName": "Компьютерная помощь",
+    "Icon": "fas fa-ambulance",
+    "ToNavbar": true,
+    "ToCard": true
+  },
+  {
+    "Name": "InternetNetworks",
+    "ScreenName": "Интернет и сети",
+    "Icon": "fas fa-network-wired",
+    "ToNavbar": true,
+    "ToCard": true
+  },
+  {
+    "Name": "DataRecovery",
+    "ScreenName": "Восстановление данных",
+    "Icon": "fas fa-database",
+    "ToNavbar": false,
+    "ToCard": true
+  },
+  {
+    "Name": "B2b",
+    "ScreenName": "ИТ-услуги для бизнеса",
+    "Icon": "fas fa-industry",
+    "ToNavbar": true,
+    "ToCard": true
+  },
+  {
+    "Name": "LaptopUpgrade",
+    "ScreenName": "Модернизация ноутбука",
+    "Icon": "fas fa-laptop",
+    "ToNavbar": false,
+    "ToCard": true
+  },
+  {
+    "Name": "PcAssembly",
+    "ScreenName": "Сборка компьютера",
+    "Icon": "fas fa-tv",
+    "ToNavbar": false,
+    "ToCard": true
+  },
+  {
+    "Name": "OfficeEquipment",
+    "ScreenName": "Oргтехника",
+    "Icon": "fas fa-print",
+    "ToNavbar": true,
+    "ToCard": false
+  }
+]
