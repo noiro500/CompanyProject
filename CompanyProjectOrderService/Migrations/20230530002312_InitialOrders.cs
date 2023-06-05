@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CompanyProjectOrderService.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialOrder : Migration
+    public partial class InitialOrders : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,11 +16,11 @@ namespace CompanyProjectOrderService.Migrations
                 columns: table => new
                 {
                     AddressId = table.Column<Guid>(type: "uuid", nullable: false),
-                    Territory = table.Column<string>(type: "text", nullable: true),
-                    District = table.Column<string>(type: "text", nullable: true),
-                    PopulatedArea = table.Column<string>(type: "text", nullable: true),
+                    Territory = table.Column<string>(type: "text", nullable: false),
+                    District = table.Column<string>(type: "text", nullable: false),
+                    PopulatedArea = table.Column<string>(type: "text", nullable: false),
                     Street = table.Column<string>(type: "text", nullable: true),
-                    HouseNumber = table.Column<string>(type: "text", nullable: true),
+                    HouseNumber = table.Column<string>(type: "text", nullable: false),
                     ApartmentOrOfficeNumber = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
@@ -33,8 +33,8 @@ namespace CompanyProjectOrderService.Migrations
                 columns: table => new
                 {
                     OrderId = table.Column<string>(type: "text", nullable: false),
-                    Name = table.Column<string>(type: "text", nullable: true),
-                    PhoneNumber = table.Column<string>(type: "text", nullable: true),
+                    Name = table.Column<string>(type: "text", nullable: false),
+                    PhoneNumber = table.Column<string>(type: "text", nullable: false),
                     MessageNumber = table.Column<string>(type: "text", nullable: true),
                     Email = table.Column<string>(type: "text", nullable: true),
                     AddressDataAddressId = table.Column<Guid>(type: "uuid", nullable: true),

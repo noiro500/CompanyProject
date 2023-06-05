@@ -6,8 +6,8 @@ namespace CompanyProjectOrderService.Model
     public class Order 
     {
         public string OrderId { get; set; }= Guid.NewGuid().ToString();
-        public string? Name { get; set; }
-        public string? PhoneNumber { get; set; }
+        public required string Name { get; set; }
+        public required string PhoneNumber { get; set; }
         public string? MessageNumber { get; set; }
         public string? Email { get; set; }
         public Address? AddressData { get; set; }

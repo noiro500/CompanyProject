@@ -32,18 +32,22 @@ namespace CompanyProjectOrderService.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("District")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("HouseNumber")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("PopulatedArea")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Street")
                         .HasColumnType("text");
 
                     b.Property<string>("Territory")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("AddressId");
@@ -72,9 +76,11 @@ namespace CompanyProjectOrderService.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("PhoneNumber")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("SpecialInstruction")

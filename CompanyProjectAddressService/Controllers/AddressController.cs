@@ -8,14 +8,9 @@ namespace CompanyProjectAddressService.Controllers
     [Route("api/v1/[controller]/[action]")]
     public class AddressController : ControllerBase
     {
-        //private readonly IUnitOfWork _unitOfWork;
-        private readonly IPartOfAddress _partOfAddress;
+       private readonly IPartOfAddress _partOfAddress;
 
-        public AddressController(/*IUnitOfWork unitOfWork,*/ IPartOfAddress partOfAddress)
-        {
-            //_unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
-            _partOfAddress = partOfAddress;
-        }
+        public AddressController(IPartOfAddress partOfAddress)=>_partOfAddress = partOfAddress ?? throw new ArgumentNullException(nameof(partOfAddress));
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
