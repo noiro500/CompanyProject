@@ -6,10 +6,10 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["CompanyProjectPriceListService/CompanyProjectPriceListService/CompanyProjectPriceListService.csproj", "CompanyProjectPriceListService/CompanyProjectPriceListService/"]
-RUN dotnet restore "CompanyProjectPriceListService/CompanyProjectPriceListService/CompanyProjectPriceListService.csproj"
+COPY ["CompanyProjectPriceListService/CompanyProjectPriceListService.csproj", "CompanyProjectPriceListService/"]
+RUN dotnet restore "CompanyProjectPriceListService/CompanyProjectPriceListService.csproj"
 COPY . .
-WORKDIR "/src/CompanyProjectPriceListService/CompanyProjectPriceListService"
+WORKDIR "/src/CompanyProjectPriceListService"
 RUN dotnet build "CompanyProjectPriceListService.csproj" -c Release -o /app/build
 
 FROM build AS publish
