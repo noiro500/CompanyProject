@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompanyProjectPriceListServ
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{AB3A351D-B50E-4E1B-85FA-470CDA71C6DA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompanyProjectMessage", "CompanyProjectMessage\CompanyProjectMessage.csproj", "{EC17E265-5A6A-4256-A9F5-4BC6EE94DBB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompanyProjectMessageService", "CompanyProjectMessage\CompanyProjectMessageService.csproj", "{EC17E265-5A6A-4256-A9F5-4BC6EE94DBB6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompanyProjectAddressService", "CompanyProjectAddressService\CompanyProjectAddressService.csproj", "{5C1A4E82-0D0E-4740-93BA-D543E3920FB3}"
 EndProject
