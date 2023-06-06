@@ -20,13 +20,10 @@ namespace CompanyProjectMessageService.Controllers
         public async Task<IActionResult> Post([FromBody] Dictionary<string, string> data)
         {
             var repository = _unitOfWork.Repository<Message>();
-            var t = data.Keys;
-            var a= data.Values;
             foreach (var mes in data)
             {
                 
-                var sha512 = SHA512.Create();
-                var resultShaHash = sha512.ComputeHash(Encoding.Unicode.GetBytes(mes.Value));
+                var resultShaHash = SHA512.HashData(Encoding.Unicode.GetBytes(mes.Value));
                 var shaToText = Encoding.Unicode.GetString(resultShaHash);
 
                 if (shaToText.SequenceEqual(mes.Key))

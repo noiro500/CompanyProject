@@ -17,6 +17,7 @@ builder.Services.AddScoped<DbContext, CompanyProjectContentDbContext>();
 builder.Services.AddUnitOfWork();
 builder.Services.AddUnitOfWork<CompanyProjectContentDbContext>();
 builder.Services.AddSwaggerGen();
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
