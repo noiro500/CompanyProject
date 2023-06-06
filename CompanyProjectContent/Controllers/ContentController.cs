@@ -47,9 +47,6 @@ public class ContentController : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetFooterContentAsync()
     {
-        //var repository = _unitOfWork.Repository<Page>();
-        //var query = repository.MultipleResultQuery();
-        //var result = await repository.SearchAsync(query);
         var result = await _mediator.Send(new GetFooterContentQuery(_unitOfWork));
         if (result is null)
             return NotFound();
