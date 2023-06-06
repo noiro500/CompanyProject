@@ -10,4 +10,5 @@ namespace CompanyProjectContentService.CQRS.Queries
     public record GetTopMenuEntitiesQuery(IUnitOfWork unitOfWork) : IRequest<IList<TopMenuEntity>>;
     public record GetFooterContentQuery(IUnitOfWork unitOfWork) : IRequest<IList<Page>>;
     public record GetCompanyContactQuery(bool isUsing, IUnitOfWork unitOfWork) : IRequest<CompanyContact>;
+
 }

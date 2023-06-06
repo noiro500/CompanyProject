@@ -1,4 +1,5 @@
-﻿using CompanyProjectContentService.CQRS.Queries;
+﻿using System.Collections;
+using CompanyProjectContentService.CQRS.Queries;
 using CompanyProjectContentService.Models;
 using EntityFrameworkCore.UnitOfWork;
 using EntityFrameworkCore.UnitOfWork.Interfaces;
@@ -18,11 +19,12 @@ namespace CompanyProjectContentService.CQRS.Handlers
             return result;
         }
     }
+
     public class GetTopMenuEntitiesHandler : IRequestHandler<GetTopMenuEntitiesQuery, IList<TopMenuEntity>>
     {
         public async Task<IList<TopMenuEntity>> Handle(GetTopMenuEntitiesQuery request, CancellationToken cancellationToken)
         {
-            var repository =request.unitOfWork.Repository<TopMenuEntity>();
+            var repository = request.unitOfWork.Repository<TopMenuEntity>();
             var query = repository.MultipleResultQuery();
             var result = await repository.SearchAsync(query);
             return result;

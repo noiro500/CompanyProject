@@ -1,6 +1,9 @@
+using CompanyProjectContentService.CQRS.Handlers;
+using CompanyProjectContentService.CQRS.Queries;
 using CompanyProjectContentService.Infrastructure.DBContext;
 using CompanyProjectContentService.Infrastructure.InitialDbContent;
 using EntityFrameworkCore.UnitOfWork.Extensions;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 ;
 
