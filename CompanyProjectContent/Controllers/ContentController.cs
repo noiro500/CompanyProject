@@ -36,8 +36,7 @@ public class ContentController : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetTopMenuEntitiesAsync()
     {
-        //var result = await _mediator.Send(new GetTopMenuEntitiesQuery(_unitOfWork));
-        var result = await _mediator.Send(new MultipleQuery<TopMenuEntity>(_unitOfWork));
+        var result = await _mediator.Send(new GetTopMenuEntitiesQuery(_unitOfWork));
         if (result is null)
             return NotFound();
         return Ok(result);
@@ -48,8 +47,7 @@ public class ContentController : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetFooterContentAsync()
     {
-        //var result = await _mediator.Send(new GetFooterContentQuery(_unitOfWork));
-        var result = await _mediator.Send(new MultipleQuery<Page>(_unitOfWork));
+        var result = await _mediator.Send(new GetFooterContentQuery(_unitOfWork));
         if (result is null)
             return NotFound();
         return Ok(result);
