@@ -34,7 +34,9 @@
 
   <ItemGroup>
     <Content Remove="bundleconfig.json" />
+    <Content Remove="tsconfig.json" />
     <Content Remove="Views\Shared\_LayoutMakeOrder.cshtml" />
+    <Content Remove="wwwroot\ts\companyproject.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -68,9 +70,14 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="5.1.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.18.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.6" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.4" />
+    <PackageReference Include="Npm" Version="3.5.2" />
     <PackageReference Include="Refit" Version="6.3.2" />
     <PackageReference Include="Refit.HttpClientFactory" Version="6.3.2" />
   </ItemGroup>
@@ -85,7 +92,7 @@
     <Content Update="wwwroot\js\bulma-carousel.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\js\companyproject.js">
+    <Content Update="wwwroot\js\_companyproject.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\js\datepicker.js">
@@ -361,6 +368,11 @@
   <ItemGroup>
     <Folder Include="wwwroot\lib\jquery-validate\" />
     <Folder Include="wwwroot\lib\jquery-validation-unobtrusive\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="tsconfig.json" />
+    <TypeScriptCompile Include="wwwroot\ts\companyproject.ts" />
   </ItemGroup>
 
 </Project>

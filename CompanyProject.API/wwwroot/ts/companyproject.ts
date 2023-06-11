@@ -1,70 +1,77 @@
-var _this = this;
-$(function () {
+﻿$(() => {
     //Определяет поведение меню слева, возникающее при уменьшении экрана
-    var menuHandler = function () {
+    const menuHandler = () => {
         $(".navbar-burger").toggleClass("is-active");
         $("#navbarMenu").toggleClass("is-active");
         $("#basicNavBarMenu").toggleClass("is-hidden");
         $("#fullNavBarMenu").toggleClass("is-hidden");
     };
-    $(".navbar-burger").on("click", function () {
-        var isClick = true;
-        menuHandler();
-        $(window).resize(function () {
-            console.log(isClick);
-            if (isClick) {
-                menuHandler();
-            }
-            isClick = false;
+    $(".navbar-burger").on("click", () => {
+            let isClick = true;
+            menuHandler();
+            $(window).resize(() => {
+
+                console.log(isClick);
+                if (isClick) {
+                    menuHandler();
+                }
+                isClick = false;
+            });
         });
-    });
+
+
     $(".blockquote-style").fadeIn(2000);
+
     $(".work-list-dropdown").hide();
-    $(".click-element").click(function () {
-        $(_this).next().slideToggle();
+    $(".click-element").click(() => {
+        $(this).next().slideToggle();
     });
+
     ////Подсчет символов и запрет enter в textarea
-    $("textarea").keypress(function (event) {
+    $("textarea").keypress(event => {
         if (event.keyCode === 13) {
             event.preventDefault();
         }
     });
+
     //Ввод телефонного номера
-    var telInput = $('input[type="tel"]');
-    telInput.each(function () {
+    const telInput = $('input[type="tel"]');
+    telInput.each(() => {
         $(".phone-number").mask("+7 (999) 999-99-99");
     });
+
     //Dropdown
-    $(".dropdown").click(function () {
-        $(_this).toggleClass("is-active");
+    $(".dropdown").click(() => {
+        $(this).toggleClass("is-active");
     });
-    var addressDataService = "http://localhost:8010/gateway/v1/Address/GetPartOfAddress";
+
+    const addressDataService = "http://localhost:8010/gateway/v1/Address/GetPartOfAddress";
     //Подгрузка списка округов/районов, населенных пунктов, улиц 
-    $("#AddressData_Territory").change(function () {
+    $("#AddressData_Territory").change(() => {
         $.ajax({
             type: "POST",
             url: addressDataService,
             dataType: "html",
             data: { parameters: ["District"] },
-            success: function (result) {
+            success: result => {
                 $("#AddressData_District").html(result);
-                $("#AddressData_District").change(function () {
-                    var selectedDistrict = $("#AddressData_District option:selected").val();
+                $("#AddressData_District").change(() => {
+                    const selectedDistrict = $("#AddressData_District option:selected").val();
                     $.ajax({
                         type: "POST",
                         url: addressDataService,
                         dataType: "html",
                         data: { parameters: ["PopulatedArea", selectedDistrict] },
-                        success: function (result) {
+                        success: result => {
                             $("#AddressData_PopulatedArea").html(result);
-                            $("#AddressData_PopulatedArea").change(function () {
-                                var selectPopulatedArea = $("#AddressData_PopulatedArea option:selected").val();
+                            $("#AddressData_PopulatedArea").change(() => {
+                                const selectPopulatedArea = $("#AddressData_PopulatedArea option:selected").val();
                                 $.ajax({
                                     type: "POST",
                                     url: addressDataService,
                                     dataType: "html",
                                     data: { parameters: ["Street", selectPopulatedArea] },
-                                    success: function (result) {
+                                    success: (result) => {
                                         $("#AddressData_Street").html(result);
                                     }
                                 });
@@ -75,40 +82,45 @@ $(function () {
             }
         });
     });
-    var a = $(_this).find("#make-order");
+
+    const a = $(this).find("#make-order");
     if (a.length) {
-        var input = $("#make-order input[name='IsAdoptedPrivacyPolicy']")[0];
+        const input = $("#make-order input[name='IsAdoptedPrivacyPolicy']")[0] as HTMLInputElement;
         input.checked = true;
         //$("#make-order input[name='IsAdoptedPrivacyPolicy']")[0].checked = true;
     }
     $("#checking-data").on("click", CheckMakeOrderForm);
+
 });
+
 function CheckFormField() {
-    var name = !!($("#Name").val());
-    var phoneNumber = !!($("#PhoneNumber").val());
-    var territory = !!($("#AddressData_Territory").val());
-    var district = !!($("#AddressData_District").val());
-    var populatedArea = !!($("#AddressData_PopulatedArea").val());
-    var houseNumber = !!($("#AddressData_HouseNumber").val());
+    const name = !!($("#Name").val());
+    const phoneNumber = !!($("#PhoneNumber").val());
+    const territory = !!($("#AddressData_Territory").val());
+    const district = !!($("#AddressData_District").val());
+    const populatedArea = !!($("#AddressData_PopulatedArea").val());
+    const houseNumber = !!($("#AddressData_HouseNumber").val());
     if (!name ||
         !phoneNumber ||
         !territory ||
         !district ||
         !populatedArea ||
-        !houseNumber)
+        !houseNumber
+    )
         return false;
     else
         return true;
 }
-function SuccessSendForm(data) {
-    var respons = JSON.parse(data);
+
+function SuccessSendForm(data:string) {
+    const respons = JSON.parse(data);
     //if (respons.parameter === "description") {
     //    $('button[name="submit-form"]').attr('disabled', true);
     //    return;
     //}
     if (respons.parameter === "warning") {
         $.toast(({
-            text: "Сообщение не отправлено. Необходимо принять \"Политику конфиденциальности\".",
+            text: "Сообщение не отправлено. Необходимо принять \"Политику конфиденциальности\".", 
             heading: "Внимание",
             icon: "warning",
             showHideTransition: "fade",
@@ -119,9 +131,9 @@ function SuccessSendForm(data) {
             textAlign: "left",
             loader: false,
             bgColor: "#ff7733"
-        }));
-    }
-    else if (respons.parameter === "ok") {
+        }) as any);
+        
+    } else if (respons.parameter === "ok") {
         $.toast(({
             text: "Сообщение успешно отправлено.",
             heading: "Успех",
@@ -133,13 +145,13 @@ function SuccessSendForm(data) {
             position: "bottom-right",
             textAlign: "left",
             loader: false
-        }));
+        }) as any);
         $('button[name="submit-form"]').attr("disabled", true);
-    }
-    else if (respons.parameter === "error") {
+    } else if (respons.parameter === "error") {
         FailureSendForm();
     }
 }
+
 function FailureSendForm() {
     $.toast(({
         text: "Внутренняя ошибка. Сообщение не отправлено.",
@@ -153,12 +165,14 @@ function FailureSendForm() {
         textAlign: "left",
         loader: false
         //loaderBg: '#9EC600'
-    }));
+    }) as any);
 }
-function CheckMakeOrderForm(event) {
+
+
+function CheckMakeOrderForm(event: any) {
     if (!CheckFormField())
         return;
-    var privacyPolicyIsChecked = $("#IsAdoptedPrivacyPolicy").is(":checked");
+    const privacyPolicyIsChecked = $("#IsAdoptedPrivacyPolicy").is(":checked");
     if (!Boolean(privacyPolicyIsChecked)) {
         event.preventDefault();
         $.toast(({
@@ -172,9 +186,8 @@ function CheckMakeOrderForm(event) {
             position: "bottom-right",
             textAlign: "left",
             loader: false
-        }));
-    }
-    else {
+        }) as any);
+    } else {
         $.ajaxSetup({
             cache: false
         });
@@ -190,6 +203,7 @@ function CheckMakeOrderForm(event) {
         });
     }
 }
+
 function Failure() {
     $.toast(({
         text: "Внутренняя ошибка. Пожалуйста, попробуйте позднее",
@@ -203,11 +217,14 @@ function Failure() {
         textAlign: "left",
         loader: false
         //loaderBg: '#9EC600'
-    }));
+    }) as any);
 }
+
 //Работа с модальным окном "Проверьте введенные данные"
-var ajaxSuccess = true;
-function MakeOrderConfirmModalWindow(param) {
+let ajaxSuccess = true;
+
+function MakeOrderConfirmModalWindow(param: any) {
+
     if (param === "makeOrderConfirm") {
         $.ajax({
             type: "POST",
@@ -222,6 +239,7 @@ function MakeOrderConfirmModalWindow(param) {
                 $("#button-confirm").addClass("is-hidden");
                 $("#button-edit").addClass("is-hidden");
                 $("#button-close").addClass("is-loading");
+
             },
             error: function () {
                 $("#modal-title").text("Что-то пошло не так");
