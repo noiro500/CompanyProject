@@ -1,7 +1,7 @@
-﻿using CompanyProjectMessage.Model;
+﻿using CompanyProjectMessageService.Model;
 using Microsoft.EntityFrameworkCore;
 
-namespace CompanyProjectMessage.Infrastructure.DBContext
+namespace CompanyProjectMessageService.Infrastructure.DBContext
 {
     public class CompanyProjectMessageDbContext : DbContext
     {

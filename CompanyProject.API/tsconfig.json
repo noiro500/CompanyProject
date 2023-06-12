@@ -1,0 +1,13 @@
+﻿{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "noEmitOnError": false,
+    "strictNullChecks": true,
+
+    "outFile": "wwwroot/js/companyproject.js",
+
+    "typeRoots": [
+      "node_modules/@types"
+    ]
+  }
+}

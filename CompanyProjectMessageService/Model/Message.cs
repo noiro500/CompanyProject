@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Xml.Linq;
-
-namespace CompanyProjectMessage.Model
+﻿namespace CompanyProjectMessageService.Model
 {
     public class Message
     {

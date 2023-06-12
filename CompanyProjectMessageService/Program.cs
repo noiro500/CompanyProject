@@ -1,4 +1,4 @@
-using CompanyProjectMessage.Infrastructure.DBContext;
+using CompanyProjectMessageService.Infrastructure.DBContext;
 using EntityFrameworkCore.UnitOfWork.Extensions;
 using Microsoft.EntityFrameworkCore;
 

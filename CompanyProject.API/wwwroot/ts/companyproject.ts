@@ -1,80 +1,75 @@
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-var _this = this;
-$(function () {
+﻿$(() => {
     //Определяет поведение меню слева, возникающее при уменьшении экрана
-    var menuHandler = function () {
+    const menuHandler = () => {
         $(".navbar-burger").toggleClass("is-active");
         $("#navbarMenu").toggleClass("is-active");
         $("#basicNavBarMenu").toggleClass("is-hidden");
         $("#fullNavBarMenu").toggleClass("is-hidden");
     };
-    $(".navbar-burger").on("click", function () {
-        var isClick = true;
+    $(".navbar-burger").on("click", () => {
+        let isClick = true;
         menuHandler();
-        $(window).on("resize", function () {
-            if (isClick) {
-                menuHandler();
-            }
-            isClick = false;
-        });
+        $(window).on("resize",
+            () => {
+                if (isClick) {
+                    menuHandler();
+                }
+                isClick = false;
+            });
     });
+
     $(".blockquote-style").fadeIn(2000);
+
     $(".work-list-dropdown").hide();
-    $(".click-element").on("click", function () {
-        $(_this).next().slideToggle();
+    $(".click-element").on("click", () => {
+        $(this).next().slideToggle();
     });
+
     ////Подсчет символов и запрет enter в textarea
-    $("textarea").on("keypress", function (event) {
+    $("textarea").on("keypress", event => {
         if (event.key === "Enter") {
             event.preventDefault();
         }
     });
+
     //Ввод телефонного номера
-    var telInput = $('input[type="tel"]');
-    telInput.each(function () {
+    const telInput = $('input[type="tel"]');
+    telInput.each(() => {
         $(".phone-number").mask("+7 (999) 999-99-99");
     });
+
     //Dropdown
-    $(".dropdown").on("click", function () {
-        $(_this).toggleClass("is-active");
+    $(".dropdown").on("click", () => {
+        $(this).toggleClass("is-active");
     });
-    var addressDataService = "http://localhost:8010/gateway/v1/Address/GetPartOfAddress";
+
+    const addressDataService = "http://localhost:8010/gateway/v1/Address/GetPartOfAddress";
     //Подгрузка списка округов/районов, населенных пунктов, улиц 
-    $("#AddressData_Territory").on("change", function () {
+    $("#AddressData_Territory").on("change", () => {
         $.ajax({
             type: "POST",
             url: addressDataService,
             dataType: "html",
             data: { parameters: ["District"] },
-            success: function (result) {
+            success: result => {
                 $("#AddressData_District").html(result);
-                $("#AddressData_District").on("change", function () {
-                    var selectedDistrict = $("#AddressData_District option:selected").val();
+                $("#AddressData_District").on("change", () => {
+                    const selectedDistrict = $("#AddressData_District option:selected").val();
                     $.ajax({
                         type: "POST",
                         url: addressDataService,
                         dataType: "html",
                         data: { parameters: ["PopulatedArea", selectedDistrict] },
-                        success: function (result) {
+                        success: result => {
                             $("#AddressData_PopulatedArea").html(result);
-                            $("#AddressData_PopulatedArea").on("change", function () {
-                                var selectPopulatedArea = $("#AddressData_PopulatedArea option:selected").val();
+                            $("#AddressData_PopulatedArea").on("change", () => {
+                                const selectPopulatedArea = $("#AddressData_PopulatedArea option:selected").val();
                                 $.ajax({
                                     type: "POST",
                                     url: addressDataService,
                                     dataType: "html",
                                     data: { parameters: ["Street", selectPopulatedArea] },
-                                    success: function (result) {
+                                    success: (result) => {
                                         $("#AddressData_Street").html(result);
                                     }
                                 });
@@ -85,36 +80,41 @@ $(function () {
             }
         });
     });
-    var checkedId = document.getElementById("IsAdoptedPrivacyPolicy");
+
+    const checkedId = document.getElementById("IsAdoptedPrivacyPolicy") as HTMLInputElement;
     console.log(checkedId);
     if (checkedId) {
         checkedId.checked = true;
     }
     $("#checking-data").on("click", CheckMakeOrderForm);
+
 });
+
 function CheckFormField() {
-    var name = !!($("#Name").val());
-    var phoneNumber = !!($("#PhoneNumber").val());
-    var territory = !!($("#AddressData_Territory").val());
-    var district = !!($("#AddressData_District").val());
-    var populatedArea = !!($("#AddressData_PopulatedArea").val());
-    var houseNumber = !!($("#AddressData_HouseNumber").val());
+    const name = !!($("#Name").val());
+    const phoneNumber = !!($("#PhoneNumber").val());
+    const territory = !!($("#AddressData_Territory").val());
+    const district = !!($("#AddressData_District").val());
+    const populatedArea = !!($("#AddressData_PopulatedArea").val());
+    const houseNumber = !!($("#AddressData_HouseNumber").val());
     if (!name ||
         !phoneNumber ||
         !territory ||
         !district ||
         !populatedArea ||
-        !houseNumber)
+        !houseNumber
+    )
         return false;
     else
         return true;
 }
-function SuccessSendForm(data) {
-    var respons = JSON.parse(data);
-    var generalToastMessage = {
+
+function SuccessSendForm(data: string) {
+    const respons = JSON.parse(data);
+    let generalToastMessage: toastOptions = {
         text: "",
         heading: "",
-        icon: undefined,
+        icon: "",
         showHideTransition: "fade",
         allowToastClose: true,
         hideAfter: 3000,
@@ -122,13 +122,20 @@ function SuccessSendForm(data) {
         position: "bottom-right",
         textAlign: "left",
         loader: false,
-        bgColor: "#ff7733"
+        bgColor: ""
     };
+
     if (respons.parameter === "warning") {
-        var warningMessage = __assign(__assign({}, generalToastMessage), { text: "Сообщение не отправлено. Необходимо принять \"Политику конфиденциальности\".", icon: "warning" });
-        $.toast((warningMessage));
-    }
-    else if (respons.parameter === "ok") {
+        let warningMessage = {
+            ...generalToastMessage,
+            text: "Сообщение не отправлено. Необходимо принять \"Политику конфиденциальности\".",
+            heading: "Ошибка",
+            icon: "warning",
+            bgColor: "#ff7733"
+        };
+        $.toast(warningMessage);
+
+    } else if (respons.parameter === "ok") {
         //$.toast(({
         //    text: "Сообщение успешно отправлено.",
         //    heading: "Успех",
@@ -141,33 +148,36 @@ function SuccessSendForm(data) {
         //    textAlign: "left",
         //    loader: false
         //}) as any);
-        var successMessage = __assign(__assign({}, generalToastMessage), { text: "Сообщение успешно отправлено.", icon: "success" });
-        $.toast((successMessage));
+        let successMessage = {
+            ...generalToastMessage,
+            text: "Сообщение успешно отправлено.",
+            heading: "Успех",
+            icon: "success",
+            bgColor: "#4FB870"
+        }
+        $.toast(successMessage);
         $('button[name="submit-form"]').attr("disabled", true);
-    }
-    else if (respons.parameter === "error") {
-        FailureSendForm();
+    } else if (respons.parameter === "error") {
+        FailureSendForm(generalToastMessage);
     }
 }
-function FailureSendForm() {
-    $.toast(({
+
+function FailureSendForm(message: toastOptions) {
+    let errorMessage = {
+        ...message,
         text: "Внутренняя ошибка. Сообщение не отправлено.",
         heading: "Ошибка",
         icon: "error",
-        showHideTransition: "fade",
-        allowToastClose: true,
-        hideAfter: 3000,
-        stack: false,
-        position: "bottom-right",
-        textAlign: "left",
-        loader: false
-        //loaderBg: '#9EC600'
-    }));
+        bgColor: "#CC0A0A"
+    }
+    $.toast(errorMessage);
 }
-function CheckMakeOrderForm(event) {
+
+
+function CheckMakeOrderForm(event: any) {
     if (!CheckFormField())
         return;
-    var privacyPolicyIsChecked = $("#IsAdoptedPrivacyPolicy").is(":checked");
+    const privacyPolicyIsChecked = $("#IsAdoptedPrivacyPolicy").is(":checked");
     if (!Boolean(privacyPolicyIsChecked)) {
         event.preventDefault();
         $.toast(({
@@ -181,9 +191,8 @@ function CheckMakeOrderForm(event) {
             position: "bottom-right",
             textAlign: "left",
             loader: false
-        }));
-    }
-    else {
+        }) as any);
+    } else {
         $.ajaxSetup({
             cache: false
         });
@@ -199,6 +208,7 @@ function CheckMakeOrderForm(event) {
         });
     }
 }
+
 function Failure() {
     $.toast(({
         text: "Внутренняя ошибка. Пожалуйста, попробуйте позднее",
@@ -212,11 +222,14 @@ function Failure() {
         textAlign: "left",
         loader: false
         //loaderBg: '#9EC600'
-    }));
+    }) as any);
 }
+
 //Работа с модальным окном "Проверьте введенные данные"
-var ajaxSuccess = true;
-function MakeOrderConfirmModalWindow(param) {
+let ajaxSuccess = true;
+
+function MakeOrderConfirmModalWindow(param: any) {
+
     if (param === "makeOrderConfirm") {
         $.ajax({
             type: "POST",
@@ -231,6 +244,7 @@ function MakeOrderConfirmModalWindow(param) {
                 $("#button-confirm").addClass("is-hidden");
                 $("#button-edit").addClass("is-hidden");
                 $("#button-close").addClass("is-loading");
+
             },
             error: function () {
                 $("#modal-title").text("Что-то пошло не так");
