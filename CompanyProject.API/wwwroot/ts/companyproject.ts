@@ -7,29 +7,27 @@
         $("#fullNavBarMenu").toggleClass("is-hidden");
     };
     $(".navbar-burger").on("click", () => {
-            let isClick = true;
-            menuHandler();
-            $(window).resize(() => {
-
-                console.log(isClick);
+        let isClick = true;
+        menuHandler();
+        $(window).on("resize",
+            () => {
                 if (isClick) {
                     menuHandler();
                 }
                 isClick = false;
             });
-        });
-
+    });
 
     $(".blockquote-style").fadeIn(2000);
 
     $(".work-list-dropdown").hide();
-    $(".click-element").click(() => {
+    $(".click-element").on("click", () => {
         $(this).next().slideToggle();
     });
 
     ////Подсчет символов и запрет enter в textarea
-    $("textarea").keypress(event => {
-        if (event.keyCode === 13) {
+    $("textarea").on("keypress", event => {
+        if (event.key === "Enter") {
             event.preventDefault();
         }
     });
@@ -41,13 +39,13 @@
     });
 
     //Dropdown
-    $(".dropdown").click(() => {
+    $(".dropdown").on("click", () => {
         $(this).toggleClass("is-active");
     });
 
     const addressDataService = "http://localhost:8010/gateway/v1/Address/GetPartOfAddress";
     //Подгрузка списка округов/районов, населенных пунктов, улиц 
-    $("#AddressData_Territory").change(() => {
+    $("#AddressData_Territory").on("change", () => {
         $.ajax({
             type: "POST",
             url: addressDataService,
@@ -55,7 +53,7 @@
             data: { parameters: ["District"] },
             success: result => {
                 $("#AddressData_District").html(result);
-                $("#AddressData_District").change(() => {
+                $("#AddressData_District").on("change", () => {
                     const selectedDistrict = $("#AddressData_District option:selected").val();
                     $.ajax({
                         type: "POST",
@@ -64,7 +62,7 @@
                         data: { parameters: ["PopulatedArea", selectedDistrict] },
                         success: result => {
                             $("#AddressData_PopulatedArea").html(result);
-                            $("#AddressData_PopulatedArea").change(() => {
+                            $("#AddressData_PopulatedArea").on("change", () => {
                                 const selectPopulatedArea = $("#AddressData_PopulatedArea option:selected").val();
                                 $.ajax({
                                     type: "POST",
@@ -83,11 +81,10 @@
         });
     });
 
-    const a = $(this).find("#make-order");
-    if (a.length) {
-        const input = $("#make-order input[name='IsAdoptedPrivacyPolicy']")[0] as HTMLInputElement;
-        input.checked = true;
-        //$("#make-order input[name='IsAdoptedPrivacyPolicy']")[0].checked = true;
+    const checkedId = document.getElementById("IsAdoptedPrivacyPolicy") as HTMLInputElement;
+    console.log(checkedId);
+    if (checkedId) {
+        checkedId.checked = true;
     }
     $("#checking-data").on("click", CheckMakeOrderForm);
 
@@ -112,60 +109,68 @@ function CheckFormField() {
         return true;
 }
 
-function SuccessSendForm(data:string) {
+function SuccessSendForm(data: string) {
     const respons = JSON.parse(data);
-    //if (respons.parameter === "description") {
-    //    $('button[name="submit-form"]').attr('disabled', true);
-    //    return;
-    //}
-    if (respons.parameter === "warning") {
-        $.toast(({
-            text: "Сообщение не отправлено. Необходимо принять \"Политику конфиденциальности\".", 
-            heading: "Внимание",
-            icon: "warning",
-            showHideTransition: "fade",
-            allowToastClose: true,
-            hideAfter: 3000,
-            stack: false,
-            position: "bottom-right",
-            textAlign: "left",
-            loader: false,
-            bgColor: "#ff7733"
-        }) as any);
-        
-    } else if (respons.parameter === "ok") {
-        $.toast(({
-            text: "Сообщение успешно отправлено.",
-            heading: "Успех",
-            icon: "success",
-            showHideTransition: "fade",
-            allowToastClose: true,
-            hideAfter: 3000,
-            stack: false,
-            position: "bottom-right",
-            textAlign: "left",
-            loader: false
-        }) as any);
-        $('button[name="submit-form"]').attr("disabled", true);
-    } else if (respons.parameter === "error") {
-        FailureSendForm();
-    }
-}
-
-function FailureSendForm() {
-    $.toast(({
-        text: "Внутренняя ошибка. Сообщение не отправлено.",
-        heading: "Ошибка",
-        icon: "error",
+    let generalToastMessage: toastOptions = {
+        text: "",
+        heading: "",
+        icon: "",
         showHideTransition: "fade",
         allowToastClose: true,
         hideAfter: 3000,
-        stack: false,
+        stack: 0,
         position: "bottom-right",
         textAlign: "left",
-        loader: false
-        //loaderBg: '#9EC600'
-    }) as any);
+        loader: false,
+        bgColor: ""
+    };
+
+    if (respons.parameter === "warning") {
+        let warningMessage = {
+            ...generalToastMessage,
+            text: "Сообщение не отправлено. Необходимо принять \"Политику конфиденциальности\".",
+            heading: "Ошибка",
+            icon: "warning",
+            bgColor: "#ff7733"
+        };
+        $.toast(warningMessage);
+
+    } else if (respons.parameter === "ok") {
+        //$.toast(({
+        //    text: "Сообщение успешно отправлено.",
+        //    heading: "Успех",
+        //    icon: "success",
+        //    showHideTransition: "fade",
+        //    allowToastClose: true,
+        //    hideAfter: 3000,
+        //    stack: false,
+        //    position: "bottom-right",
+        //    textAlign: "left",
+        //    loader: false
+        //}) as any);
+        let successMessage = {
+            ...generalToastMessage,
+            text: "Сообщение успешно отправлено.",
+            heading: "Успех",
+            icon: "success",
+            bgColor: "#4FB870"
+        }
+        $.toast(successMessage);
+        $('button[name="submit-form"]').attr("disabled", true);
+    } else if (respons.parameter === "error") {
+        FailureSendForm(generalToastMessage);
+    }
+}
+
+function FailureSendForm(message: toastOptions) {
+    let errorMessage = {
+        ...message,
+        text: "Внутренняя ошибка. Сообщение не отправлено.",
+        heading: "Ошибка",
+        icon: "error",
+        bgColor: "#CC0A0A"
+    }
+    $.toast(errorMessage);
 }
 
 

@@ -1,3 +1,14 @@
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var _this = this;
 $(function () {
     //Определяет поведение меню слева, возникающее при уменьшении экрана
@@ -10,8 +21,7 @@ $(function () {
     $(".navbar-burger").on("click", function () {
         var isClick = true;
         menuHandler();
-        $(window).resize(function () {
-            console.log(isClick);
+        $(window).on("resize", function () {
             if (isClick) {
                 menuHandler();
             }
@@ -20,12 +30,12 @@ $(function () {
     });
     $(".blockquote-style").fadeIn(2000);
     $(".work-list-dropdown").hide();
-    $(".click-element").click(function () {
+    $(".click-element").on("click", function () {
         $(_this).next().slideToggle();
     });
     ////Подсчет символов и запрет enter в textarea
-    $("textarea").keypress(function (event) {
-        if (event.keyCode === 13) {
+    $("textarea").on("keypress", function (event) {
+        if (event.key === "Enter") {
             event.preventDefault();
         }
     });
@@ -35,12 +45,12 @@ $(function () {
         $(".phone-number").mask("+7 (999) 999-99-99");
     });
     //Dropdown
-    $(".dropdown").click(function () {
+    $(".dropdown").on("click", function () {
         $(_this).toggleClass("is-active");
     });
     var addressDataService = "http://localhost:8010/gateway/v1/Address/GetPartOfAddress";
     //Подгрузка списка округов/районов, населенных пунктов, улиц 
-    $("#AddressData_Territory").change(function () {
+    $("#AddressData_Territory").on("change", function () {
         $.ajax({
             type: "POST",
             url: addressDataService,
@@ -48,7 +58,7 @@ $(function () {
             data: { parameters: ["District"] },
             success: function (result) {
                 $("#AddressData_District").html(result);
-                $("#AddressData_District").change(function () {
+                $("#AddressData_District").on("change", function () {
                     var selectedDistrict = $("#AddressData_District option:selected").val();
                     $.ajax({
                         type: "POST",
@@ -57,7 +67,7 @@ $(function () {
                         data: { parameters: ["PopulatedArea", selectedDistrict] },
                         success: function (result) {
                             $("#AddressData_PopulatedArea").html(result);
-                            $("#AddressData_PopulatedArea").change(function () {
+                            $("#AddressData_PopulatedArea").on("change", function () {
                                 var selectPopulatedArea = $("#AddressData_PopulatedArea option:selected").val();
                                 $.ajax({
                                     type: "POST",
@@ -75,11 +85,10 @@ $(function () {
             }
         });
     });
-    var a = $(_this).find("#make-order");
-    if (a.length) {
-        var input = $("#make-order input[name='IsAdoptedPrivacyPolicy']")[0];
-        input.checked = true;
-        //$("#make-order input[name='IsAdoptedPrivacyPolicy']")[0].checked = true;
+    var checkedId = document.getElementById("IsAdoptedPrivacyPolicy");
+    console.log(checkedId);
+    if (checkedId) {
+        checkedId.checked = true;
     }
     $("#checking-data").on("click", CheckMakeOrderForm);
 });
@@ -102,38 +111,38 @@ function CheckFormField() {
 }
 function SuccessSendForm(data) {
     var respons = JSON.parse(data);
-    //if (respons.parameter === "description") {
-    //    $('button[name="submit-form"]').attr('disabled', true);
-    //    return;
-    //}
+    var generalToastMessage = {
+        text: "",
+        heading: "",
+        icon: undefined,
+        showHideTransition: "fade",
+        allowToastClose: true,
+        hideAfter: 3000,
+        stack: 0,
+        position: "bottom-right",
+        textAlign: "left",
+        loader: false,
+        bgColor: "#ff7733"
+    };
     if (respons.parameter === "warning") {
-        $.toast(({
-            text: "Сообщение не отправлено. Необходимо принять \"Политику конфиденциальности\".",
-            heading: "Внимание",
-            icon: "warning",
-            showHideTransition: "fade",
-            allowToastClose: true,
-            hideAfter: 3000,
-            stack: false,
-            position: "bottom-right",
-            textAlign: "left",
-            loader: false,
-            bgColor: "#ff7733"
-        }));
+        var warningMessage = __assign(__assign({}, generalToastMessage), { text: "Сообщение не отправлено. Необходимо принять \"Политику конфиденциальности\".", icon: "warning" });
+        $.toast((warningMessage));
     }
     else if (respons.parameter === "ok") {
-        $.toast(({
-            text: "Сообщение успешно отправлено.",
-            heading: "Успех",
-            icon: "success",
-            showHideTransition: "fade",
-            allowToastClose: true,
-            hideAfter: 3000,
-            stack: false,
-            position: "bottom-right",
-            textAlign: "left",
-            loader: false
-        }));
+        //$.toast(({
+        //    text: "Сообщение успешно отправлено.",
+        //    heading: "Успех",
+        //    icon: "success",
+        //    showHideTransition: "fade",
+        //    allowToastClose: true,
+        //    hideAfter: 3000,
+        //    stack: false,
+        //    position: "bottom-right",
+        //    textAlign: "left",
+        //    loader: false
+        //}) as any);
+        var successMessage = __assign(__assign({}, generalToastMessage), { text: "Сообщение успешно отправлено.", icon: "success" });
+        $.toast((successMessage));
         $('button[name="submit-form"]').attr("disabled", true);
     }
     else if (respons.parameter === "error") {
