@@ -114,7 +114,7 @@ function SuccessSendForm(data: string) {
     let generalToastMessage: toastOptions = {
         text: "",
         heading: "",
-        icon: "",
+        icon: undefined,
         showHideTransition: "fade",
         allowToastClose: true,
         hideAfter: 3000,

@@ -114,7 +114,7 @@ function SuccessSendForm(data) {
     var generalToastMessage = {
         text: "",
         heading: "",
-        icon: undefined,
+        icon: "",
         showHideTransition: "fade",
         allowToastClose: true,
         hideAfter: 3000,
@@ -122,11 +122,11 @@ function SuccessSendForm(data) {
         position: "bottom-right",
         textAlign: "left",
         loader: false,
-        bgColor: "#ff7733"
+        bgColor: ""
     };
     if (respons.parameter === "warning") {
-        var warningMessage = __assign(__assign({}, generalToastMessage), { text: "Сообщение не отправлено. Необходимо принять \"Политику конфиденциальности\".", icon: "warning" });
-        $.toast((warningMessage));
+        var warningMessage = __assign(__assign({}, generalToastMessage), { text: "Сообщение не отправлено. Необходимо принять \"Политику конфиденциальности\".", heading: "Ошибка", icon: "warning", bgColor: "#ff7733" });
+        $.toast(warningMessage);
     }
     else if (respons.parameter === "ok") {
         //$.toast(({
@@ -141,28 +141,17 @@ function SuccessSendForm(data) {
         //    textAlign: "left",
         //    loader: false
         //}) as any);
-        var successMessage = __assign(__assign({}, generalToastMessage), { text: "Сообщение успешно отправлено.", icon: "success" });
-        $.toast((successMessage));
+        var successMessage = __assign(__assign({}, generalToastMessage), { text: "Сообщение успешно отправлено.", heading: "Успех", icon: "success", bgColor: "#4FB870" });
+        $.toast(successMessage);
         $('button[name="submit-form"]').attr("disabled", true);
     }
     else if (respons.parameter === "error") {
-        FailureSendForm();
+        FailureSendForm(generalToastMessage);
     }
 }
-function FailureSendForm() {
-    $.toast(({
-        text: "Внутренняя ошибка. Сообщение не отправлено.",
-        heading: "Ошибка",
-        icon: "error",
-        showHideTransition: "fade",
-        allowToastClose: true,
-        hideAfter: 3000,
-        stack: false,
-        position: "bottom-right",
-        textAlign: "left",
-        loader: false
-        //loaderBg: '#9EC600'
-    }));
+function FailureSendForm(message) {
+    var errorMessage = __assign(__assign({}, message), { text: "Внутренняя ошибка. Сообщение не отправлено.", heading: "Ошибка", icon: "error", bgColor: "#CC0A0A" });
+    $.toast(errorMessage);
 }
 function CheckMakeOrderForm(event) {
     if (!CheckFormField())
