@@ -90,6 +90,20 @@
 
 });
 
+let generalToastMessage: toastOptions = {
+    text: "",
+    heading: "",
+    icon: undefined,
+    showHideTransition: "fade",
+    allowToastClose: true,
+    hideAfter: 3000,
+    stack: 0,
+    position: "bottom-right",
+    textAlign: "left",
+    loader: false,
+    bgColor: ""
+};
+
 function CheckFormField() {
     const name = !!($("#Name").val());
     const phoneNumber = !!($("#PhoneNumber").val());
@@ -111,43 +125,17 @@ function CheckFormField() {
 
 function SuccessSendForm(data: string) {
     const respons = JSON.parse(data);
-    let generalToastMessage: toastOptions = {
-        text: "",
-        heading: "",
-        icon: "",
-        showHideTransition: "fade",
-        allowToastClose: true,
-        hideAfter: 3000,
-        stack: 0,
-        position: "bottom-right",
-        textAlign: "left",
-        loader: false,
-        bgColor: ""
-    };
-
     if (respons.parameter === "warning") {
         let warningMessage = {
             ...generalToastMessage,
             text: "Сообщение не отправлено. Необходимо принять \"Политику конфиденциальности\".",
-            heading: "Ошибка",
+            heading: "Внимание",
             icon: "warning",
             bgColor: "#ff7733"
         };
         $.toast(warningMessage);
 
     } else if (respons.parameter === "ok") {
-        //$.toast(({
-        //    text: "Сообщение успешно отправлено.",
-        //    heading: "Успех",
-        //    icon: "success",
-        //    showHideTransition: "fade",
-        //    allowToastClose: true,
-        //    hideAfter: 3000,
-        //    stack: false,
-        //    position: "bottom-right",
-        //    textAlign: "left",
-        //    loader: false
-        //}) as any);
         let successMessage = {
             ...generalToastMessage,
             text: "Сообщение успешно отправлено.",
@@ -158,13 +146,13 @@ function SuccessSendForm(data: string) {
         $.toast(successMessage);
         $('button[name="submit-form"]').attr("disabled", true);
     } else if (respons.parameter === "error") {
-        FailureSendForm(generalToastMessage);
+        FailureSendForm();
     }
 }
 
-function FailureSendForm(message: toastOptions) {
+function FailureSendForm() {
     let errorMessage = {
-        ...message,
+        ...generalToastMessage,
         text: "Внутренняя ошибка. Сообщение не отправлено.",
         heading: "Ошибка",
         icon: "error",
@@ -180,18 +168,14 @@ function CheckMakeOrderForm(event: any) {
     const privacyPolicyIsChecked = $("#IsAdoptedPrivacyPolicy").is(":checked");
     if (!Boolean(privacyPolicyIsChecked)) {
         event.preventDefault();
-        $.toast(({
-            text: "Необходимо принять \"Политику конфиденциальности\".",
-            heading: "Ошибка",
-            icon: "error",
-            showHideTransition: "fade",
-            allowToastClose: true,
-            hideAfter: 3000,
-            stack: false,
-            position: "bottom-right",
-            textAlign: "left",
-            loader: false
-        }) as any);
+        let warningMessage = {
+            ...generalToastMessage,
+            text: "Заказ не сформирован. Необходимо принять \"Политику конфиденциальности\".",
+            heading: "Внимание",
+            icon: "warning",
+            bgColor: "#ff7733"
+        };
+        $.toast(warningMessage);
     } else {
         $.ajaxSetup({
             cache: false
@@ -210,19 +194,27 @@ function CheckMakeOrderForm(event: any) {
 }
 
 function Failure() {
-    $.toast(({
-        text: "Внутренняя ошибка. Пожалуйста, попробуйте позднее",
+    //$.toast(({
+    //    text: "Внутренняя ошибка. Пожалуйста, попробуйте позднее",
+    //    heading: "Ошибка",
+    //    icon: "error",
+    //    showHideTransition: "fade",
+    //    allowToastClose: true,
+    //    hideAfter: 3000,
+    //    stack: false,
+    //    position: "bottom-right",
+    //    textAlign: "left",
+    //    loader: false
+    //    //loaderBg: '#9EC600'
+    //}) as any);
+    let errorMessage = {
+        ...generalToastMessage,
+        text: "Внутренняя ошибка.Пожалуйста, попробуйте позднее.",
         heading: "Ошибка",
         icon: "error",
-        showHideTransition: "fade",
-        allowToastClose: true,
-        hideAfter: 3000,
-        stack: false,
-        position: "bottom-right",
-        textAlign: "left",
-        loader: false
-        //loaderBg: '#9EC600'
-    }) as any);
+        bgColor: "#CC0A0A"
+    }
+    $.toast(errorMessage);
 }
 
 //Работа с модальным окном "Проверьте введенные данные"
