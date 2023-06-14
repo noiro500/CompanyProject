@@ -3,16 +3,17 @@ using CompanyProjectAddressService.Infrastructure.InitialDbContent;
 using CompanyProjectAddressService.Infrastructure.PartOfAddress;
 using EntityFrameworkCore.UnitOfWork.Extensions;
 using Microsoft.EntityFrameworkCore;
+using System.Data.SqlClient;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+
 builder.Services.AddDbContext<CompanyProjectAddressDbContext>(options =>
     options.UseNpgsql(builder.Configuration["ConnectionStrings:ConnectionStringToPostgreSQL"], sqlOptions =>
-        sqlOptions.MigrationsAssembly(typeof(CompanyProjectAddressDbContext).Assembly.GetName().Name))
-        .LogTo(Console.WriteLine, LogLevel.Information));
+        sqlOptions.MigrationsAssembly(typeof(CompanyProjectAddressDbContext).Assembly.GetName().Name)));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

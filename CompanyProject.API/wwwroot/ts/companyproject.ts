@@ -82,7 +82,6 @@
     });
 
     const checkedId = document.getElementById("IsAdoptedPrivacyPolicy") as HTMLInputElement;
-    console.log(checkedId);
     if (checkedId) {
         checkedId.checked = true;
     }

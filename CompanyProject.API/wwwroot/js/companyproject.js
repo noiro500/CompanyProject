@@ -86,7 +86,6 @@ $(function () {
         });
     });
     var checkedId = document.getElementById("IsAdoptedPrivacyPolicy");
-    console.log(checkedId);
     if (checkedId) {
         checkedId.checked = true;
     }
@@ -125,9 +124,7 @@ function CheckFormField() {
 function SuccessSendForm(data) {
     var respons = JSON.parse(data);
     if (respons.parameter === "warning") {
-        var warningMessage = __assign(__assign({}, generalToastMessage), { text: "Сообщение не отправлено. Необходимо принять \"Политику конфиденциальности\".", heading: "Ошибка", 
-            /*icon: "warning",*/
-            bgColor: "#ff7733" });
+        var warningMessage = __assign(__assign({}, generalToastMessage), { text: "Сообщение не отправлено. Необходимо принять \"Политику конфиденциальности\".", heading: "Внимание", icon: "warning", bgColor: "#ff7733" });
         $.toast(warningMessage);
     }
     else if (respons.parameter === "ok") {
@@ -149,18 +146,8 @@ function CheckMakeOrderForm(event) {
     var privacyPolicyIsChecked = $("#IsAdoptedPrivacyPolicy").is(":checked");
     if (!Boolean(privacyPolicyIsChecked)) {
         event.preventDefault();
-        $.toast(({
-            text: "Необходимо принять \"Политику конфиденциальности\".",
-            heading: "Ошибка",
-            icon: "error",
-            showHideTransition: "fade",
-            allowToastClose: true,
-            hideAfter: 3000,
-            stack: false,
-            position: "bottom-right",
-            textAlign: "left",
-            loader: false
-        }));
+        var warningMessage = __assign(__assign({}, generalToastMessage), { text: "Заказ не сформирован. Необходимо принять \"Политику конфиденциальности\".", heading: "Внимание", icon: "warning", bgColor: "#ff7733" });
+        $.toast(warningMessage);
     }
     else {
         $.ajaxSetup({
@@ -179,19 +166,21 @@ function CheckMakeOrderForm(event) {
     }
 }
 function Failure() {
-    $.toast(({
-        text: "Внутренняя ошибка. Пожалуйста, попробуйте позднее",
-        heading: "Ошибка",
-        icon: "error",
-        showHideTransition: "fade",
-        allowToastClose: true,
-        hideAfter: 3000,
-        stack: false,
-        position: "bottom-right",
-        textAlign: "left",
-        loader: false
-        //loaderBg: '#9EC600'
-    }));
+    //$.toast(({
+    //    text: "Внутренняя ошибка. Пожалуйста, попробуйте позднее",
+    //    heading: "Ошибка",
+    //    icon: "error",
+    //    showHideTransition: "fade",
+    //    allowToastClose: true,
+    //    hideAfter: 3000,
+    //    stack: false,
+    //    position: "bottom-right",
+    //    textAlign: "left",
+    //    loader: false
+    //    //loaderBg: '#9EC600'
+    //}) as any);
+    var errorMessage = __assign(__assign({}, generalToastMessage), { text: "Внутренняя ошибка.Пожалуйста, попробуйте позднее.", heading: "Ошибка", icon: "error", bgColor: "#CC0A0A" });
+    $.toast(errorMessage);
 }
 //Работа с модальным окном "Проверьте введенные данные"
 var ajaxSuccess = true;

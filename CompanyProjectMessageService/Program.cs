@@ -1,14 +1,21 @@
 using CompanyProjectMessageService.Infrastructure.DBContext;
 using EntityFrameworkCore.UnitOfWork.Extensions;
 using Microsoft.EntityFrameworkCore;
+using Npgsql;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+var conString = new NpgsqlConnectionStringBuilder(
+    builder.Configuration.GetConnectionString("ConnectionStringToPostgreSQL"))
+{
+    Host = builder.Configuration["DbHost"],
+    Username = builder.Configuration["DbUserName"],
+    Password = builder.Configuration["DbPassword"]
+}.ConnectionString;
 
 builder.Services.AddControllers();
 builder.Services.AddDbContext<CompanyProjectMessageDbContext>(options =>
-    options.UseNpgsql(builder.Configuration["ConnectionStrings:ConnectionStringToPostgreSQL"], sqlOptions =>
+    options.UseNpgsql(conString/*builder.Configuration["ConnectionStrings:ConnectionStringToPostgreSQL"]*/, sqlOptions =>
         sqlOptions.MigrationsAssembly(typeof(CompanyProjectMessageDbContext).Assembly.GetName().Name)));
 builder.Services.AddScoped<DbContext, CompanyProjectMessageDbContext>();
 builder.Services.AddUnitOfWork();

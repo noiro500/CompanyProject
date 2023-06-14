@@ -5,14 +5,20 @@ using CompanyProjectContentService.Infrastructure.InitialDbContent;
 using EntityFrameworkCore.UnitOfWork.Extensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-;
+using Npgsql;
 
 var builder = WebApplication.CreateBuilder(args);
-// Add services to the container.
+var conString = new NpgsqlConnectionStringBuilder(
+    builder.Configuration.GetConnectionString("ConnectionStringToPostgreSQL"))
+{
+    Host = builder.Configuration["DbHost"],
+    Username = builder.Configuration["DbUserName"],
+    Password = builder.Configuration["DbPassword"]
+}.ConnectionString;
 
 builder.Services.AddControllers();
 builder.Services.AddDbContext<CompanyProjectContentDbContext>(options =>
-    options.UseNpgsql(builder.Configuration["ConnectionStrings:ConnectionStringToPostgreSQL"], sqlOptions =>
+    options.UseNpgsql(conString/*builder.Configuration["ConnectionStrings:ConnectionStringToPostgreSQL"]*/, sqlOptions =>
             sqlOptions.MigrationsAssembly(typeof(CompanyProjectContentDbContext).Assembly.GetName().Name)));
 
 builder.Services.AddScoped<IInitialDbContent, InitialDbContent>();

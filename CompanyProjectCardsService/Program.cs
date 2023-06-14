@@ -2,12 +2,22 @@ using CompanyProjectCardsService.Infrastructure.InitialDbContent;
 using Microsoft.EntityFrameworkCore;
 using EntityFrameworkCore.UnitOfWork.Extensions;
 using CompanyProjectCardsService.Infrastructure.DBContext;
+using Npgsql;
 
 var builder = WebApplication.CreateBuilder(args);
+var conString = new NpgsqlConnectionStringBuilder(
+    builder.Configuration.GetConnectionString("ConnectionStringToPostgreSQL"))
+{
+    Host = builder.Configuration["DbHost"],
+    Username = builder.Configuration["DbUserName"],
+    Password = builder.Configuration["DbPassword"]
+}.ConnectionString;
+
+
 
 builder.Services.AddControllers();
 builder.Services.AddDbContext<CompanyProjectCardDbContext>(options =>
-    options.UseNpgsql(builder.Configuration["ConnectionStrings:ConnectionStringToPostgreSQL"], sqlOptions =>
+    options.UseNpgsql(conString/*builder.Configuration["ConnectionStrings:ConnectionStringToPostgreSQL"]*/, sqlOptions =>
         sqlOptions.MigrationsAssembly(typeof(CompanyProjectCardDbContext).Assembly.GetName().Name)));
 builder.Services.AddScoped<IInitialDbContent, InitialDbContent>();
 builder.Services.AddScoped<DbContext, CompanyProjectCardDbContext>();
