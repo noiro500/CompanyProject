@@ -27,7 +27,7 @@ public class Startup
         services.AddScoped<IValidator<OrderViewModelDto>, OrderViewModelDto.OrderViewModelDtoValidator>();
         services.AddScoped<IValidator<AddressDto>, AddressDto.AddressDtoValidator>();
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-        services.AddReCaptcha(Configuration.GetSection("ReCaptcha"));
+        services.AddReCaptcha(Configuration.GetSection(Configuration["ReCaptcha"]!));
         services.AddScoped<CompanyInfo>();
         services.AddRefitCollection(Configuration["UriApiGateway:URI"]!);
     }
