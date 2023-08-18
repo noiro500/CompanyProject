@@ -9,7 +9,6 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-var _this = this;
 $(function () {
     //Определяет поведение меню слева, возникающее при уменьшении экрана
     var menuHandler = function () {
@@ -30,8 +29,8 @@ $(function () {
     });
     $(".blockquote-style").fadeIn(2000);
     $(".work-list-dropdown").hide();
-    $(".click-element").on("click", function () {
-        $(_this).next().slideToggle();
+    $(".click-element").on("click", function (event) {
+        $(event.currentTarget).next().slideToggle();
     });
     ////Подсчет символов и запрет enter в textarea
     $("textarea").on("keypress", function (event) {
@@ -44,9 +43,8 @@ $(function () {
     telInput.each(function () {
         $(".phone-number").mask("+7 (999) 999-99-99");
     });
-    //Dropdown
-    $(".dropdown").on("click", function () {
-        $(_this).toggleClass("is-active");
+    $(".dropdown").on("click", function (event) {
+        $(event.currentTarget).toggleClass("is-active");
     });
     var addressDataService = "http://localhost:8010/gateway/v1/Address/GetPartOfAddress";
     //Подгрузка списка округов/районов, населенных пунктов, улиц 

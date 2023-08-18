@@ -21,8 +21,8 @@
     $(".blockquote-style").fadeIn(2000);
 
     $(".work-list-dropdown").hide();
-    $(".click-element").on("click", () => {
-        $(this).next().slideToggle();
+    $(".click-element").on("click", (event) =>  {
+        $(event.currentTarget).next().slideToggle();
     });
 
     ////Подсчет символов и запрет enter в textarea
@@ -38,9 +38,8 @@
         $(".phone-number").mask("+7 (999) 999-99-99");
     });
 
-    //Dropdown
-    $(".dropdown").on("click", () => {
-        $(this).toggleClass("is-active");
+    $(".dropdown").on("click", (event) => {
+        $(event.currentTarget).toggleClass("is-active");
     });
 
     const addressDataService = "http://localhost:8010/gateway/v1/Address/GetPartOfAddress";
