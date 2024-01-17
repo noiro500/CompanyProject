@@ -128,7 +128,7 @@ function SuccessSendForm(data) {
     else if (respons.parameter === "ok") {
         var successMessage = __assign(__assign({}, generalToastMessage), { text: "Сообщение успешно отправлено.", heading: "Успех", icon: "success", bgColor: "#4FB870" });
         $.toast(successMessage);
-        $('button[name="submit-form"]').attr("disabled", true);
+        $('button[name="submit-form"]').prop("disabled", true);
     }
     else if (respons.parameter === "error") {
         FailureSendForm();

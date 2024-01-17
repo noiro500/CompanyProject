@@ -128,7 +128,7 @@ function SuccessSendForm(data: string) {
             ...generalToastMessage,
             text: "Сообщение не отправлено. Необходимо принять \"Политику конфиденциальности\".",
             heading: "Внимание",
-            icon: "warning",
+            icon: "warning" as 'warning',
             bgColor: "#ff7733"
         };
         $.toast(warningMessage);
@@ -138,11 +138,11 @@ function SuccessSendForm(data: string) {
             ...generalToastMessage,
             text: "Сообщение успешно отправлено.",
             heading: "Успех",
-            icon: "success",
+            icon: "success" as 'success',
             bgColor: "#4FB870"
         }
         $.toast(successMessage);
-        $('button[name="submit-form"]').attr("disabled", true);
+        $('button[name="submit-form"]').prop("disabled", true);
     } else if (respons.parameter === "error") {
         FailureSendForm();
     }
@@ -153,7 +153,7 @@ function FailureSendForm() {
         ...generalToastMessage,
         text: "Внутренняя ошибка. Сообщение не отправлено.",
         heading: "Ошибка",
-        icon: "error",
+        icon: "error" as 'error',
         bgColor: "#CC0A0A"
     }
     $.toast(errorMessage);
@@ -170,7 +170,7 @@ function CheckMakeOrderForm(event: any) {
             ...generalToastMessage,
             text: "Заказ не сформирован. Необходимо принять \"Политику конфиденциальности\".",
             heading: "Внимание",
-            icon: "warning",
+            icon: "warning" as 'warning',
             bgColor: "#ff7733"
         };
         $.toast(warningMessage);
@@ -209,7 +209,7 @@ function Failure() {
         ...generalToastMessage,
         text: "Внутренняя ошибка.Пожалуйста, попробуйте позднее.",
         heading: "Ошибка",
-        icon: "error",
+        icon: "error" as 'error',
         bgColor: "#CC0A0A"
     }
     $.toast(errorMessage);
