@@ -14,7 +14,7 @@ services:
       - "5011:80"
 
   companyprojectcontentservice:
-    container_name: companyprojectcontentservice
+    # container_name: companyprojectcontentservice
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
