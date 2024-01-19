@@ -11,26 +11,32 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="CQRS\Commands\" />
+    <Compile Remove="CQRS\Commands\**" />
+    <Content Remove="CQRS\Commands\**" />
+    <EmbeddedResource Remove="CQRS\Commands\**" />
+    <None Remove="CQRS\Commands\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Infrastructure\InitialDbContent\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="EntityFrameworkCore.Data.UnitOfWork" Version="7.0.9" />
-    <PackageReference Include="MediatR" Version="12.0.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="7.0.5" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.5">
+    <PackageReference Include="MediatR" Version="12.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="7.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.15">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.15">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.18.1" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration" Version="7.0.6" />
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration" Version="7.0.11" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.11" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 

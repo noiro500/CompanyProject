@@ -1,4 +1,5 @@
-﻿$(() => {
+﻿declare var companyProject: any;
+$(() => {
     //Определяет поведение меню слева, возникающее при уменьшении экрана
     const menuHandler = () => {
         $(".navbar-burger").toggleClass("is-active");
@@ -181,7 +182,7 @@ function CheckMakeOrderForm(event: any) {
         event.preventDefault();
         $.ajax({
             type: "POST",
-            url: companyProject.Urls.MakeOrderConfirm,
+            /*url: companyProject.Urls.MakeOrderConfirm,*/
             data: $("#make-order").serializeArray(),
             success: function (data) {
                 $("#modalContent").html(data);
@@ -192,19 +193,6 @@ function CheckMakeOrderForm(event: any) {
 }
 
 function Failure() {
-    //$.toast(({
-    //    text: "Внутренняя ошибка. Пожалуйста, попробуйте позднее",
-    //    heading: "Ошибка",
-    //    icon: "error",
-    //    showHideTransition: "fade",
-    //    allowToastClose: true,
-    //    hideAfter: 3000,
-    //    stack: false,
-    //    position: "bottom-right",
-    //    textAlign: "left",
-    //    loader: false
-    //    //loaderBg: '#9EC600'
-    //}) as any);
     let errorMessage = {
         ...generalToastMessage,
         text: "Внутренняя ошибка.Пожалуйста, попробуйте позднее.",
@@ -223,7 +211,7 @@ function MakeOrderConfirmModalWindow(param: any) {
     if (param === "makeOrderConfirm") {
         $.ajax({
             type: "POST",
-            url: companyProject.Urls.MakeOrderConfirmResult,
+            url: companyProject.Urls.MakeOrderConfirmResult, 
             success: function (data) {
                 $("#modal-title").text("Заказ принят в работу");
                 $("#modal-data").html(data);
