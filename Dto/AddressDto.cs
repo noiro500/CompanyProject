@@ -1,8 +1,7 @@
-﻿using FluentValidation;
-using System.ComponentModel.DataAnnotations;
-using System.Xml.Linq;
+﻿using System.ComponentModel.DataAnnotations;
+using FluentValidation;
 
-namespace CompanyProject.API.Infrastructure.Dto
+namespace Dto
 {
     public record AddressDto
     {

@@ -1,5 +1,4 @@
-﻿using CompanyProject.API.Infrastructure.Dto;
-using CompanyProject.API.Infrastructure.RefitInterfaces;
+﻿using CompanyProject.API.Infrastructure.RefitInterfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CompanyProject.API.Infrastructure.ViewComponents;

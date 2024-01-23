@@ -6,7 +6,6 @@ using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Unicode;
 using AutoMapper;
-using CompanyProject.API.Infrastructure.Dto;
 using CompanyProject.API.Infrastructure.Log;
 using CompanyProject.API.Infrastructure.RefitInterfaces;
 using Dto;

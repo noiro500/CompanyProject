@@ -1,4 +1,4 @@
-﻿using CompanyProject.API.Infrastructure.Dto;
+﻿using Dto;
 using Microsoft.AspNetCore.Mvc;
 //using CompanyProject.Domain.Message;
 

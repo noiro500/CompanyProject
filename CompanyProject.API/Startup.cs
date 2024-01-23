@@ -1,5 +1,4 @@
 using AspNetCore.ReCaptcha;
-using CompanyProject.API.Infrastructure.Dto;
 using CompanyProject.API.Infrastructure.HelpClasses;
 using CompanyProject.API.Infrastructure.Log;
 using CompanyProject.API.Infrastructure.RefitInterfaces;
@@ -7,6 +6,9 @@ using Dto;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.HttpOverrides;
+using Blazorise;
+using Blazorise.Bulma;
+using Blazorise.Icons.FontAwesome;
 
 namespace CompanyProject.API;
 
@@ -31,6 +33,13 @@ public class Startup
         services.AddReCaptcha(Configuration.GetSection("ReCaptcha"));
         services.AddScoped<CompanyInfo>();
         services.AddRefitCollection(Configuration["UriApiGateway:URI"]!);
+        services.AddBlazorise(options =>
+            {
+                options.Immediate = true;
+            })
+            .AddBulmaProviders()
+            .AddFontAwesomeIcons();
+        services.AddServerSideBlazor();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,6 +68,8 @@ public class Startup
             endpoints.MapControllerRoute(
                 "default",
                 "{controller=Home}/{action=Index}/{id?}");
+            endpoints.MapBlazorHub();
         });
+        
     }
 }

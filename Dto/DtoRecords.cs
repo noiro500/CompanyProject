@@ -1,4 +1,4 @@
-﻿namespace CompanyProject.API.Infrastructure.Dto;
+﻿namespace Dto;
 
 public record ParagraphDto(
     int ParagraphId,

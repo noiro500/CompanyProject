@@ -1,4 +1,4 @@
-﻿namespace CompanyProject.API.Infrastructure.Dto
+﻿namespace Dto
 {
     namespace CompanyProject.ViewModels
     {

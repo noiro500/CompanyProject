@@ -1,4 +1,4 @@
-﻿using CompanyProject.API.Infrastructure.Dto;
+﻿using Dto;
 
 namespace CompanyProject.API.Infrastructure.HelpClasses;
 

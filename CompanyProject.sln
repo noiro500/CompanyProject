@@ -29,6 +29,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dto", "Dto\Dto.csproj", "{65DE670D-4E8F-461C-B83E-B31CE8CA26C0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorComponentClassLibrary", "BlazorComponentClassLibrary\BlazorComponentClassLibrary.csproj", "{5E92B324-B976-4D85-AC9F-2B81F688153B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{65DE670D-4E8F-461C-B83E-B31CE8CA26C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65DE670D-4E8F-461C-B83E-B31CE8CA26C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65DE670D-4E8F-461C-B83E-B31CE8CA26C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E92B324-B976-4D85-AC9F-2B81F688153B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E92B324-B976-4D85-AC9F-2B81F688153B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E92B324-B976-4D85-AC9F-2B81F688153B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E92B324-B976-4D85-AC9F-2B81F688153B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -88,6 +94,7 @@ Global
 		{29A52125-D626-4DEC-A841-1257256BC56D} = {A3C7F1D1-8378-46C1-B9C0-E30427C10BEC}
 		{C4C16DA7-1FF9-45B7-84E6-D1F96F656115} = {A3C7F1D1-8378-46C1-B9C0-E30427C10BEC}
 		{65DE670D-4E8F-461C-B83E-B31CE8CA26C0} = {223E3DD9-747C-4153-8EB1-4D18785A3719}
+		{5E92B324-B976-4D85-AC9F-2B81F688153B} = {223E3DD9-747C-4153-8EB1-4D18785A3719}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {24BE430D-CD50-43C2-8A41-92AAACB1E4D4}
