@@ -3,6 +3,7 @@ using CompanyProject.API.Infrastructure.Dto;
 using CompanyProject.API.Infrastructure.HelpClasses;
 using CompanyProject.API.Infrastructure.Log;
 using CompanyProject.API.Infrastructure.RefitInterfaces;
+using Dto;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.HttpOverrides;

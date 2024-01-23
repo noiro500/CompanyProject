@@ -9,6 +9,7 @@ using AutoMapper;
 using CompanyProject.API.Infrastructure.Dto;
 using CompanyProject.API.Infrastructure.Log;
 using CompanyProject.API.Infrastructure.RefitInterfaces;
+using Dto;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CompanyProject.API.Controllers;

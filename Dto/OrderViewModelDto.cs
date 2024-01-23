@@ -1,7 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using CompanyProject.API.Infrastructure.Dto;
 using FluentValidation;
 
-namespace CompanyProject.API.Infrastructure.Dto
+namespace Dto
 {
     public record OrderViewModelDto
     {

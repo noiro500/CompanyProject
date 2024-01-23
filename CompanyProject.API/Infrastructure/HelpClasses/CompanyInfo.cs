@@ -1,4 +1,5 @@
-﻿using CompanyProject.API.Infrastructure.Dto;
+﻿
+using CompanyProject.API.Infrastructure.Dto;
 using CompanyProject.API.Infrastructure.RefitInterfaces;
 
 namespace CompanyProject.API.Infrastructure.HelpClasses;

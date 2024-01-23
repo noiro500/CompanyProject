@@ -365,8 +365,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Infrastructure\Dto\" />
     <Folder Include="wwwroot\lib\jquery-validate\" />
     <Folder Include="wwwroot\lib\jquery-validation-unobtrusive\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Dto\Dto.csproj" />
   </ItemGroup>
 
   <ItemGroup>
