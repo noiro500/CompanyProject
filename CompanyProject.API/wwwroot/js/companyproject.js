@@ -39,10 +39,10 @@ $(function () {
         }
     });
     //Ввод телефонного номера
-    var telInput = $('input[type="tel"]');
-    telInput.each(function () {
-        $(".phone-number").mask("+7 (999) 999-99-99");
-    });
+    //const telInput = $('input[type="tel"]');
+    //telInput.each(() => {
+    //    $(".phone-number").mask("+7 (999) 999-99-99");
+    //});
     $(".dropdown").on("click", function (event) {
         $(event.currentTarget).toggleClass("is-active");
     });

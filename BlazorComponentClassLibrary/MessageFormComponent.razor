@@ -1,0 +1,86 @@
+﻿@using Dto
+<Validations @ref="@fluentValidations" Mode="ValidationMode.Manual" Model="@messageDto" HandlerType="typeof(FluentValidationHandler)">
+    <Row>
+        <Column ColumnSize="ColumnSize.IsHalf">
+            <Validation>
+                <Field>
+                    <FieldLabel RequiredIndicator><Strong>@mesageFormParam.personName</Strong></FieldLabel>
+                        <TextEdit Placeholder="Как к вам обрщаться?" @bind-Text="@messageDto.PersonName">
+                            <Feedback>
+                                <ValidationError />
+                            </Feedback>
+                        </TextEdit>
+                    </Field>
+                </Validation>
+            </Column>
+        <Column ColumnSize="ColumnSize.IsHalf">
+            <Validation>
+            <Field>
+                <FieldLabel RequiredIndicator><Strong>@mesageFormParam.subjectMessage</Strong></FieldLabel>
+                <TextEdit Placeholder="Тема обращения" @bind-Text="@messageDto.SubjectMessage">
+                    <Feedback>
+                        <ValidationError/>
+                    </Feedback>
+                </TextEdit>
+            </Field>
+                </Validation>
+        </Column>
+        </Row>
+    <Row>
+        <Column ColumnSize="ColumnSize.IsHalf">
+            <Validation>
+                <Field>
+                    <FieldLabel><Strong>@mesageFormParam.email</Strong></FieldLabel>
+                    <TextEdit Role="TextRole.Email" Placeholder="Ваш адрес электронной почты" @bind-Text="@messageDto.Email">
+                        <Feedback>
+                            <ValidationError/>
+                        </Feedback>
+                    </TextEdit>
+                </Field>
+            </Validation>
+        </Column>
+        <Column ColumnSize="ColumnSize.IsHalf">
+            <Validation>
+                <Field>
+                    <FieldLabel RequiredIndicator><Strong>@mesageFormParam.whatsAppTelegramNumber</Strong></FieldLabel>
+                        <TextEdit Role="TextRole.Telephone" Placeholder="+7-(000)-000-00-00" @bind-Text="@messageDto.WhatsAppTelegramNumber">
+                        <Feedback>
+                            <ValidationError/>
+                        </Feedback>
+                    </TextEdit> 
+                </Field>
+            </Validation>
+        </Column>
+    </Row>
+    </Validations>
+
+    @code {
+    MessageDto messageDto = new();
+    Validations fluentValidations;
+    private bool isInitialized = false;
+    record MessageFormParam(string personName, string subjectMessage,
+        string email, string whatsAppTelegramNumber, string content);
+    MessageFormParam mesageFormParam;
+
+    protected async Task OnSavePerson()
+    {
+        if (await fluentValidations.ValidateAll())
+        {
+            // the person is validated and we can proceed with the saving process
+        }
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        if (!isInitialized)
+        {
+            mesageFormParam = new MessageFormParam(
+                messageDto.GetType().GetProperty("PersonName")!.GetCustomAttribute<DisplayAttribute>()!.Name!,
+                messageDto.GetType().GetProperty("SubjectMessage")!.GetCustomAttribute<DisplayAttribute>()!.Name!,
+                messageDto.GetType().GetProperty("Email")!.GetCustomAttribute<DisplayAttribute>()!.Name!,
+                messageDto.GetType().GetProperty("WhatsAppTelegramNumber")!.GetCustomAttribute<DisplayAttribute>()!.Name!,
+                messageDto.GetType().GetProperty("Content")!.GetCustomAttribute<DisplayAttribute>()!.Name!
+            );
+            isInitialized = true;
+        }
+    }
+}

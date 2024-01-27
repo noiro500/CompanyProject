@@ -35,7 +35,7 @@ public class Startup
         services.AddRefitCollection(Configuration["UriApiGateway:URI"]!);
         services.AddBlazorise(options =>
             {
-                options.Immediate = true;
+                options.Immediate = false;
             })
             .AddBulmaProviders()
             .AddFontAwesomeIcons();

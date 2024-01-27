@@ -9,6 +9,7 @@ public class MessageForm : ViewComponent
     public IViewComponentResult Invoke()
     {
         var mes = new MessageDto();
-        return View("MessageForm", mes);
+        //return View("MessageForm", mes);
+        return View("MessForm", mes);
     }
 }
