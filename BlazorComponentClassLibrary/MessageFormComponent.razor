@@ -81,7 +81,7 @@
             <Row>
                 <Column ColumnSize="ColumnSize.IsFull">
                     <FieldBody>
-                        <Check TValue="bool" VerticalAlignment="VerticalAlignment.Bottom" Checked="@isAdoptedPrivacyPolicy" >
+                        <Check TValue="bool" Background="Background.Secondary" Checked="@isAdoptedPrivacyPolicy" >
                             <Span>Я принимаю <Strong>Политику конфиденциальности</Strong></Span>
                         </Check>
                     </FieldBody>
@@ -92,7 +92,7 @@
                     <Div>
                         <Button Color="Color.Primary" Disabled="@isDisabled" Clicked="@OnButtonSendClicked">Отправить</Button>
                         <Button Color="Color.Secondary" Type="ButtonType.Reset">Очистить</Button>
-                        <Button Color="Color.Info" Type="ButtonType.Link" Outline To="Resources/Files/privacy.pdf"><Strong>Политика конфиденциальности</Strong></Button>
+                        <Button Color="Color.Info" Type="ButtonType.Link" Outline Class="is-hidden-mobile" To="Resources/Files/privacy.pdf"><Strong>Политика конфиденциальности</Strong></Button>
                     </Div>
                 </Column>
             </Row>
@@ -123,6 +123,7 @@
                 .ToList();
             isInitialized = true;
         }
+        await base.OnInitializedAsync();
     }
 
     protected async Task OnButtonSendClicked()
