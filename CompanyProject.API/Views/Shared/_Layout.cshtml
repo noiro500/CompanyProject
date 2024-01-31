@@ -2,76 +2,75 @@
 
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"]</title>
     <environment include="Development">
-        <link href="~/styles/css/bulma-with-edit.css" rel="stylesheet" asp-append-version="true"/>
-        <link href="~/styles/css/jquery.toast.css" rel="stylesheet" asp-append-version="true"/>
-        <link href="~/styles/css/datepicker.css" rel="stylesheet" asp-append-version="true"/>
+        <link href="~/styles/css/bulma-with-edit.css" rel="stylesheet" asp-append-version="true" />
+        <link href="~/styles/css/jquery.toast.css" rel="stylesheet" asp-append-version="true" />
+        <link href="~/styles/css/datepicker.css" rel="stylesheet" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
-        <link href="~/styles/css/bulma-with-edit.min.css" rel="stylesheet" asp-append-version="true"/>
-        <link href="~/styles/css/jquery.toast.min.css" rel="stylesheet" asp-append-version="true"/>
+        <link href="~/styles/css/bulma-with-edit.min.css" rel="stylesheet" asp-append-version="true" />
+        <link href="~/styles/css/jquery.toast.min.css" rel="stylesheet" asp-append-version="true" />
     </environment>
     <link href="_content/Blazorise/blazorise.css" rel="stylesheet" />
     <link href="_content/Blazorise.Bulma/blazorise.bulma.css" rel="stylesheet" />
-    @* <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" *@
-    @* rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"/> *@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
-    <link href="https://fonts.googleapis.com/css?family=Jura:400,700|Open+Sans:400,700&subset=cyrillic,cyrillic-ext" rel="stylesheet" asp-append-version="true"/>
-    <link href="~/styles/css/datepicker.min.css" rel="stylesheet" asp-append-version="true"/>
+    <link href="https://fonts.googleapis.com/css?family=Jura:400,700|Open+Sans:400,700&subset=cyrillic,cyrillic-ext" rel="stylesheet" asp-append-version="true" />
+    <link href="~/styles/css/datepicker.min.css" rel="stylesheet" asp-append-version="true" />
     @await RenderSectionAsync("Styles", false)
 </head>
 <body>
-<main>
-    <vc:top-menu/>
-    @RenderBody()
-    <div class="container">
-        <div class="columns is-vcentered">
-            <div class="column is-half">
-                <vc:blockquote-section name="NeedHelp"/>
-                <vc:blockquote-section name="SendMessage"/>
-            </div>
-            <div class="column is-half">
-                <vc:message-form/>
+    <main>
+        <vc:top-menu />
+        @RenderBody()
+        <div class="container">
+            <div class="columns is-vcentered">
+                <div class="column is-half">
+                    <vc:blockquote-section name="NeedHelp" />
+                    <vc:blockquote-section name="SendMessage" />
+                </div>
+                <div class="column is-half">
+                    @* <component type="typeof(MessageFormComponent)" render-mode="Server" /> *@
+                    <vc:message-form />
+                </div>
             </div>
         </div>
-    </div>
-</main>
-<vc:footer/>
+    </main>
+    <vc:footer />
 
-<environment include="Development">
-    <script src="~/lib/jquery/jquery.js" asp-append-version="true"></script>
-    <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js" asp-append-version="true"></script>
-    <script src="~/js/awesomeIcons.js" asp-append-version="true"></script>
-    <script src="~/js/companyproject.js" asp-append-version="true"></script>
-    <script src="~/lib/jquery-validate/jquery.validate.js" asp-append-version="true"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js" asp-append-version="true"></script>
-    <script src="~/js/jquery.maskedinput.js" asp-append-version="true"></script>
-    <script src="~/js/jquery.toast.js" asp-append-version="true"></script>
-    <script src="~/js/datepicker.js" asp-append-version="true"></script>
-</environment>
-<environment exclude="Development">
-    <script src="~/lib/jquery/jquery.min.js" asp-append-version="true"></script>
-    <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js" asp-append-version="true"></script>
-    <script src="~/js/awesomeIcons.min.js" asp-append-version="true"></script>
-    <script src="~/js/jquery.toast.min.js" asp-append-version="true"></script>
-    <script src="~/js/companyproject.min.js" asp-append-version="true"></script>
-    <script src="~/js/awesomeIcons.min.js" asp-append-version="true"></script>
-    <script src="~/js/jquery.maskedinput.min.js" asp-append-version="true"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"
-            asp-fallback-src="~/lib/jquery-validate/jquery.validate.min.js"
-            asp-fallback-test="window.jQuery && window.jQuery.validator">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.js"
-            asp-fallback-src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
-            asp-fallback-test="window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive">
-    </script>
-    <script src="~/js/datepicker.min.js" asp-append-version="true"></script>
-</environment>
-<base href="~/" />
-<script src="_framework/blazor.server.js"></script>
-@await RenderSectionAsync("Scripts", false)
+    <environment include="Development">
+        <script src="~/lib/jquery/jquery.js" asp-append-version="true"></script>
+        <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js" asp-append-version="true"></script>
+        <script src="~/js/awesomeIcons.js" asp-append-version="true"></script>
+        <script src="~/js/companyproject.js" asp-append-version="true"></script>
+        <script src="~/lib/jquery-validate/jquery.validate.js" asp-append-version="true"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js" asp-append-version="true"></script>
+        <script src="~/js/jquery.maskedinput.js" asp-append-version="true"></script>
+        <script src="~/js/jquery.toast.js" asp-append-version="true"></script>
+        <script src="~/js/datepicker.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/lib/jquery/jquery.min.js" asp-append-version="true"></script>
+        <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js" asp-append-version="true"></script>
+        <script src="~/js/awesomeIcons.min.js" asp-append-version="true"></script>
+        <script src="~/js/jquery.toast.min.js" asp-append-version="true"></script>
+        <script src="~/js/companyproject.min.js" asp-append-version="true"></script>
+        <script src="~/js/awesomeIcons.min.js" asp-append-version="true"></script>
+        <script src="~/js/jquery.maskedinput.min.js" asp-append-version="true"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"
+                asp-fallback-src="~/lib/jquery-validate/jquery.validate.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validator">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.js"
+                asp-fallback-src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive">
+        </script>
+        <script src="~/js/datepicker.min.js" asp-append-version="true"></script>
+    </environment>
+    <base href="~/" />
+    <script src="_framework/blazor.server.js"></script>
+    @await RenderSectionAsync("Scripts", false)
 </body>
 </html>

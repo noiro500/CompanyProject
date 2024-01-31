@@ -17,17 +17,17 @@ public class ServiceController : Controller
 {
     private readonly IContentServiceMessage _contentServiceMessage;
 
-    private readonly ILogger _logger;
+    //private readonly ILogger _logger;
 
-    private readonly IMapper _mapper;
+    //private readonly IMapper _mapper;
 
 
-    public ServiceController(  IMapper mapper,
-        IContentServiceMessage contentServiceMessage )
+    public ServiceController(/*IMapper mapper,*/
+       /* IContentServiceMessage contentServiceMessage*/)
     {
-        _logger = Log.CreateLogger<HomeController>();
-        _mapper = mapper;
-        _contentServiceMessage = contentServiceMessage;
+        //_logger = Log.CreateLogger<HomeController>();
+        //_mapper = mapper;
+        //_contentServiceMessage = contentServiceMessage;
     }
 
     public async Task<IActionResult> AddMessageToDbAsyncTask(MessageDto mes)

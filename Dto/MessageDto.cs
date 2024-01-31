@@ -34,18 +34,18 @@ public class MessageDtoValidator : AbstractValidator<MessageDto>
     public MessageDtoValidator()
     {
         RuleFor(x => x.PersonName)
-            .NotEmpty().WithMessage("Не указано имя")
-            .Matches(@"^[а-яА-Я._%+""'\s-]*$").WithMessage("Некорректные символы. Допускаются только русские символы!")
-            .MaximumLength(30).WithMessage("Максимальная длина имени - 30 символов");
-        RuleFor(x => x.WhatsAppTelegramNumber).NotEmpty().WithMessage("Не указан номер WhatsApp/Telegram")
-            .Matches(@"^\+7-\(918\)-\d{3}-\d{2}-\d{2}$").WithMessage("Введите номер телефона в правильном формате");
+            .NotEmpty().WithMessage("Не указано имя!")
+            .Matches(@"^[а-яА-Я._%+""'\s-]*$").WithMessage("Допускаются только русские символы!")
+            .MaximumLength(30).WithMessage("Максимальная длина имени - 30 символов!");
+        RuleFor(x => x.WhatsAppTelegramNumber).NotEmpty().WithMessage("Не указан номер WhatsApp/Telegram!")
+            .Matches(@"^\+7-\(\d{3}\)-\d{3}-\d{2}-\d{2}$").WithMessage("Введите номер телефона в формате +7-(000)-000-00-00!");
         RuleFor(x => x.Email)
-            .EmailAddress().WithMessage("Некорректный адрес электронной почты");
+            .EmailAddress().WithMessage("Некорректный адрес электронной почты!");
         RuleFor(x => x.SubjectMessage)
-            .NotEmpty().WithMessage("Не указана тема сообщения")
-            .MaximumLength(50).WithMessage("Максимальная длина темы - 50 символов");
+            .NotEmpty().WithMessage("Не указана тема сообщения!")
+            .MaximumLength(50).WithMessage("Максимальная длина темы - 50 символов!");
         RuleFor(x => x.Content)
-            .NotEmpty().WithMessage("Не введено сообщение")
-            .Length(20, 2000).WithMessage("Длина сообщения должна быть от 20 до 2000 символов");
+            .NotEmpty().WithMessage("Не введено сообщение!")
+            .Length(20, 2000).WithMessage("Длина сообщения должна быть от 20 до 2000 символов!");
     }
 }

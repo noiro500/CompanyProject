@@ -4,11 +4,13 @@ using CompanyProject.API.Infrastructure.Log;
 using CompanyProject.API.Infrastructure.RefitInterfaces;
 using Dto;
 using FluentValidation;
-using FluentValidation.AspNetCore;
+//using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.HttpOverrides;
 using Blazorise;
 using Blazorise.Bulma;
 using Blazorise.Icons.FontAwesome;
+using Blazorise.FluentValidation;
+using System.Reflection;
 
 namespace CompanyProject.API;
 
@@ -25,10 +27,12 @@ public class Startup
     {
         services.AddCors();
         services.AddControllersWithViews();
-        services.AddFluentValidationClientsideAdapters();
-        services.AddScoped<IValidator<MessageDto>, MessageDtoValidator>();
-        services.AddScoped<IValidator<OrderViewModelDto>, OrderViewModelDto.OrderViewModelDtoValidator>();
-        services.AddScoped<IValidator<AddressDto>, AddressDto.AddressDtoValidator>();
+        //services.AddFluentValidationClientsideAdapters();
+        services.AddValidatorsFromAssemblyContaining<MessageDto>();
+        //services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+        //services.AddScoped<IValidator<MessageDto>, MessageDtoValidator>();
+        //services.AddScoped<IValidator<OrderViewModelDto>, OrderViewModelDto.OrderViewModelDtoValidator>();
+        //services.AddScoped<IValidator<AddressDto>, AddressDto.AddressDtoValidator>();
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         services.AddReCaptcha(Configuration.GetSection("ReCaptcha"));
         services.AddScoped<CompanyInfo>();
@@ -38,7 +42,8 @@ public class Startup
                 options.Immediate = false;
             })
             .AddBulmaProviders()
-            .AddFontAwesomeIcons();
+            .AddFontAwesomeIcons()
+            .AddBlazoriseFluentValidation();
         services.AddServerSideBlazor();
     }
 

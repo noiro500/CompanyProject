@@ -22,7 +22,6 @@ namespace CompanyProjectMessageService.Controllers
             var repository = _unitOfWork.Repository<Message>();
             foreach (var mes in data)
             {
-                
                 var resultShaHash = SHA512.HashData(Encoding.Unicode.GetBytes(mes.Value));
                 var shaToText = Encoding.Unicode.GetString(resultShaHash);
 
