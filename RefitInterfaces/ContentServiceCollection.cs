@@ -1,6 +1,8 @@
-﻿using Refit;
+﻿using RefitInterfaces;
+using Microsoft.Extensions.DependencyInjection;
+using Refit;
 
-namespace CompanyProject.API.Infrastructure.RefitInterfaces;
+namespace RefitInterfaces;
 
 public static class ContentServiceCollection
 {

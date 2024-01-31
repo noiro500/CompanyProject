@@ -38,7 +38,7 @@ public class MessageDtoValidator : AbstractValidator<MessageDto>
             .Matches(@"^[а-яА-Я._%+""'\s-]*$").WithMessage("Допускаются только русские символы!")
             .MaximumLength(30).WithMessage("Максимальная длина имени - 30 символов!");
         RuleFor(x => x.WhatsAppTelegramNumber).NotEmpty().WithMessage("Не указан номер WhatsApp/Telegram!")
-            .Matches(@"^\+7-\(\d{3}\)-\d{3}-\d{2}-\d{2}$").WithMessage("Введите номер телефона в формате +7-(000)-000-00-00!");
+            .Matches(@"^\+7-\d{3}-\d{3}-\d{2}-\d{2}$").WithMessage("Некорректный номер телефона!");
         RuleFor(x => x.Email)
             .EmailAddress().WithMessage("Некорректный адрес электронной почты!");
         RuleFor(x => x.SubjectMessage)

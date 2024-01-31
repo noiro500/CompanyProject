@@ -6,10 +6,10 @@ using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Unicode;
 using AutoMapper;
-using CompanyProject.API.Infrastructure.Log;
-using CompanyProject.API.Infrastructure.RefitInterfaces;
 using Dto;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.Operations;
+using RefitInterfaces;
 
 namespace CompanyProject.API.Controllers;
 
@@ -36,6 +36,7 @@ public class ServiceController : Controller
             return Json(JsonSerializer.Serialize(new {parameter = "error"}));
         if (!mes.IsAdoptedPrivacyPolicy)
         {
+            
             return Json(JsonSerializer.Serialize(new {parameter = "warning"}));
         }
 

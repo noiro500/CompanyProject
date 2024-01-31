@@ -1,6 +1,6 @@
 ﻿using CompanyProject.API.Infrastructure.HelpClasses;
-using CompanyProject.API.Infrastructure.RefitInterfaces;
 using Microsoft.AspNetCore.Mvc;
+using RefitInterfaces;
 
 namespace CompanyProject.API.Controllers;
 

@@ -1,7 +1,7 @@
 ﻿using Dto;
 using Refit;
 
-namespace CompanyProject.API.Infrastructure.RefitInterfaces;
+namespace RefitInterfaces;
 
 public interface IContentServicePriceList
 {

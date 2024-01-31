@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
-using CompanyProject.API.Infrastructure.RefitInterfaces;
 using Dto.CompanyProject.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using RefitInterfaces;
 
 namespace CompanyProject.API.Controllers;
 

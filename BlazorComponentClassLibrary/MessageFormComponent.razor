@@ -1,6 +1,10 @@
-﻿@using Dto
+﻿@using System.Security.Cryptography
+@using System.Text
+@using System.Text.Json
+@using RefitInterfaces
+@inject IContentServiceMessage _contentServiceMessage
 
-@* <NotificationProvider /> *@
+<NotificationProvider />
 <Form>
     <Validations @ref="@fluentValidations" Mode="ValidationMode.Manual" Model="@messageDto" HandlerType="typeof(FluentValidationHandler)">
         <Row>
@@ -11,7 +15,7 @@
                         <FieldBody>
                             <TextEdit Role="TextRole.Text" Placeholder="Как к вам обрщаться?" @bind-Text="@messageDto.PersonName">
                                 <Feedback>
-                                    <ValidationError />
+                                    <ValidationError/>
                                 </Feedback>
                             </TextEdit>
                         </FieldBody>
@@ -53,7 +57,7 @@
                     <Field>
                         <FieldLabel RequiredIndicator><Strong>@messageParametersList[3]</Strong></FieldLabel>
                         <FieldBody>
-                            <TextEdit Role="TextRole.Telephone" Placeholder="+7-(000)-000-00-00" @bind-Text="@messageDto.WhatsAppTelegramNumber">
+                            <TextEdit Role="TextRole.Telephone" Placeholder="+7-000-000-00-00" @bind-Text="@messageDto.WhatsAppTelegramNumber">
                                 <Feedback>
                                     <ValidationError />
                                 </Feedback>
@@ -82,7 +86,7 @@
         <Row>
             <Column ColumnSize="ColumnSize.IsFull">
                 <FieldBody>
-                    <Check TValue="bool" Checked="@isAdoptedPrivacyPolicy">
+                    <Check TValue="bool"  @bind-Checked="@isAdoptedPrivacyPolicy">
                         <Span>Я принимаю <Strong>Политику конфиденциальности</Strong></Span>
                     </Check>
                 </FieldBody>
@@ -99,17 +103,17 @@
         </Row>
     </Validations>
 </Form>
- <link href="_content/Blazorise.Snackbar/blazorise.snackbar.css" rel="stylesheet" />
+<link href="_content/Blazorise.Snackbar/blazorise.snackbar.css" rel="stylesheet" />
 
- @code {
+    @code {
     MessageDto messageDto = new();
     Validations fluentValidations;
     [Inject]
     INotificationService NotificationService { get; set; }
-    bool isInitialized = true;
-    bool isDisabled { get; set; } = false;
+    bool isInitialized = false;
+    bool isDisabled  = false;
     List<string> messageParametersList { get; set; }
-    bool isAdoptedPrivacyPolicy { get; set; } = false;
+    bool isAdoptedPrivacyPolicy = true;
 
     protected override async Task OnInitializedAsync()
     {
@@ -118,7 +122,7 @@
             messageParametersList = new[] { "PersonName", "SubjectMessage", "Email", "WhatsAppTelegramNumber", "Content" }
                 .Select(p => messageDto.GetType().GetProperty(p)!.GetCustomAttribute<DisplayAttribute>()!.Name!)
                 .ToList();
-            isInitialized = false;
+            isInitialized = true;
         }
         await base.OnInitializedAsync();
     }
@@ -127,13 +131,25 @@
     {
         if (!isAdoptedPrivacyPolicy)
         {
-            await NotificationService.Warning("Вы должны принять Политику конфиденциальности", "Внимание!!!");
+            await NotificationService.Warning("Вы должны принять Политику конфиденциальности.", "Внимание!");
             return;
         }
-        // if (await fluentValidations.ValidateAll())
-        // {
 
-        // }
+        if (await fluentValidations.ValidateAll())
+        {
+            var sha512 = SHA512.Create();
+            var resultShaHash = sha512.ComputeHash(Encoding.Unicode.GetBytes(JsonSerializer.Serialize(messageDto)));
+            var shaToText = Encoding.Unicode.GetString(resultShaHash);
+            var dic = new Dictionary<string, string> { { shaToText, JsonSerializer.Serialize(messageDto) } };
+            var response = await _contentServiceMessage.Post(dic);
+            if (!response.IsSuccessStatusCode)
+            {
+                await NotificationService.Error("При отправке сообщения произошла ошибка! Пожалуйств, попробуйте позже", "Ошибка!");
+                return;
+            }
+            await NotificationService.Success("Сообщение успешно отправлено.", "Успех!");
+            isDisabled = true;
+        }
+
     }
-
 }

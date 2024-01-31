@@ -1,5 +1,5 @@
-﻿using CompanyProject.API.Infrastructure.RefitInterfaces;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using RefitInterfaces;
 
 namespace CompanyProject.API.Infrastructure.ViewComponents;
 
