@@ -27,11 +27,11 @@ $(() => {
     });
 
     ////Подсчет символов и запрет enter в textarea
-    $("textarea").on("keypress", event => {
-        if (event.key === "Enter") {
-            event.preventDefault();
-        }
-    });
+    //$("textarea").on("keypress", event => {
+    //    if (event.key === "Enter") {
+    //        event.preventDefault();
+    //    }
+    //});
 
     //Ввод телефонного номера
     //const telInput = $('input[type="tel"]');
@@ -81,10 +81,10 @@ $(() => {
         });
     });
 
-    const checkedId = document.getElementById("IsAdoptedPrivacyPolicy") as HTMLInputElement;
-    if (checkedId) {
-        checkedId.checked = true;
-    }
+    //const checkedId = document.getElementById("IsAdoptedPrivacyPolicy") as HTMLInputElement;
+    //if (checkedId) {
+    //    checkedId.checked = true;
+    //}
     $("#checking-data").on("click", CheckMakeOrderForm);
 
 });
@@ -122,32 +122,32 @@ function CheckFormField() {
         return true;
 }
 
-function SuccessSendForm(data: string) {
-    const respons = JSON.parse(data);
-    if (respons.parameter === "warning") {
-        let warningMessage = {
-            ...generalToastMessage,
-            text: "Сообщение не отправлено. Необходимо принять \"Политику конфиденциальности\".",
-            heading: "Внимание",
-            icon: "warning" as 'warning',
-            bgColor: "#ff7733"
-        };
-        $.toast(warningMessage);
+//function SuccessSendForm(data: string) {
+//    const respons = JSON.parse(data);
+//    if (respons.parameter === "warning") {
+//        let warningMessage = {
+//            ...generalToastMessage,
+//            text: "Сообщение не отправлено. Необходимо принять \"Политику конфиденциальности\".",
+//            heading: "Внимание",
+//            icon: "warning" as 'warning',
+//            bgColor: "#ff7733"
+//        };
+//        $.toast(warningMessage);
 
-    } else if (respons.parameter === "ok") {
-        let successMessage = {
-            ...generalToastMessage,
-            text: "Сообщение успешно отправлено.",
-            heading: "Успех",
-            icon: "success" as 'success',
-            bgColor: "#4FB870"
-        }
-        $.toast(successMessage);
-        $('button[name="submit-form"]').prop("disabled", true);
-    } else if (respons.parameter === "error") {
-        FailureSendForm();
-    }
-}
+//    } else if (respons.parameter === "ok") {
+//        let successMessage = {
+//            ...generalToastMessage,
+//            text: "Сообщение успешно отправлено.",
+//            heading: "Успех",
+//            icon: "success" as 'success',
+//            bgColor: "#4FB870"
+//        }
+//        $.toast(successMessage);
+//        $('button[name="submit-form"]').prop("disabled", true);
+//    } else if (respons.parameter === "error") {
+//        FailureSendForm();
+//    }
+//}
 
 function FailureSendForm() {
     let errorMessage = {

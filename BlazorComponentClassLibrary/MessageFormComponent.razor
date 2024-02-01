@@ -5,7 +5,7 @@
 @inject IContentServiceMessage _contentServiceMessage
 
 <NotificationProvider />
-<Form>
+<Form Margin="Margin.Is2.OnX">
     <Validations @ref="@fluentValidations" Mode="ValidationMode.Manual" Model="@messageDto" HandlerType="typeof(FluentValidationHandler)">
         <Row>
             <Column ColumnSize="ColumnSize.IsHalf">

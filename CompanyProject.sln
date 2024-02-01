@@ -31,9 +31,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dto", "Dto\Dto.csproj", "{6
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorComponentClassLibrary", "BlazorComponentClassLibrary\BlazorComponentClassLibrary.csproj", "{5E92B324-B976-4D85-AC9F-2B81F688153B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BlazoriseComponents", "BlazoriseComponents", "{26605182-82DB-4745-8A87-4F9DC73A2043}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefitInterfaces", "RefitInterfaces\RefitInterfaces.csproj", "{765DC472-DAA3-46E1-8D01-BFD6A75C51E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RefitInterfaces", "RefitInterfaces\RefitInterfaces.csproj", "{765DC472-DAA3-46E1-8D01-BFD6A75C51E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -103,7 +101,6 @@ Global
 		{C4C16DA7-1FF9-45B7-84E6-D1F96F656115} = {A3C7F1D1-8378-46C1-B9C0-E30427C10BEC}
 		{65DE670D-4E8F-461C-B83E-B31CE8CA26C0} = {223E3DD9-747C-4153-8EB1-4D18785A3719}
 		{5E92B324-B976-4D85-AC9F-2B81F688153B} = {223E3DD9-747C-4153-8EB1-4D18785A3719}
-		{26605182-82DB-4745-8A87-4F9DC73A2043} = {223E3DD9-747C-4153-8EB1-4D18785A3719}
 		{765DC472-DAA3-46E1-8D01-BFD6A75C51E4} = {223E3DD9-747C-4153-8EB1-4D18785A3719}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

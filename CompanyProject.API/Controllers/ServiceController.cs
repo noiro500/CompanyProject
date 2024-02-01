@@ -30,25 +30,25 @@ public class ServiceController : Controller
         //_contentServiceMessage = contentServiceMessage;
     }
 
-    public async Task<IActionResult> AddMessageToDbAsyncTask(MessageDto mes)
-    {
-        if (!ModelState.IsValid) 
-            return Json(JsonSerializer.Serialize(new {parameter = "error"}));
-        if (!mes.IsAdoptedPrivacyPolicy)
-        {
+    //public async Task<IActionResult> AddMessageToDbAsyncTask(MessageDto mes)
+    //{
+    //    if (!ModelState.IsValid) 
+    //        return Json(JsonSerializer.Serialize(new {parameter = "error"}));
+    //    if (!mes.IsAdoptedPrivacyPolicy)
+    //    {
             
-            return Json(JsonSerializer.Serialize(new {parameter = "warning"}));
-        }
+    //        return Json(JsonSerializer.Serialize(new {parameter = "warning"}));
+    //    }
 
-        var sha512 = SHA512.Create();
-        var resultShaHash = sha512.ComputeHash(Encoding.Unicode.GetBytes(JsonSerializer.Serialize(mes)));
-        var shaToText = Encoding.Unicode.GetString(resultShaHash);
-        var dic = new Dictionary<string, string> {{shaToText, JsonSerializer.Serialize(mes)}};
-        var response = await _contentServiceMessage.Post(dic);
-        if (!response.IsSuccessStatusCode)
-            return Json(JsonSerializer.Serialize(new {parameter = "error"}));
-        return Json(JsonSerializer.Serialize(new {parameter = "ok"}));
-    }
+    //    var sha512 = SHA512.Create();
+    //    var resultShaHash = sha512.ComputeHash(Encoding.Unicode.GetBytes(JsonSerializer.Serialize(mes)));
+    //    var shaToText = Encoding.Unicode.GetString(resultShaHash);
+    //    var dic = new Dictionary<string, string> {{shaToText, JsonSerializer.Serialize(mes)}};
+    //    var response = await _contentServiceMessage.Post(dic);
+    //    if (!response.IsSuccessStatusCode)
+    //        return Json(JsonSerializer.Serialize(new {parameter = "error"}));
+    //    return Json(JsonSerializer.Serialize(new {parameter = "ok"}));
+    //}
 
     //[HttpPost]
     //public async Task<IActionResult> MakeOrderConfirmResult()

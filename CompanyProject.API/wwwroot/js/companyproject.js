@@ -33,11 +33,11 @@ $(function () {
         $(event.currentTarget).next().slideToggle();
     });
     ////Подсчет символов и запрет enter в textarea
-    $("textarea").on("keypress", function (event) {
-        if (event.key === "Enter") {
-            event.preventDefault();
-        }
-    });
+    //$("textarea").on("keypress", event => {
+    //    if (event.key === "Enter") {
+    //        event.preventDefault();
+    //    }
+    //});
     //Ввод телефонного номера
     //const telInput = $('input[type="tel"]');
     //telInput.each(() => {
@@ -83,10 +83,10 @@ $(function () {
             }
         });
     });
-    var checkedId = document.getElementById("IsAdoptedPrivacyPolicy");
-    if (checkedId) {
-        checkedId.checked = true;
-    }
+    //const checkedId = document.getElementById("IsAdoptedPrivacyPolicy") as HTMLInputElement;
+    //if (checkedId) {
+    //    checkedId.checked = true;
+    //}
     $("#checking-data").on("click", CheckMakeOrderForm);
 });
 var generalToastMessage = {
@@ -119,21 +119,31 @@ function CheckFormField() {
     else
         return true;
 }
-function SuccessSendForm(data) {
-    var respons = JSON.parse(data);
-    if (respons.parameter === "warning") {
-        var warningMessage = __assign(__assign({}, generalToastMessage), { text: "Сообщение не отправлено. Необходимо принять \"Политику конфиденциальности\".", heading: "Внимание", icon: "warning", bgColor: "#ff7733" });
-        $.toast(warningMessage);
-    }
-    else if (respons.parameter === "ok") {
-        var successMessage = __assign(__assign({}, generalToastMessage), { text: "Сообщение успешно отправлено.", heading: "Успех", icon: "success", bgColor: "#4FB870" });
-        $.toast(successMessage);
-        $('button[name="submit-form"]').prop("disabled", true);
-    }
-    else if (respons.parameter === "error") {
-        FailureSendForm();
-    }
-}
+//function SuccessSendForm(data: string) {
+//    const respons = JSON.parse(data);
+//    if (respons.parameter === "warning") {
+//        let warningMessage = {
+//            ...generalToastMessage,
+//            text: "Сообщение не отправлено. Необходимо принять \"Политику конфиденциальности\".",
+//            heading: "Внимание",
+//            icon: "warning" as 'warning',
+//            bgColor: "#ff7733"
+//        };
+//        $.toast(warningMessage);
+//    } else if (respons.parameter === "ok") {
+//        let successMessage = {
+//            ...generalToastMessage,
+//            text: "Сообщение успешно отправлено.",
+//            heading: "Успех",
+//            icon: "success" as 'success',
+//            bgColor: "#4FB870"
+//        }
+//        $.toast(successMessage);
+//        $('button[name="submit-form"]').prop("disabled", true);
+//    } else if (respons.parameter === "error") {
+//        FailureSendForm();
+//    }
+//}
 function FailureSendForm() {
     var errorMessage = __assign(__assign({}, generalToastMessage), { text: "Внутренняя ошибка. Сообщение не отправлено.", heading: "Ошибка", icon: "error", bgColor: "#CC0A0A" });
     $.toast(errorMessage);
