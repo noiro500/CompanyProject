@@ -33,6 +33,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorComponentClassLibrary
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RefitInterfaces", "RefitInterfaces\RefitInterfaces.csproj", "{765DC472-DAA3-46E1-8D01-BFD6A75C51E4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelpClasses", "HelpClasses\HelpClasses.csproj", "{C8ED67E9-316E-4717-8A97-1F8A99AF41F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{765DC472-DAA3-46E1-8D01-BFD6A75C51E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{765DC472-DAA3-46E1-8D01-BFD6A75C51E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{765DC472-DAA3-46E1-8D01-BFD6A75C51E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8ED67E9-316E-4717-8A97-1F8A99AF41F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8ED67E9-316E-4717-8A97-1F8A99AF41F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8ED67E9-316E-4717-8A97-1F8A99AF41F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8ED67E9-316E-4717-8A97-1F8A99AF41F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -102,6 +108,7 @@ Global
 		{65DE670D-4E8F-461C-B83E-B31CE8CA26C0} = {223E3DD9-747C-4153-8EB1-4D18785A3719}
 		{5E92B324-B976-4D85-AC9F-2B81F688153B} = {223E3DD9-747C-4153-8EB1-4D18785A3719}
 		{765DC472-DAA3-46E1-8D01-BFD6A75C51E4} = {223E3DD9-747C-4153-8EB1-4D18785A3719}
+		{C8ED67E9-316E-4717-8A97-1F8A99AF41F9} = {223E3DD9-747C-4153-8EB1-4D18785A3719}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {24BE430D-CD50-43C2-8A41-92AAACB1E4D4}

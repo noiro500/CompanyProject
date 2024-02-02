@@ -1,5 +1,4 @@
 using AspNetCore.ReCaptcha;
-using CompanyProject.API.Infrastructure.HelpClasses;
 using CompanyProject.API.Infrastructure.Log;
 using RefitInterfaces;
 using Dto;
@@ -11,6 +10,7 @@ using Blazorise.Bulma;
 using Blazorise.Icons.FontAwesome;
 using Blazorise.FluentValidation;
 using System.Reflection;
+using HelpClasses;
 
 namespace CompanyProject.API;
 
@@ -35,7 +35,7 @@ public class Startup
         //services.AddScoped<IValidator<AddressDto>, AddressDto.AddressDtoValidator>();
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         services.AddReCaptcha(Configuration.GetSection("ReCaptcha"));
-        services.AddScoped<CompanyInfo>();
+        services.AddScoped<ICompanyInfo, CompanyInfo>();
         services.AddRefitCollection(Configuration["UriApiGateway:URI"]!);
         services.AddBlazorise(options =>
             {

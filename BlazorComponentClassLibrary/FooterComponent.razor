@@ -1,0 +1,46 @@
+﻿@inject ICompanyInfo CompanyInfo
+@inject NavigationManager NavigationManager
+<LayoutFooter Class="footer">
+    <Container>
+        <Row>
+            <Column ColumnSize="ColumnSize.Is4" Class="font-title" TextAlignment="TextAlignment.Center">
+                <Field Margin="Margin.Is0">
+                    <FieldLabel TextSize="TextSize.Large" @onclick="@(() => NavigationManager.NavigateTo(NavigationManager.BaseUri, true))">
+                        <Link>@((MarkupString)CompanyInfo.Company_Info.CompanyName)</Link>
+                    </FieldLabel>
+                </Field>
+                <Field>
+                    <FieldLabel TextColor="TextColor.White" TextSize="TextSize.Large">
+                        <Span>@CompanyInfo.Company_Info.CompanyMessagerNumber</Span>
+                        </FieldLabel>
+                    </Field>
+                </Column>
+                <Column ColumnSize="ColumnSize.Is4" TextSize="TextSize.ExtraSmall" TextWeight="TextWeight.SemiBold" TextAlignment="TextAlignment.Center" TextColor="TextColor.White" Style="line-height: 12px">
+                    @foreach (var item in secondColumnStrLst)
+                {
+                    <Field Margin="Margin.IsAuto">
+                        <FieldLabel>
+                            <Span>@item</Span>
+                            </FieldLabel>
+                        </Field>
+                }
+                <Field Margin="Margin.IsAuto">
+                    <FieldLabel>
+                        <Link TextColor="TextColor.White" TextWeight="TextWeight.Bold" To="Resources/Files/privacy.pdf">Политикой конфиденциальности</Link>
+                    </FieldLabel>
+                </Field>
+            </Column>
+        </Row>
+    </Container>
+</LayoutFooter>
+
+@code {
+
+    readonly List<string> secondColumnStrLst = new()
+        {
+            "\"Нова Компьютерс\" © Все права защищены",
+            "Ремонт компьютеров и ноутбуков на КМВ",
+            "Заполняя любую форму на данном сайте, Вы соглашаетесь с"
+        };
+
+    }

@@ -368,8 +368,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Infrastructure\Dto\" />
-    <Folder Include="Infrastructure\RefitInterfaces\" />
     <Folder Include="wwwroot\lib\jquery-validate\" />
     <Folder Include="wwwroot\lib\jquery-validation-unobtrusive\" />
   </ItemGroup>

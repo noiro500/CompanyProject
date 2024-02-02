@@ -37,7 +37,8 @@
             </div>
         </div>
     </main>
-    <vc:footer />
+    @* <vc:footer /> *@
+    <component type="typeof(FooterComponent)" render-mode="Server" />
 
     <environment include="Development">
         <script src="~/lib/jquery/jquery.js" asp-append-version="true"></script>

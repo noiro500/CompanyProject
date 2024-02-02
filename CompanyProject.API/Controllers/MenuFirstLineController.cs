@@ -1,4 +1,4 @@
-﻿using CompanyProject.API.Infrastructure.HelpClasses;
+﻿using HelpClasses;
 using Microsoft.AspNetCore.Mvc;
 using RefitInterfaces;
 

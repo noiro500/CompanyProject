@@ -1,6 +1,6 @@
 ﻿using Dto;
 
-namespace CompanyProject.API.Infrastructure.HelpClasses;
+namespace HelpClasses;
 
 //Класс необходим для удаления повторяющихся элементов в последовательности объектов
 //с помощью Distinct()

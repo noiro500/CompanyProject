@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Dto\Dto.csproj" />
+    <ProjectReference Include="..\HelpClasses\HelpClasses.csproj" />
     <ProjectReference Include="..\RefitInterfaces\RefitInterfaces.csproj" />
   </ItemGroup>
 

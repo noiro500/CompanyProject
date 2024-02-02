@@ -1,7 +1,7 @@
 ﻿using Dto;
 using RefitInterfaces;
 
-namespace CompanyProject.API.Infrastructure.HelpClasses;
+namespace HelpClasses;
 
 public interface ICompanyInfo
 {
@@ -10,6 +10,7 @@ public interface ICompanyInfo
 
 public class CompanyInfo : ICompanyInfo
 {
+    public CompanyContactDto Company_Info { get; set; }
     private readonly IContentServiceContent _contentServiceContent;
 
     public CompanyInfo(IContentServiceContent contentService)
@@ -18,5 +19,4 @@ public class CompanyInfo : ICompanyInfo
         Company_Info = _contentServiceContent.GetCompanyContactAsync(true).Result;
     }
 
-    public CompanyContactDto Company_Info { get; set; }
 }
