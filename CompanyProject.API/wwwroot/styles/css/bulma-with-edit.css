@@ -153,6 +153,11 @@ select.input-validation-error {
     background: #ddd;
     border: 1px solid #fff;
 }*/
+#DropdownToggleFotter.footer-dropdown {
+  background-color: #3273dc;
+  color: #3273dc;
+}
+
 /*@import "C:/Users/noiro/Source/Repos/uvitekskmv/UviteksKMV/wwwroot/lib/bulma/bulma.sass";*/
 /*@import url('../../lib/bulma/bulma.min.css');*/
 /*! bulma.io v0.9.3 | MIT License | github.com/jgthms/bulma */

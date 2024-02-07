@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Dto.CompanyProject.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using RefitInterfaces;
 
 namespace CompanyProject.API.Controllers;
@@ -16,6 +17,7 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Index()
     {
+        var url = this.Url.RouteUrl("HelpDesk", "Home"); 
         ViewBag.pageNameForCard = RouteData.Values["action"].ToString().ToLower();
         var resultAsync = await _contentServiceContent.GetPageContentAsync(RouteData.Values["action"].ToString());
         return View(resultAsync);

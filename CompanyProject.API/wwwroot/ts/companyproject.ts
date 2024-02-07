@@ -39,9 +39,9 @@ $(() => {
     //    $(".phone-number").mask("+7 (999) 999-99-99");
     //});
 
-    $(".dropdown").on("click", (event) => {
-        $(event.currentTarget).toggleClass("is-active");
-    });
+    //$(".dropdown").on("click", (event) => {
+    //    $(event.currentTarget).toggleClass("is-active");
+    //});
 
     const addressDataService = "http://localhost:8010/gateway/v1/Address/GetPartOfAddress";
     //Подгрузка списка округов/районов, населенных пунктов, улиц 

@@ -11,6 +11,8 @@ using Blazorise.Icons.FontAwesome;
 using Blazorise.FluentValidation;
 using System.Reflection;
 using HelpClasses;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Hosting;
 
 namespace CompanyProject.API;
 
@@ -22,6 +24,7 @@ public class Startup
     }
 
     private IConfiguration Configuration { get; }
+
 
     public void ConfigureServices(IServiceCollection services)
     {
@@ -50,8 +53,12 @@ public class Startup
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
     {
-        Log.LoggerFactory = loggerFactory;
-        app.UseForwardedHeaders(new ForwardedHeadersOptions
+        var types = typeof(Program).Assembly.GetTypes()
+            .Where(t => t.IsSubclassOf(typeof(ControllerBase)) && !t.IsAbstract);
+var getMethods = types.ToList()[0].GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly);
+var a = getMethods.Select(s => s.Name).ToList();
+        
+app.UseForwardedHeaders(new ForwardedHeadersOptions
         {
             ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
         });
