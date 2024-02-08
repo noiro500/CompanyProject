@@ -67,15 +67,9 @@
 
     protected override async Task OnInitializedAsync()
     {
-        if (!isInitialized)
-        {
-            var footerListContent = await _ContentServiceContent.GetFooterContentAsync();
-            foreach (var dropdownParam in footerListContent.Where(t => t.Name.ToLower() != "index").Select(t => new { t.Name, t.Icon, t.ScreenName }))
-            {
-                dropdownTuples.Add((dropdownParam.Icon, ConvertName(dropdownParam.Name).ToLower(), dropdownParam.ScreenName!)!);
-            }
-            isInitialized = true;
-        }
+        var footerListContent = await _ContentServiceContent.GetFooterContentAsync();
+        foreach (var dropdownParam in footerListContent.Where(t => t.Name.ToLower() != "index").Select(t => new { t.Name, t.Icon, t.ScreenName }))
+            dropdownTuples.Add((dropdownParam.Icon, ConvertName(dropdownParam.Name).ToLower(), dropdownParam.ScreenName!)!);
     }
 
     private string ConvertName(string name)

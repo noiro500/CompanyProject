@@ -11,98 +11,98 @@
                 <Validation>
                     <Field>
                         <FieldLabel RequiredIndicator><Strong>@messageParametersList[0]</Strong></FieldLabel>
-                        <FieldBody>
-                            <TextEdit Role="TextRole.Text" Placeholder="Как к вам обрщаться?" @bind-Text="messageDto.PersonName">
-                                <Feedback>
-                                    <ValidationError />
-                                </Feedback>
-                            </TextEdit>
-                        </FieldBody>
-                    </Field>
-                </Validation>
-            </Column>
-            <Column ColumnSize="ColumnSize.IsHalf">
-                <Validation>
-                    <Field>
-                        <FieldLabel RequiredIndicator><Strong>@messageParametersList[1]</Strong></FieldLabel>
-                        <FieldBody>
-                            <TextEdit Role="TextRole.Text" Placeholder="Тема обращения" @bind-Text="messageDto.SubjectMessage">
-                                <Feedback>
-                                    <ValidationError />
-                                </Feedback>
-                            </TextEdit>
-                        </FieldBody>
-                    </Field>
-                </Validation>
-            </Column>
-        </Row>
-        <Row>
-            <Column ColumnSize="ColumnSize.IsHalf">
-                <Validation>
-                    <Field>
-                        <FieldLabel><Strong>@messageParametersList[2]</Strong></FieldLabel>
-                        <FieldBody>
-                            <TextEdit Role="TextRole.Email" Placeholder="Ваш адрес электронной почты" @bind-Text="messageDto.Email">
-                                <Feedback>
-                                    <ValidationError />
-                                </Feedback>
-                            </TextEdit>
-                        </FieldBody>
-                    </Field>
-                </Validation>
-            </Column>
-            <Column ColumnSize="ColumnSize.IsHalf">
-                <Validation>
-                    <Field>
-                        <FieldLabel RequiredIndicator><Strong>@messageParametersList[3]</Strong></FieldLabel>
-                        <FieldBody>
-                            <TextEdit Role="TextRole.Telephone" Placeholder="+7-000-000-00-00" @bind-Text="messageDto.WhatsAppTelegramNumber">
-                                <Feedback>
-                                    <ValidationError />
-                                </Feedback>
-                            </TextEdit>
-                        </FieldBody>
-                    </Field>
-                </Validation>
-            </Column>
-        </Row>
-        <Row>
-            <Column ColumnSize="ColumnSize.IsFull">
-                <Validation>
-                    <Field>
-                        <FieldLabel RequiredIndicator><Strong>@messageParametersList[4]</Strong></FieldLabel>
-                        <FieldBody>
-                            <MemoEdit MaxLength="280" Rows="4" Style="resize: none" Placeholder="Ваше сообщение (максимум 280 символов)" @bind-Text="messageDto.Content">
-                                <Feedback>
-                                    <ValidationError />
-                                </Feedback>
-                            </MemoEdit>
-                        </FieldBody>
-                    </Field>
-                </Validation>
-            </Column>
-        </Row>
-        <Row>
-            <Column ColumnSize="ColumnSize.IsFull" Margin="Margin.Is0">
-                <FieldBody>
-                    <Check TValue="bool" Class="checkbox" @bind-Checked="isAdoptedPrivacyPolicy">
-                        <Span>Я принимаю <Link TextColor="TextColor.Dark" To="Resources/Files/privacy.pdf"><Strong>Политику конфиденциальности</Strong></Link></Span>
-                    </Check>
+                            <FieldBody>
+                                <TextEdit Role="TextRole.Text" Placeholder="Как к вам обрщаться?" @bind-Text="messageDto.PersonName">
+                                    <Feedback>
+                                        <ValidationError />
+                                    </Feedback>
+                                </TextEdit>
+                            </FieldBody>
+                        </Field>
+                    </Validation>
+                </Column>
+                <Column ColumnSize="ColumnSize.IsHalf">
+                    <Validation>
+                        <Field>
+                            <FieldLabel RequiredIndicator><Strong>@messageParametersList[1]</Strong></FieldLabel>
+                            <FieldBody>
+                                <TextEdit Role="TextRole.Text" Placeholder="Тема обращения" @bind-Text="messageDto.SubjectMessage">
+                                    <Feedback>
+                                        <ValidationError />
+                                    </Feedback>
+                                </TextEdit>
+                            </FieldBody>
+                        </Field>
+                    </Validation>
+                </Column>
+            </Row>
+            <Row>
+                <Column ColumnSize="ColumnSize.IsHalf">
+                    <Validation>
+                        <Field>
+                            <FieldLabel><Strong>@messageParametersList[2]</Strong></FieldLabel>
+                            <FieldBody>
+                                <TextEdit Role="TextRole.Email" Placeholder="Ваш адрес электронной почты" @bind-Text="messageDto.Email">
+                                    <Feedback>
+                                        <ValidationError />
+                                    </Feedback>
+                                </TextEdit>
+                            </FieldBody>
+                        </Field>
+                    </Validation>
+                </Column>
+                <Column ColumnSize="ColumnSize.IsHalf">
+                    <Validation>
+                        <Field>
+                            <FieldLabel RequiredIndicator><Strong>@messageParametersList[3]</Strong></FieldLabel>
+                            <FieldBody>
+                                <TextEdit Role="TextRole.Telephone" Placeholder="+7-000-000-00-00" @bind-Text="messageDto.WhatsAppTelegramNumber">
+                                    <Feedback>
+                                        <ValidationError />
+                                    </Feedback>
+                                </TextEdit>
+                            </FieldBody>
+                        </Field>
+                    </Validation>
+                </Column>
+            </Row>
+            <Row>
+                <Column ColumnSize="ColumnSize.IsFull">
+                    <Validation>
+                        <Field>
+                            <FieldLabel RequiredIndicator><Strong>@messageParametersList[4]</Strong></FieldLabel>
+                            <FieldBody>
+                                <MemoEdit MaxLength="280" Rows="4" Style="resize: none" Placeholder="Ваше сообщение (максимум 280 символов)" @bind-Text="messageDto.Content">
+                                    <Feedback>
+                                        <ValidationError />
+                                    </Feedback>
+                                </MemoEdit>
+                            </FieldBody>
+                        </Field>
+                    </Validation>
+                </Column>
+            </Row>
+            <Row>
+                <Column ColumnSize="ColumnSize.IsFull" Margin="Margin.Is0">
+                    <FieldBody>
+                        <Check TValue="bool" Class="checkbox" @bind-Checked="isAdoptedPrivacyPolicy">
+                            <Span>Я принимаю <Link TextColor="TextColor.Dark" To="Resources/Files/privacy.pdf"><Strong>Политику конфиденциальности</Strong></Link></Span>
+                        </Check>
 
-                </FieldBody>
-            </Column>
-        </Row>
-        <Row>
-            <Column ColumnSize="ColumnSize.IsFull">
-                <Div>
-                    <Button Color="Color.Primary" Disabled="@isDisabled" Clicked="@OnButtonSendMessageClicked">Отправить</Button>
-                    <Button Color="Color.Secondary" Type="ButtonType.Reset" @onclick="ClearValidation">Очистить</Button>
-                </Div>
-            </Column>
-        </Row>
-    </Validations>
-</Form>
-<br/>
+                    </FieldBody>
+                </Column>
+            </Row>
+            <Row>
+                <Column ColumnSize="ColumnSize.IsFull">
+                    <Div>
+                        <Button Color="Color.Primary" Disabled="@isDisabled" Clicked="@OnButtonSendMessageClicked">Отправить</Button>
+                        <Button Color="Color.Secondary" Type="ButtonType.Reset" @onclick="ClearValidation">Очистить</Button>
+                    </Div>
+                </Column>
+            </Row>
+        </Validations>
+    </Form>
+    <br />
     <link href="_content/Blazorise.Snackbar/blazorise.snackbar.css" rel="stylesheet" />
 
     @code {
@@ -110,21 +110,15 @@
     Validations fluentValidations;
     [Inject]
     INotificationService NotificationService { get; set; }
-    bool isInitialized = false;
     bool isDisabled = false;
     List<string> messageParametersList { get; set; }
     bool isAdoptedPrivacyPolicy = true;
 
     protected override async Task OnInitializedAsync()
     {
-        if (!isInitialized)
-        {
-            messageParametersList = new[] { "PersonName", "SubjectMessage", "Email", "WhatsAppTelegramNumber", "Content" }
-                .Select(p => messageDto.GetType().GetProperty(p)!.GetCustomAttribute<DisplayAttribute>()!.Name!)
-                .ToList();
-            isInitialized = true;
-        }
-        await base.OnInitializedAsync();
+        messageParametersList = new[] { "PersonName", "SubjectMessage", "Email", "WhatsAppTelegramNumber", "Content" }
+            .Select(p => messageDto.GetType().GetProperty(p)!.GetCustomAttribute<DisplayAttribute>()!.Name!)
+            .ToList();
     }
 
     private async Task ClearValidation()
