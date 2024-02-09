@@ -13,6 +13,7 @@ using System.Reflection;
 using HelpClasses;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.FileProviders;
 
 namespace CompanyProject.API;
 
@@ -69,6 +70,12 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
         else
             app.UseExceptionHandler("/Home/Error");
         app.UseStaticFiles();
+        //app.UseStaticFiles(new StaticFileOptions
+        //{
+        //    FileProvider=new PhysicalFileProvider(
+        //        Path.Combine(env.ContentRootPath, "_content")),
+        //    RequestPath = "/_content"
+        //});
         app.UseStatusCodePages();
         app.UseRouting();
         app.UseAuthorization();
@@ -81,6 +88,7 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
                 "default",
                 "{controller=Home}/{action=Index}/{id?}");
             endpoints.MapBlazorHub();
+
         });
         
     }

@@ -87,7 +87,7 @@ $(function () {
     //if (checkedId) {
     //    checkedId.checked = true;
     //}
-    $("#checking-data").on("click", CheckMakeOrderForm);
+    //$("#checking-data").on("click", CheckMakeOrderForm);
 });
 var generalToastMessage = {
     text: "",
