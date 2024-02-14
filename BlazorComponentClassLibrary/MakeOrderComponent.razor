@@ -1,0 +1,19 @@
+﻿<h3>MakeOrderComponent</h3>
+<Container>
+
+</Container>
+
+@code {
+    OrderViewModelDto orderViewModelDto = new();
+    
+    List<string>orderParametersList { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        orderParametersList = typeof(OrderViewModelDto).GetProperties().Where(p => p.PropertyType != typeof(Dto.AddressDto) && p.PropertyType != typeof(Boolean)).Select(p => p.Name)
+            .Select(p => orderViewModelDto.GetType().GetProperty(p)!.GetCustomAttribute<DisplayAttribute>()!.Name!).ToList();
+        
+        orderParametersList.AddRange(new[] { "Territory", "District", "PopulatedArea", "Street", "HouseNumber", "ApartmentOrOfficeNumber" }
+            .Select(p => orderViewModelDto.AddressData.GetType().GetProperty(p)!.GetCustomAttribute<DisplayAttribute>()!.Name!)
+            .ToList());
+    }
+}

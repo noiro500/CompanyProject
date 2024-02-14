@@ -46,43 +46,43 @@ $(function () {
     //$(".dropdown").on("click", (event) => {
     //    $(event.currentTarget).toggleClass("is-active");
     //});
-    var addressDataService = "http://localhost:8010/gateway/v1/Address/GetPartOfAddress";
-    //Подгрузка списка округов/районов, населенных пунктов, улиц 
-    $("#AddressData_Territory").on("change", function () {
-        $.ajax({
-            type: "POST",
-            url: addressDataService,
-            dataType: "html",
-            data: { parameters: ["District"] },
-            success: function (result) {
-                $("#AddressData_District").html(result);
-                $("#AddressData_District").on("change", function () {
-                    var selectedDistrict = $("#AddressData_District option:selected").val();
-                    $.ajax({
-                        type: "POST",
-                        url: addressDataService,
-                        dataType: "html",
-                        data: { parameters: ["PopulatedArea", selectedDistrict] },
-                        success: function (result) {
-                            $("#AddressData_PopulatedArea").html(result);
-                            $("#AddressData_PopulatedArea").on("change", function () {
-                                var selectPopulatedArea = $("#AddressData_PopulatedArea option:selected").val();
-                                $.ajax({
-                                    type: "POST",
-                                    url: addressDataService,
-                                    dataType: "html",
-                                    data: { parameters: ["Street", selectPopulatedArea] },
-                                    success: function (result) {
-                                        $("#AddressData_Street").html(result);
-                                    }
-                                });
-                            });
-                        }
-                    });
-                });
-            }
-        });
-    });
+    //const addressDataService = "http://localhost:8010/gateway/v1/Address/GetPartOfAddress";
+    ////Подгрузка списка округов/районов, населенных пунктов, улиц 
+    //$("#AddressData_Territory").on("change", () => {
+    //    $.ajax({
+    //        type: "POST",
+    //        url: addressDataService,
+    //        dataType: "html",
+    //        data: { parameters: ["District"] },
+    //        success: result => {
+    //            $("#AddressData_District").html(result);
+    //            $("#AddressData_District").on("change", () => {
+    //                const selectedDistrict = $("#AddressData_District option:selected").val();
+    //                $.ajax({
+    //                    type: "POST",
+    //                    url: addressDataService,
+    //                    dataType: "html",
+    //                    data: { parameters: ["PopulatedArea", selectedDistrict] },
+    //                    success: result => {
+    //                        $("#AddressData_PopulatedArea").html(result);
+    //                        $("#AddressData_PopulatedArea").on("change", () => {
+    //                            const selectPopulatedArea = $("#AddressData_PopulatedArea option:selected").val();
+    //                            $.ajax({
+    //                                type: "POST",
+    //                                url: addressDataService,
+    //                                dataType: "html",
+    //                                data: { parameters: ["Street", selectPopulatedArea] },
+    //                                success: (result) => {
+    //                                    $("#AddressData_Street").html(result);
+    //                                }
+    //                            });
+    //                        });
+    //                    }
+    //                });
+    //            });
+    //        }
+    //    });
+    //});
     //const checkedId = document.getElementById("IsAdoptedPrivacyPolicy") as HTMLInputElement;
     //if (checkedId) {
     //    checkedId.checked = true;
@@ -102,23 +102,24 @@ var generalToastMessage = {
     loader: false,
     bgColor: ""
 };
-function CheckFormField() {
-    var name = !!($("#Name").val());
-    var phoneNumber = !!($("#PhoneNumber").val());
-    var territory = !!($("#AddressData_Territory").val());
-    var district = !!($("#AddressData_District").val());
-    var populatedArea = !!($("#AddressData_PopulatedArea").val());
-    var houseNumber = !!($("#AddressData_HouseNumber").val());
-    if (!name ||
-        !phoneNumber ||
-        !territory ||
-        !district ||
-        !populatedArea ||
-        !houseNumber)
-        return false;
-    else
-        return true;
-}
+//function CheckFormField() {
+//    const name = !!($("#Name").val());
+//    const phoneNumber = !!($("#PhoneNumber").val());
+//    const territory = !!($("#AddressData_Territory").val());
+//    const district = !!($("#AddressData_District").val());
+//    const populatedArea = !!($("#AddressData_PopulatedArea").val());
+//    const houseNumber = !!($("#AddressData_HouseNumber").val());
+//    if (!name ||
+//        !phoneNumber ||
+//        !territory ||
+//        !district ||
+//        !populatedArea ||
+//        !houseNumber
+//    )
+//        return false;
+//    else
+//        return true;
+//}
 //function SuccessSendForm(data: string) {
 //    const respons = JSON.parse(data);
 //    if (respons.parameter === "warning") {
@@ -148,74 +149,79 @@ function FailureSendForm() {
     var errorMessage = __assign(__assign({}, generalToastMessage), { text: "Внутренняя ошибка. Сообщение не отправлено.", heading: "Ошибка", icon: "error", bgColor: "#CC0A0A" });
     $.toast(errorMessage);
 }
-function CheckMakeOrderForm(event) {
-    if (!CheckFormField())
-        return;
-    var privacyPolicyIsChecked = $("#IsAdoptedPrivacyPolicy").is(":checked");
-    if (!Boolean(privacyPolicyIsChecked)) {
-        event.preventDefault();
-        var warningMessage = __assign(__assign({}, generalToastMessage), { text: "Заказ не сформирован. Необходимо принять \"Политику конфиденциальности\".", heading: "Внимание", icon: "warning", bgColor: "#ff7733" });
-        $.toast(warningMessage);
-    }
-    else {
-        $.ajaxSetup({
-            cache: false
-        });
-        event.preventDefault();
-        $.ajax({
-            type: "POST",
-            /*url: companyProject.Urls.MakeOrderConfirm,*/
-            data: $("#make-order").serializeArray(),
-            success: function (data) {
-                $("#modalContent").html(data);
-                $(".modal").addClass("is-active");
-            }
-        });
-    }
-}
+//function CheckMakeOrderForm(event: any) {
+//    if (!CheckFormField())
+//        return;
+//    const privacyPolicyIsChecked = $("#IsAdoptedPrivacyPolicy").is(":checked");
+//    if (!Boolean(privacyPolicyIsChecked)) {
+//        event.preventDefault();
+//        let warningMessage = {
+//            ...generalToastMessage,
+//            text: "Заказ не сформирован. Необходимо принять \"Политику конфиденциальности\".",
+//            heading: "Внимание",
+//            icon: "warning" as 'warning',
+//            bgColor: "#ff7733"
+//        };
+//        $.toast(warningMessage);
+//    } else {
+//        $.ajaxSetup({
+//            cache: false
+//        });
+//        event.preventDefault();
+//        $.ajax({
+//            type: "POST",
+//            /*url: companyProject.Urls.MakeOrderConfirm,*/
+//            data: $("#make-order").serializeArray(),
+//            success: function (data) {
+//                $("#modalContent").html(data);
+//                $(".modal").addClass("is-active");
+//            }
+//        });
+//    }
+//}
 function Failure() {
     var errorMessage = __assign(__assign({}, generalToastMessage), { text: "Внутренняя ошибка.Пожалуйста, попробуйте позднее.", heading: "Ошибка", icon: "error", bgColor: "#CC0A0A" });
     $.toast(errorMessage);
 }
 //Работа с модальным окном "Проверьте введенные данные"
-var ajaxSuccess = true;
-function MakeOrderConfirmModalWindow(param) {
-    if (param === "makeOrderConfirm") {
-        $.ajax({
-            type: "POST",
-            url: companyProject.Urls.MakeOrderConfirmResult,
-            success: function (data) {
-                $("#modal-title").text("Заказ принят в работу");
-                $("#modal-data").html(data);
-                $("#button-close").removeClass("is-loading");
-                ajaxSuccess = true;
-            },
-            beforeSend: function () {
-                $("#button-confirm").addClass("is-hidden");
-                $("#button-edit").addClass("is-hidden");
-                $("#button-close").addClass("is-loading");
-            },
-            error: function () {
-                $("#modal-title").text("Что-то пошло не так");
-                $("#modal-data").html("<p>Сожалеем, но во время формирования Вашего заказа " +
-                    "произошла непредвиденная ошибка. Пожалуйста, повторите заказ позже.</p>");
-                $("#button-close").removeClass("is-loading");
-                ajaxSuccess = false;
-            }
-        });
-        return;
-    }
-    if (param === "edit") {
-        $(".modal").removeClass("is-active");
-        return;
-    }
-    if (param === "close") {
-        if (ajaxSuccess)
-            $(location).attr("href", companyProject.Urls.Index);
-        else {
-            $(location).attr("href", companyProject.Urls.Error);
-            ajaxSuccess = true;
-        }
-        return;
-    }
-}
+//let ajaxSuccess = true;
+//function MakeOrderConfirmModalWindow(param: any) {
+//    if (param === "makeOrderConfirm") {
+//        $.ajax({
+//            type: "POST",
+//            url: companyProject.Urls.MakeOrderConfirmResult, 
+//            success: function (data) {
+//                $("#modal-title").text("Заказ принят в работу");
+//                $("#modal-data").html(data);
+//                $("#button-close").removeClass("is-loading");
+//                ajaxSuccess = true;
+//            },
+//            beforeSend: function () {
+//                $("#button-confirm").addClass("is-hidden");
+//                $("#button-edit").addClass("is-hidden");
+//                $("#button-close").addClass("is-loading");
+//            },
+//            error: function () {
+//                $("#modal-title").text("Что-то пошло не так");
+//                $("#modal-data").html("<p>Сожалеем, но во время формирования Вашего заказа " +
+//                    "произошла непредвиденная ошибка. Пожалуйста, повторите заказ позже.</p>");
+//                $("#button-close").removeClass("is-loading");
+//                ajaxSuccess = false;
+//            }
+//        });
+//        return;
+//    }
+//    if (param === "edit") {
+//        $(".modal").removeClass("is-active");
+//        return;
+//    }
+//    if (param === "close") {
+//        if (ajaxSuccess)
+//            $(location).attr("href", companyProject.Urls.Index);
+//        else {
+//            $(location).attr("href", companyProject.Urls.Error);
+//            ajaxSuccess = true;
+//        }
+//        return;
+//    }
+//}

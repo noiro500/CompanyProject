@@ -30,6 +30,7 @@ namespace CompanyProjectMessageService.Controllers
                     var message = JsonSerializer.Deserialize<Message>(mes.Value);
                     if (message is null)
                         return BadRequest();
+                    message.IsAdoptedPrivacyPolicy = true;
                     SetGuidAndNumberMessage(ref message, ref repository);
                     _ = repository.Add(message);
                     await _unitOfWork.SaveChangesAsync();

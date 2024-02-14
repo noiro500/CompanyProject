@@ -5,7 +5,7 @@ namespace Dto;
 
 public record MessageDto
 {
-    public Guid MessageId { get; set; }
+    //public Guid MessageId { get; set; }
 
     [Display(Name = "Ваше имя:")] 
     public string? PersonName { get; set; }
@@ -19,14 +19,14 @@ public record MessageDto
     [Display(Name = "Номер WhatsApp/Telegram: ")]
     public string? WhatsAppTelegramNumber { get; set; }
 
-    public ulong MessageNumber { get; set; }
+    //public ulong MessageNumber { get; set; }
 
     [Display(Name = "Сообщение: ")]
     [DataType(DataType.MultilineText)]
     public string? Content { get; set; }
 
     public bool IsAnswered { get; set; } = false;
-    public bool IsAdoptedPrivacyPolicy { get; set; }
+    public bool IsAdoptedPrivacyPolicy { get; set; } = true;
 }
 
 public class MessageDtoValidator : AbstractValidator<MessageDto>

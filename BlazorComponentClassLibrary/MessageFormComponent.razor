@@ -116,9 +116,8 @@
 
     protected override async Task OnInitializedAsync()
     {
-        messageParametersList = new[] { "PersonName", "SubjectMessage", "Email", "WhatsAppTelegramNumber", "Content" }
-            .Select(p => messageDto.GetType().GetProperty(p)!.GetCustomAttribute<DisplayAttribute>()!.Name!)
-            .ToList();
+        messageParametersList = typeof(MessageDto).GetProperties().Where(p => p.PropertyType != typeof(Boolean)).Select(p => p.Name)
+            .Select(p => messageDto.GetType().GetProperty(p)!.GetCustomAttribute<DisplayAttribute>()!.Name!).ToList();
     }
 
     private async Task ClearValidation()

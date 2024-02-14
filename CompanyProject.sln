@@ -33,7 +33,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorComponentClassLibrary
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RefitInterfaces", "RefitInterfaces\RefitInterfaces.csproj", "{765DC472-DAA3-46E1-8D01-BFD6A75C51E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelpClasses", "HelpClasses\HelpClasses.csproj", "{C8ED67E9-316E-4717-8A97-1F8A99AF41F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelpClasses", "HelpClasses\HelpClasses.csproj", "{C8ED67E9-316E-4717-8A97-1F8A99AF41F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
