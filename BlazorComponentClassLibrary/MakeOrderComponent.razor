@@ -1,19 +1,62 @@
-﻿<h3>MakeOrderComponent</h3>
-<Container>
-
+﻿<Container>
+    <Form Margin="Margin.Is2.OnX">
+        <Validations @ref="fluentValidations" Mode="ValidationMode.Auto" Model="@orderViewModelDto" HandlerType="typeof(FluentValidationHandler)">
+            <Row>
+                <Column ColumnSize="ColumnSize.IsFull">
+                    <Validations>
+                        <Field>
+                            <FieldLabel RequiredIndicator><Strong>@orderParametersList[0].TrimEnd('*')</Strong></FieldLabel>
+                            <TextEdit Role="TextRole.Text" Placeholder="Как к вам обрщаться?" @bind-Text="orderViewModelDto.Name">
+                                <Feedback>
+                                    <ValidationError />
+                                </Feedback>
+                            </TextEdit>
+                        </Field>
+                    </Validations>
+                </Column>
+            </Row>
+            <Row>
+                <Column ColumnSize="ColumnSize.IsThird">
+                    <Validation>
+                        <Field>
+                            <FieldLabel RequiredIndicator><Strong>@orderParametersList[1].Trim('*')</Strong></FieldLabel>
+                                <TextEdit Role="TextRole.Telephone" Placeholder="+7-000-000-00-00" @bind-Text="orderViewModelDto.MessageNumber">
+                                    <Feedback>
+                                        <ValidationError />
+                                    </Feedback>
+                                </TextEdit>
+                        </Field>
+                    </Validation>
+                </Column>
+                <Column ColumnSize="ColumnSize.IsThird">
+                        <Field>
+                            <FieldLabel><Strong>@orderParametersList[2]</Strong></FieldLabel>
+                                <TextEdit Role="TextRole.Telephone" Placeholder="+7-000-000-00-00" @bind-Text="orderViewModelDto.MessageNumber">
+                                </TextEdit>
+                        </Field>
+                </Column>
+                <Column ColumnSize="ColumnSize.IsThird">
+                    <Field>
+                        <FieldLabel><Strong>@orderParametersList[3]</Strong></FieldLabel>
+                        <TextEdit Role="TextRole.Email" Placeholder="Ваш адрес электронной почты" @bind-Text="orderViewModelDto.Email">
+                        </TextEdit>
+                    </Field>
+                </Column>
+            </Row>
+        </Validations>
+    </Form>
 </Container>
 
 @code {
     OrderViewModelDto orderViewModelDto = new();
-    
-    List<string>orderParametersList { get; set; }
+    Validations fluentValidations;
+
+    List<string> orderParametersList { get; set; }
     protected override async Task OnInitializedAsync()
     {
         orderParametersList = typeof(OrderViewModelDto).GetProperties().Where(p => p.PropertyType != typeof(Dto.AddressDto) && p.PropertyType != typeof(Boolean)).Select(p => p.Name)
             .Select(p => orderViewModelDto.GetType().GetProperty(p)!.GetCustomAttribute<DisplayAttribute>()!.Name!).ToList();
-        
-        orderParametersList.AddRange(new[] { "Territory", "District", "PopulatedArea", "Street", "HouseNumber", "ApartmentOrOfficeNumber" }
-            .Select(p => orderViewModelDto.AddressData.GetType().GetProperty(p)!.GetCustomAttribute<DisplayAttribute>()!.Name!)
-            .ToList());
+        orderParametersList.AddRange(typeof(AddressDto).GetProperties().Select(p => p.Name)
+            .Select(p => orderViewModelDto.AddressData!.GetType().GetProperty(p)!.GetCustomAttribute<DisplayAttribute>()!.Name!).ToList());
     }
 }

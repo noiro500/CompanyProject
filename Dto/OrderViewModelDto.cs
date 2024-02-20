@@ -5,7 +5,7 @@ namespace Dto
 {
     public record OrderViewModelDto
     {
-        [Display(Name = "Полное имя заказчика (на русском языке): *")]
+        [Display(Name = "Полное имя заказчика: *")]
         public string? Name { get; set; }
         [Display(Name = "Номер телефона: *")]
         public string? PhoneNumber { get; set; }
