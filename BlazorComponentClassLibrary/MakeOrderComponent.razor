@@ -64,7 +64,8 @@
                             int j = 2;
                             foreach (var t in districtList)
                             {
-                                <SelectItem Value=@j>@t.</SelectItem>
+                                <SelectItem Value=@j>@t</SelectItem>
+                                j++;
                             }
                             selectedTerritory = 2;
                         }
