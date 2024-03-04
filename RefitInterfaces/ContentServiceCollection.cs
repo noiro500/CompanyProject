@@ -16,6 +16,8 @@ public static class ContentServiceCollection
             .ConfigureHttpClient(httpClient => { httpClient.BaseAddress = new Uri(uri); });
         services.AddRefitClient<IContentServiceMessage>()
             .ConfigureHttpClient(httpClient => { httpClient.BaseAddress = new Uri(uri); });
+        services.AddRefitClient<IContentServiceAddress>()
+            .ConfigureHttpClient(httpClient => { httpClient.BaseAddress = new Uri(uri); });
         return services;
     }
 }
