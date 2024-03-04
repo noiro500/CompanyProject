@@ -124,22 +124,6 @@
         "TtlSeconds": 10
 
       }
-    },
-    {
-      "DownstreamPathTemplate": "/api/v1/Message",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "companyprojectmessageservice",
-          "Port": 80
-        }
-      ],
-      "UpstreamPathTemplate": "/gateway/v1/Message",
-      "UpstreamHttpMethod": [ "Post" ],
-      "FileCacheOptions": {
-        "TtlSeconds": 10
-
-      }
     }
 
   ]

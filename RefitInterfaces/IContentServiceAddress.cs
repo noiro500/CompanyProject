@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,6 @@ namespace RefitInterfaces
     public interface IContentServiceAddress
     {
         [Post("/gateway/v1/Address/GetPartOfAddress")]
-        Task<List<string>> GetPartOfAddress([Body] string parameter);
+        Task<List<string>> GetPartOfAddress(string parameter);
     }
 }

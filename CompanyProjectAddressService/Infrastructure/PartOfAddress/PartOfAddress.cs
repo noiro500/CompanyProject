@@ -15,7 +15,7 @@ namespace CompanyProjectAddressService.Infrastructure.PartOfAddress
 
         public async Task<IList<string>> GetAddressPart(string parameter)
         {
-            if (!string.IsNullOrWhiteSpace(parameter))
+            if (string.IsNullOrWhiteSpace(parameter))
                 return null;
             IList<string>? result = new List<string>();
             var repository = _unitOfWork.Repository<AddressInDb>();
@@ -56,23 +56,5 @@ namespace CompanyProjectAddressService.Infrastructure.PartOfAddress
             return result;
         }
 
-        public string HtmlPart(string partOfAddress, IList<string> offnameList)
-        {
-            var html=new StringBuilder();
-            html.AppendLine($"<select name=\"{partOfAddress}\">");
-            if(partOfAddress== "District")
-                html.AppendLine($"<option disabled selected value=\"\">Выберите район/округ/городской округ</option>");
-            else if(partOfAddress== "PopulatedArea")
-                html.AppendLine($"<option disabled selected value=\"\">Выберите населенный пункт</option>");
-            else if( partOfAddress== "Street")
-                html.AppendLine($"<option disabled selected value=\"\">Выберите улицу/проспект/переулок</option>");
-            foreach (var item in offnameList)
-            {
-                html.AppendLine($"<option value=\"{item}\">{item}</option>");
-            }
-            html.AppendLine("</select>");
-            var a = html.ToString();
-            return html.ToString();
-        }
     }
 }

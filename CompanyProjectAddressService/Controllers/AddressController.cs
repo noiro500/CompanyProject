@@ -19,18 +19,11 @@ namespace CompanyProjectAddressService.Controllers
         public async Task<List<string>> GetPartOfAddress(string parameter)
         {
             //if (!parameters.Any())
-            if (!string.IsNullOrWhiteSpace(parameter))
+            if (string.IsNullOrWhiteSpace(parameter))
                 return new List<string>{"Not found"};
             var result = await _partOfAddress.GetAddressPart(parameter);
-            if (result is null)
+            if (!result.Any())
                 return new List<string>{"Not found"};
-            //HttpContext.Response.Headers.Add("Access-Control-Allow-Origin", "*");
-            //return new ContentResult
-            //{
-            //    Content = _partOfAddress.HtmlPart(parameters[0], result),
-            //    ContentType = "text/html",
-            //    StatusCode = 200
-            //};
             return result.ToList();
         }
     }
