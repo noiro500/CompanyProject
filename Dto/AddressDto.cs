@@ -5,15 +5,15 @@ namespace Dto
 {
     public record AddressDto
     {
-            [Display(Name = "Край/область: *")]
+            [Display(Name = "Край/область: ")]
             public string? Territory { get; set; }
-            [Display(Name = "Район/округ/городской округ: *")]
+            [Display(Name = "Район/округ/городской округ: ")]
             public string? District { get; set; }
-            [Display(Name = "Населенный пункт: *")]
+            [Display(Name = "Населенный пункт: ")]
             public string? PopulatedArea { get; set; }
             [Display(Name = "Улица/проспект/переулок: ")]
             public string? Street { get; set; }
-            [Display(Name = "Номер дома/строения: *")]
+            [Display(Name = "Номер дома/строения: ")]
             public string? HouseNumber { get; set; }
             [Display(Name = "Номер квартиры/офиса:")]
             public string? ApartmentOrOfficeNumber { get; set; }

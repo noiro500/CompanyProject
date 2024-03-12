@@ -68,8 +68,8 @@
                 </Column>
             </Row>
             <Row>
-                <Column ColumnSize="ColumnSize.IsFull" Margin="Margin.Is0">
-                        <Check TValue="bool" Class="checkbox" @bind-Checked="isAdoptedPrivacyPolicy">
+            <Column ColumnSize="ColumnSize.IsFull" >
+                <Check TValue="bool" Class="checkbox" Style="top: -10px;" @bind-Checked="isAdoptedPrivacyPolicy">
                             <Span>Я принимаю <Link TextColor="TextColor.Dark" To="Resources/Files/privacy.pdf"><Strong>Политику конфиденциальности</Strong></Link></Span>
                         </Check>
                 </Column>

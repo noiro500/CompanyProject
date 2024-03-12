@@ -13,5 +13,6 @@ namespace RefitInterfaces
     {
         [Post("/gateway/v1/Address/GetPartOfAddress")]
         Task<List<string>> GetPartOfAddress(string parameter);
+
     }
 }

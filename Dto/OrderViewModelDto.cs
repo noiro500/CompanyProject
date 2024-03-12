@@ -5,9 +5,9 @@ namespace Dto
 {
     public record OrderViewModelDto
     {
-        [Display(Name = "Полное имя заказчика: *")]
+        [Display(Name = "Полное имя заказчика:")]
         public string? Name { get; set; }
-        [Display(Name = "Номер телефона: *")]
+        [Display(Name = "Номер телефона:")]
         public string? PhoneNumber { get; set; }
         [DataType(DataType.Text)]
         [Display(Name = "Номер Telegram/WhatsApp:")]
@@ -15,7 +15,7 @@ namespace Dto
         [Display(Name = "E-mail:")]
         public string? Email { get; set; }
         public AddressDto? AddressData { get; set; } = new();
-        [Display(Name = "Причина вызова мастера (если причины нет в списке, выберите 'Прочее'): *")]
+        [Display(Name = "Причина вызова мастера (если причины нет в списке, выберите 'Прочее'):")]
         public string? TypeOfFailure { get; set; }
         [DataType(DataType.MultilineText)]
         [Display(Name = "Краткое описание причины вызова мастера:")]

@@ -50,7 +50,7 @@
                 <Field>
                     <FieldLabel RequiredIndicator><Strong>@orderParametersList[7]</Strong></FieldLabel>
                     <Select TValue="int" SelectedValue=@selectedTerritory SelectedValueChanged="GetDistrictAsync">
-                        <SelectItem Value="1" Disabled="true" >Выберите край/область...</SelectItem>
+                        <SelectItem Value="1" Disabled="true">Выберите край/область...</SelectItem>
                         <SelectItem Value="2">Ставропольский край</SelectItem>
                     </Select>
                 </Field>
@@ -83,7 +83,94 @@
                 </Field>
             </Column>
         </Row>
+        <Row>
+            <Column ColumnSize="ColumnSize.IsThird">
+                <Field>
+                    <FieldLabel><Strong>@orderParametersList[10]</Strong></FieldLabel>
+                    <Select TValue="int" SelectedValue="1">
+                        <SelectItem Value="1" Disabled="true">Выберите улицу/проспект/переулок...</SelectItem>
+                        @* Сделать запрос к бд *@
+                        <SelectItem Value="2">Ставропольский край</SelectItem>
+                    </Select>
+                </Field>
+            </Column>
+            <Column ColumnSize="ColumnSize.IsThird">
+                <Validations>
+                    <Field>
+                        <FieldLabel RequiredIndicator><Strong>@orderParametersList[11]</Strong></FieldLabel>
+                        <TextEdit Role="TextRole.Text" Placeholder="Введите номер дома/строения" @bind-Text="orderViewModelDto.AddressData.HouseNumber">
+                            <Feedback>
+                                <ValidationError />
+                            </Feedback>
+                        </TextEdit>
+                    </Field>
+                </Validations>
+            </Column>
+            <Column ColumnSize="ColumnSize.IsThird">
+                <Field>
+                    <FieldLabel><Strong>@orderParametersList[12]</Strong></FieldLabel>
+                    <TextEdit Role="TextRole.Text" Placeholder="Введите номер квартиры/офиса" @bind-Text="orderViewModelDto.AddressData.ApartmentOrOfficeNumber">
+                    </TextEdit>
+                </Field>
+            </Column>
+        </Row>
+        <Row>
+            <Column ColumnSize="ColumnSize.IsFull">
+                <Field>
+                    <FieldLabel RequiredIndicator><Strong>@orderParametersList[4]</Strong></FieldLabel>
+                    <Select TValue="int" SelectedValue="1">
+                        <SelectItem Value="1" Disabled="true">Причина вызова мастера...</SelectItem>
+                        @* Сделать запрос к бд *@
+                        <SelectItem Value="2">Ставропольский край</SelectItem>
+                    </Select>
+                </Field>
+            </Column>
+        </Row>
+        <Row>
+            <Column ColumnSize="ColumnSize.IsFull">
+                @* <Validation> *@
+                <Field>
+                    <FieldLabel><Strong>@orderParametersList[5]</Strong></FieldLabel>
+                    <MemoEdit MaxLength="1000" Rows="5" Style="resize: none" Placeholder="Краткое описание причины вызова (максимум 1000 символов)" @bind-Text="orderViewModelDto.SpecialInstruction">
+                        @* <Feedback>
+                        <ValidationError />
+                        </Feedback> *@
+                    </MemoEdit>
+                </Field>
+                @* </Validation> *@
+            </Column>
+        </Row>
+        <Row>
+            <Column ColumnSize="ColumnSize.IsFull">
+                @* <Validation> *@
+                <Field>
+                    <FieldLabel><Strong>@orderParametersList[6]</Strong></FieldLabel>
+                    <MemoEdit MaxLength="1000" Rows="5" Style="resize: none" Placeholder="Дополнительные сведения (схема проезда, код домофона и т.д.) (максимум 1000 символов)" @bind-Text="orderViewModelDto.Description">
+                        @* <Feedback>
+                        <ValidationError />
+                        </Feedback> *@
+                    </MemoEdit>
+                </Field>
+                @* </Validation> *@
+            </Column>
+        </Row>
+        <Row>
+            <Column ColumnSize="ColumnSize.IsFull">
+                <Check TValue="bool" Class="checkbox" Style="top: -10px;" @bind-Checked="isAdoptedPrivacyPolicy">
+                    <Span>Я принимаю <Link TextColor="TextColor.Dark" To="Resources/Files/privacy.pdf"><Strong>Политику конфиденциальности</Strong></Link></Span>
+                </Check>
+            </Column>
+        </Row>
+        <Row>
+            <Column ColumnSize="ColumnSize.IsFull">
+                <Div>
+                    <Button Color="Color.Primary">Далее</Button>
+                    <Button Color="Color.Secondary" Type="ButtonType.Reset">Очистить</Button>
+                </Div>
+            </Column>
+        </Row>
     </Form>
+    <br />
 </Container>
 
 @code {
@@ -92,7 +179,8 @@
     List<string> orderParametersList { get; set; }
     int selectedDistrict { get; set; }
     List<string> districtList = new();
-    int selectedTerritory { get; set;}
+    int selectedTerritory { get; set; }
+    bool isAdoptedPrivacyPolicy = true;
 
     protected override async Task OnInitializedAsync()
     {
@@ -106,6 +194,6 @@
     protected async Task GetDistrictAsync()
     {
         districtList = await _contentServiceAddress.GetPartOfAddress("District");
-        
+
     }
 }
