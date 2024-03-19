@@ -8,7 +8,7 @@
     <Validations @ref="@fluentValidations" Mode="ValidationMode.Manual" Model="@messageDto" HandlerType="typeof(FluentValidationHandler)">
         <Row>
             <Column ColumnSize="ColumnSize.IsHalf">
-                <Validation>
+                @* <Validation>
                     <Field>
                         <FieldLabel RequiredIndicator><Strong>@messageParametersList[0]</Strong></FieldLabel>
                         <TextEdit Role="TextRole.Text" Placeholder="Как к вам обрщаться?" @bind-Text="messageDto.PersonName">
@@ -17,7 +17,13 @@
                             </Feedback>
                         </TextEdit>
                     </Field>
-                </Validation>
+                </Validation> *@
+                <TestComponent 
+                    Label=@messageParametersList[0] 
+                    @bind-Text="messageDto.PersonName" 
+                    TextRole="TextRole.Text" 
+                    Placeholder="Как к вам обрщаться"
+                    />
             </Column>
             <Column ColumnSize="ColumnSize.IsHalf">
                 <Validation>

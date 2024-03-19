@@ -1,0 +1,33 @@
+﻿<Validation>
+    <Field>
+        <FieldLabel RequiredIndicator><Strong>@Label</Strong></FieldLabel>
+    <TextEdit Role="@TextRole" Placeholder=@Placeholder Text="@text" TextChanged="@ChangeValue">
+            <Feedback>
+                <ValidationError />
+            </Feedback>
+        </TextEdit>
+    </Field>
+</Validation>
+
+@code {
+    [Parameter]
+    public string Label { get; set; }
+    [Parameter]
+    public TextRole TextRole { get; set; }
+    [Parameter]
+    public string Placeholder { get; set; }
+    string text;
+    [Parameter]
+    public string Text
+    {
+        get { return text; }
+        set { text = value; }
+    }
+    [Parameter]
+    public EventCallback<string> TextChanged { get; set; }
+    async Task ChangeValue(string value)
+    {
+        text = value;
+        await TextChanged.InvokeAsync(text);
+    }
+}
