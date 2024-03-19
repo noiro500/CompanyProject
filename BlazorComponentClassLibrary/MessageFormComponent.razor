@@ -11,83 +11,83 @@
                 <Validation>
                     <Field>
                         <FieldLabel RequiredIndicator><Strong>@messageParametersList[0]</Strong></FieldLabel>
-                                <TextEdit Role="TextRole.Text" Placeholder="Как к вам обрщаться?" @bind-Text="messageDto.PersonName">
-                                    <Feedback>
-                                        <ValidationError />
-                                    </Feedback>
-                                </TextEdit>
-                        </Field>
-                    </Validation>
-                </Column>
-                <Column ColumnSize="ColumnSize.IsHalf">
-                    <Validation>
-                        <Field>
-                            <FieldLabel RequiredIndicator><Strong>@messageParametersList[1]</Strong></FieldLabel>
-                                <TextEdit Role="TextRole.Text" Placeholder="Тема обращения" @bind-Text="messageDto.SubjectMessage">
-                                    <Feedback>
-                                        <ValidationError />
-                                    </Feedback>
-                                </TextEdit>
-                        </Field>
-                    </Validation>
-                </Column>
-            </Row>
-            <Row>
-                <Column ColumnSize="ColumnSize.IsHalf">
-                        <Field>
-                            <FieldLabel><Strong>@messageParametersList[2]</Strong></FieldLabel>
-                                <TextEdit Role="TextRole.Email" Placeholder="Ваш адрес электронной почты" @bind-Text="messageDto.Email">
-                                </TextEdit>
-                        </Field>
-                </Column>
-                <Column ColumnSize="ColumnSize.IsHalf">
-                    <Validation>
-                        <Field>
-                            <FieldLabel RequiredIndicator><Strong>@messageParametersList[3]</Strong></FieldLabel>
-                                <TextEdit Role="TextRole.Telephone" Placeholder="+7-000-000-00-00" @bind-Text="messageDto.WhatsAppTelegramNumber">
-                                    <Feedback>
-                                        <ValidationError />
-                                    </Feedback>
-                                </TextEdit>
-                        </Field>
-                    </Validation>
-                </Column>
-            </Row>
-            <Row>
-                <Column ColumnSize="ColumnSize.IsFull">
-                    <Validation>
-                        <Field>
-                            <FieldLabel RequiredIndicator><Strong>@messageParametersList[4]</Strong></FieldLabel>
-                                <MemoEdit MaxLength="280" Rows="4" Style="resize: none" Placeholder="Ваше сообщение (максимум 280 символов)" @bind-Text="messageDto.Content">
-                                    <Feedback>
-                                        <ValidationError />
-                                    </Feedback>
-                                </MemoEdit>
-                        </Field>
-                    </Validation>
-                </Column>
-            </Row>
-            <Row>
-            <Column ColumnSize="ColumnSize.IsFull" >
+                        <TextEdit Role="TextRole.Text" Placeholder="Как к вам обрщаться?" @bind-Text="messageDto.PersonName">
+                            <Feedback>
+                                <ValidationError />
+                            </Feedback>
+                        </TextEdit>
+                    </Field>
+                </Validation>
+            </Column>
+            <Column ColumnSize="ColumnSize.IsHalf">
+                <Validation>
+                    <Field>
+                        <FieldLabel RequiredIndicator><Strong>@messageParametersList[1]</Strong></FieldLabel>
+                        <TextEdit Role="TextRole.Text" Placeholder="Тема обращения" @bind-Text="messageDto.SubjectMessage">
+                            <Feedback>
+                                <ValidationError />
+                            </Feedback>
+                        </TextEdit>
+                    </Field>
+                </Validation>
+            </Column>
+        </Row>
+        <Row>
+            <Column ColumnSize="ColumnSize.IsHalf">
+                <Field>
+                    <FieldLabel><Strong>@messageParametersList[2]</Strong></FieldLabel>
+                    <TextEdit Role="TextRole.Email" Placeholder="Ваш адрес электронной почты" @bind-Text="messageDto.Email">
+                    </TextEdit>
+                </Field>
+            </Column>
+            <Column ColumnSize="ColumnSize.IsHalf">
+                <Validation>
+                    <Field>
+                        <FieldLabel RequiredIndicator><Strong>@messageParametersList[3]</Strong></FieldLabel>
+                        <TextEdit Role="TextRole.Telephone" Placeholder="+7-000-000-00-00" @bind-Text="messageDto.WhatsAppTelegramNumber">
+                            <Feedback>
+                                <ValidationError />
+                            </Feedback>
+                        </TextEdit>
+                    </Field>
+                </Validation>
+            </Column>
+        </Row>
+        <Row>
+            <Column ColumnSize="ColumnSize.IsFull">
+                <Validation>
+                    <Field>
+                        <FieldLabel RequiredIndicator><Strong>@messageParametersList[4]</Strong></FieldLabel>
+                        <MemoEdit MaxLength="280" Rows="4" Style="resize: none" Placeholder="Ваше сообщение (максимум 280 символов)" @bind-Text="messageDto.Content">
+                            <Feedback>
+                                <ValidationError />
+                            </Feedback>
+                        </MemoEdit>
+                    </Field>
+                </Validation>
+            </Column>
+        </Row>
+        <Row>
+            <Column ColumnSize="ColumnSize.IsFull">
                 <Check TValue="bool" Class="checkbox" Style="top: -10px;" @bind-Checked="isAdoptedPrivacyPolicy">
-                            <Span>Я принимаю <Link TextColor="TextColor.Dark" To="Resources/Files/privacy.pdf"><Strong>Политику конфиденциальности</Strong></Link></Span>
-                        </Check>
-                </Column>
-            </Row>
-            <Row>
-                <Column ColumnSize="ColumnSize.IsFull">
-                    <Div>
-                        <Button Color="Color.Primary" Disabled="@isDisabled" Clicked="@OnButtonSendMessageClicked">Отправить</Button>
-                        <Button Color="Color.Secondary" Type="ButtonType.Reset" @onclick="ClearValidation">Очистить</Button>
-                    </Div>
-                </Column>
-            </Row>
-        </Validations>
-    </Form>
-    <br />
-    <link href="_content/Blazorise.Snackbar/blazorise.snackbar.css" rel="stylesheet" />
+                    <Span>Я принимаю <Link TextColor="TextColor.Dark" To="Resources/Files/privacy.pdf"><Strong>Политику конфиденциальности</Strong></Link></Span>
+                </Check>
+            </Column>
+        </Row>
+        <Row>
+            <Column ColumnSize="ColumnSize.IsFull">
+                <Div>
+                    <Button Color="Color.Primary" Disabled="@isDisabled" Clicked="@OnButtonSendMessageClicked">Отправить</Button>
+                    <Button Color="Color.Secondary" Type="ButtonType.Reset" @onclick="ClearValidation">Очистить</Button>
+                </Div>
+            </Column>
+        </Row>
+    </Validations>
+</Form>
+<br />
+<link href="_content/Blazorise.Snackbar/blazorise.snackbar.css" rel="stylesheet" />
 
-    @code {
+@code {
     MessageDto messageDto = new();
     Validations fluentValidations;
     [Inject]
