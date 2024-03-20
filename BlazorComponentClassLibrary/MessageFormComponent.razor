@@ -8,7 +8,7 @@
     <Validations @ref="@fluentValidations" Mode="ValidationMode.Manual" Model="@messageDto" HandlerType="typeof(FluentValidationHandler)">
         <Row>
             <Column ColumnSize="ColumnSize.IsHalf">
-                @* <Validation>
+                <Validation>
                     <Field>
                         <FieldLabel RequiredIndicator><Strong>@messageParametersList[0]</Strong></FieldLabel>
                         <TextEdit Role="TextRole.Text" Placeholder="Как к вам обрщаться?" @bind-Text="messageDto.PersonName">
@@ -17,13 +17,7 @@
                             </Feedback>
                         </TextEdit>
                     </Field>
-                </Validation> *@
-                <TestComponent 
-                    Label=@messageParametersList[0] 
-                    @bind-Text="messageDto.PersonName" 
-                    TextRole="TextRole.Text" 
-                    Placeholder="Как к вам обрщаться"
-                    />
+                </Validation>
             </Column>
             <Column ColumnSize="ColumnSize.IsHalf">
                 <Validation>
@@ -94,7 +88,7 @@
 <link href="_content/Blazorise.Snackbar/blazorise.snackbar.css" rel="stylesheet" />
 
 @code {
-    MessageDto messageDto = new();
+    MessageDto messageDto {get; set;}
     Validations fluentValidations;
     [Inject]
     INotificationService NotificationService { get; set; }
@@ -104,6 +98,7 @@
 
     protected override async Task OnInitializedAsync()
     {
+        messageDto = new();
         messageParametersList = typeof(MessageDto).GetProperties().Where(p => p.PropertyType != typeof(Boolean)).Select(p => p.Name)
             .Select(p => messageDto.GetType().GetProperty(p)!.GetCustomAttribute<DisplayAttribute>()!.Name!).ToList();
     }
