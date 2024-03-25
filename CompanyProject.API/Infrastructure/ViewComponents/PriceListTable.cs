@@ -15,7 +15,7 @@ public class PriceListTable : ViewComponent
 
     public async Task<IViewComponentResult> InvokeAsync(string pageName = "full" /*, bool isFull = false*/)
     {
-        var result = await _contentServicePriceList.Get(pageName);
+        var result = await _contentServicePriceList.GetPriceList(pageName);
         return View("PriceListTable", GetPriceListResultDic(ref result));
     }
 

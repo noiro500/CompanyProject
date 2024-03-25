@@ -80,4 +80,4 @@ public record CompanyContactDto(
     bool CompanyIsUsing
 );
 
-public record struct TypeOfFailureDto(string Service, string ServiceName);
+public record TypeOfFailureDto(int id, string Service, string ServiceName);

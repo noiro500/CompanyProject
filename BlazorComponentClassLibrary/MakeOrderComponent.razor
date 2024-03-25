@@ -1,4 +1,5 @@
 ﻿@inject IContentServiceAddress _contentServiceAddress
+@inject IContentServicePriceList _contentServicePriceList
 <Container>
     <Form Margin="Margin.Is2.OnX">
         <Validations @ref="fluentValidations" Mode="ValidationMode.Manual" Model="@orderViewModelDto" HandlerType="typeof(FluentValidationHandler)">
@@ -114,18 +115,23 @@
                 </Field>
             </Column>
         </Row>
-        <Row>
+        @* <Row>
             <Column ColumnSize="ColumnSize.IsFull">
                 <Field>
                     <FieldLabel RequiredIndicator><Strong>@orderParametersList[4]</Strong></FieldLabel>
-                    <Select TValue="int" SelectedValue="1">
-                        <SelectItem Value="1" Disabled="true">Причина вызова мастера...</SelectItem>
-                        @* Сделать запрос к бд *@
-                        <SelectItem Value="2">Ставропольский край</SelectItem>
+                    <Select @bind-SelectedValue="@SelectedTypeOfFailure">
+                        <SelectItem Disabled="true">Причина вызова мастера (если причины нет в списке, выберите 'Прочее')</SelectItem>
+                        @{
+                            int j = 2;
+                            foreach (var t in TypeOfFailureList)
+                            {
+                                
+                            }
+                        }
                     </Select>
                 </Field>
             </Column>
-        </Row>
+        </Row> *@
         <Row>
             <Column ColumnSize="ColumnSize.IsFull">
                 @* <Validation> *@
@@ -174,20 +180,24 @@
 </Container>
 
 @code {
-    OrderViewModelDto orderViewModelDto = new();
+    OrderViewModelDto orderViewModelDto{ get; set; }
     Validations fluentValidations;
     List<string> orderParametersList { get; set; }
     int selectedDistrict { get; set; }
     List<string> districtList = new();
     int selectedTerritory { get; set; }
     bool isAdoptedPrivacyPolicy = true;
+    List<TypeOfFailureDto> TypeOfFailureList { get; set; }
+    string SelectedTypeOfFailure { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
+        orderViewModelDto = new();
         orderParametersList = typeof(OrderViewModelDto).GetProperties().Where(p => p.PropertyType != typeof(Dto.AddressDto) && p.PropertyType != typeof(Boolean)).Select(p => p.Name)
             .Select(p => orderViewModelDto.GetType().GetProperty(p)!.GetCustomAttribute<DisplayAttribute>()!.Name!).ToList();
         orderParametersList.AddRange(typeof(AddressDto).GetProperties().Select(p => p.Name)
             .Select(p => orderViewModelDto.AddressData!.GetType().GetProperty(p)!.GetCustomAttribute<DisplayAttribute>()!.Name!).ToList());
+        TypeOfFailureList = (await _contentServicePriceList.GetPriceList("typeoffailures")).Select(u=>new TypeOfFailureDto(u.Service, u.ServiceName )).ToList();
         selectedTerritory = 1;
     }
 

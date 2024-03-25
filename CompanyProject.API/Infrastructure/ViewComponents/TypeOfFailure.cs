@@ -14,7 +14,7 @@ public class TypeOfFailure : ViewComponent
 
     public async Task<IViewComponentResult> InvokeAsync()
     {
-        var result = await _contentServicePriceList.Get("typeoffailures");
+        var result = await _contentServicePriceList.GetPriceList("typeoffailures");
         return View("TypeOfFailure", result);
     }
 }
