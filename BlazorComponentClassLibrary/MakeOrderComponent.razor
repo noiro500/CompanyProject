@@ -50,7 +50,7 @@
             <Column ColumnSize="ColumnSize.IsThird">
                 <Field>
                     <FieldLabel RequiredIndicator><Strong>@orderParametersList[7]</Strong></FieldLabel>
-                    <Select TValue="int" SelectedValue=@SelectedTerritory SelectedValueChanged="@(async () => DistrictList = await _contentServiceAddress.GetPartOfAddress("District"))">
+                    <Select TValue="int" SelectedValue=@SelectedTerritory SelectedValueChanged="GetDistrictAsync">
                         <SelectItem Value="1" Disabled="true">Выберите край/область...</SelectItem>
                         <SelectItem Value="2">Ставропольский край</SelectItem>
                     </Select>
@@ -195,9 +195,9 @@
         TypeOfFailureList = (await _contentServicePriceList.GetListOfTypeOfFailure());
     }
 
-    protected async Task GetDistrictAsync()
+    protected async Task GetDistrictAsync(int value)
     {
         DistrictList = await _contentServiceAddress.GetPartOfAddress("District");
-
+        SelectedTerritory = value;
     }
 }
