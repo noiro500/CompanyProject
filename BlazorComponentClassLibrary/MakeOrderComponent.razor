@@ -50,7 +50,7 @@
             <Column ColumnSize="ColumnSize.IsThird">
                 <Field>
                     <FieldLabel RequiredIndicator><Strong>@orderParametersList[7]</Strong></FieldLabel>
-                    <Select TValue="int" SelectedValue=@selectedTerritory SelectedValueChanged="GetDistrictAsync">
+                    <Select TValue="int" SelectedValue=@SelectedTerritory SelectedValueChanged="@(async () => DistrictList = await _contentServiceAddress.GetPartOfAddress("District"))">
                         <SelectItem Value="1" Disabled="true">Выберите край/область...</SelectItem>
                         <SelectItem Value="2">Ставропольский край</SelectItem>
                     </Select>
@@ -59,18 +59,14 @@
             <Column ColumnSize="ColumnSize.IsThird">
                 <Field>
                     <FieldLabel RequiredIndicator><Strong>@orderParametersList[8]</Strong></FieldLabel>
-                    <Select TValue="int" SelectedValue="1">
-                        <SelectItem Value="1" Disabled="true">Выберите район/округ/городской округ...</SelectItem>
-                        @{
-                            int j = 2;
-                            foreach (var t in districtList)
-                            {
-                                <SelectItem Value=@j>@t</SelectItem>
-                                j++;
-                            }
-                            selectedTerritory = 2;
-                        }
-                    </Select>
+                    <SelectList TItem="PartOfAddressDto" 
+                                TValue="int"
+                                Data="@DistrictList"
+                                TextField="@((item) => item.Name)"
+                                ValueField="@((item) => item.Id)"
+                                DefaultItemDisabled="true"
+                                @bind-SelectedValue="@SelectedDistrict"
+                                DefaultItemText="Выберите район/округ/городской округ..." />
                 </Field>
             </Column>
             <Column ColumnSize="ColumnSize.IsThird">
@@ -115,23 +111,21 @@
                 </Field>
             </Column>
         </Row>
-        @* <Row>
+        <Row>
             <Column ColumnSize="ColumnSize.IsFull">
                 <Field>
                     <FieldLabel RequiredIndicator><Strong>@orderParametersList[4]</Strong></FieldLabel>
-                    <Select @bind-SelectedValue="@SelectedTypeOfFailure">
-                        <SelectItem Disabled="true">Причина вызова мастера (если причины нет в списке, выберите 'Прочее')</SelectItem>
-                        @{
-                            int j = 2;
-                            foreach (var t in TypeOfFailureList)
-                            {
-                                
-                            }
-                        }
-                    </Select>
+                    <SelectList TItem="TypeOfFailureDto"
+                                TValue="int"
+                                Data="@TypeOfFailureList"
+                                TextField="@((item) => item.ServiceName + " - " + item.Service)"
+                                ValueField="@((item) => item.Id)"
+                                DefaultItemDisabled="true"
+                                @bind-SelectedValue="@SelectedTypeOfFailure"
+                                DefaultItemText="Причина вызова мастера (если причины нет в списке, выберите 'Прочее')"/>
                 </Field>
             </Column>
-        </Row> *@
+        </Row>
         <Row>
             <Column ColumnSize="ColumnSize.IsFull">
                 @* <Validation> *@
@@ -184,11 +178,12 @@
     Validations fluentValidations;
     List<string> orderParametersList { get; set; }
     int selectedDistrict { get; set; }
-    List<string> districtList = new();
-    int selectedTerritory { get; set; }
+    IEnumerable<PartOfAddressDto> DistrictList { get; set; } = null!;
+    int SelectedTerritory { get; set; } = 1;
     bool isAdoptedPrivacyPolicy = true;
-    List<TypeOfFailureDto> TypeOfFailureList { get; set; }
-    string SelectedTypeOfFailure { get; set; }
+    IEnumerable<TypeOfFailureDto> TypeOfFailureList { get; set; } = null!;
+    int SelectedTypeOfFailure { get; set; }
+    int SelectedDistrict { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -197,13 +192,12 @@
             .Select(p => orderViewModelDto.GetType().GetProperty(p)!.GetCustomAttribute<DisplayAttribute>()!.Name!).ToList();
         orderParametersList.AddRange(typeof(AddressDto).GetProperties().Select(p => p.Name)
             .Select(p => orderViewModelDto.AddressData!.GetType().GetProperty(p)!.GetCustomAttribute<DisplayAttribute>()!.Name!).ToList());
-        TypeOfFailureList = (await _contentServicePriceList.GetPriceList("typeoffailures")).Select(u=>new TypeOfFailureDto(u.Service, u.ServiceName )).ToList();
-        selectedTerritory = 1;
+        TypeOfFailureList = (await _contentServicePriceList.GetListOfTypeOfFailure());
     }
 
     protected async Task GetDistrictAsync()
     {
-        districtList = await _contentServiceAddress.GetPartOfAddress("District");
+        DistrictList = await _contentServiceAddress.GetPartOfAddress("District");
 
     }
 }

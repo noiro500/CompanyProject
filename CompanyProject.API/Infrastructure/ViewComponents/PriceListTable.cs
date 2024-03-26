@@ -13,7 +13,7 @@ public class PriceListTable : ViewComponent
         _contentServicePriceList = contentService;
     }
 
-    public async Task<IViewComponentResult> InvokeAsync(string pageName = "full" /*, bool isFull = false*/)
+    public async Task<IViewComponentResult> InvokeAsync(string pageName = "full")
     {
         var result = await _contentServicePriceList.GetPriceList(pageName);
         return View("PriceListTable", GetPriceListResultDic(ref result));

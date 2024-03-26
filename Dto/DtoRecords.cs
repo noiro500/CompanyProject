@@ -80,4 +80,5 @@ public record CompanyContactDto(
     bool CompanyIsUsing
 );
 
-public record TypeOfFailureDto(int id, string Service, string ServiceName);
+public record TypeOfFailureDto(int Id, string Service, string ServiceName);
+public record PartOfAddressDto(int Id, string Name);

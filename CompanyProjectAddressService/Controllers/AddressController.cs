@@ -1,4 +1,5 @@
 ﻿using CompanyProjectAddressService.Infrastructure.PartOfAddress;
+using CompanyProjectAddressService.Model;
 using EntityFrameworkCore.Repository.Extensions;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,13 +19,12 @@ namespace CompanyProjectAddressService.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetPartOfAddress(string parameter)
         {
-            //if (!parameters.Any())
             if (string.IsNullOrWhiteSpace(parameter))
                 return BadRequest();
             var result = await _partOfAddress.GetAddressPart(parameter);
             if (!result.Any())
                 return NotFound();
-            return Ok(result);
+            return Ok(Enumerable.Range(1, result.Count).Select(x=>new {Id = x, Name = result[x-1]}));
         }
     }
 }
