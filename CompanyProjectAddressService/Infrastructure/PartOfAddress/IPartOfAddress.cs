@@ -2,7 +2,7 @@
 {
     public interface IPartOfAddress
     {
-        public Task<IList<string>> GetAddressPart(string parameter);
+        public Task<IList<string>> GetAddressPart(string parameter, string selectedParam);
 
     }
 }

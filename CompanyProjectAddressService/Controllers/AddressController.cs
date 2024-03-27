@@ -14,14 +14,14 @@ namespace CompanyProjectAddressService.Controllers
         public AddressController(IPartOfAddress partOfAddress)=>_partOfAddress = partOfAddress ?? throw new ArgumentNullException(nameof(partOfAddress));
 
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status200OK,Type = typeof(IList<string>))]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetPartOfAddress(string parameter)
+        public async Task<IActionResult> GetPartOfAddress(string ident,string selectedParam="")
         {
-            if (string.IsNullOrWhiteSpace(parameter))
+            if (string.IsNullOrWhiteSpace(ident))
                 return BadRequest();
-            var result = await _partOfAddress.GetAddressPart(parameter);
+            var result = await _partOfAddress.GetAddressPart(ident, selectedParam);
             if (!result.Any())
                 return NotFound();
             return Ok(Enumerable.Range(1, result.Count).Select(x=>new {Id = x, Name = result[x-1]}));

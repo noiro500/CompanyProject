@@ -13,13 +13,13 @@ namespace CompanyProjectAddressService.Infrastructure.PartOfAddress
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<IList<string>> GetAddressPart(string parameter)
+        public async Task<IList<string>> GetAddressPart(string ident, string selectedParam)
         {
-            if (string.IsNullOrWhiteSpace(parameter))
+            if (string.IsNullOrWhiteSpace(ident))
                 return null;
             IList<string>? result = new List<string>();
             var repository = _unitOfWork.Repository<AddressInDb>();
-            if (parameter == "District")
+            if (ident == "District")
             {
                 var query = repository.MultipleResultQuery()
                     .AndFilter(p => p.IsUsedInDistrict == true)
@@ -27,10 +27,10 @@ namespace CompanyProjectAddressService.Infrastructure.PartOfAddress
                     .Select(m => m.Offname);
                 result = await repository.SearchAsync(query);
             }
-            else if (parameter == "PopulatedArea")
+            else if (ident == "PopulatedArea")
             {
                 var guid=repository.SingleResultQuery()
-                    .AndFilter(p => (p.Offname == parameter && p.Aolevel==3))
+                    .AndFilter(p => (p.Offname == selectedParam && p.Aolevel==3))
                     .Select(s=>s.Aoguid);
                 var districtAoguid = await repository.FirstOrDefaultAsync(guid);
                 var populatedAreasList = repository.MultipleResultQuery()
@@ -39,10 +39,10 @@ namespace CompanyProjectAddressService.Infrastructure.PartOfAddress
                     .OrderBy(p => p.Offname);
                result = await repository.SearchAsync(populatedAreasList);
             }
-            else if (parameter == "Street")
+            else if (ident == "Street")
             {
                 var guid = repository.SingleResultQuery()
-                    .AndFilter(p => p.Offname == parameter && (p.Aolevel == 6 || p.Aolevel == 4))
+                    .AndFilter(p => p.Offname == selectedParam && (p.Aolevel == 6 || p.Aolevel == 4))
                     .Select(s => s.Aoguid);
                 var populatedAreaAoguid = await repository.FirstOrDefaultAsync(guid);
                 var streetList = repository.MultipleResultQuery()

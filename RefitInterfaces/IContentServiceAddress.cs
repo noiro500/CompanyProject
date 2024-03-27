@@ -12,6 +12,6 @@ namespace RefitInterfaces
     public interface IContentServiceAddress
     {
         [Post("/gateway/v1/Address/GetPartOfAddress")]
-        Task<List<PartOfAddressDto>> GetPartOfAddress(string parameter);
+        Task<List<PartOfAddressDto>> GetPartOfAddress(string ident, string selectedParam="");
     }
 }

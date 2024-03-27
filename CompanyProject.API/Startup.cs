@@ -33,6 +33,7 @@ public class Startup
         services.AddControllersWithViews();
         //services.AddFluentValidationClientsideAdapters();
         services.AddValidatorsFromAssemblyContaining<MessageDto>();
+        services.AddValidatorsFromAssemblyContaining<OrderViewModelDto>();
         //services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
         //services.AddScoped<IValidator<MessageDto>, MessageDtoValidator>();
         //services.AddScoped<IValidator<OrderViewModelDto>, OrderViewModelDto.OrderViewModelDtoValidator>();

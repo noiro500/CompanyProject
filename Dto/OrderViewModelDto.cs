@@ -35,9 +35,9 @@ namespace Dto
                 RuleFor(x => x.PhoneNumber).NotEmpty().WithMessage("Не указан номер телефона");
                 RuleFor(x => x.Email).EmailAddress().WithMessage("Некорректный адрес электронной почты");
                 RuleFor(x => x.TypeOfFailure).NotEmpty().WithMessage("Не выбрана причина вызова мастера").NotNull().WithMessage("Не выбрана причина вызова мастера");
-                RuleFor(x => x.Description).Empty().MaximumLength(2000).WithMessage("Длина сообщения не более 2000 символов");
+                RuleFor(x => x.Description).Empty().MaximumLength(1000).WithMessage("Длина сообщения не более 1000 символов");
                 RuleFor(x => x.SpecialInstruction)
-                    .MaximumLength(2000).WithMessage("Длина сообщения не более 2000 символов");
+                    .MaximumLength(1000).WithMessage("Длина сообщения не более 1000 символов");
                 RuleFor(x => x.AddressData).SetValidator(new AddressDto.AddressDtoValidator());
 
             }

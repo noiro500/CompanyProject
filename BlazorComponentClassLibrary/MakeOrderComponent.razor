@@ -5,7 +5,7 @@
         <Validations @ref="fluentValidations" Mode="ValidationMode.Manual" Model="@orderViewModelDto" HandlerType="typeof(FluentValidationHandler)">
             <Row>
                 <Column ColumnSize="ColumnSize.IsFull">
-                    <Validations>
+                    <Validation>
                         <Field>
                             <FieldLabel RequiredIndicator><Strong>@orderParametersList[0]</Strong></FieldLabel>
                             <TextEdit Role="TextRole.Text" Placeholder="Как к вам обрщаться?" @bind-Text="orderViewModelDto.Name">
@@ -14,7 +14,7 @@
                                 </Feedback>
                             </TextEdit>
                         </Field>
-                    </Validations>
+                    </Validation>
                 </Column>
             </Row>
             <Row>
@@ -22,7 +22,7 @@
                     <Validation>
                         <Field>
                             <FieldLabel RequiredIndicator><Strong>@orderParametersList[1]</Strong></FieldLabel>
-                            <TextEdit Role="TextRole.Telephone" Placeholder="+7-000-000-00-00" @bind-Text="orderViewModelDto.MessageNumber">
+                            <TextEdit Role="TextRole.Telephone" Placeholder="+7-000-000-00-00" @bind-Text="orderViewModelDto.PhoneNumber">
                                 <Feedback>
                                     <ValidationError />
                                 </Feedback>
@@ -59,36 +59,44 @@
             <Column ColumnSize="ColumnSize.IsThird">
                 <Field>
                     <FieldLabel RequiredIndicator><Strong>@orderParametersList[8]</Strong></FieldLabel>
-                    <SelectList TItem="PartOfAddressDto" 
+                    <SelectList TItem="PartOfAddressDto"
                                 TValue="int"
                                 Data="@DistrictList"
                                 TextField="@((item) => item.Name)"
                                 ValueField="@((item) => item.Id)"
                                 DefaultItemDisabled="true"
-                                @bind-SelectedValue="@SelectedDistrict"
+                                SelectedValue="@SelectedDistrict"
+                                SelectedValueChanged="@GetPopulatedAreaAsync"
                                 DefaultItemText="Выберите район/округ/городской округ..." />
                 </Field>
             </Column>
             <Column ColumnSize="ColumnSize.IsThird">
                 <Field>
                     <FieldLabel RequiredIndicator><Strong>@orderParametersList[9]</Strong></FieldLabel>
-                    <Select TValue="int" SelectedValue="1">
-                        <SelectItem Value="1" Disabled="true">Выберите населенный пункт...</SelectItem>
-                        @* Сделать запрос к бд *@
-                        <SelectItem Value="2">Ставропольский край</SelectItem>
-                    </Select>
+                    <SelectList TItem="PartOfAddressDto"
+                                TValue="int"
+                                Data="@PopulatedAreaList"
+                                TextField="@((item) => item.Name)"
+                                ValueField="@((item) => item.Id)"
+                                DefaultItemDisabled="true"
+                                SelectedValue="@SelectedPopulatedArea"
+                                SelectedValueChanged="@GetStreetAsync"
+                                DefaultItemText="Выберите населенный пункт..." />
                 </Field>
             </Column>
         </Row>
         <Row>
             <Column ColumnSize="ColumnSize.IsThird">
                 <Field>
-                    <FieldLabel><Strong>@orderParametersList[10]</Strong></FieldLabel>
-                    <Select TValue="int" SelectedValue="1">
-                        <SelectItem Value="1" Disabled="true">Выберите улицу/проспект/переулок...</SelectItem>
-                        @* Сделать запрос к бд *@
-                        <SelectItem Value="2">Ставропольский край</SelectItem>
-                    </Select>
+                    <FieldLabel RequiredIndicator><Strong>@orderParametersList[10]</Strong></FieldLabel>
+                    <SelectList TItem="PartOfAddressDto"
+                                TValue="int"
+                                Data="@StreetList"
+                                TextField="@((item) => item.Name)"
+                                ValueField="@((item) => item.Id)"
+                                DefaultItemDisabled="true"
+                                @bind-SelectedValue="@SelectedStreet"
+                                DefaultItemText="Выберите улицу/проспект/переулок..." />
                 </Field>
             </Column>
             <Column ColumnSize="ColumnSize.IsThird">
@@ -122,7 +130,7 @@
                                 ValueField="@((item) => item.Id)"
                                 DefaultItemDisabled="true"
                                 @bind-SelectedValue="@SelectedTypeOfFailure"
-                                DefaultItemText="Причина вызова мастера (если причины нет в списке, выберите 'Прочее')"/>
+                                DefaultItemText="Причина вызова мастера (если причины нет в списке, выберите 'Прочее')" />
                 </Field>
             </Column>
         </Row>
@@ -164,8 +172,8 @@
         <Row>
             <Column ColumnSize="ColumnSize.IsFull">
                 <Div>
-                    <Button Color="Color.Primary">Далее</Button>
-                    <Button Color="Color.Secondary" Type="ButtonType.Reset">Очистить</Button>
+                    <Button Color="Color.Primary" Clicked="@OnButtonNextClicked">Далее</Button>
+                    <Button Color="Color.Secondary" Type="ButtonType.Reset" @onclick="ClearValidation">Очистить</Button>
                 </Div>
             </Column>
         </Row>
@@ -174,16 +182,19 @@
 </Container>
 
 @code {
-    OrderViewModelDto orderViewModelDto{ get; set; }
+    OrderViewModelDto orderViewModelDto { get; set; } = null!;
     Validations fluentValidations;
     List<string> orderParametersList { get; set; }
-    int selectedDistrict { get; set; }
-    IEnumerable<PartOfAddressDto> DistrictList { get; set; } = null!;
-    int SelectedTerritory { get; set; } = 1;
     bool isAdoptedPrivacyPolicy = true;
     IEnumerable<TypeOfFailureDto> TypeOfFailureList { get; set; } = null!;
+    IEnumerable<PartOfAddressDto> DistrictList { get; set; } = null!;
+    IEnumerable<PartOfAddressDto> PopulatedAreaList { get; set; } = null!;
+    IEnumerable<PartOfAddressDto> StreetList { get; set; } = null!;
     int SelectedTypeOfFailure { get; set; }
+    int SelectedTerritory { get; set; } = 1;
     int SelectedDistrict { get; set; }
+    int SelectedPopulatedArea { get; set; }
+    int SelectedStreet { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -197,7 +208,38 @@
 
     protected async Task GetDistrictAsync(int value)
     {
-        DistrictList = await _contentServiceAddress.GetPartOfAddress("District");
         SelectedTerritory = value;
+        DistrictList = await _contentServiceAddress.GetPartOfAddress("District");
     }
+
+    protected async Task GetPopulatedAreaAsync(int value)
+    {
+        SelectedDistrict = value;
+        PopulatedAreaList = await _contentServiceAddress.GetPartOfAddress("PopulatedArea", DistrictList.ElementAt(SelectedDistrict - 1).Name);
+    }
+
+    protected async Task GetStreetAsync(int value)
+    {
+        SelectedPopulatedArea = value;
+        StreetList = await _contentServiceAddress.GetPartOfAddress("Street", PopulatedAreaList.ElementAt(SelectedPopulatedArea - 1).Name);
+    }
+
+    private async Task ClearValidation()
+    {
+        await fluentValidations.ClearAll();
+        SelectedTypeOfFailure = 0;
+        SelectedTerritory = 1;
+        SelectedDistrict = 0;
+        SelectedPopulatedArea = 0;
+        SelectedStreet = 0;
+    }
+
+    private async Task OnButtonNextClicked()
+    {
+        if (await fluentValidations.ValidateAll())
+        {
+            Console.WriteLine("Валидация прошла");
+        }
+    }
+
 }
