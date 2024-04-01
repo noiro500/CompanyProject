@@ -1,5 +1,7 @@
-﻿using CompanyProjectContentService.Models;
+﻿using CompanyProjectContentService.CQRS.Queries;
+using CompanyProjectContentService.Models;
 using EntityFrameworkCore.UnitOfWork.Interfaces;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,18 +12,20 @@ namespace CompanyProjectContentService.Controllers;
 public class ContentController : ControllerBase
 {
     private readonly IUnitOfWork _unitOfWork;
+    private readonly IMediator _mediator;
 
-    public ContentController(IUnitOfWork unitOfWork) =>_unitOfWork=unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+    public ContentController(IUnitOfWork unitOfWork, IMediator mediator)
+    {
+        _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+        _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+    }
 
     [HttpGet("{pageName:regex(^\\w+$)}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetPageContentAsync(string pageName)
     {
-        var repository =_unitOfWork.Repository<Page>();
-        var query = repository.SingleResultQuery().AndFilter(page => page.Name == pageName)
-            .Include(source => source.Include(p => p.Paragraphs));
-        var result =await repository.FirstOrDefaultAsync(query);
+        var result = await _mediator.Send(new GetPageContentQuery(pageName, _unitOfWork));
         if (result is null)
             return NotFound();
         return Ok(result);
@@ -32,9 +36,7 @@ public class ContentController : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetTopMenuEntitiesAsync()
     {
-        var repository = _unitOfWork.Repository<TopMenuEntity>();
-        var query = repository.MultipleResultQuery();
-        var result = await repository.SearchAsync(query);
+        var result = await _mediator.Send(new GetTopMenuEntitiesQuery(_unitOfWork));
         if (result is null)
             return NotFound();
         return Ok(result);
@@ -45,9 +47,7 @@ public class ContentController : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetFooterContentAsync()
     {
-        var repository = _unitOfWork.Repository<Page>();
-        var query = repository.MultipleResultQuery();
-        var result = await repository.SearchAsync(query);
+        var result = await _mediator.Send(new GetFooterContentQuery(_unitOfWork));
         if (result is null)
             return NotFound();
         return Ok(result);
@@ -58,9 +58,7 @@ public class ContentController : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetCompanyContactAsync(bool isUsing)
     {
-        var repository = _unitOfWork.Repository<CompanyContact>();
-        var query = repository.SingleResultQuery().AndFilter(company => company.CompanyIsUsing ==isUsing);
-        var result = await repository.FirstOrDefaultAsync(query);
+        var result = await _mediator.Send(new GetCompanyContactQuery(isUsing, _unitOfWork));
         if (result is null)
             return NotFound();
         return Ok(result);

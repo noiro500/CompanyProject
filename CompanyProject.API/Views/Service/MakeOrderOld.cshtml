@@ -1,0 +1,191 @@
+﻿@model Dto.OrderViewModelDto
+
+@{
+    Layout = "_LayoutMakeOrder";
+    ViewData["Title"] = "Вызвать мастера";
+}
+
+<div class="container is-touch-pegging">
+    <form id="make-order" asp-antiforgery="true" novalidate method="post">
+        <div class="validation" asp-validation-summary="ModelOnly"></div>
+        <div class="field">
+            <div class="columns">
+                <div class="column is-full">
+                    <label class="label" asp-for="Name"></label>
+                    <div class="control">
+                        <input class="input" type="text" asp-for="Name"
+                               placeholder="Как к Вам обращаться"/>
+                        <span asp-validation-for="Name" class="has-text-danger"></span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="field">
+                <div class="columns">
+                    <div class="column is-one-third">
+                        <label class="label" asp-for="PhoneNumber"></label>
+                        <div class="control">
+                            <input class="input phone-number" type="tel" asp-for="PhoneNumber"
+                                   placeholder="Ваш номер телефона"/>
+                        </div>
+                        <span asp-validation-for="PhoneNumber" class="has-text-danger"></span>
+                    </div>
+                    <div class="column is-one-third">
+                        <label class="label" asp-for="MessageNumber"></label>
+                        <div class="control">
+                            <input class="input phone-number" type="tel" asp-for="MessageNumber"
+                                   placeholder="Рекомендуем указать номер WhatsApp/Telegram" value=""/>
+                        </div>
+                    </div>
+                    <div class="column is-one-third">
+                        <label class="label" asp-for="Email"></label>
+                        <div class="control">
+                            <input class="input" type="email" asp-for="Email"
+                                   placeholder="Ваш адрес электронной почты"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <div class="columns">
+                    <div class="column is-one-third">
+                        <label class="label" asp-for="AddressData.Territory"></label>
+                        <div class="select">
+                            <select asp-for="AddressData.Territory">
+                                <option disabled selected value="">Выберите край/область</option>
+                                <option value="Ставропольский край">Ставропольский край</option>
+                            </select>
+                            <span asp-validation-for="AddressData.Territory" class="has-text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="column is-one-third">
+                        <label class="label" asp-for="AddressData.District"></label>
+                        <div class="select">
+                            <select asp-for="AddressData.District">
+                                <option disabled selected value="">Район/округ/городской округ</option>
+                            </select>
+                            <span asp-validation-for="AddressData.District" class="has-text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="column is-one-third">
+                        <label class="label" asp-for="AddressData.PopulatedArea"></label>
+                        <div class="select">
+                            <select asp-for="AddressData.PopulatedArea">
+                                <option disabled selected value="">Населенный пункт</option>
+                            </select>
+                            <span asp-validation-for="AddressData.PopulatedArea" class="has-text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <div class="columns">
+                    <div class="column is-one-third">
+                        <label class="label" asp-for="AddressData.Street"></label>
+                        <div class="select">
+                            <select asp-for="AddressData.Street">
+                                <option disabled selected value="">Улица/проспект/переулок</option>
+                            </select>
+                            <span asp-validation-for="AddressData.Street" class="has-text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="column is-one-third">
+                        <label class="label" asp-for="AddressData.HouseNumber"></label>
+                        <div class="control">
+                            <input class="input" type="text" name="AddressData.HouseNumber" asp-for="AddressData.HouseNumber"
+                                   placeholder="Номер дома/строения"/>
+                            <span asp-validation-for="AddressData.HouseNumber" class="has-text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="column is-one-third">
+                        <label class="label" asp-for="AddressData.ApartmentOrOfficeNumber"></label>
+                        <div class="control">
+                            <input class="input" type="text" name="AddressData.ApartmentOrOfficeNumber" asp-for="AddressData.ApartmentOrOfficeNumber"
+                                   placeholder="Номер квартиры/офиса"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <div class="columns">
+                    <div class="column is-full">
+                        <label class="label" asp-for="TypeOfFailure"></label>
+                        <div class="select">
+                            <select asp-for="TypeOfFailure">
+                                <vc:type-of-failure/>
+                            </select>
+                            <span asp-validation-for="TypeOfFailure" class="has-text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <div class="columns">
+                    <div class="column is-full">
+                        <label class="label" asp-for="Description"></label>
+                        <div class="control">
+                            <textarea class="textarea" asp-for="Description" rows="4" maxlength="2000"  placeholder="Краткое описание причины вызова (максимум 2000 символов)" style="resize: none"></textarea>
+                            <span asp-validation-for="Description" class="has-text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*<div class="field">
+                <div class="columns">
+                    <div class="column is-one-third">
+                        <label class="label" asp-for="VisitTime"></label>
+                        <div class="control">
+                            <input type="text" asp-for="VisitTime" class="input" autocomplete="off" readonly/>
+                            <span asp-validation-for="VisitTime" class="has-text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+            <div class="field">
+                <div class="columns">
+                    <div class="column is-full">
+                        <label class="label" asp-for="SpecialInstruction"></label>
+                        <div class="control">
+                            <textarea class="textarea" asp-for="SpecialInstruction"
+                                      rows="4" maxlength="2000" 
+                                      placeholder="Дополнительные сведения (схема проезда, код домофона и т.д.) (максимум 2000 символов)" style="resize: none"></textarea>
+                            <span asp-validation-for="SpecialInstruction" class="has-text-danger"></span>
+                            <br/>
+                            <label class="checkbox">
+                                <input asp-for="IsAdoptedPrivacyPolicy" class="has-text-danger"/>
+                                Я принимаю <a href="~/Resources/Files/privacy.pdf">Политику конфиденциальности</a>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column is-full">
+                    <div class=" field is-grouped">
+                        <div class="control">
+                            <button name="CheckingData" id="checking-data" class="button is-primary">Далее</button>
+                        </div>
+                        <div class="control">
+                            <button id="reset-button" class="button is-primary is-light" type="reset">Очистить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div id="modalContent"></div>
+
+@section Scripts
+{
+    <script>
+        var companyProject = companyProject || {};
+        companyProject.Urls = companyProject.Urls || {};
+        companyProject.Urls.baseUrl = '@Url.Content("~")';
+        companyProject.Urls.Index = '@Url.Action("Index", "Home")';
+        companyProject.Urls.Error = '@Url.Action("Error", "Home")';
+        companyProject.Urls.GetPartOfAddress = '@Url.Action("GetPartOfAddress", "Service")';
+        companyProject.Urls.MakeOrderConfirm = '@Url.Action("MakeOrderConfirm", "Service")';
+        companyProject.Urls.MakeOrderConfirmResult = '@Url.Action("MakeOrderConfirmResult", "Service")';
+    </script>
+}

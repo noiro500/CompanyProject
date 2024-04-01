@@ -78,7 +78,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/api/v1/PriceList/{everything}",
+      "DownstreamPathTemplate": "/api/v1/PriceList/GetPriceList/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -86,7 +86,23 @@
           "Port": 80
         }
       ],
-      "UpstreamPathTemplate": "/gateway/v1/PriceList/{everything}",
+      "UpstreamPathTemplate": "/gateway/v1/PriceList/GetPriceList/{everything}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "FileCacheOptions": {
+        "TtlSeconds": 10
+
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/PriceList/GetListOfTypeOfFailure",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "companyprojectpricelistservice",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/v1/PriceList/GetListOfTypeOfFailure",
       "UpstreamHttpMethod": [ "Get" ],
       "FileCacheOptions": {
         "TtlSeconds": 10
@@ -114,7 +130,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "companyprojectmessage",
+          "Host": "companyprojectmessageservice",
           "Port": 80
         }
       ],

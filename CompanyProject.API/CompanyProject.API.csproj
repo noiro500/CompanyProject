@@ -16,8 +16,8 @@
     <PlatformTarget>x64</PlatformTarget>
     <Nullable>annotations</Nullable>
     <UserSecretsId>f5f6b19e-f96e-4bd1-961d-254ffb8a011a</UserSecretsId>
-    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+    <!--<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>-->
+    <!--<DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>-->
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
@@ -34,7 +34,9 @@
 
   <ItemGroup>
     <Content Remove="bundleconfig.json" />
+    <Content Remove="tsconfig.json" />
     <Content Remove="Views\Shared\_LayoutMakeOrder.cshtml" />
+    <Content Remove="wwwroot\ts\companyproject.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -55,24 +57,31 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AspNetCore.ReCaptcha" Version="1.7.0" />
+    <PackageReference Include="AspNetCore.ReCaptcha" Version="1.8.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
-    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="7.0.5" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.5">
+    <PackageReference Include="Blazorise.Bulma" Version="1.5.0" />
+    <PackageReference Include="Blazorise.FluentValidation" Version="1.5.0" />
+    <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.5.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="7.0.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.17">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.15">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.18.1" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.6" />
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.4" />
-    <PackageReference Include="Refit" Version="6.3.2" />
-    <PackageReference Include="Refit.HttpClientFactory" Version="6.3.2" />
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="5.4.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.12" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.11" />
+    <PackageReference Include="Npm" Version="3.5.2" />
+    <PackageReference Include="Refit" Version="7.0.0" />
+    <PackageReference Include="Refit.HttpClientFactory" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -85,7 +94,7 @@
     <Content Update="wwwroot\js\bulma-carousel.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\js\companyproject.js">
+    <Content Update="wwwroot\js\_companyproject.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\js\datepicker.js">
@@ -274,7 +283,6 @@
     <None Include="Views\Shared\Components\PriceListTable\PriceListTable.cshtml" />
     <None Include="Views\Shared\Components\TopMenu\TopMenu.cshtml" />
     <None Include="Views\Shared\ContentViews\PartialView\_ContentLayoutPartial.cshtml" />
-    <None Include="Views\Service\_LayoutMakeOrder.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
     <None Include="Views\_ViewImports.cshtml" />
     <None Include="Views\_ViewStart.cshtml" />
@@ -361,6 +369,17 @@
   <ItemGroup>
     <Folder Include="wwwroot\lib\jquery-validate\" />
     <Folder Include="wwwroot\lib\jquery-validation-unobtrusive\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlazorComponentClassLibrary\BlazorComponentClassLibrary.csproj" />
+    <ProjectReference Include="..\Dto\Dto.csproj" />
+    <ProjectReference Include="..\RefitInterfaces\RefitInterfaces.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="tsconfig.json" />
+    <TypeScriptCompile Include="wwwroot\ts\companyproject.ts" />
   </ItemGroup>
 
 </Project>

@@ -5,7 +5,7 @@ services:
    image: ${DOCKER_REGISTRY-}companyprojectpricelistservice
    build:
       context: .
-      dockerfile: CompanyProjectPriceListService/CompanyProjectPriceListService/Dockerfile
+      dockerfile: CompanyProjectPriceListService/Dockerfile
 
   companyprojectcardsservice:
     image: ${DOCKER_REGISTRY-}companyprojectcardsservice
@@ -27,11 +27,11 @@ services:
       context: .
       dockerfile: OcelotApiGateway/Dockerfile
 
-  companyprojectmessage:
-    image: ${DOCKER_REGISTRY-}companyprojectmessage
+  companyprojectmessageservice:
+    image: ${DOCKER_REGISTRY-}companyprojectmessageservice
     build:
       context: .
-      dockerfile: CompanyProjectMessage/Dockerfile
+      dockerfile: CompanyProjectMessageService/Dockerfile
 
 
   companyprojectaddressservice:
@@ -39,4 +39,6 @@ services:
     build:
       context: .
       dockerfile: CompanyProjectAddressService/Dockerfile
+
+
 

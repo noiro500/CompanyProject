@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Blazorise.Bulma" Version="1.5.0" />
+    <PackageReference Include="Blazorise.Components" Version="1.5.0" />
+    <PackageReference Include="Blazorise.FluentValidation" Version="1.5.0" />
+    <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.5.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.17" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Dto\Dto.csproj" />
+    <ProjectReference Include="..\HelpClasses\HelpClasses.csproj" />
+    <ProjectReference Include="..\RefitInterfaces\RefitInterfaces.csproj" />
+  </ItemGroup>
+
+</Project>

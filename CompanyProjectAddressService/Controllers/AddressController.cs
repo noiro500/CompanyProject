@@ -1,5 +1,6 @@
 ﻿using CompanyProjectAddressService.Infrastructure.PartOfAddress;
-using EntityFrameworkCore.UnitOfWork.Interfaces;
+using CompanyProjectAddressService.Model;
+using EntityFrameworkCore.Repository.Extensions;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -14,21 +15,16 @@ namespace CompanyProjectAddressService.Controllers
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetPartOfAddress(IList<string> parameters)
+        public async Task<IActionResult> GetPartOfAddress(string ident,string selectedParam="")
         {
-            if (!parameters.Any())
+            if (string.IsNullOrWhiteSpace(ident))
+                return BadRequest();
+            var result = await _partOfAddress.GetAddressPart(ident, selectedParam);
+            if (!result.Any())
                 return NotFound();
-            var result = await _partOfAddress.GetAddressPart(parameters);
-            if (result is null)
-                return NotFound();
-            HttpContext.Response.Headers.Add("Access-Control-Allow-Origin", "*");
-            return new ContentResult
-            {
-                Content = _partOfAddress.HtmlPart(parameters[0], result),
-                ContentType = "text/html",
-                StatusCode = 200
-            };
+            return Ok(Enumerable.Range(1, result.Count).Select(x=>new {Id = x, Name = result[x-1]}));
         }
     }
 }

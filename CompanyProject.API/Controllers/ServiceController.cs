@@ -6,10 +6,10 @@ using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Unicode;
 using AutoMapper;
-using CompanyProject.API.Infrastructure.Dto;
-using CompanyProject.API.Infrastructure.Log;
-using CompanyProject.API.Infrastructure.RefitInterfaces;
+using Dto;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.Operations;
+using RefitInterfaces;
 
 namespace CompanyProject.API.Controllers;
 
@@ -17,37 +17,38 @@ public class ServiceController : Controller
 {
     private readonly IContentServiceMessage _contentServiceMessage;
 
-    private readonly ILogger _logger;
+    //private readonly ILogger _logger;
 
-    private readonly IMapper _mapper;
+    //private readonly IMapper _mapper;
 
 
-    public ServiceController(  IMapper mapper,
-        IContentServiceMessage contentServiceMessage )
+    public ServiceController(/*IMapper mapper,*/
+       /* IContentServiceMessage contentServiceMessage*/)
     {
-        _logger = Log.CreateLogger<HomeController>();
-        _mapper = mapper;
-        _contentServiceMessage = contentServiceMessage;
+        //_logger = Log.CreateLogger<HomeController>();
+        //_mapper = mapper;
+        //_contentServiceMessage = contentServiceMessage;
     }
 
-    public async Task<IActionResult> AddMessageToDbAsyncTask(MessageDto mes)
-    {
-        if (!ModelState.IsValid) 
-            return Json(JsonSerializer.Serialize(new {parameter = "error"}));
-        if (!mes.IsAdoptedPrivacyPolicy)
-        {
-            return Json(JsonSerializer.Serialize(new {parameter = "warning"}));
-        }
+    //public async Task<IActionResult> AddMessageToDbAsyncTask(MessageDto mes)
+    //{
+    //    if (!ModelState.IsValid) 
+    //        return Json(JsonSerializer.Serialize(new {parameter = "error"}));
+    //    if (!mes.IsAdoptedPrivacyPolicy)
+    //    {
+            
+    //        return Json(JsonSerializer.Serialize(new {parameter = "warning"}));
+    //    }
 
-        var sha512 = SHA512.Create();
-        var resultShaHash = sha512.ComputeHash(Encoding.Unicode.GetBytes(JsonSerializer.Serialize(mes)));
-        var shaToText = Encoding.Unicode.GetString(resultShaHash);
-        var dic = new Dictionary<string, string> {{shaToText, JsonSerializer.Serialize(mes)}};
-        var response = await _contentServiceMessage.Post(dic);
-        if (!response.IsSuccessStatusCode)
-            return Json(JsonSerializer.Serialize(new {parameter = "error"}));
-        return Json(JsonSerializer.Serialize(new {parameter = "ok"}));
-    }
+    //    var sha512 = SHA512.Create();
+    //    var resultShaHash = sha512.ComputeHash(Encoding.Unicode.GetBytes(JsonSerializer.Serialize(mes)));
+    //    var shaToText = Encoding.Unicode.GetString(resultShaHash);
+    //    var dic = new Dictionary<string, string> {{shaToText, JsonSerializer.Serialize(mes)}};
+    //    var response = await _contentServiceMessage.Post(dic);
+    //    if (!response.IsSuccessStatusCode)
+    //        return Json(JsonSerializer.Serialize(new {parameter = "error"}));
+    //    return Json(JsonSerializer.Serialize(new {parameter = "ok"}));
+    //}
 
     //[HttpPost]
     //public async Task<IActionResult> MakeOrderConfirmResult()

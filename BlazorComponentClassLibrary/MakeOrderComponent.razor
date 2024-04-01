@@ -1,0 +1,251 @@
+﻿@inject IContentServiceAddress _contentServiceAddress
+@inject IContentServicePriceList _contentServicePriceList
+
+<MessageProvider/>
+
+<Container>
+    <Form Margin="Margin.Is2.OnX">
+        <Validations @ref="fluentValidations" Mode="ValidationMode.Manual" Model="@orderViewModelDto" HandlerType="typeof(FluentValidationHandler)">
+            <Row>
+                <Column ColumnSize="ColumnSize.IsFull">
+                    <Validation>
+                        <Field>
+                            <FieldLabel RequiredIndicator><Strong>@orderParametersList[0]</Strong></FieldLabel>
+                            <TextEdit Role="TextRole.Text" Placeholder="Как к вам обрщаться?" @bind-Text="orderViewModelDto.Name">
+                                <Feedback>
+                                    <ValidationError />
+                                </Feedback>
+                            </TextEdit>
+                        </Field>
+                    </Validation>
+                </Column>
+            </Row>
+            <Row>
+                <Column ColumnSize="ColumnSize.IsThird">
+                    <Validation>
+                        <Field>
+                            <FieldLabel RequiredIndicator><Strong>@orderParametersList[1]</Strong></FieldLabel>
+                            <TextEdit Role="TextRole.Telephone" Placeholder="+7-000-000-00-00" @bind-Text="orderViewModelDto.PhoneNumber">
+                                <Feedback>
+                                    <ValidationError />
+                                </Feedback>
+                            </TextEdit>
+                        </Field>
+                    </Validation>
+                </Column>
+                <Column ColumnSize="ColumnSize.IsThird">
+                    <Field>
+                        <FieldLabel><Strong>@orderParametersList[2]</Strong></FieldLabel>
+                        <TextEdit Role="TextRole.Telephone" Placeholder="+7-000-000-00-00" @bind-Text="orderViewModelDto.MessageNumber">
+                        </TextEdit>
+                    </Field>
+                </Column>
+                <Column ColumnSize="ColumnSize.IsThird">
+                    <Field>
+                        <FieldLabel><Strong>@orderParametersList[3]</Strong></FieldLabel>
+                        <TextEdit Role="TextRole.Email" Placeholder="Ваш адрес электронной почты" @bind-Text="orderViewModelDto.Email">
+                        </TextEdit>
+                    </Field>
+                </Column>
+            </Row>
+        </Validations>
+        <Row>
+            <Column ColumnSize="ColumnSize.IsThird">
+                <Field>
+                    <FieldLabel RequiredIndicator><Strong>@orderParametersList[7]</Strong></FieldLabel>
+                    <Select TValue="int" SelectedValue=@SelectedTerritory SelectedValueChanged="GetDistrictAsync">
+                        <SelectItem Value="1" Disabled="true">Выберите край/область...</SelectItem>
+                        <SelectItem Value="2">Ставропольский край</SelectItem>
+                    </Select>
+                </Field>
+            </Column>
+            <Column ColumnSize="ColumnSize.IsThird">
+                <Field>
+                    <FieldLabel RequiredIndicator><Strong>@orderParametersList[8]</Strong></FieldLabel>
+                    <SelectList TItem="PartOfAddressDto"
+                                TValue="int"
+                                Data="@DistrictList"
+                                TextField="@((item) => item.Name)"
+                                ValueField="@((item) => item.Id)"
+                                DefaultItemDisabled="true"
+                                SelectedValue="@SelectedDistrict"
+                                SelectedValueChanged="@GetPopulatedAreaAsync"
+                                DefaultItemText="Выберите район/округ/городской округ..." />
+                </Field>
+            </Column>
+            <Column ColumnSize="ColumnSize.IsThird">
+                <Field>
+                    <FieldLabel RequiredIndicator><Strong>@orderParametersList[9]</Strong></FieldLabel>
+                    <SelectList TItem="PartOfAddressDto"
+                                TValue="int"
+                                Data="@PopulatedAreaList"
+                                TextField="@((item) => item.Name)"
+                                ValueField="@((item) => item.Id)"
+                                DefaultItemDisabled="true"
+                                SelectedValue="@SelectedPopulatedArea"
+                                SelectedValueChanged="@GetStreetAsync"
+                                DefaultItemText="Выберите населенный пункт..." />
+                </Field>
+            </Column>
+        </Row>
+        <Row>
+            <Column ColumnSize="ColumnSize.IsThird">
+                <Field>
+                    <FieldLabel RequiredIndicator><Strong>@orderParametersList[10]</Strong></FieldLabel>
+                    <SelectList TItem="PartOfAddressDto"
+                                TValue="int"
+                                Data="@StreetList"
+                                TextField="@((item) => item.Name)"
+                                ValueField="@((item) => item.Id)"
+                                DefaultItemDisabled="true"
+                                @bind-SelectedValue="@SelectedStreet"
+                                DefaultItemText="Выберите улицу/проспект/переулок..." />
+                </Field>
+            </Column>
+            <Column ColumnSize="ColumnSize.IsThird">
+                <Validations>
+                    <Field>
+                        <FieldLabel RequiredIndicator><Strong>@orderParametersList[11]</Strong></FieldLabel>
+                        <TextEdit Role="TextRole.Text" Placeholder="Введите номер дома/строения" @bind-Text="orderViewModelDto.AddressData.HouseNumber">
+                            <Feedback>
+                                <ValidationError />
+                            </Feedback>
+                        </TextEdit>
+                    </Field>
+                </Validations>
+            </Column>
+            <Column ColumnSize="ColumnSize.IsThird">
+                <Field>
+                    <FieldLabel><Strong>@orderParametersList[12]</Strong></FieldLabel>
+                    <TextEdit Role="TextRole.Text" Placeholder="Введите номер квартиры/офиса" @bind-Text="orderViewModelDto.AddressData.ApartmentOrOfficeNumber">
+                    </TextEdit>
+                </Field>
+            </Column>
+        </Row>
+        <Row>
+            <Column ColumnSize="ColumnSize.IsFull">
+                <Field>
+                    <FieldLabel RequiredIndicator><Strong>@orderParametersList[4]</Strong></FieldLabel>
+                    <SelectList TItem="TypeOfFailureDto"
+                                TValue="int"
+                                Data="@TypeOfFailureList"
+                                TextField="@((item) => item.ServiceName + " - " + item.Service)"
+                                ValueField="@((item) => item.Id)"
+                                DefaultItemDisabled="true"
+                                @bind-SelectedValue="@SelectedTypeOfFailure"
+                                DefaultItemText="Причина вызова мастера (если причины нет в списке, выберите 'Прочее')" />
+                </Field>
+            </Column>
+        </Row>
+        <Row>
+            <Column ColumnSize="ColumnSize.IsFull">
+                @* <Validation> *@
+                <Field>
+                    <FieldLabel><Strong>@orderParametersList[5]</Strong></FieldLabel>
+                    <MemoEdit MaxLength="1000" Rows="5" Style="resize: none" Placeholder="Краткое описание причины вызова (максимум 1000 символов)" @bind-Text="orderViewModelDto.SpecialInstruction">
+                        @* <Feedback>
+                        <ValidationError />
+                        </Feedback> *@
+                    </MemoEdit>
+                </Field>
+                @* </Validation> *@
+            </Column>
+        </Row>
+        <Row>
+            <Column ColumnSize="ColumnSize.IsFull">
+                @* <Validation> *@
+                <Field>
+                    <FieldLabel><Strong>@orderParametersList[6]</Strong></FieldLabel>
+                    <MemoEdit MaxLength="1000" Rows="5" Style="resize: none" Placeholder="Дополнительные сведения (схема проезда, код домофона и т.д.) (максимум 1000 символов)" @bind-Text="orderViewModelDto.Description">
+                        @* <Feedback>
+                        <ValidationError />
+                        </Feedback> *@
+                    </MemoEdit>
+                </Field>
+                @* </Validation> *@
+            </Column>
+        </Row>
+        <Row>
+            <Column ColumnSize="ColumnSize.IsFull">
+                <Check TValue="bool" Class="checkbox" Style="top: -10px;" @bind-Checked="isAdoptedPrivacyPolicy">
+                    <Span>Я принимаю <Link TextColor="TextColor.Dark" To="Resources/Files/privacy.pdf"><Strong>Политику конфиденциальности</Strong></Link></Span>
+                </Check>
+            </Column>
+        </Row>
+        <Row>
+            <Column ColumnSize="ColumnSize.IsFull">
+                <Div>
+                    <Button Color="Color.Primary" Clicked="@OnButtonNextClicked">Далее</Button>
+                    <Button Color="Color.Secondary" Type="ButtonType.Reset" @onclick="ClearValidation">Очистить</Button>
+                </Div>
+            </Column>
+        </Row>
+    </Form>
+    <br />
+</Container>
+
+@code {
+    OrderViewModelDto orderViewModelDto { get; set; } = null!;
+    Validations fluentValidations;
+    List<string> orderParametersList { get; set; }
+    bool isAdoptedPrivacyPolicy = true;
+    IEnumerable<TypeOfFailureDto> TypeOfFailureList { get; set; } = null!;
+    IEnumerable<PartOfAddressDto> DistrictList { get; set; } = null!;
+    IEnumerable<PartOfAddressDto> PopulatedAreaList { get; set; } = null!;
+    IEnumerable<PartOfAddressDto> StreetList { get; set; } = null!;
+    int SelectedTypeOfFailure { get; set; }
+    int SelectedTerritory { get; set; } = 1;
+    int SelectedDistrict { get; set; }
+    int SelectedPopulatedArea { get; set; }
+    int SelectedStreet { get; set; }
+    [Inject]
+    IMessageService MessageService { get; set; }
+    
+    protected override async Task OnInitializedAsync()
+    {
+        orderViewModelDto = new();
+        orderParametersList = typeof(OrderViewModelDto).GetProperties().Where(p => p.PropertyType != typeof(Dto.AddressDto) && p.PropertyType != typeof(Boolean)).Select(p => p.Name)
+            .Select(p => orderViewModelDto.GetType().GetProperty(p)!.GetCustomAttribute<DisplayAttribute>()!.Name!).ToList();
+        orderParametersList.AddRange(typeof(AddressDto).GetProperties().Select(p => p.Name)
+            .Select(p => orderViewModelDto.AddressData!.GetType().GetProperty(p)!.GetCustomAttribute<DisplayAttribute>()!.Name!).ToList());
+        TypeOfFailureList = (await _contentServicePriceList.GetListOfTypeOfFailure());
+    }
+
+    protected async Task GetDistrictAsync(int value)
+    {
+        SelectedTerritory = value;
+        DistrictList = await _contentServiceAddress.GetPartOfAddress("District");
+    }
+
+    protected async Task GetPopulatedAreaAsync(int value)
+    {
+        SelectedDistrict = value;
+        PopulatedAreaList = await _contentServiceAddress.GetPartOfAddress("PopulatedArea", DistrictList.ElementAt(SelectedDistrict - 1).Name);
+    }
+
+    protected async Task GetStreetAsync(int value)
+    {
+        SelectedPopulatedArea = value;
+        StreetList = await _contentServiceAddress.GetPartOfAddress("Street", PopulatedAreaList.ElementAt(SelectedPopulatedArea - 1).Name);
+    }
+
+    private async Task ClearValidation()
+    {
+        await fluentValidations.ClearAll();
+        SelectedTypeOfFailure = 0;
+        SelectedTerritory = 1;
+        SelectedDistrict = 0;
+        SelectedPopulatedArea = 0;
+        SelectedStreet = 0;
+    }
+
+    private /* async */ Task OnButtonNextClicked()
+    {
+        // if (await fluentValidations.ValidateAll())
+        // {
+        //     Console.WriteLine("Валидация прошла");
+        // }
+        return MessageService.Info("Раздел находится в процессе наполнения. По всем вопросам, пожалуйста, позвоните или напишите нам. Приносим извинения за доставленные неудобства.", "Важная информация");
+    }
+
+}

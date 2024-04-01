@@ -1,0 +1,93 @@
+﻿@inject ICompanyInfo CompanyInfo
+@inject NavigationManager NavigationManager
+@inject IContentServiceContent _ContentServiceContent
+<LayoutFooter Class="footer">
+    <Container>
+        <Row>
+            <Column ColumnSize="ColumnSize.Is4" Class="font-title" TextAlignment="TextAlignment.Center">
+                <Field Margin="Margin.Is0">
+                    <FieldLabel TextSize="TextSize.Large" @onclick="@(() => NavigationManager.NavigateTo(NavigationManager.BaseUri, true))">
+                        <Link>@((MarkupString)CompanyInfo.Company_Info.CompanyName)</Link>
+                    </FieldLabel>
+                </Field>
+                <Field>
+                    <FieldLabel TextColor="TextColor.White" TextSize="TextSize.Large">
+                        <Span>@CompanyInfo.Company_Info.CompanyMessagerNumber</Span>
+                        </FieldLabel>
+                    </Field>
+                </Column>
+                <Column ColumnSize="ColumnSize.Is4" TextSize="TextSize.ExtraSmall" TextWeight="TextWeight.SemiBold" TextAlignment="TextAlignment.Center" TextColor="TextColor.White" Style="line-height: 12px">
+                    @foreach (var item in secondColumnStrLst)
+                {
+                    <Field Margin="Margin.IsAuto">
+                        <FieldLabel>
+                            <Span>@item</Span>
+                            </FieldLabel>
+                        </Field>
+                }
+                <Field Margin="Margin.IsAuto">
+                    <FieldLabel>
+                        <Link TextColor="TextColor.White" TextWeight="TextWeight.Bold" To="Resources/Files/privacy.pdf">Политикой конфиденциальности</Link>
+                    </FieldLabel>
+                </Field>
+            </Column>
+            <Column ColumnSize="ColumnSize.Is4" TextAlignment="TextAlignment.Center">
+                <Dropdown>
+                    <DropdownToggle ElementId="DropdownToggleFotter" Class="font-title footer-dropdown" TextSize="TextSize.Large" TextColor="TextColor.White">
+                        <Span>Основные услуги компании</Span>
+                    </DropdownToggle>
+                    <DropdownMenu>
+                        @foreach (var item in dropdownTuples)
+                        {
+                            <DropdownItem>
+                                <Span>
+                                    <Icon Name="@item.Item1" IconSize="IconSize.Large" />
+                                    <NavLink style="color:black;font-size: 1.1em" href="@item.Item2">&nbsp; @item.Item3</NavLink>
+                                    </Span>
+                                </DropdownItem>
+                        }
+                    </DropdownMenu>
+                </Dropdown>
+            </Column>
+        </Row>
+    </Container>
+</LayoutFooter>
+
+@code {
+
+    readonly List<string> secondColumnStrLst = new()
+    {
+        "\"Нова Компьютерс\" © Все права защищены",
+        "Ремонт компьютеров и ноутбуков на КМВ",
+        "Заполняя любую форму на данном сайте, Вы соглашаетесь с"
+    };
+
+    bool isInitialized = false;
+    List<(string, string, string)> dropdownTuples = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var footerListContent = await _ContentServiceContent.GetFooterContentAsync();
+        foreach (var dropdownParam in footerListContent.Where(t => t.Name.ToLower() != "index").Select(t => new { t.Name, t.Icon, t.ScreenName }))
+            dropdownTuples.Add((dropdownParam.Icon, ConvertName(dropdownParam.Name).ToLower(), dropdownParam.ScreenName!)!);
+    }
+
+    private string ConvertName(string name)
+    {
+        int count = 0;
+        string result = string.Empty;
+        foreach (var c in name)
+        {
+            if (char.IsUpper(c))
+            {
+                count++;
+                if (count == 2)
+                    result += "-";
+            }
+            result += c;
+        }
+        if (count < 2)
+            result = name;
+        return result;
+    }
+}

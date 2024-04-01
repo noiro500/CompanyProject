@@ -1,6 +1,5 @@
-﻿using CompanyProject.API.Infrastructure.Dto;
-using CompanyProject.API.Infrastructure.RefitInterfaces;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using RefitInterfaces;
 
 namespace CompanyProject.API.Infrastructure.ViewComponents;
 
@@ -15,7 +14,7 @@ public class TypeOfFailure : ViewComponent
 
     public async Task<IViewComponentResult> InvokeAsync()
     {
-        var result = await _contentServicePriceList.Get("typeoffailures");
+        var result = await _contentServicePriceList.GetPriceList("typeoffailures");
         return View("TypeOfFailure", result);
     }
 }

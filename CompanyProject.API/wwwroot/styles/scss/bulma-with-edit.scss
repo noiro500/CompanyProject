@@ -6,7 +6,7 @@
         variant-caps: normal;
         weight: bold;
         stretch: normal;
-        size: 31px;
+        /*size: 31px;*/
         family: 'Jura', sans-serif;
         size-adjust: none;
         kerning: auto;
@@ -169,6 +169,12 @@ select.input-validation-error {
     background: #ddd;
     border: 1px solid #fff;
 }*/
+#DropdownToggleFotter.footer-dropdown {
+    $yourcolor: #3273dc;
+
+    background-color: $yourcolor;
+    color: $yourcolor;
+}
 $primary: #d81b60;
 $footer-background-color: #3273dc;
 $footer-padding: 1rem 0.25rem 0.75rem;

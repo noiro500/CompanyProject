@@ -1,6 +1,6 @@
-﻿using CompanyProject.API.Infrastructure.HelpClasses;
-using CompanyProject.API.Infrastructure.RefitInterfaces;
+﻿using HelpClasses;
 using Microsoft.AspNetCore.Mvc;
+using RefitInterfaces;
 
 namespace CompanyProject.API.Controllers;
 
@@ -30,7 +30,7 @@ public class MenuFirstLineController : Controller
     [Route("/fullpricelist")]
     public async Task<IActionResult> FullPriceList()
     {
-        var result = (await _contentServicePriceList.Get("full")).OrderBy(p => p.PriceListId)
+        var result = (await _contentServicePriceList.GetPriceList("full")).OrderBy(p => p.PriceListId)
             .Distinct(new PriceListDtoComparer()).ToList();
         return View(result);
     }
