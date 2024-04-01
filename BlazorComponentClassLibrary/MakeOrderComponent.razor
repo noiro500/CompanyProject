@@ -1,5 +1,8 @@
 ﻿@inject IContentServiceAddress _contentServiceAddress
 @inject IContentServicePriceList _contentServicePriceList
+
+<MessageProvider/>
+
 <Container>
     <Form Margin="Margin.Is2.OnX">
         <Validations @ref="fluentValidations" Mode="ValidationMode.Manual" Model="@orderViewModelDto" HandlerType="typeof(FluentValidationHandler)">
@@ -195,7 +198,9 @@
     int SelectedDistrict { get; set; }
     int SelectedPopulatedArea { get; set; }
     int SelectedStreet { get; set; }
-
+    [Inject]
+    IMessageService MessageService { get; set; }
+    
     protected override async Task OnInitializedAsync()
     {
         orderViewModelDto = new();
@@ -234,12 +239,13 @@
         SelectedStreet = 0;
     }
 
-    private async Task OnButtonNextClicked()
+    private /* async */ Task OnButtonNextClicked()
     {
-        if (await fluentValidations.ValidateAll())
-        {
-            Console.WriteLine("Валидация прошла");
-        }
+        // if (await fluentValidations.ValidateAll())
+        // {
+        //     Console.WriteLine("Валидация прошла");
+        // }
+        return MessageService.Info("Раздел находится в процессе наполнения. По всем вопросам, пожалуйста, позвоните или напишите нам. Приносим извинения за доставленные неудобства.", "Важная информация");
     }
 
 }
